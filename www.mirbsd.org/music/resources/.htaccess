@@ -1,0 +1,11 @@
+<Files push>
+  ForceType 'text/plain; charset=utf-8'
+</Files>
+
+<Files push-music>
+  ForceType 'text/plain; charset=utf-8'
+</Files>
+
+<Files uprep>
+  ForceType 'text/plain; charset=utf-8'
+</Files>

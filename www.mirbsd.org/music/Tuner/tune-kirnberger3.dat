@@ -1,0 +1,25 @@
+DESC Kirnberger Ⅲ
+
+! Start C-E as pure major third, then pure fifths up to F♯ and down to D♭
+! Cₙ-Eₙ₊₂ is the definition of the syntonic comma, divide it on four fifths
+! The schisma sits between F♯ and C♯ to close the circle.
+
+A♭ = D♭
+E♭ = A♭
+B♭ = E♭
+F  = B♭
+C  = F
+G  = C - 1/4 S
+D  = G - 1/4 S
+A  = D - 1/4 S
+E  = A - 1/4 S
+B  = E
+F♯ = B
+
+VALIDATE
+
+E  = C		! same as
+E  = C * 5 / 4
+
+C♯ = F♯ - D
+C♯ = F♯ * 4/3 - D ! same thing, expressed as (missorted) tempered fourth

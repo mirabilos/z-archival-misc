@@ -1,0 +1,16 @@
+DESC Pythagorean tuning
+
+! Untempered pure fifths; the entire ~24¢ comma is between E♭ and A♭/G♯
+
+!E♭= A♭ ! typically discarded
+B♭ = E♭
+F  = B♭
+C  = F
+G  = C
+D  = G
+A  = D
+E  = A
+B  = E
+F♯ = B
+C♯ = F♯
+G♯ = C♯

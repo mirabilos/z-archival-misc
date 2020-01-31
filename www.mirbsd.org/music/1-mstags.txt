@@ -1,0 +1,143 @@
+Note that tags are limited to a total of 255 multibyte characters.
+
+Taxonomy, comma-separated, for musescore.com scores:
+• Author identification:
+  ‣ (unknown author)
+    – Kloster Ebersberg
+  ‣ Edward Elgar
+  ‣ Fanny Hensel
+  ‣ Felix Mendelssohn-Bartholdy
+  ‣ Gabriel Urbain Fauré
+  ‣ Georg Friedrich Händel, George Frideric Handel
+  ‣ Guido von Arezzo
+  ‣ Hans Leo Haßler von Roseneck
+  ‣ J. F. Wade
+  ‣ Jacques Berthier
+  ‣ Johann Pachelbel, Pachelbel
+  ‣ Johann Sebastian Bach
+  ‣ Johannes Brahms
+  ‣ Johannes Kuhlo
+  ‣ John Ceiriog Hughes
+  ‣ John Rutter
+  ‣ Josef Rheinberger, Rheinberger
+  ‣ Joseph Haydn
+  ‣ Martin Luther
+  ‣ Matthias Claudius
+  ‣ Melchior Vulpius
+  ‣ Michael Praetorius
+  ‣ Ph. Friedrich Silcher
+  ‣ Rolf Zuckowski
+  ‣ Samuel Scheidt
+  ‣ Siegfrid Karg-Elert
+  ‣ W. H. Monk
+  ‣ Wolfgang Amadeus Mozart
+• Work identification (file title, common titles, larger work title):
+  ‣ Abendlied, Der Mond ist aufgegangen
+  ‣ Abendlied, Drei geistliche Gesänge
+  ‣ Abschied vom Walde
+  ‣ Abschied, Abendlich schon rauscht der Wald, Gartenlieder
+  ‣ Ar Hyd y Nos, All through the Night, In dunkler Nacht
+  ‣ Ave verum corpus
+  ‣ Canon in D, Pachelbel Canon
+  ‣ Cantate Domino
+  ‣ Cantique de Jean Racine
+  ‣ Die Himmel erzählen von der Ehre Gottes, Die Himmel erzählen, Schöpfung
+  ‣ Ein feste Burg, Ein feste Burg ist unser Gott
+  ‣ Eventide, Abide with me
+  ‣ For the beauty of the earth
+  ‣ Frau Musica singt, Vorrede auf alle guten Gesangbücher
+  ‣ Gloria in excelsis
+  ‣ Hallelujah, Messiah
+  ‣ Herbei o ihr Gläubigen, O come all ye faithful
+  ‣ Hört der Engel große Freud, Hark! the herald-angels sing
+  ‣ Jauchzet dem Herrn alle Welt
+  ‣ Johannes-Passion, Passio secundum Johannem, BWV 245
+  ‣ Komm Heiliger Geist, Veni Sancte Spiritus
+  ‣ Lobt Gott ihr Christen allzugleich, Lobt Gott ihr Christen alle gleich
+  ‣ Look at the world
+  ‣ Loreley, Deutsche Weisen
+  ‣ Magnificat
+  ‣ O du fröhliche
+  ‣ O heiliger Geist
+  ‣ Passionskanzone
+  ‣ Sandmännchen, Volkskinderlieder
+  ‣ The Lord bless you and keep you
+  ‣ The Lord is my Shepherd
+  ‣ Tochter Zion freue dich
+  ‣ Ut queant laxis, Johannes-Hymnus
+  ‣ Verleih uns Frieden, Da nobis pacem
+  ‣ Wer nur den lieben Gott läßt walten
+  ‣ Wie schön daß du geboren bist
+• Further persons (arrangement, lyrics, translation, …):
+  ‣ Adolf Seifert
+  ‣ Anton Wilhelm Florentin von Zuccalmaglio
+  ‣ Arnold Schering
+  ‣ August Linder
+  ‣ Charles Jennens
+  ‣ Charles Wesley
+  ‣ Christina Falkenroth
+  ‣ Christoph Daniel Ebeling
+  ‣ David Willcocks
+  ‣ Edward Jones
+  ‣ Folliott Sandford Pierpoint
+  ‣ Georg Neumark
+  ‣ Gunther Martin Göttsche
+  ‣ H. F. Lyte
+  ‣ H. J. Moser
+  ‣ Hannes Wader
+  ‣ Heinrich Heine
+  ‣ Heinrich Holzschuher
+  ‣ Jean Baptiste Racine
+  ‣ Johann Abraham Peter Schulz
+  ‣ Johann Niedling
+  ‣ Johannes Daniel Falk
+  ‣ Joseph von Eichendorff
+  ‣ Kilian Nauhaus
+  ‣ Kurt Soldan
+  ‣ Luther Orlando Emerson
+  ‣ Martin Luther
+  ‣ Martin Schalling
+  ‣ Nikolaus Herman
+  ‣ Paulus Diaconus, Paul Warnefried
+  ‣ Philipp Friedrich Heinrich Ranke
+  ‣ Steven David Tung
+  ‣ Ulrich Maske
+  ‣ Wilhelm von Waldbrühl
+• Licence tags (2+ are optional):
+  ① ┬ Free, Open Source, DFSG-free, Open Knowledge
+    ├ Free, DFSG-free [unapproved licences]
+    ├ nōn-free, Freeware [redistributable (with or without ND)]
+    ├ nōn-free, personal use only [NC, with or without ND]
+    └ nōn-free, private [indistributable]
+  ② ┬ Copyfree
+    └ Copyleft
+  ③ ┬ MirOS Licence
+    ├ CC0
+    ├ CC-BY
+    ├ CC-BY-SA
+    └ CPDL [unapproved]
+• Lyrics language(s):
+  ‣ English
+  ‣ German, Deutsch
+  ‣ Latin
+  ‣ Welsh, Cymraeg
+• Instrumentation tags:
+  – vocal music:
+    ① vocals:
+      ‣ SATB [SSATTB, SAATTB, …]
+      ‣ SAM
+      ‣ solo voice
+    ② accompaniment (optional; skip if choral excerpt):
+      ‣ a cappella
+      ‣ accompaniment cue notes
+      ‣ keyboard accompaniment
+      ‣ Partitur
+      ‣ orchestral [Partitur but focus on non-vocal]
+  – instrumental music:
+    ① <instrument name>, …
+    ② instrumental
+• *.mscx/*.mscz format version:
+  ‣ v2
+  ‣ v3
+• Special tags:
+  ‣ 8vb for Songbook äpp

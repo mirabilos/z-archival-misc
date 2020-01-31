@@ -1,0 +1,26 @@
+DESC Bach/Lehman Chorale
+! (transposed from Bach/Lehman 1722)
+! (This can also be achieved by using the option -T C:D together
+! with the tune-bach-lehman-1722.dat file.)
+
+! Rules are the same except D is played as if it were a C, etc.
+! (one tone up), because of the Chorton/Cammerton issues in which
+! pieces once were composed, e.g., for C Major on an instrument
+! that sounded two semitones higher than the rest; in modern
+! scores, these have been transposed to e.g. D Major (two ♯ more)
+
+D  = G - 1/6 P
+A  = D - 1/6 P
+E  = A - 1/6 P
+B  = E - 1/6 P
+F♯ = B - 1/6 P
+C♯ = F♯
+G♯ = C♯
+D♯ = G♯
+B♭ = E♭ - 1/12 P
+F  = B♭ - 1/12 P
+C  = F  - 1/12 P
+
+VALIDATE
+
+G  = C  + 1/12 P

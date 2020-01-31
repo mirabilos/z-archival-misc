@@ -1,0 +1,19 @@
+DESC Aaron’s meantone
+
+! Each fifth is tempered ¼ comma (ca. 5½ ¢) so that major thirds are pure,
+! but resulting in a 36½¢ “wolf” between E♭ and A♭/G♯
+
+B♭ = E♭ - 1/4 S
+F  = B♭ - 1/4 S
+C  = F  - 1/4 S
+G  = C  - 1/4 S
+D  = G  - 1/4 S
+A  = D  - 1/4 S
+E  = A  - 1/4 S
+B  = E  - 1/4 S
+F♯ = B  - 1/4 S
+C♯ = F♯ - 1/4 S
+G♯ = C♯ - 1/4 S
+
+! TODO: check against known cent values (for const C)
+! XXX same as tune-mean4th in this form, perhaps wrong (P not S)?

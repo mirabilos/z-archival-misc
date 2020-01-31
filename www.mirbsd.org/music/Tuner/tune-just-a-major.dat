@@ -1,0 +1,11 @@
+DESC Just Intonation, A Major
+
+! fifths
+A = D
+E = A
+B = E
+
+! thirds
+C♯ = A
+G♯ = E
+F♯ = D

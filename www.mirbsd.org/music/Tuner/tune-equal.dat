@@ -1,0 +1,31 @@
+DESC Equal temperament (12-tET)
+
+C  + 0
+C♯ + 0
+D  + 0
+D♯ + 0
+E  + 0
+F  + 0
+F♯ + 0
+G  + 0
+G♯ + 0
+A  + 0
+B♭ + 0
+B  + 0
+
+VALIDATE
+
+E♭ = A♭ - 1/12 P
+B♭ = E♭ - 1/12 P
+F  = B♭ - 1/12 P
+C  = F  - 1/12 P
+G  = C  - 1/12 P
+D  = G  - 1/12 P
+A  = D  - 1/12 P
+E  = A  - 1/12 P
+B  = E  - 1/12 P
+F♯ = B  - 1/12 P
+C♯ = F♯ - 1/12 P
+G♯ = C♯ - 1/12 P
+
+D  = C  ^ 200.0

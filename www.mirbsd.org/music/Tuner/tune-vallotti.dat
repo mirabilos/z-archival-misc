@@ -1,0 +1,18 @@
+DESC Vallotti (modern)
+! Modern version of the Vallotti temperament
+
+B♭ = E♭
+F  = B♭
+C  = F - 1/6 P
+G  = C - 1/6 P
+D  = G - 1/6 P
+A  = D - 1/6 P
+E  = A - 1/6 P
+B  = E - 1/6 P
+F♯ = B
+C♯ = F♯
+G♯ = C♯
+
+VALIDATE
+
+E♭ = A♭

@@ -1,0 +1,441 @@
+#!/bin/mksh
+# -*- mode: sh -*-
+#-
+# Copyright © 2007, 2008, 2012, 2013, 2014, 2018, 2019
+#	mirabilos <m@mirbsd.org>
+#
+# Provided that these terms and disclaimer and all copyright notices
+# are retained or reproduced in an accompanying document, permission
+# is granted to deal in this work without restriction, including un‐
+# limited rights to use, publicly perform, distribute, sell, modify,
+# merge, give away, or sublicence.
+#
+# This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+# the utmost extent permitted by applicable law, neither express nor
+# implied; without malicious intent or gross negligence. In no event
+# may a licensor, author or contributor be held liable for indirect,
+# direct, other damage, loss, or other issues arising in any way out
+# of dealing in the work, even if advised of the possibility of such
+# damage or existence of a defect, except proven that it results out
+# of said person’s immediate fault when using the work as intended.
+#-
+# cf. $(dirname "$0")/push-music
+
+unset LANGUAGE
+export LC_ALL=C.UTF-8
+export TZ=UTC
+unset UNZIP
+
+if [[ -z $DISPLAY ]]; then
+	print -ru2 -- "E: re-run with DISPLAY set, need X11"
+	exit 1
+fi
+
+usage() {
+	print -r -- "E: Usage: $0 [±23 cmd] [-c file] [-fnrU] [-- mscore-args]"
+	print -r -- "N: -c convert only given file (multiples ok)"
+	print -r -- "N: -f do only fonts, -n do not upload, ±r run mscore (+r v2)"
+	print -r -- "N: -U add UI font to, and do not use tmp cfg/~ for ±r"
+	exit ${1:-1}
+}
+
+function dumparr {
+	nameref arr=$1
+	local el
+
+	for el in "${arr[@]}"; do
+		REPLY+=" ${el@Q}"
+	done
+	REPLY="${1@Q}=(${REPLY:1})"
+}
+
+function try_mscore {
+	local have=0 cmd vchk=$1 exe chroot; shift
+	nameref arr=$1; shift
+
+	while [[ $1 != . ]]; do
+		exe=$1; chroot=$2
+		shift 2
+		set -A cmd -- schroot -prc "$chroot" -- "$exe"
+		[[ -n $chroot ]] || set -A cmd -- "$exe"
+		[[ $("${cmd[@]}" --version 2>/dev/null) = \
+		    MuseScore*" $vchk"* ]] || continue
+		if [[ $(
+			if [[ -n $chroot ]]; then
+				schroot -prc "$chroot" -- mksh -c \
+				    'file $(realpath $(which '"${exe@Q}))"
+			else
+				file $(realpath $(which "$exe"))
+			fi
+		    ) = *32-bit*x86-64* ]]; then
+			# x32 binary, prefer others (often slightly buggy)
+			(( have )) || set -A arr -- "${cmd[@]}"
+			have=1
+		else
+			set -A arr -- "${cmd[@]}"
+			break
+		fi
+	done
+}
+try_mscore 2.3.2 mscore2 \
+    musescore buster \
+    musescore '' \
+    musescore vncsess \
+    musescore stretch \
+    .
+try_mscore 3. mscore3 \
+    musescore3 buster \
+    musescore3 '' \
+    musescore3 vncsess \
+    musescore3 stretch \
+    musescore-snapshot '' \
+    musescore-snapshot vncsess \
+    .
+
+onlyfont=0
+onlyconvert=0
+domscore=0
+doupload=1
+doUI=0
+set -A toconvert
+while getopts "2:3:c:fhnrU" ch; do
+	case $ch {
+	(2|3)
+		nameref cmd=mscore$ch
+		set -A cmd -- "$OPTARG"
+		;;
+	(+2|+3)
+		eval "set -A mscore${ch#'+'} -- $OPTARG"
+		;;
+	(c)
+		onlyconvert=1
+		toconvert+=("$(realpath "$OPTARG")")
+		;;
+	(f)
+		onlyfont=1
+		;;
+	(+f)
+		onlyfont=0
+		;;
+	(h)
+		usage 0
+		;;
+	(n)
+		doupload=0
+		;;
+	(+n)
+		doupload=1
+		;;
+	(r)
+		domscore=3
+		;;
+	(+r)
+		domscore=2
+		;;
+	(U)
+		doUI=1
+		;;
+	(+U)
+		doUI=0
+		;;
+	(*)
+		usage
+		;;
+	}
+done
+shift $((OPTIND - 1))
+theremote=${1:-origin}
+
+print -ru2 -- "D: ${|dumparr mscore2;}"
+print -ru2 -- "D: ${|dumparr mscore3;}"
+
+set -x
+set -e
+set -o inherit-xtrace
+set -o pipefail
+
+owd=$PWD
+cd "$(realpath "$0/../../..")"
+wd=$(realpath .)
+mkdir -p .git/t-export/.tmp
+T=$(realpath .git/t-export/.tmp)
+rm -rf "$T/home"
+mkdir "$T/home" "$T/home/cfg"
+ohome=$(realpath ~)
+(( doUI )) || HOME=$T/home
+: "${XAUTHORITY:=$ohome/.Xauthority}"
+export XAUTHORITY
+
+# escape XHTML characters (three mandatory XML ones plus double quotes,
+# the latter in an XML safe fashion numerically though)
+function xhtml_escape {
+	if (( $# )); then
+		print -nr -- "$@"
+	else
+		cat
+	fi | sed \
+	    -e 's&\&amp;g' \
+	    -e 's<\&lt;g' \
+	    -e 's>\&gt;g' \
+	    -e 's"\&#34;g'
+}
+
+if (( !onlyconvert )); then
+	rm -rf .git/t-fonts
+	mkdir -p .git/t-fonts/{conf,fnts,cache,x}
+	sed \
+	    -e "s@fontdir@$(realpath .git/t-fonts/fnts | xhtml_escape)" \
+	    -e "s@cachedir@$(realpath .git/t-fonts/cache | xhtml_escape)" \
+	    <music/resources/push-fontconf.in >.git/t-fonts/conf/fonts.conf
+	for archive in music/resources/Gentium*.zip \
+	    music/resources/UnifrakturMaguntia*.zip \
+	    ; do
+		archive=$(realpath "$archive")
+		(
+			cd .git/t-fonts/x
+			case $archive {
+			(*.zip) unzip -- "$archive" ;;
+			(*.tgz) tar -xzf "$archive" ;;
+			(*) print -ru2 -- "E: unknown type: $archive"; exit 1 ;;
+			}
+		)
+	done
+	fntdir=$(realpath .git/t-fonts/fnts)
+	(cd /usr/share/fonts/truetype/freefont; pax -rw -l \
+	    Free{Sans,Serif{,Bold}{,Italic}}.ttf "$fntdir/")
+	(cd .git/t-fonts/x/Gentium*/; pax -rw -l Gentium-*ttf "$fntdir/")
+	(cd .git/t-fonts/x/UnifrakturMaguntia*/; pax -rw -l UnifrakturMaguntia.ttf "$fntdir/")
+	(cd music/resources/; pax -rw -l *.?tf "$fntdir/")
+	# not suitable for embedding
+	rm -f .git/t-fonts/fnts/Inconsolatazi4varl_qu-Bold.otf
+fi
+fntdir=$(realpath .git/t-fonts/fnts)
+export FC_CONFIG_FILE=$(realpath .git/t-fonts/conf/fonts.conf)
+export FC_CONFIG_DIR=$(realpath .git/t-fonts/conf)
+export FONTCONFIG_FILE=$FC_CONFIG_FILE FONTCONFIG_PATH=$FC_CONFIG_DIR
+fc-list | sort
+(( !onlyfont )) || exit 0
+set -A cfgdir -- -c "$T/home/cfg" -a alsa #-b 160
+(( doUI )) && set -A cfgdir #empty
+
+if (( domscore )); then
+	firadir=/usr/share/texlive/texmf-dist/fonts/opentype/public/fira
+	(( doUI )) && if [[ -s $firadir/FiraSans-Medium.otf ]]; then
+		print -ru2 -- "N: adding Fira Sans as UI font"
+		(cd "$firadir"; pax -rw -l FiraSans-*.otf "$fntdir/")
+	else
+		print -ru2 -- "W: Fira Sans missing, read usage"
+	fi
+	cd "$owd"
+	nameref cmd=mscore$domscore
+	exec "${cmd[@]}" "${cfgdir[@]}" "$@"
+fi
+
+# remove target dir unless we’re converting individual files only
+(( onlyconvert )) || rm -rf .git/t-music
+
+set -A to_mischk
+function cvtf {
+	local name=$1
+
+	# analyse file
+	local f=$name V
+	if [[ $f = *.mscz ]]; then
+		f=$(unzip -p -- "$name" META-INF/container.xml | \
+		    xmlstarlet sel -T -t -m //rootfile -v @full-path -n)
+		unzip -p -- "$name" "$f" >"$T/tmp-analyse"
+		f=$T/tmp-analyse
+	fi
+	V=$(xmlstarlet sel -T -t -m /museScore -v @version -n <"$f")
+	if [[ $V = 2.* ]]; then
+		V=2
+	elif [[ $V = 3.* ]]; then
+		V=3
+	else
+		print -ru2 -- "E: unknown score version in $name"
+		print -ru2 -- "N: version: ${V@Q}"
+		print -ru2 -- "N: line:" $(fgrep '<museScore' "$f")
+		exit 1
+	fi
+
+	mkdir -p ".git/t-music/${name%/*}"
+	local sp=$(realpath "$name")
+	local db=$(realpath ".git/t-music/$name")
+	local tb="${sp%.msc[xz]}"
+	db="${db%.msc[xz]}"
+
+	local dJ="[ [ ${|json_escape "$db [";}, \"].pdf\" ]"
+	for ext in mscz mid xml pdf; do
+		[[ -e $tb.$ext ]] || \
+		    dJ+=", ${|json_escape "$db.$ext";}"
+	done
+	addtransA "$V" "$sp" "$dJ ]"
+	to_mischk+=("${name%.msc[xz]}")
+}
+
+# ligatures in UnifrakturMaguntia show up as unknown
+function hack_mudraw {
+	case $basename {
+	(*/'Praetorius -- Lobt Gott ihr Christen allzugleich (Original)') ;;
+	(*) cat; return ;;
+	}
+	sed \
+	    -e 's/Se�ster/Sechster/g' \
+	    -e 's/Deuts�er Geistli�er in der Christli�en Kir�en übli�er/Deutscher Geistlicher in der Christlichen Kirchen üblicher/g'
+}
+
+function mischk {
+	local basename name
+
+	rm -f "$T/tmp-analyse"
+	runalltrans
+
+	for basename in "${to_mischk[@]}"; do
+		for name in .git/t-music/"$basename".pdf \
+		    .git/t-music/"$basename ["*.pdf; do
+			[[ -s $name ]] || continue
+			mutool draw -o - -F txt "$name" | \
+			    hack_mudraw "$basename" >"$T/tmp-draw" 2>&1
+			fgrep -q '�' "$T/tmp-draw" || continue
+			print -ru2 -- "W: missing glyphs in $name"
+			misglyph+=("$name")
+		done
+	done
+	rm -f "$T/tmp-draw"
+
+	(( ${#misglyph[*]} )) || return 0
+	set +x
+	print -ru2 -- "E: missing glyphs found; check them with:"
+	for name in "${misglyph[@]}"; do
+		print -ru2 -- "N: mutool draw -o - -F txt ${name@Q} | less \$'+/\xEF\xBF\xBD'"
+	done
+	exit 1
+}
+
+mkdir -p .git/t-music
+[[ -d .git/t-music/. ]]
+set -A misglyph
+
+rm -f "$T"/t*.jsn
+
+# escape string into JSON string (with surrounding quotes)
+function json_escape {
+	set +x # requires mksh R51
+	set -U
+	local o=\" s
+	if (( $# )); then
+		read -raN-1 s <<<"$*"
+		unset s[${#s[*]}-1]
+	else
+		read -raN-1 s
+	fi
+	local -i i=0 n=${#s[*]} wc
+	local -Uui16 -Z7 x
+	local -i1 ch
+
+	while (( i < n )); do
+		(( ch = x = wc = s[i++] ))
+		case $wc {
+		(8) o+=\\b ;;
+		(9) o+=\\t ;;
+		(10) o+=\\n ;;
+		(12) o+=\\f ;;
+		(13) o+=\\r ;;
+		(34) o+=\\\" ;;
+		(92) o+=\\\\ ;;
+		(*)
+			if (( wc < 0x20 || wc > 0xFFFD || \
+			    (wc >= 0xD800 && wc <= 0xDFFF) || \
+			    (wc > 0x7E && wc < 0xA0) )); then
+				o+=\\u${x#16#}
+			else
+				o+=${ch#1#}
+			fi
+			;;
+		}
+	done
+	REPLY="$o\""
+}
+
+function addtransA {
+	local v=$1 from=$2 toJSN=$3
+	nameref tlast=tlast$v
+	local f=$T/t$v.jsn
+
+	print -r -- "${tlast:-[}{\"in\":${|json_escape "$from";},\"out\":$toJSN}" \
+	    >>"$f"
+	tlast=,
+}
+
+function runalltrans {
+	local f
+
+	for f in $T/t*.jsn; do
+		[[ -s $f ]] || continue
+		runtrans "${f##*/t}"
+	done
+}
+
+function runtrans {
+	local V=${1%.jsn}
+	local v=${V::1}
+	nameref cmd=mscore$v
+	local f=$T/t$V.jsn
+	local p=
+
+	[[ $V = *p* ]] && p=-P
+
+	print ']' >>"$f"
+	"${cmd[@]}" "${cfgdir[@]}" $p -j "$f"
+	rm -f "$f"
+}
+
+if (( onlyconvert )); then
+	rv=0
+	for name in "${toconvert[@]}"; do
+		if [[ -s "$name" ]]; then
+			cvtf "${name#"$wd/"}"
+		else
+			print -ru2 -- "E: file \"$name\" does not exist"
+			rv=1
+		fi
+	done
+	mischk
+	exit $rv
+fi
+
+git find -name \*.mscx -o -name \*.mscz -print0 |&
+while IFS= read -r -p -d '' name; do
+	[[ $name != */.skip/* ]] || continue
+	cvtf "$name"
+done
+mischk
+
+cd "$wd/.git/t-music/music/chor"
+ps2pdfmir14 -o 'Karg-Elert -- Passionskanzone.pdf' \
+    'Karg-Elert -- Passionskanzone #1.pdf' \
+    'Karg-Elert -- Passionskanzone #3a.pdf' \
+    'Karg-Elert -- Passionskanzone #3b.pdf'
+rm -f 'Karg-Elert -- Passionskanzone #'*.pdf
+ln -f 'Michel -- Macht hoch die Tür + Hosianna [Gemeinde].pdf' ../free/
+cd "$wd"
+
+(( doupload )) || exit 0
+print -u2 '\a'
+
+remote=$(git remote get-url --push "$theremote")
+rhost=${remote%%:*}
+rpath=${remote#*:}
+rm -rf "$T/path"
+ssh -n "$rhost" "${rpath@Q}/mir/push-music" noclean >"$T/path"
+cat "$T/path"
+rwdir=$(sed --posix -n '/^THE_WORKTREE=/s/^THE_WORKTREE=\(.*\)$/\1/p' \
+    <"$T/path")
+test -n "$rwdir"
+[[ $rwdir = /* ]]
+rm -f "$T/path"
+
+ssh -n "$rhost" "${rpath@Q}/mir/push-music"
+rsync -zavPH --numeric-ids -S --stats '--rsh=ssh -T' \
+    .git/t-music/ "$rhost:$rwdir/"
+exit 0

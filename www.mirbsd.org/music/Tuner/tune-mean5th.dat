@@ -1,0 +1,14 @@
+DESC Fifth-comma meantone temperament
+
+!E♭= A♭ - 1/5 S ! typically discarded
+B♭ = E♭ - 1/5 S
+F  = B♭ - 1/5 S
+C  = F  - 1/5 S
+G  = C  - 1/5 S
+D  = G  - 1/5 S
+A  = D  - 1/5 S
+E  = A  - 1/5 S
+B  = E  - 1/5 S
+F♯ = B  - 1/5 S
+C♯ = F♯ - 1/5 S
+G♯ = C♯ - 1/5 S

@@ -1,0 +1,2 @@
+# MusicXML 3.0
+AddType 'application/vnd.recordare.musicxml+xml; charset=utf-8' xml

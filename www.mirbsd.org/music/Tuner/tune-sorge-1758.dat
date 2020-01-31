@@ -1,0 +1,17 @@
+DESC Sorge 1758
+
+E♭ = A♭ - 1/12 P
+B♭ = E♭ - 1/12 P
+F  = B♭ - 1/12 P
+C  = F
+G  = C  - 1/6  P
+D  = G  - 1/6  P
+A  = D  - 1/6  P
+E  = A  - 1/12 P
+B  = E
+F♯ = B  - 1/12 P
+C♯ = F♯ - 1/12 P
+
+VALIDATE
+
+G♯ = C♯

@@ -1,0 +1,27 @@
+DESC Quarter-comma meantone temperament
+
+!E♭= A♭ - 1/4 S ! typically discarded
+B♭ = E♭ - 1/4 S
+F  = B♭ - 1/4 S
+C  = F  - 1/4 S
+G  = C  - 1/4 S
+D  = G  - 1/4 S
+A  = D  - 1/4 S
+E  = A  - 1/4 S
+B  = E  - 1/4 S
+F♯ = B  - 1/4 S
+C♯ = F♯ - 1/4 S
+G♯ = C♯ - 1/4 S
+
+VALIDATE
+
+E  = C
+F♯ = D
+G  = E♭
+G♯ = E
+A  = F
+B  = G
+C  = A♭
+C♯ = A
+D  = B♭
+D♯ = B

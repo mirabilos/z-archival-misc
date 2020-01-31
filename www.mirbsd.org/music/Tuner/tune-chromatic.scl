@@ -1,0 +1,19 @@
+! tune-chromatic.scl
+!
+! Ptolemy’s intense diatonic scale on the $ROOTNOTE Major scale
+! Extended asymmetric 5-limit tuning on semitones 1, 3, 6(A4), 8, 10
+Chromatic scale
+ 12
+!	! perfect unison
+ 16/15	! minor second (5-limit)
+ 9/8	! major second
+ 6/5	! minor third (5-limit)
+ 5/4	! major third
+ 4/3	! perfect fourth
+ 25/18	! tritonus: augmented fourth (extended asymmetric 5-limit)
+ 3/2	! perfect fifth
+ 8/5	! minor sixth (5-limit)
+ 5/3	! major sixth
+ 9/5	! minor seventh (asymmetric 5-limit)
+ 15/8	! major seventh
+ 2/1	! perfect octave

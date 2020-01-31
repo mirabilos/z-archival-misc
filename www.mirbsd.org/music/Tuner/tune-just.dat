@@ -1,0 +1,21 @@
+DESC “Just” intonation
+! near thirds and fifths are pure, at the expense of some
+! intervals (and this tuning in general) being unusable
+
+! fifths
+B♭ = E♭
+
+C  = F
+G  = C
+D  = G
+
+E  = A
+B  = E
+F♯ = B
+
+G♯ = C♯
+
+! thirds
+G  = B♭
+E  = G
+C♯ = E

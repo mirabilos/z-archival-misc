@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<museScore version="3.01">
+  <Workspace>
+    <PaletteBox>
+      <Palette name="Clefs">
+        <gridWidth>35</gridWidth>
+        <gridHeight>50</gridHeight>
+        <mag>0.8</mag>
+        <moreElements>0</moreElements>
+        <yoffset>1</yoffset>
+        <Cell name="Soprano clef">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>C1</concertClefType>
+            <transposingClefType>C1</transposingClefType>
+            </Clef>
+          </Cell>
+        <Cell name="Mezzo-soprano clef">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>C2</concertClefType>
+            <transposingClefType>C2</transposingClefType>
+            </Clef>
+          </Cell>
+        <Cell name="Alto clef">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>C3</concertClefType>
+            <transposingClefType>C3</transposingClefType>
+            </Clef>
+          </Cell>
+        <Cell name="Tenor clef">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>C4</concertClefType>
+            <transposingClefType>C4</transposingClefType>
+            </Clef>
+          </Cell>
+        <Cell name="Baritone clef (C clef)">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>C5</concertClefType>
+            <transposingClefType>C5</transposingClefType>
+            </Clef>
+          </Cell>
+        <Cell name="Treble clef">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>G</concertClefType>
+            <transposingClefType>G</transposingClefType>
+            </Clef>
+          </Cell>
+        <Cell name="Treble clef 8va alta">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>G8va</concertClefType>
+            <transposingClefType>G8va</transposingClefType>
+            </Clef>
+          </Cell>
+        <Cell name="Treble clef 8va bassa">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>G8vb</concertClefType>
+            <transposingClefType>G8vb</transposingClefType>
+            </Clef>
+          </Cell>
+        <Cell name="Treble clef optional 8va bassa">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>G8vbp</concertClefType>
+            <transposingClefType>G8vbp</transposingClefType>
+            </Clef>
+          </Cell>
+        <Cell name="Bass clef">
+          <staff>1</staff>
+          <Clef>
+            <concertClefType>F</concertClefType>
+            <transposingClefType>F</transposingClefType>
+            </Clef>
+          </Cell>
+        </Palette>
+      <Palette name="Key Signatures">
+        <gridWidth>56</gridWidth>
+        <gridHeight>55</gridHeight>
+        <mag>1</mag>
+        <moreElements>0</moreElements>
+        <yoffset>1</yoffset>
+        <Cell name="C♭ major, A♭ minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>-7</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="G♭ major, E♭ minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>-6</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="D♭ major, B♭ minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>-5</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="A♭ major, F minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>-4</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="E♭ major, C minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>-3</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="B♭ major, G minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>-2</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="F major, D minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>-1</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="C major, A minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>0</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="G major, E minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>1</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="D major, B minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>2</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="A major, F♯ minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>3</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="E major, C♯ minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>4</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="B major, G♯ minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>5</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="F♯ major, D♯ minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>6</accidental>
+            </KeySig>
+          </Cell>
+        <Cell name="C♯ major, A♯ minor">
+          <staff>1</staff>
+          <KeySig>
+            <accidental>7</accidental>
+            </KeySig>
+          </Cell>
+        </Palette>
+      <Palette name="Time Signatures">
+        <gridWidth>34</gridWidth>
+        <gridHeight>38</gridHeight>
+        <mag>0.8</mag>
+        <moreElements>0</moreElements>
+        <Cell name="2/4">
+          <staff>1</staff>
+          <TimeSig>
+            <sigN>2</sigN>
+            <sigD>4</sigD>
+            </TimeSig>
+          </Cell>
+        <Cell name="3/4">
+          <staff>1</staff>
+          <TimeSig>
+            <sigN>3</sigN>
+            <sigD>4</sigD>
+            </TimeSig>
+          </Cell>
+        <Cell name="4/4">
+          <staff>1</staff>
+          <TimeSig>
+            <sigN>4</sigN>
+            <sigD>4</sigD>
+            </TimeSig>
+          </Cell>
+        <Cell name="5/4">
+          <staff>1</staff>
+          <TimeSig>
+            <sigN>5</sigN>
+            <sigD>4</sigD>
+            </TimeSig>
+          </Cell>
+        <Cell name="6/4">
+          <staff>1</staff>
+          <TimeSig>
+            <sigN>6</sigN>
+            <sigD>4</sigD>
+            </TimeSig>
+          </Cell>
+        <Cell name="3/8">
+          <staff>1</staff>
+          <TimeSig>
+            <sigN>3</sigN>
+            <sigD>8</sigD>
+            </TimeSig>
+          </Cell>
+        <Cell name="6/8">
+          <staff>1</staff>
+          <TimeSig>
+            <sigN>6</sigN>
+            <sigD>8</sigD>
+            </TimeSig>
+          </Cell>
+        <Cell name="4/4 common time">
+          <staff>1</staff>
+          <TimeSig>
+            <subtype>1</subtype>
+            <sigN>4</sigN>
+            <sigD>4</sigD>
+            </TimeSig>
+          </Cell>
+        <Cell name="2/2 alla breve">
+          <staff>1</staff>
+          <TimeSig>
+            <subtype>2</subtype>
+            <sigN>2</sigN>
+            <sigD>2</sigD>
+            </TimeSig>
+          </Cell>
+        <Cell name="4/4 (vocal)">
+          <staff>1</staff>
+          <TimeSig>
+            <sigN>4</sigN>
+            <sigD>4</sigD>
+            <Groups>
+              <Node pos="4" action="512"/>
+              <Node pos="8" action="273"/>
+              <Node pos="12" action="512"/>
+              <Node pos="16" action="273"/>
+              <Node pos="20" action="512"/>
+              <Node pos="24" action="273"/>
+              <Node pos="28" action="512"/>
+              </Groups>
+            </TimeSig>
+          </Cell>
+        </Palette>
+      <Palette name="Articulations">
+        <gridWidth>42</gridWidth>
+        <gridHeight>25</gridHeight>
+        <mag>1</mag>
+        <grid>1</grid>
+        <moreElements>0</moreElements>
+        <Cell name="Fermata above">
+          <Fermata>
+            <subtype>fermataAbove</subtype>
+            <placement>above</placement>
+            </Fermata>
+          </Cell>
+        <Cell name="Accent above">
+          <Articulation>
+            <subtype>articAccentAbove</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Staccato above">
+          <Articulation>
+            <subtype>articStaccatoAbove</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Staccatissimo above">
+          <Articulation>
+            <subtype>articStaccatissimoAbove</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Tenuto above">
+          <Articulation>
+            <subtype>articTenutoAbove</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Marcato above">
+          <Articulation>
+            <subtype>articMarcatoAbove</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Accent-staccato above">
+          <Articulation>
+            <subtype>articAccentStaccatoAbove</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Marcato-staccato above">
+          <Articulation>
+            <subtype>articMarcatoStaccatoAbove</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Marcato-tenuto above">
+          <Articulation>
+            <subtype>articMarcatoTenutoAbove</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Fade in">
+          <Articulation>
+            <subtype>guitarFadeIn</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Fade out">
+          <Articulation>
+            <subtype>guitarFadeOut</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Volume swell">
+          <Articulation>
+            <subtype>guitarVolumeSwell</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        </Palette>
+      <Palette name="Ornaments">
+        <gridWidth>42</gridWidth>
+        <gridHeight>25</gridHeight>
+        <mag>1</mag>
+        <grid>1</grid>
+        <moreElements>0</moreElements>
+        <Cell name="Trill">
+          <Articulation>
+            <subtype>ornamentTrill</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Turn">
+          <Articulation>
+            <subtype>ornamentTurn</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Inverted turn">
+          <Articulation>
+            <subtype>ornamentTurnInverted</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        <Cell name="Mordent">
+          <Articulation>
+            <subtype>ornamentMordent</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Articulation>
+          </Cell>
+        </Palette>
+      <Palette name="Atempausen &amp;&amp; Vorhalte">
+        <gridWidth>42</gridWidth>
+        <gridHeight>30</gridHeight>
+        <mag>1</mag>
+        <grid>1</grid>
+        <moreElements>0</moreElements>
+        <Cell name="Breath mark (comma)">
+          <Breath>
+            <symbol>breathMarkComma</symbol>
+            </Breath>
+          </Cell>
+        <Cell name="Curved caesura">
+          <Breath>
+            <symbol>caesuraCurved</symbol>
+            <pause>2</pause>
+            </Breath>
+          </Cell>
+        <Cell name="Acciaccatura">
+          <Icon>
+            <subtype>0</subtype>
+            <action>acciaccatura</action>
+            </Icon>
+          </Cell>
+        <Cell name="Appoggiatura">
+          <Icon>
+            <subtype>1</subtype>
+            <action>appoggiatura</action>
+            </Icon>
+          </Cell>
+        </Palette>
+      <Palette name="Barlines">
+        <gridWidth>42</gridWidth>
+        <gridHeight>38</gridHeight>
+        <mag>0.8</mag>
+        <moreElements>0</moreElements>
+        <Cell name="Normal barline">
+          <staff>1</staff>
+          <BarLine>
+            </BarLine>
+          </Cell>
+        <Cell name="Double barline">
+          <staff>1</staff>
+          <BarLine>
+            <subtype>double</subtype>
+            </BarLine>
+          </Cell>
+        <Cell name="Start repeat">
+          <staff>1</staff>
+          <BarLine>
+            <subtype>start-repeat</subtype>
+            </BarLine>
+          </Cell>
+        <Cell name="End repeat">
+          <staff>1</staff>
+          <BarLine>
+            <subtype>end-repeat</subtype>
+            </BarLine>
+          </Cell>
+        <Cell name="Final barline">
+          <staff>1</staff>
+          <BarLine>
+            <subtype>end</subtype>
+            </BarLine>
+          </Cell>
+        <Cell name="Short 1 span">
+          <staff>1</staff>
+          <BarLine>
+            <spanFromOffset>2</spanFromOffset>
+            <spanToOffset>-2</spanToOffset>
+            </BarLine>
+          </Cell>
+        <Cell name="Tick 2 span">
+          <staff>1</staff>
+          <BarLine>
+            <spanFromOffset>-2</spanFromOffset>
+            <spanToOffset>-6</spanToOffset>
+            </BarLine>
+          </Cell>
+        <Cell name="Tick 1 span">
+          <staff>1</staff>
+          <BarLine>
+            <spanFromOffset>-1</spanFromOffset>
+            <spanToOffset>-7</spanToOffset>
+            </BarLine>
+          </Cell>
+        </Palette>
+      <Palette name="Arpeggios &amp;&amp; Glissandi">
+        <gridWidth>27</gridWidth>
+        <gridHeight>50</gridHeight>
+        <mag>1</mag>
+        <grid>1</grid>
+        <moreElements>0</moreElements>
+        <Cell name="Arpeggio">
+          <Arpeggio>
+            <subtype>0</subtype>
+            </Arpeggio>
+          </Cell>
+        <Cell name="Arpeggio">
+          <Arpeggio>
+            <subtype>1</subtype>
+            </Arpeggio>
+          </Cell>
+        <Cell name="Arpeggio">
+          <Arpeggio>
+            <subtype>2</subtype>
+            </Arpeggio>
+          </Cell>
+        <Cell name="Glissando">
+          <Glissando>
+            <text>gliss.</text>
+            <diagonal>1</diagonal>
+            <anchor>3</anchor>
+            <length>100</length>
+            </Glissando>
+          </Cell>
+        <Cell name="Glissando">
+          <Glissando>
+            <text>gliss.</text>
+            <subtype>1</subtype>
+            <diagonal>1</diagonal>
+            <anchor>3</anchor>
+            <length>100</length>
+            </Glissando>
+          </Cell>
+        </Palette>
+      <Palette name="Text">
+        <gridWidth>84</gridWidth>
+        <gridHeight>28</gridHeight>
+        <mag>0.85</mag>
+        <grid>1</grid>
+        <moreElements>0</moreElements>
+        <Cell name="Staff text">
+          <StaffText>
+            <text>Stave Text</text>
+            </StaffText>
+          </Cell>
+        <Cell name="System text">
+          <SystemText>
+            <text>System Text</text>
+            </SystemText>
+          </Cell>
+        <Cell name="Rehearsal mark">
+          <RehearsalMark>
+            <text>B1</text>
+            </RehearsalMark>
+          </Cell>
+        <Cell name="Instrument change">
+          <InstrumentChange>
+            <Instrument>
+              <trackName></trackName>
+              <Channel>
+                <synti>Fluid</synti>
+                </Channel>
+              </Instrument>
+            <text>Change Instr.</text>
+            </InstrumentChange>
+          </Cell>
+        </Palette>
+      <Palette name="Tempo">
+        <gridWidth>48</gridWidth>
+        <gridHeight>28</gridHeight>
+        <mag>1</mag>
+        <moreElements>0</moreElements>
+        <Cell name="Tempo text">
+          <Tempo>
+            <tempo>2.66667</tempo>
+            <followText>1</followText>
+            <text><sym>metNoteHalfUp</sym> = 80</text>
+            </Tempo>
+          </Cell>
+        <Cell name="Tempo text">
+          <Tempo>
+            <tempo>1.33333</tempo>
+            <followText>1</followText>
+            <text><sym>metNoteQuarterUp</sym> = 80</text>
+            </Tempo>
+          </Cell>
+        <Cell name="Tempo text">
+          <Tempo>
+            <tempo>0.666667</tempo>
+            <followText>1</followText>
+            <text><sym>metNote8thUp</sym> = 80</text>
+            </Tempo>
+          </Cell>
+        <Cell name="Tempo text">
+          <Tempo>
+            <tempo>4</tempo>
+            <followText>1</followText>
+            <text><sym>metNoteHalfUp</sym><sym>space</sym><sym>metAugmentationDot</sym> = 80</text>
+            </Tempo>
+          </Cell>
+        <Cell name="Tempo text">
+          <Tempo>
+            <tempo>2</tempo>
+            <followText>1</followText>
+            <text><sym>metNoteQuarterUp</sym><sym>space</sym><sym>metAugmentationDot</sym> = 80</text>
+            </Tempo>
+          </Cell>
+        <Cell name="Tempo text">
+          <Tempo>
+            <tempo>1</tempo>
+            <followText>1</followText>
+            <text><sym>metNote8thUp</sym><sym>space</sym><sym>metAugmentationDot</sym> = 80</text>
+            </Tempo>
+          </Cell>
+        <Cell name="Metric modulation">
+          <mag>1.2</mag>
+          <Tempo>
+            <tempo>2</tempo>
+            <followText>1</followText>
+            <text><sym>metNoteQuarterUp</sym> = <sym>metNoteHalfUp</sym></text>
+            </Tempo>
+          </Cell>
+        <Cell name="Metric modulation">
+          <mag>1.2</mag>
+          <Tempo>
+            <tempo>2</tempo>
+            <followText>1</followText>
+            <text><sym>metNoteQuarterUp</sym> = <sym>metNoteQuarterUp</sym><sym>space</sym><sym>metAugmentationDot</sym></text>
+            </Tempo>
+          </Cell>
+        <Cell name="Metric modulation">
+          <mag>1.2</mag>
+          <Tempo>
+            <tempo>2</tempo>
+            <followText>1</followText>
+            <text><sym>metNoteQuarterUp</sym> = <sym>metNoteQuarterUp</sym></text>
+            </Tempo>
+          </Cell>
+        <Cell name="Metric modulation">
+          <mag>1.2</mag>
+          <Tempo>
+            <tempo>2</tempo>
+            <followText>1</followText>
+            <text><sym>metNoteHalfUp</sym> = <sym>metNoteQuarterUp</sym></text>
+            </Tempo>
+          </Cell>
+        <Cell name="Metric modulation">
+          <mag>1.2</mag>
+          <Tempo>
+            <tempo>2</tempo>
+            <followText>1</followText>
+            <text><sym>metNoteQuarterUp</sym><sym>space</sym><sym>metAugmentationDot</sym> = <sym>metNoteQuarterUp</sym></text>
+            </Tempo>
+          </Cell>
+        <Cell name="Metric modulation">
+          <mag>1.2</mag>
+          <Tempo>
+            <tempo>2</tempo>
+            <followText>1</followText>
+            <text><sym>metNote8thUp</sym> = <sym>metNote8thUp</sym></text>
+            </Tempo>
+          </Cell>
+        </Palette>
+      <Palette name="Dynamics">
+        <gridWidth>40</gridWidth>
+        <gridHeight>30</gridHeight>
+        <mag>1</mag>
+        <grid>1</grid>
+        <moreElements>0</moreElements>
+        <Cell name="ppp (16)">
+          <Dynamic>
+            <subtype>ppp</subtype>
+            <velocity>16</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="pp (33)">
+          <Dynamic>
+            <subtype>pp</subtype>
+            <velocity>33</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="p (49)">
+          <Dynamic>
+            <subtype>p</subtype>
+            <velocity>49</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="mp (64)">
+          <Dynamic>
+            <subtype>mp</subtype>
+            <velocity>64</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="mf (80), default">
+          <Dynamic>
+            <subtype>mf</subtype>
+            <velocity>80</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="f (96)">
+          <Dynamic>
+            <subtype>f</subtype>
+            <velocity>96</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="ff (112)">
+          <Dynamic>
+            <subtype>ff</subtype>
+            <velocity>112</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="fff (126)">
+          <Dynamic>
+            <subtype>fff</subtype>
+            <velocity>126</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="fortepiano (loud then suddenly quiet)">
+          <Dynamic>
+            <subtype>fp</subtype>
+            <!-- keep at 0 here, it’s automatically fixed up upon loading -->
+            <velocity>0</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="al/dal niente (aus dem/bis ins Nichts)">
+          <Dynamic>
+            <subtype>n</subtype>
+            <velocity>1</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="sforzando (sudden accent / emphasis)">
+          <Dynamic>
+            <subtype>sfz</subtype>
+            <!-- keep at 0 here, it’s automatically fixed up upon loading -->
+            <velocity>0</velocity>
+            </Dynamic>
+          </Cell>
+        <Cell name="rinforzando (softer swelling accent)">
+          <Dynamic>
+            <subtype>rfz</subtype>
+            <!-- keep at 0 here, it’s automatically fixed up upon loading -->
+            <velocity>0</velocity>
+            </Dynamic>
+          </Cell>
+        </Palette>
+      <Palette name="Breaks &amp;&amp; Spacers">
+        <gridWidth>28</gridWidth>
+        <gridHeight>36</gridHeight>
+        <mag>1</mag>
+        <grid>1</grid>
+        <moreElements>0</moreElements>
+        <Cell name="System break">
+          <mag>1.2</mag>
+          <LayoutBreak>
+            <subtype>line</subtype>
+            </LayoutBreak>
+          </Cell>
+        <Cell name="Page break">
+          <mag>1.2</mag>
+          <LayoutBreak>
+            <subtype>page</subtype>
+            </LayoutBreak>
+          </Cell>
+        <Cell name="Section break">
+          <mag>1.2</mag>
+          <LayoutBreak>
+            <subtype>section</subtype>
+            </LayoutBreak>
+          </Cell>
+        <Cell name="Staff spacer down">
+          <Spacer>
+            <subtype>1</subtype>
+            <space>3</space>
+            </Spacer>
+          </Cell>
+        <Cell name="Staff spacer up">
+          <Spacer>
+            <subtype>0</subtype>
+            <space>3</space>
+            </Spacer>
+          </Cell>
+        <Cell name="Staff spacer fixed down">
+          <Spacer>
+            <subtype>2</subtype>
+            <space>3</space>
+            </Spacer>
+          </Cell>
+        </Palette>
+      <Palette name="Beam Properties">
+        <gridWidth>27</gridWidth>
+        <gridHeight>40</gridHeight>
+        <mag>1</mag>
+        <grid>1</grid>
+        <moreElements>0</moreElements>
+        <Cell name="Beam start">
+          <Icon>
+            <subtype>8</subtype>
+            <action>beam-start</action>
+            </Icon>
+          </Cell>
+        <Cell name="Beam middle">
+          <Icon>
+            <subtype>9</subtype>
+            <action>beam-mid</action>
+            </Icon>
+          </Cell>
+        <Cell name="No beam">
+          <Icon>
+            <subtype>10</subtype>
+            <action>no-beam</action>
+            </Icon>
+          </Cell>
+        <Cell name="Auto beam">
+          <Icon>
+            <subtype>13</subtype>
+            <action>auto-beam</action>
+            </Icon>
+          </Cell>
+        <Cell name="Beam 16th sub">
+          <Icon>
+            <subtype>11</subtype>
+            <action>beam32</action>
+            </Icon>
+          </Cell>
+        <Cell name="Beam 32nd sub">
+          <Icon>
+            <subtype>12</subtype>
+            <action>beam64</action>
+            </Icon>
+          </Cell>
+        </Palette>
+      <Palette name="Lines">
+        <gridWidth>75</gridWidth>
+        <gridHeight>28</gridHeight>
+        <mag>0.8</mag>
+        <grid>1</grid>
+        <moreElements>0</moreElements>
+        <Cell name="Crescendo hairpin">
+          <HairPin>
+            <subtype>0</subtype>
+            </HairPin>
+          </Cell>
+        <Cell name="Diminuendo hairpin">
+          <HairPin>
+            <subtype>1</subtype>
+            </HairPin>
+          </Cell>
+        <Cell name="Crescendo invisible line">
+          <mag>1.1</mag>
+          <HairPin>
+            <subtype>2</subtype>
+            <lineVisible>0</lineVisible>
+            <placement>above</placement>
+            </HairPin>
+          </Cell>
+        <Cell name="Diminuendo invisible line">
+          <mag>1.1</mag>
+          <HairPin>
+            <subtype>3</subtype>
+            <lineVisible>0</lineVisible>
+            <placement>above</placement>
+            </HairPin>
+          </Cell>
+        <Cell name="8va alta">
+          <Ottava>
+            <subtype>8va</subtype>
+            </Ottava>
+          </Cell>
+        <Cell name="8va bassa">
+          <Ottava>
+            <subtype>8vb</subtype>
+            </Ottava>
+          </Cell>
+        <Cell name="Prima volta">
+          <Volta>
+            <endHookType>1</endHookType>
+            <beginText>1.</beginText>
+            <endings>1</endings>
+            </Volta>
+          </Cell>
+        <Cell name="Seconda volta">
+          <Volta>
+            <endHookType>1</endHookType>
+            <beginText>2.</beginText>
+            <endings>2</endings>
+            </Volta>
+          </Cell>
+        <Cell name="Terza volta">
+          <Volta>
+            <endHookType>1</endHookType>
+            <beginText>3.</beginText>
+            <endings>3</endings>
+            </Volta>
+          </Cell>
+        <Cell name="Seconda volta, open">
+          <Volta>
+            <beginText>2.</beginText>
+            <endings>2</endings>
+            </Volta>
+          </Cell>
+        <Cell name="Ambitus">
+          <Ambitus>
+            <topPitch>-1</topPitch>
+            <topTpc>-2</topTpc>
+            <bottomPitch>-1</bottomPitch>
+            <bottomTpc>-2</bottomTpc>
+            </Ambitus>
+          </Cell>
+        <Cell name="Slur">
+          <Slur>
+            </Slur>
+          </Cell>
+        <Cell name="Pedal with invisible line">
+          <mag>1.2</mag>
+          <Pedal>
+            <beginText>&lt;sym&gt;keyboardPedalPed&lt;/sym&gt;</beginText>
+            <continueText>(&lt;sym&gt;keyboardPedalPed&lt;/sym&gt;)</continueText>
+            <endText>&lt;sym&gt;keyboardPedalUp&lt;/sym&gt;</endText>
+            <lineVisible>0</lineVisible>
+            </Pedal>
+          </Cell>
+        <Cell name="Trill line">
+          <mag>1.2</mag>
+          <Trill>
+            <subtype>trill</subtype>
+            <ornamentStyle>baroque</ornamentStyle>
+            </Trill>
+          </Cell>
+        </Palette>
+      </PaletteBox>
+    <Toolbar name="noteInput">
+      <action>note-input</action>
+      <action>pad-dotdot</action>
+      <action></action>
+      <action>sharp2</action>
+      <action>flat2</action>
+      <action></action>
+      <action>voice-1</action>
+      <action>voice-2</action>
+      <action>voice-3</action>
+      <action>voice-4</action>
+      </Toolbar>
+    <Toolbar name="fileOperation">
+      <action>undo</action>
+      <action>redo</action>
+      </Toolbar>
+    <Toolbar name="playbackControl">
+      <action>rewind</action>
+      <action>play</action>
+      <action></action>
+      <action>midi-on</action>
+      <action>countin</action>
+      <action>metronome</action>
+      <action></action>
+      <action>repeat</action>
+      <action>pan</action>
+      <action>loop</action>
+      </Toolbar>
+    <Preferences>
+      <Preference name="ui/application/showStatusBar">1</Preference>
+      <Preference name="ui/application/useNativeDialogs">1</Preference>
+      <Preference name="ui/canvas/background/color" r="192" g="192" b="192" a="255"/>
+      <Preference name="ui/canvas/background/useColor">1</Preference>
+      <Preference name="ui/canvas/foreground/color" r="249" g="249" b="249" a="255"/>
+      <Preference name="ui/canvas/foreground/useColor">1</Preference>
+      <Preference name="ui/canvas/misc/antialiasedDrawing">1</Preference>
+      <Preference name="ui/canvas/misc/selectionProximity">6</Preference>
+      <Preference name="ui/canvas/scroll/limitScrollArea">0</Preference>
+      <Preference name="ui/canvas/scroll/verticalOrientation">0</Preference>
+      <Preference name="ui/piano/highlightColor" r="18" g="89" b="208" a="255"/>
+      <Preference name="ui/score/defaultColor" r="0" g="0" b="0" a="255"/>
+      <Preference name="ui/score/frameMarginColor" r="144" g="255" b="0" a="255"/>
+      <Preference name="ui/score/layoutBreakColor" r="144" g="240" b="128" a="255"/>
+      <Preference name="ui/score/note/dropColor" r="23" g="120" b="219" a="255"/>
+      <Preference name="ui/score/voice1/color" r="46" g="134" b="171" a="255"/>
+      <Preference name="ui/score/voice2/color" r="48" g="107" b="52" a="255"/>
+      <Preference name="ui/score/voice3/color" r="199" g="62" b="29" a="255"/>
+      <Preference name="ui/score/voice4/color" r="141" g="30" b="75" a="255"/>
+      <Preference name="ui/theme/fontFamily">Fira Sans Medium</Preference>
+      <Preference name="ui/theme/fontSize">9</Preference>
+      <Preference name="ui/theme/iconHeight">16</Preference>
+      <Preference name="ui/theme/iconWidth">16</Preference>
+      </Preferences>
+    </Workspace>
+  </museScore>

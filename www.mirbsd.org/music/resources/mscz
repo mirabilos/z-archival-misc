@@ -1,0 +1,130 @@
+#!/bin/mksh
+# -*- mode: sh -*-
+#-
+# Copyright © 2019
+#	mirabilos <m@mirbsd.org>
+#
+# Provided that these terms and disclaimer and all copyright notices
+# are retained or reproduced in an accompanying document, permission
+# is granted to deal in this work without restriction, including un‐
+# limited rights to use, publicly perform, distribute, sell, modify,
+# merge, give away, or sublicence.
+#
+# This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+# the utmost extent permitted by applicable law, neither express nor
+# implied; without malicious intent or gross negligence. In no event
+# may a licensor, author or contributor be held liable for indirect,
+# direct, other damage, loss, or other issues arising in any way out
+# of dealing in the work, even if advised of the possibility of such
+# damage or existence of a defect, except proven that it results out
+# of said person’s immediate fault when using the work as intended.
+#-
+# Extract, or create, a MuseScore container file
+
+unset LANGUAGE
+export LC_ALL=C.UTF-8
+unset UNZIP ZIPOPT
+
+set -A todel
+die() {
+	print -ru2 -- "E: $*"
+	(( ${#todel[*]} )) && rm -rf "${todel[@]}"
+	exit 1
+}
+
+usage() {
+	print -ru2 -- "E: Usage: $0 {x|c} filename [rootfilename]"
+	print -ru2 -- "N: rootfilename autodetected, some (c)reate may need it"
+	exit ${1:-1}
+}
+
+function xhtml_fesc {
+	REPLY=${1//'&'/'&amp;'}
+	REPLY=${REPLY//'<'/'&lt;'}
+	REPLY=${REPLY//'>'/'&gt;'}
+	REPLY=${REPLY//'"'/'&#34;'}
+}
+
+[[ -n $2 && -s $2 ]] || usage
+case $2 {
+(*.msc[xz])
+	cfile=${2%.*}.mscz
+	efile=${2%.*}.mscx
+	rfile=${efile##*/}
+	;;
+(*.mxl|*.musicxml)
+	cfile=${2%.*}.mxl
+	efile=${2%.*}.musicxml
+	rfile=${efile##*/}
+	rfile=${rfile%.*}.xml
+	;;
+(*)
+	cfile=${2%.xml}
+	efile=$cfile.xml
+	case $cfile {
+	(*.mpal)
+		rfile=palette.xml ;;
+	(*.workspace)
+		rfile=workspace.xml ;;
+	(*)
+		rfile= ;;
+	}
+	;;
+}
+[[ -n $3 ]] && rfile=$3
+
+case $1 {
+(x)
+	f=$(unzip -p -- "$2" META-INF/container.xml | \
+	    xmlstarlet sel -T -t -m //rootfile -v @full-path -n) || \
+	    die Not a valid container file?
+	rm -rf "${efile}~"
+	mkdir "${efile}~" || die cannot create tmpdir
+	(
+		s=$(realpath "$2") || die huh?
+		d=$(realpath "$efile") || die huh?
+		cd "${efile}~"
+		rv=1
+		# don’t use -p in order to keep the timestamps
+		if unzip -- "$s" "$f"; then
+			typeset -i8 perm
+			(( perm = 8#666 & ~8#$(umask) ))
+			chmod 0${perm#8#} -- "$f"
+			mv -- "$f" "$d" && rv=0
+		fi
+		cd -
+		rm -rf "${efile}~"
+		exit $rv
+	) || die "cannot uncompress ${f@Q} from ${2@Q}"
+	ls -l -- "$efile"
+	exit 0 ;;
+(c)
+	;;
+(*)
+	usage ;;
+}
+
+rm -rf -- "$cfile.tmp" "$cfile.zip"
+set -A todel -- "$cfile.tmp" "$cfile.zip"
+mkdir -- "$cfile.tmp" "$cfile.tmp/META-INF" || die cannot create tmpdir
+ln -f -- "$2" "$cfile.tmp/$rfile" || die cannot link source into tmpdir
+cat >"$cfile.tmp/META-INF/container.xml" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<container>
+  <rootfiles>
+    <rootfile full-path="${|xhtml_fesc "$rfile";}">
+      </rootfile>
+    </rootfiles>
+  </container>
+EOF
+(
+	set -e
+	dst=$(realpath "$cfile.zip")
+	cd "$cfile.tmp"
+	touch -r "$rfile" META-INF/container.xml
+	zip -D -nw -X "$dst" -- META-INF/container.xml "$rfile"
+) || die cannot create PKZIP container
+mv -f "$cfile.zip" "$cfile"
+rm -rf -- "$cfile.tmp"
+ls -l -- "$cfile"
+exit 0

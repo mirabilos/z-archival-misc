@@ -1,0 +1,22 @@
+Equal                Each fifth is tempered 2 cents short of a pure fifth. equally distributing the comma
+Silberman            Compromise tempering each fifth by 1/6 of a syntonic comma (used by high Baroque organs)
+Salinas              A negative temperament (1/3 comma makes the major thirds slightly narrow)
+Mean Semitone        like Aaron, but the remaining comma is distributed between B-F♯ and B♭-F (15.75 cents each)
+Grammateus           Hybrid Pythagorean tuning with the chromatic notes tempered
+French               Temperament Ordinaire, first fifths tuned wide of a pure fifth, later fifths narrowed to compensate
+French (2)           Similar to French
+Rameau               Similar to French
+Irregular Fr. 17e    Similar to French
+
+                C    G     D     A     E     B     F♯    C♯    G♯    E♭    B♭   F
+equal		0    0     0     0     0     0     0     0     0     0     0    0
+silberman	0   -1.7  -3.3  -5    -6.7  -8.3 -10   -11.7 -13.3   5     3.3  1.7
+salinas		0   -5.3 -10.7 -16   -21.3 -26.7 -32   -37.3 -42.7  16    10.7  5.3
+meanSemitone	0   -3.5  -7   -10.5 -14   -17.5   0    -3.5  -7   -10.5 -14    3.5
+grammateus	0    2     4     6     8    10     0     2     4     6     8   -2
+french		0   -2.5  -5    -7.5 -10   -12.5 -13   -13   -11    -6    -1.5  2.5
+french2		0   -3.5  -7   -10.5 -14   -17.5 -18.2 -19   -17   -10.5  -3.5  3.5
+rameau		0   -3.5  -7   -10.5 -14   -17.5 -15.5 -13.5 -11.5  -2     7    3.5
+irrFr17e	0   -3    -6    -9   -12   -15   -18   -21   -24    -8    -2    3
+
+ref: https://leware.net/temper/temper.pdf

@@ -1,0 +1,23 @@
+DESC Bach/Lehman 1722
+
+! F-C-G-D-A-E as they are in Vallotti ("1/6 comma" each) even and smoooth;
+! E-B-F♯-C♯ pure; C♯-G♯-D♯-A♯ very gently wavering ("1/12 comma" each);
+! A♯-F leftover is also gently tempered, but happens to be wide — the B♭/A♯
+! “should be placed at a spot very slightly lower than the spot where it
+! would have been pure from both D♯ and F”
+
+C  = F - 1/6 P
+G  = C - 1/6 P
+D  = G - 1/6 P
+A  = D - 1/6 P
+E  = A - 1/6 P
+B  = E
+F♯ = B
+C♯ = F♯
+G♯ = C♯ - 1/12 P
+D♯ = G♯ - 1/12 P
+A♯ = D♯ - 1/12 P
+
+VALIDATE
+
+F  = B♭ + 1/12 P

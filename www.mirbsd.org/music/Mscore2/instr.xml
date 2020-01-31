@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<museScore>
+	<InstrumentGroup id="vocals">
+		<name>Vocals</name>
+		<Instrument id="boy-alto">
+			<longName>Knabenalt</longName>
+			<shortName>KnA</shortName>
+			<trackName>Knabenalt oder Countertenor</trackName>
+			<description>Boy Alto or Countertenor</description>
+			<musicXMLid>voice.countertenor</musicXMLid>
+			<clef>G</clef>
+			<barlineSpan>1</barlineSpan>
+			<aPitchRange>53-74</aPitchRange>
+			<pPitchRange>52-76</pPitchRange>
+			<Channel>
+				<program value="52"/>
+			</Channel>
+			<genre>orchestra</genre>
+			<genre>choral</genre>
+		</Instrument>
+		<Instrument id="congregation">
+			<longName>Gemeinde</longName>
+			<shortName>Alle</shortName>
+			<trackName>Gemeinde</trackName>
+			<description>Congregation</description>
+			<musicXMLid>voice</musicXMLid>
+			<clef>G8vbp</clef>
+			<barlineSpan>1</barlineSpan>
+			<aPitchRange>60-72</aPitchRange>
+			<pPitchRange>57-74</pPitchRange>
+			<Channel>
+				<program value="52"/>
+			</Channel>
+			<genre>choral</genre>
+		</Instrument>
+	</InstrumentGroup>
+	<InstrumentGroup id="separate-midi-channels">
+		<name>separate MIDI channels</name>
+		<Instrument id="voice2">
+			<trackName>Voice (2 channels)</trackName>
+			<longName>Voice</longName>
+			<shortName>Vo.</shortName>
+			<description>Voice (two separate MIDI channels)</description>
+			<musicXMLid>voice.vocals</musicXMLid>
+			<clef>G</clef>
+			<barlineSpan>1</barlineSpan>
+			<aPitchRange>40-79</aPitchRange>
+			<pPitchRange>36-94</pPitchRange>
+			<Channel name="channel 1">
+				<program value="52"/>
+			</Channel>
+			<Channel name="channel 2">
+				<program value="52"/>
+			</Channel>
+		</Instrument>
+		<Instrument id="voice3">
+			<init>voice2</init>
+			<trackName>Voice (3 channels)</trackName>
+			<description>Voice (three separate MIDI channels)</description>
+			<Channel name="channel 3">
+				<program value="52"/>
+			</Channel>
+		</Instrument>
+		<Instrument id="voice4">
+			<init>voice3</init>
+			<trackName>Voice (4 channels)</trackName>
+			<description>Voice (four separate MIDI channels)</description>
+			<Channel name="channel 4">
+				<program value="52"/>
+			</Channel>
+		</Instrument>
+		<Instrument id="piano2">
+			<trackName>Piano (2 channels)</trackName>
+			<longName>Piano</longName>
+			<shortName>Pno.</shortName>
+			<description>Piano (twice one separate MIDI channels)</description>
+			<musicXMLid>keyboard.piano</musicXMLid>
+			<staves>2</staves>
+			<clef>G</clef>
+			<bracket>1</bracket>
+			<bracketSpan>2</bracketSpan>
+			<barlineSpan>2</barlineSpan>
+			<clef staff="2">F</clef>
+			<aPitchRange>21-108</aPitchRange>
+			<pPitchRange>21-108</pPitchRange>
+			<Channel name="channel 1">
+				<program value="0"/>
+			</Channel>
+			<Channel name="channel 2">
+				<program value="0"/>
+			</Channel>
+			<Articulation>
+				<velocity>100</velocity>
+				<gateTime>95</gateTime>
+			</Articulation>
+		</Instrument>
+		<Instrument id="piano8">
+			<init>piano2</init>
+			<trackName>Piano (8 channels)</trackName>
+			<description>Piano (twice four separate MIDI channels)</description>
+			<Channel name="channel 3">
+				<program value="0"/>
+			</Channel>
+			<Channel name="channel 4">
+				<program value="0"/>
+			</Channel>
+			<Channel name="channel 5">
+				<program value="0"/>
+			</Channel>
+			<Channel name="channel 6">
+				<program value="0"/>
+			</Channel>
+			<Channel name="channel 7">
+				<program value="0"/>
+			</Channel>
+			<Channel name="channel 8">
+				<program value="0"/>
+			</Channel>
+		</Instrument>
+	</InstrumentGroup>
+</museScore>

@@ -1,0 +1,98 @@
+#!/bin/mksh
+# -*- mode: sh -*-
+#-
+# Copyright © 2007, 2008, 2012, 2013, 2014, 2018, 2019
+#	mirabilos <m@mirbsd.org>
+#
+# Provided that these terms and disclaimer and all copyright notices
+# are retained or reproduced in an accompanying document, permission
+# is granted to deal in this work without restriction, including un‐
+# limited rights to use, publicly perform, distribute, sell, modify,
+# merge, give away, or sublicence.
+#
+# This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+# the utmost extent permitted by applicable law, neither express nor
+# implied; without malicious intent or gross negligence. In no event
+# may a licensor, author or contributor be held liable for indirect,
+# direct, other damage, loss, or other issues arising in any way out
+# of dealing in the work, even if advised of the possibility of such
+# damage or existence of a defect, except proven that it results out
+# of said person’s immediate fault when using the work as intended.
+#-
+# Prepare files for uploading to musescore.com
+#
+# Replaces Gentium with Gentium Basic; converts to .mscz
+
+set -x
+set -e
+set -o inherit-xtrace
+set -o pipefail
+
+unset LANGUAGE
+export LC_ALL=C.UTF-8
+export TZ=UTC
+unset UNZIP ZIPOPT
+
+function xhtml_fesc {
+	REPLY=${1//'&'/'&amp;'}
+	REPLY=${REPLY//'<'/'&lt;'}
+	REPLY=${REPLY//'>'/'&gt;'}
+	REPLY=${REPLY//'"'/'&#34;'}
+}
+
+if [[ -f $1 && -s $1 ]]; then
+	set -A files
+	for x in "$@"; do
+		files+=("$(realpath "$x")")
+	done
+	usefiles=1
+else
+	usefiles=0
+fi
+
+owd=$PWD
+cd "$(realpath "$0/../../..")"
+wd=$(realpath .)
+rm -rf .git/t-export
+mkdir -p .git/t-export/.tmp/META-INF
+
+if (( usefiles )); then
+	i=-1
+	while (( ++i < ${#files[*]} )); do
+		files[i]=${files[i]#"$wd/"}
+	done
+	printf '%s\0' "${files[@]}" |&
+else
+	git find music -name \*.mscx -o -name \*.mscz -print0 |&
+fi
+while IFS= read -r -p -d '' name; do
+	bn=${name%.*}
+	bn=${bn##*/}
+	if [[ $name = *.mscz ]]; then
+		f=$(unzip -p -- "$name" META-INF/container.xml | \
+		    xmlstarlet sel -T -t -m //rootfile -v @full-path -n)
+		unzip -p -- "$name" "$f" >.git/t-export/.tmp/"$bn".mscx
+	else
+		cp "$name" .git/t-export/.tmp/"$bn".mscx
+	fi
+done
+
+cd .git/t-export/.tmp
+perl -pi -e 's/Gentium/Gentium Basic/g' *.mscx
+for name in *.mscx; do
+	[[ -s $name ]] || continue
+	to=../"${name%x}z"
+	cat >"META-INF/container.xml" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<container>
+  <rootfiles>
+    <rootfile full-path="${|xhtml_fesc "$name";}">
+      </rootfile>
+    </rootfiles>
+  </container>
+EOF
+	zip -D -nw -X "$to.zip" -- META-INF/container.xml "$name"
+	mv "$to.zip" "$to"
+done
+cd ..
+rm -rf .tmp
