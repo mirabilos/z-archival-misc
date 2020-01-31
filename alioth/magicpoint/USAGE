@@ -97,7 +97,7 @@ In other words,
 3 tabs mean text size 3% and the line starts with spaces and white delta icon.
 
 
-By using this, it's easy to itemise. Let's take a look at an example:
+By using this, it's easy to itemize. Let's take a look at an example:
 
 	%page
 
@@ -212,12 +212,8 @@ package(ftp://ftp.dcs.ed.ac.uk/pub/ajcd).
     same configuration as "the real thing".  It will make rendering
     faster.  (For the included EPS images, pixel image will be
     generated and be cached).  If you execute "mgp" with the "-F"
-    option (e.g. "mgp -F 1"), "mgp" fetches and caches the next page
-    so that it makes faster to visualise the next page.
-
-    NOTE: this means mgp will leave around files named similarily to
-    .gscache.dad.eps.446x133 (.gscache. + original filename + . + size)
-    in the presentation source directory for caching!
+    option, "mgp" fetches and caches the next page so that it makes
+    faster to visualize the next page.
 
 (5) Check/practice the connection with the VGA projector.
 

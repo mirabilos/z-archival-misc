@@ -55,9 +55,8 @@ IPv6 の特徴
 IPv6 ヘッダ
 
 %center, size 2
-%% the EPS throws errors in Ghostscript nowadays :(
-%%image "v6header.eps" 800x600
-%image "v6header.jpg" 800x600
+%image "v6header.eps" 800x600
+%%image "v6header.jpg" 800x600
 
 %leftfill
 		アドレス長は 4 倍、ヘッダ長は 2 倍

@@ -1,0 +1,9 @@
+{
+  "Archive": "The MirOS Project",
+  "Bug-Submit": "mailto:miros-discuss@mirbsd.org",
+  "Contact": "irc://irc.freenode.net/MirBSD",
+  "Donation": "http://www.mirbsd.org/danke.htm",
+  "Name": "MagicPoint",
+  "Repository": "https://evolvis.org/anonscm/git/alioth/magicpoint.git",
+  "Repository-Browse": "https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/magicpoint.git;a=shortlog;h=refs/heads/master"
+}

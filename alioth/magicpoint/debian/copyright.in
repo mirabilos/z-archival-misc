@@ -1,0 +1,18 @@
+This package was debianised by mirabilos <t.glaser@tarent.de> on
+Fri, 26 Jul 2019 19:14:23 +0200. It replaces an earlier package
+of MagicPoint created by Fumitoshi UKAI <ukai@debian.or.jp> on
+Wed, 24 Dec 1997 16:17:59 +0900.
+
+It was downloaded from:
+http://www.mirbsd.org/MirOS/dist/hosted/magicpoint/
+
+Upstream licence information:
+
+@upstream_licence@
+
+On Debian systems, /usr/share/common-licenses/GPL-2 contains
+the full text of the GNU GPL, version 2, and the other Perl
+licence is in: /usr/share/common-licenses/Artistic
+
+The packaging is Copyright © Fumitoshi UKAI, mirabilos and
+published under the same terms as MagicPoint.

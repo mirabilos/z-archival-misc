@@ -631,7 +631,7 @@ static void
 mgp_usage(char *name)
 {
 	fprintf(stderr, "Usage: %s [-BCeGhnOoPqRSUVv] [-b bgcolour] [-D htmldir] [-d [interval]]"
-	    "\n    [-E htmlimage] [-F mode[,effect[,value]]] [-g geometry] [-p page]"
+	    "\n    [-E htmlimage] [-F mode,effect,value] [-g geometry] [-p page]"
 	    "\n    [-Q quality] [-T timestampfile] [-t timeslot] [-X gsdevice]"
 	    "\n    [-x engine] file", name);
 
@@ -641,7 +641,7 @@ mgp_usage(char *name)
 	fprintf(stderr, "\t-D <dir>: Generate html pages for the presentation\n");
 	fprintf(stderr, "\t-d: Demo mode - go through the presentation\n");
 	fprintf(stderr, "\t-E <name>: Use this image format in html (jpg or png)\n");
-	fprintf(stderr, "\t-F <mode>[,<effect>[,<value>]]: Use forwarding caches\n");
+	fprintf(stderr, "\t-F<mode>,<effect>,<value>: Use forwarding caches\n");
 	fprintf(stderr, "\t-G: Page guide is on\n");
 	fprintf(stderr, "\t-g <geometry>: Set window geometry\n");
 	fprintf(stderr, "\t-h: Display this help message\n");

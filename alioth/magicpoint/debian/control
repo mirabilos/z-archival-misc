@@ -1,0 +1,26 @@
+Source: mgp
+Section: x11
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Homepage: http://www.mirbsd.org/mgp.htm
+Build-Depends: debhelper-compat (= 12), byacc, flex, libbsd-dev,
+ libimlib2-dev, libxft-dev, libxmu-dev, libxt-dev, libxtst-dev,
+ pkg-config, x11proto-dev
+Standards-Version: 4.4.0
+Rules-Requires-Root: no
+VCS-git: https://evolvis.org/anonscm/git/alioth/magicpoint.git -b debian
+VCS-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/magicpoint.git;a=shortlog;h=refs/heads/debian
+
+Package: mgp
+Architecture: any
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: libjpeg-progs, netpbm, perl, pnmtopng
+Suggests: emacsen-common, ghostscript, gsfonts-x11, texlive
+Description: MagicPoint — an X11-based presentation tool
+ MagicPoint is an X11-based presentation tool. It is designed to make
+ simple presentations easy while to make complicated presentations
+ possible. Its presentation file (whose suffix is typically .mgp) is
+ just text so that you can create presentation files quickly with your
+ favourite editor (e.g. Emacs or jupp).

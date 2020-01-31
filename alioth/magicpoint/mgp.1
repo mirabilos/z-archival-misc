@@ -37,12 +37,7 @@
 .Op Fl D Ar htmldir
 .Op Fl d Op Ar interval
 .Op Fl E Ar htmlimage
-.Oo
-.Fl F
-.Ar mode Ns Oo
-.Ar ,effect Ns Op Ar ,value
-.Oc
-.Oc
+.Op Fl F Ar mode,effect,value
 .Op Fl g Ar geometry
 .Op Fl p Ar page
 .Op Fl Q Ar quality
@@ -122,11 +117,7 @@ are supported, default value is
 It works when the
 .Fl D
 option is set.
-.It Xo
-.Fl F Ar mode Ns Oo
-.Ar ,effect Ns Op Ar ,value
-.Oc
-.Xc
+.It Fl F Ar mode,effect,value
 Specifies forward page cache options.
 .Ar Mode ,
 .Ar effect

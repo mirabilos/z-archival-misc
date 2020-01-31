@@ -1,0 +1,6 @@
+;; mgp-init.el
+(setq load-path (cons "/usr/share/emacs/site-lisp/mgp/" load-path))
+(setq auto-mode-alist (cons '("\\.mgp?\\'" . mgp-mode) auto-mode-alist))
+(autoload 'mgp-mode "mgp-mode")
+(setq mgp-options "-g 800x600")
+(setq mgp-window-height 6)

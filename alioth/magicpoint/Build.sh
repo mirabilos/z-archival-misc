@@ -1706,9 +1706,9 @@ install-program:
 	    README README.jp cloud.jpg dad.eps dad.jpg default.mgp \
 	    gradation-jp.mgp gradation.mgp mgp-old1.jpg mgp-old2.jpg \
 	    mgp-old3.jpg mgp-print6 mgp1.jpg mgp2.jpg mgp3.jpg mgp3.xbm \
-	    multilingual.mgp sample-fr.mgp sample-jp.mgp sample.mgp \
-	    sendmail6-jp.mgp sendmail6.mgp tutorial-jp.mgp tutorial.mgp \
-	    utf8test.mgp v6-jp.mgp v6.mgp v6header.* \
+	    multilingual.mgp sample-fr.mgp sample-jp-xft.mgp sample-jp.mgp \
+	    sample.mgp sendmail6-jp.mgp sendmail6.mgp tutorial-jp.mgp \
+	    tutorial.mgp utf8test.mgp v6-jp.mgp v6.mgp v6header.* \
 	    $(DESTDIR)$(SAMPLEDIR)/
 
 install-sysconfig:

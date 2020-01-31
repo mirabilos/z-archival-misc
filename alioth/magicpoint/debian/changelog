@@ -1,0 +1,620 @@
+mgp (1.20~a1-1) UNRELEASED; urgency=medium
+
+  * Drop defoma code from maintainer scripts after >3 releases
+  * New upstream version from new upstream, i.e. me
+  * Completely new packaging
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 26 Jul 2019 20:26:05 +0200
+
+mgp (1.13a+upstream20090219-11) unstable; urgency=low
+
+  * Also hardcode /bin/gzip, for mgpembed, should fix reproducibility
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 16 Feb 2019 21:48:50 +0100
+
+mgp (1.13a+upstream20090219-10) unstable; urgency=low
+
+  * Hardcode /bin/gunzip path to build reproducibly
+  * Use verbose build, drop ancient debian/rules targets
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 05 Feb 2019 19:26:31 +0100
+
+mgp (1.13a+upstream20090219-9) unstable; urgency=medium
+
+  * The “I’m *so* going to regret this later…” upload
+  * Adopt the package (Closes: #509644)
+    - quick bugfix only, I’ll import into VCS and do general
+      modernisation as soon as I have time, as I need mgp working n̲o̲w̲
+    - yes, I’ve seen the bug list, but I have a workshop this weekend
+    - clean up debian/control a bit while here
+  * Begin cleaning up the debian/rules mess
+    - update CPPFLAGS/CFLAGS/LDFLAGS and configure handling from jupp
+    - rely on dh_strip
+    - quell some compiler warnings to focus on actual bugs (for now)
+    - do not “compile a file without optimisation because it’s slow”
+  * Refresh all patches; introduce compiler warning fix patch
+  * Fix “debian/rules clean”
+  * Actually use our CPPFLAGS, CFLAGS, LDFLAGS
+  * Add a patch to fix a couple of segfaults or weird behaviour
+    stemming from bad cast or uninitialised memory
+  * Add a patch to fix guide rendering somewhat
+  * Integrate lintian’s spelling corrections
+  * Install manpages with the correct section (1, not 1x)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 26 Oct 2018 00:34:14 +0200
+
+mgp (1.13a+upstream20090219-8) unstable; urgency=medium
+
+  * QA upload.
+  * Fix postrm.  (Closes: #808309)
+
+ -- Andreas Beckmann <anbe@debian.org>  Thu, 26 May 2016 19:03:19 +0200
+
+mgp (1.13a+upstream20090219-7) unstable; urgency=medium
+
+  * QA upload.
+  * Switch build-dependency on libpng12-0-dev to libpng-dev (Closes: #809839).
+  * Add missing dependency on ${misc:Depends}.
+  * Add missing debian/rules targets.
+  * Update obsolete config.{guess,sub} (fixes FTBFS on arm64).
+
+ -- Adam Borowski <kilobyte@angband.pl>  Fri, 08 Jan 2016 23:54:31 +0100
+
+mgp (1.13a+upstream20090219-6) unstable; urgency=low
+
+  * QA upload.
+  * Build-depend on libtiff-dev rather than libtiff4-dev.
+
+ -- Colin Watson <cjwatson@debian.org>  Mon, 01 Oct 2012 13:32:17 +0100
+
+mgp (1.13a+upstream20090219-5) unstable; urgency=low
+
+  * QA upload.
+  * debian/control
+    - use appropriate font package (ttf -> fonts transition)
+    - use fonts-ipafont-{gothic,mincho} and fonts-japanese-{gothic,mincho}
+      instead of kochi and sazanami
+
+ -- Hideki Yamane <henrich@debian.org>  Fri, 14 Sep 2012 07:49:56 +0900
+
+mgp (1.13a+upstream20090219-4) unstable; urgency=low
+
+  * QA upload.
+  * Add Depends on libperl4-corelibs-perl (Closes: #659426)
+
+ -- Dominic Hargreaves <dom@earth.li>  Sun, 18 Mar 2012 12:23:13 +0000
+
+mgp (1.13a+upstream20090219-3) unstable; urgency=low
+
+  * QA upload
+  * Change build-depenency on libjpeg62-dev to libjpeg-dev (closes: #634276)
+  * Migrate to source format 3.0 (quilt):
+    - add debian/source/format
+    - drop explicit patching/unpatching from debian/rules
+    - drop build-dependency on quilt
+
+ -- Ralf Treinen <treinen@debian.org>  Tue, 19 Jul 2011 20:34:52 +0200
+
+mgp (1.13a+upstream20090219-2) unstable; urgency=low
+
+  * QA upload.
+  * Fix "mgp segfaults on existing mgp files and all the supplied
+    examples"; add new patch from Alex Perry (closes: #568339).
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 18 Feb 2010 23:20:20 +0100
+
+mgp (1.13a+upstream20090219-1) unstable; urgency=low
+
+  * QA upload.
+  * New upstream snapshot.
+    + Removes need for imlib. (Closes: #456128).
+  * Build without m17n. (Closes: #510966, #400105).
+    + Upstream says m17n support is unstable.
+  * Drop 01_mgp2html.diff patch.  Committed upstream.
+  * Drop 03_README_lang.diff patch.  Committed upstream.
+  * 05_rakugaki_cursor.diff. (Closes: #344033).
+    + Use better background colors and cursor for rakugaki mode.
+    + Thanks to Alessandro Rubini for the patch.
+
+ -- Barry deFreese <bdefreese@debian.org>  Sun, 22 Feb 2009 11:26:32 -0500
+
+mgp (1.13a-1) unstable; urgency=low
+
+  * QA upload.
+    + Set maintainer to Debian QA Group <packages@qa.debian.org>
+  * New upstream release. (Closes: #478184).
+  * Change libungif4-dev build-dep to libgif-dev.
+  * Change gs suggests to ghostscript.
+  * Change tetex-bin suggests to texlive.
+  * Make distclean not ignore errors.
+  * Remove empty /usr/sbin dir.
+  * Move dh_makeshlibs before dh_installdeb.
+  * Change `pwd` to $(CURDIR) in rules.
+  * Remove language extension from scripts in /usr/bin. (Policy 10.4).
+  * Add Homepage field.
+  * Add watch file.
+  * Add quilt patch system.
+    + Move old inline patches to quilt where necessary.
+  * 04_tex2eps_bashism.diff: Fix bashism. (Closes: #486050).
+    + Thanks to Vincent Zweije for the patch.
+  * Bump Standards Version to 3.8.0.
+
+ -- Barry deFreese <bdefreese@debian.org>  Tue, 23 Dec 2008 23:23:03 -0500
+
+mgp (1.11b-7.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Test disabling imlib.
+
+ -- Barry deFreese <bdefreese@debian.org>  Fri, 12 Dec 2008 15:22:06 -0500
+
+mgp (1.11b-7) unstable; urgency=low
+
+  * rebuild for Xorg
+   closes: Bug#363114
+  * enable freetype again
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Tue, 25 Apr 2006 00:21:35 +0900
+
+mgp (1.11b-6) unstable; urgency=low
+
+  * debian/control:
+    update build-depends: replace xlibs-dev to
+     libx11-dev, libxext-dev, libxft-dev, libxkbfile-dev, libxmu-dev,
+     libxtst-dev, x-dev
+    closes: Bug#347137
+  * drop freetype support, because we can't compile both freetype and
+    xft2 enabled.
+  * debian/control:
+    remove dependency to obsoleted packages
+     ttf-openoffice, ttf-xtt-wadalab-gothic, ttf-xtt-watanabe-mincho,
+     msttcorefonts, watanabe-vfont
+    add new fonts
+     ttf-freefont, ttf-opensymbol, ttf-sazanami-gothic, ttf-sazanami-mincho
+    closes: Bug#329062, Bug#335272
+  * contrib/mgp2html.pl.in
+    apply patch to escape < to &lt;
+    closes: Bug#243492
+  * apply patch to explain -U option.
+    closes: Bug#328373
+  * debian/compat: use compat level 5
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Thu, 12 Jan 2006 01:27:54 +0900
+
+mgp (1.11b-5) unstable; urgency=low
+
+  * failed to enable freetype
+    add missing build-depends: libttf-dev
+    closes: Bug#315406
+  * fix freetype rendering problem
+    need cast for TT_Char_Index() for ttf version >= 1.4, not == 1.4
+    closes: Bug#315412
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Thu, 23 Jun 2005 00:55:17 +0900
+
+mgp (1.11b-4) unstable; urgency=high
+
+  * apply Kenichi Handa's patch
+  * fix segfault when html generation mode (mgp -D)
+  * improve font handling
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed,  1 Jun 2005 00:04:26 +0900
+
+mgp (1.11b-3) unstable; urgency=high
+
+  * fix broken m17n support
+    closes: Bug#308213
+  * add missing build-depends: libfontconfig1-dev
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sun, 15 May 2005 23:53:37 +0900
+
+mgp (1.11b-2) unstable; urgency=low
+
+  * build with --with-m17n-lib
+    add build-depends: libm17n-dev
+    closes: Bug#302348
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Tue, 19 Apr 2005 01:48:06 +0900
+
+mgp (1.11b-1) unstable; urgency=low
+
+  * New upstream release
+    (bugfix) suppress flickering screen when ctrl key is pressed
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Tue, 28 Sep 2004 02:17:49 +0900
+
+mgp (1.11a-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sun, 19 Sep 2004 03:19:31 +0900
+
+mgp (1.10a-4) unstable; urgency=medium
+
+  * rebuild with new imlib1 (with libtiff4)
+    closes: Bug#262800, Bug#257831
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon,  2 Aug 2004 12:33:48 +0900
+
+mgp (1.10a-3.1) unstable; urgency=low
+
+  * Non-Maintainer Upload by Gunnar Wolf <gwolf@debian.org>
+  * Fixed FTBFS due to changes in recent Freetype (Closes: #232794)
+
+ -- Gunnar Wolf <gwolf@debian.org>  Fri,  5 Mar 2004 12:48:47 -0600
+
+mgp (1.10a-3) unstable; urgency=low
+
+  * rebuild with freetype
+    closes: Bug#198994
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed, 24 Sep 2003 22:46:03 +0900
+
+mgp (1.10a-2) unstable; urgency=low
+
+  * apply patch [mgp-users-jp 01341]
+    fix opaque in XFT2
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Fri,  5 Sep 2003 03:20:12 +0900
+
+mgp (1.10a-1) unstable; urgency=low
+
+  * New upstream release
+    see /usr/share/doc/mgp/changelog.gz
+  * support %tab 0. closes: Bug#186192
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed, 25 Jun 2003 01:21:59 +0900
+
+mgp (1.09a.20030519-4) unstable; urgency=low
+
+  * apply patch http://www.mew.org/ml/mgp-users-jp/msg01328.html
+    closes: Bug#196235
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Fri,  6 Jun 2003 01:32:18 +0900
+
+mgp (1.09a.20030519-3) unstable; urgency=low
+
+  * debian/control: build-depends: cpp
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sun,  1 Jun 2003 02:26:03 +0900
+
+mgp (1.09a.20030519-2) unstable; urgency=low
+
+  * debian/control: build-depends: imlib11-dev. closes: Bug#195494
+  * image/rlelib.c: no need <varargs.h>. closes: Bug#194084
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sun,  1 Jun 2003 00:30:59 +0900
+
+mgp (1.09a.20030519-1) unstable; urgency=low
+
+  * New upstream release
+  * fix segfault when a14,k14 not found. closes: Bug#177862
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon, 19 May 2003 23:15:10 +0900
+
+mgp (1.09a.20030314-3) unstable; urgency=low
+
+  * minor fix for draw.c
+    [mgp-users-jp 01199]
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sun,  6 Apr 2003 02:50:48 +0900
+
+mgp (1.09a.20030314-2) unstable; urgency=low
+
+  * '%cont, font "foo"' didn't work. apply Andrew Bennetts's patch
+    closes: Bug#185591
+  * update default.mgp
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Fri, 21 Mar 2003 01:19:50 +0900
+
+mgp (1.09a.20030314-1) unstable; urgency=low
+
+  * New upstream release
+  * defoma-app purge mgp
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sat, 15 Mar 2003 00:37:57 +0900
+
+mgp (1.09a.20030219-1) unstable; urgency=low
+
+  * New upstream release
+  * use Xft2 + fontconfig, drop defoma
+  * disable vflib, freetype support, closes: Bug#52703, closes: Bug#67399
+  * help message not in sync with behaviour (-E, -P), closes: Bug#161045
+  * dumps with bad image type, closes: Bug#127110
+  * mgp sees locales. maybe you needs %charset
+    see /usr/share/doc/mgp/README.lang. closes: Bug#119932
+  * not only debian's mgp, but also upstream mgp is secure by default
+    closes: Bug#148198
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Thu, 20 Feb 2003 02:11:47 +0900
+
+mgp (1.09a-8) unstable; urgency=low
+
+  * build-depends: libpng3-dev, closes: Bug#165171
+  * apply patch: print.c landspace
+    from Ian Goldberg <ian@cypherpunks.ca>
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon, 15 Jul 2002 00:48:46 +0900
+
+mgp (1.09a-7) unstable; urgency=low
+
+  * sync with mgp-current
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Tue, 25 Jun 2002 00:09:11 +0900
+
+mgp (1.09a-6) unstable; urgency=low
+
+  * debian/rules: remove bashism
+  * debian/default.mgp: add comments, closes: Bug#128787
+  * contrib/mgp2html.pl.in: fix backslash handling, closes: Bug#150624
+  * contrib/mgp2html.pl.in: fix cont handling, closes: Bug#150630
+  * mgpembed.pl.in: fix newimage handling, closes: Bug#149670
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sun, 23 Jun 2002 23:35:11 +0900
+
+mgp (1.09a-5) unstable; urgency=low
+
+  * defomanized, font configuration is generated as
+    /var/lib/defoma/mgp.d/font.mgp by defoma.  see README.debian
+    closes: Bug#128122
+    Unfortunately, some font packages, such as ttf-openoffice, msttcorefonts
+    don't have defoma support, so mgp.defoma script has urgly hack to
+    supports these for now.
+  * default.mgp now installed under /etc/mgp
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Tue,  8 Jan 2002 22:41:23 +0900
+
+mgp (1.09a-4) unstable; urgency=high
+
+  * '-S' option should be default. To run command, use '-U'
+    closes: Bug#122404
+  * [mgp-users-jp 00919] Some problems on `--enable-freetype-charset16'
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed, 26 Dec 2001 02:55:06 +0900
+
+mgp (1.09a-3) unstable; urgency=low
+
+  * add --with-vfontcap, closes: Bug#121611
+  * dont check by test -f "$with_vfontcap"
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Thu, 29 Nov 2001 22:24:51 +0900
+
+mgp (1.09a-2) unstable; urgency=low
+
+  * README.lang: note about %charset, closes: Bug#109653
+  * mgp.man: fix warnings, closes: Bug#118768
+    mdoc warning: Empty input line #276
+    mdoc warning: Unknown keyword `indent' in .Bl request (#281)
+  * mgp.man: SYNTAX is /usr/share/doc/mgp/SYNTAX.gz, closes: Bug#121102
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Tue, 27 Nov 2001 01:31:30 +0900
+
+mgp (1.09a-1) unstable; urgency=low
+
+  * new upstream version
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Fri, 28 Sep 2001 00:22:19 +0900
+
+mgp (1.08a.20010524-2) unstable; urgency=low
+
+  * build with libungif4, closes: Bug#101671
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sun, 24 Jun 2001 00:47:22 +0900
+
+mgp (1.08a.20010524-1) unstable; urgency=low
+
+  * officially mgp 1.08a released
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Thu, 24 May 2001 21:45:14 +0900
+
+mgp (1.08a-2) unstable; urgency=low
+
+  * (mgp.man) mgp sometimes invokes ghostscript(1) to render postscript
+    image*s*, suggested by Martin Schulze <joey@finlandia.infodrom.north.de>
+  * (configure.in) check libVFlib2.so instead of libVFlib2.so.*
+    closes: Bug#97284
+  * (debian/mgp-print6) add sample script to generate eps of 6 slides/page
+    using mgp,gs,netpbm,tgif
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon, 14 May 2001 03:07:17 +0900
+
+mgp (1.08a-1) unstable; urgency=low
+
+  * new upstream version
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sat, 12 May 2001 01:01:39 +0900
+
+mgp (1.07a.20010423-1) unstable; urgency=low
+
+  * new upstream version
+    (release candidate 1.08a?)
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sat, 28 Apr 2001 02:00:13 +0900
+
+mgp (1.07a.20010326-1) unstable; urgency=low
+
+  * new upstream version
+    (release candidate 1.08a)
+
+ -- Fumitoshi UKAI <ukai@ukai.org>  Tue, 27 Mar 2001 02:33:44 +0900
+
+mgp (1.07a.20010212-3) unstable; urgency=low
+
+  * fix build-depends: xlib6g-dev -> xlibs-dev
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon, 19 Feb 2001 21:58:24 +0900
+
+mgp (1.07a.20010212-2) unstable; urgency=low
+
+  * add build-depends: xutils, closes: Bug#86495
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon, 19 Feb 2001 01:21:31 +0900
+
+mgp (1.07a.20010212-1) unstable; urgency=low
+
+  * new upstream snapshot
+    - support MNG for animation
+  * [upstream]setlocale(LC_CTYPE, "") instead of LC_ALL, closes: Bug#85273
+  * add fonts suggestions, closes: Bug#79313, Bug#78291
+  * fix mgpnet, closes: Bug#75690
+  * (draw.c) epstoimage(): fflush() instead of fsync(-1), closes: Bug#69063
+  * dont install Imakefile, Makefile, closes: Bug#62406
+  * (draw.c) fix long line by truefont segfault, closes: Bug#52449
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed, 14 Feb 2001 15:34:33 +0900
+
+mgp (1.07a-2) unstable; urgency=low
+
+  * Fix Build-Depends: closes: Bug#69719
+  * Change not to use JIS X0208 chars for page guide, plist.c:pg_draw(),
+    so no more needs xfonts-cjk, I hope. - closes: Bug#62151, Bug#65864
+  * Don't install Makefile in examples, closes: Bug#69491
+  * fix typo in sample/embed.mgp,embed-jp.mgp, closes: Bug#62407
+  * fix typo in sample/gradtion.mgp, closes: Bug#62408
+  * gif support already enabled, closes: Bug#52880
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon, 28 Aug 2000 22:39:40 +0900
+
+mgp (1.07a-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon, 13 Mar 2000 23:40:38 +0900
+
+mgp (1.06a.19991206-2) frozen unstable; urgency=low
+
+  * enable gif because it is considered as RC bug, closes: Bug#59476
+  * fix DEFAULT_GSDEV
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sat,  4 Mar 2000 23:25:49 +0900
+
+mgp (1.06a.19991206-1) unstable; urgency=low
+
+  * new upstream snapshot release
+  * fix assertion failed on window resize, closes: Bug#51251
+  * fix switching off jotting mode using mouse2 adds a dot, closes: Bug#51502
+  * fix segfault by `%xfonts "times" "iso8859-2"'
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Tue,  7 Dec 1999 00:25:35 +0900
+
+mgp (1.06a.19991129-1) unstable; urgency=low
+
+  *  new upstream snapshot release
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Tue, 30 Nov 1999 00:13:29 +0900
+
+mgp (1.06a-3) unstable; urgency=low
+
+  * use $(DEB_HOST_GNU_TYPE) for configure
+  * fix build error with latest version of freetype2-dev
+  * back default vfont to minsl, because watanabe-vfont already available
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon, 22 Nov 1999 02:08:29 +0900
+
+mgp (1.06a-2) unstable; urgency=low
+
+  * change default vfont from minsl (watanabe-vfont) to gothsl (asiya24-vfont)
+    because watanabe-vfont is not available now.
+    closes: Bug#46124, #39443, #43475
+  * /usr/doc/mgp -> /usr/share/doc/mgp
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Tue, 28 Sep 1999 22:43:41 +0900
+
+mgp (1.06a-1) unstable; urgency=low
+
+  * new upstream release
+  * --enable-freetype-charset16
+  * README.lang; closes: Bug#40384.
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Thu,  5 Aug 1999 14:53:04 +0000
+
+mgp (1.05a.990712-1) unstable; urgency=low
+
+  * closes: Bug#31615
+  * depends perl5, closes: Bug#41464.
+  * new upstream version. closes: Bug#40014.
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Sun, 18 Jul 1999 13:32:49 +0900
+
+mgp (1.04a-5) unstable; urgency=low
+
+  * (font.c) do nothing in vfc_setfont() when mgp -x vflib <mgpfile>
+    fixed bug#39443.
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon, 14 Jun 1999 14:45:40 +0900
+
+mgp (1.04a-4) unstable; urgency=low
+
+  * build with vflib again, closes Bug#39327
+  * change FREETYPEFONTDIR="/usr/share/fonts/trutype/",
+    and use /usr/bin/gunzip instead of /usr/contrib/bin/gunzip, see Bug#39328
+  * generate jpeg instead of gif in case of generate html pages
+    and Recommends: imagemagick
+  * install mime entry for application/x-magicpoint, closes Bug#37884
+  * use locale, closes Bug#35722
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Fri, 11 Jun 1999 03:15:36 +0900
+
+mgp (1.04a-3) unstable; urgency=low
+
+  * build with --disable-vflib
+  * don't compress example files, close Bug/JP#555
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Thu,  8 Oct 1998 15:38:07 +0900
+
+mgp (1.04a-2) unstable; urgency=low
+
+  * built in slink environments (w/ freetype2), close Bug#JP/542
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed,  9 Sep 1998 20:03:53 +0900
+
+mgp (1.04a-1) unstable; urgency=low
+
+  *  new upstream version
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Mon,  7 Sep 1998 19:14:25 +0900
+
+mgp (1.03a-1) unstable; urgency=low
+
+  * recompiled with libc6
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed,  8 Apr 1998 12:18:33 +0900
+
+mgp (1.03a-0bo1) unstable; urgency=low
+
+  * new upstream version
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed, 8 Apr 1998 12:10:23 +0900
+
+mgp (1.02a-1.2.0.1) unstable; urgency=low
+
+  * recompiled with libc6
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Fri,  6 Feb 1998 16:30:28 +0900
+
+mgp (1.02a-1.1.3.1) unstable; urgency=low
+
+  * use CVS
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Fri, 6 Feb 1998 16:21:32 +0900
+
+mgp (1.02a-1.1.3) unstable; urgency=low
+
+  * new upstream revision
+    allow libVFlib.so
+    Makefile shell script fix
+  * apply [mgp-users-jp 00093]
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed, 28 Jan 1998 18:22:45 +0900
+
+mgp (1.00a-1.2) unstable; urgency=low
+
+  * compiled with libc6
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed, 24 Dec 1997 18:06:01 +0900
+
+mgp (1.00a-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Fumitoshi UKAI <ukai@debian.or.jp>  Wed, 24 Dec 1997 16:17:59 +0900

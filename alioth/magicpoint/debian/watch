@@ -1,0 +1,4 @@
+version=4
+# until 2.0 is out
+opts=uversionmangle=s/^1\.2/1.20/ \
+http://www.mirbsd.org/MirOS/dist/hosted/magicpoint/ mgp-([1-9].*)\.tgz

@@ -209,8 +209,8 @@ state_next(struct render_state *state)
 		if (state->page < maxpage) {
 			purgechild(state->page);
 			clear_zimage(state->page);
-			if ((mgp_flag & FL_FRDCACHE) &&
-				(cached_page == state->page + 1)) {
+			if (mgp_flag & FL_FRDCACHE &&
+				cached_page == state->page + 1) {
 					/* Hit cache */
 					set_from_cache(state);
 					pcache_process(state->page);

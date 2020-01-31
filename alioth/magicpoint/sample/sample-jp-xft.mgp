@@ -2,9 +2,9 @@
 %%
 %% You will need the relevant fonts installed.
 %%
-%deffont "thick" xfont "helvetica-bold-r", tfont "thick.ttf", tmfont "goth.ttf"
-%deffont "standard" xfont "helvetica-medium-r", tfont "standard.ttf", tmfont "kochi-mincho.ttf"
-%deffont "typewriter" xfont "courier-medium-r", tfont "typewriter.ttf", tmfont "goth.ttf"
+%deffont "thick" xfont "helvetica-bold-r", xfont "Kochi Gothic" "jisx0208.1983"
+%deffont "standard" xfont "helvetica-medium-r", xfont "Kochi Gothic" "jisx0208.1983"
+%deffont "typewriter" xfont "courier-medium-r", xfont "Kochi Gothic" "jisx0208.1983"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Default settings per each line numbers.
@@ -192,8 +192,7 @@ UNIXというくらいで、ソースの行はバックスラッシュで連結できます
 
 
 	(多分)表示可能なイメージ・フォーマットは以下の通りです
-%CENTER,SIZE 3,FORE "red", xfont "times-medium-r", tfont "times.ttf"
-
+%CENTER,SIZE 3,FORE "red", xfont "times-medium-r"
   FBM Image
   Sun Rasterfile
   CMU WM Raster

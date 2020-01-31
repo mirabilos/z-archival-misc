@@ -2,9 +2,9 @@
 %%
 %% You will need the relevant fonts installed.
 %%
-%deffont "standard" xfont "helvetica-medium-r", xfont "serif"
-%deffont "thick" xfont "helvetica-bold-r", xfont "serif:style=Bold"
-%deffont "typewriter" xfont "courier-medium-r", xfont "monospace"
+%deffont "standard" xfont "helvetica-medium-r", tfont "standard.ttf", tmfont "hoso6.ttf"
+%deffont "thick" xfont "helvetica-bold-r", tfont "thick.ttf", tmfont "hoso6.ttf"
+%deffont "typewriter" xfont "courier-medium-r", tfont "typewriter.ttf", tmfont "hoso6.ttf"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% Default settings per each line numbers.

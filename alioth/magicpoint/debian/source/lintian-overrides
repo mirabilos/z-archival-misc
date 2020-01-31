@@ -1,0 +1,11 @@
+# no, thanks
+mgp source: no-dep5-copyright
+
+# no tests exist
+mgp source: testsuite-autopkgtest-missing
+
+# go thank the OpenSSL people
+mgp source: debian-watch-uses-insecure-uri http://www.mirbsd.org/*
+
+# signed with gzsig instead
+mgp source: debian-watch-does-not-check-gpg-signature
