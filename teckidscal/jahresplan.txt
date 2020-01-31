@@ -1,0 +1,55 @@
+Planer: Johanna Schink, Dennis Astrath, Niklas Bildhauer
+Zeitraum: 7/2017 bis 7/2018
+
+# Datum		Typ		Label
+
+2017-07-05	Onlinemeeting
+
+2017-07-12	Gruppentreffen	PM
+2017-07-13	Gruppentreffen	VS
+2017-07-15	Workday-normal	MGV
+2017-07-16	Workday-normal
+
+2017-07-19	Onlinemeeting
+2017-07-27	Gruppentreffen	PM
+2017-07-28	Onlinemeeting
+2017-08-02	Onlinemeeting
+
+2017-08-16	Workday-normal	Vorbereitung FrogLabs
+2017-08-17	Workday-normal	MGV
+2017-08-18	Veranstaltung	FrogLabs
+2017-08-19	Veranstaltung
+2017-08-20	Veranstaltung
+2017-08-21	Workday-klein	Spaßtag
+
+2017-08-28	Onlinemeeting	13:00
+
+2017-09-02	Workday-klein
+2017-09-03	Workday-klein
+
+2017-10-14	Workday-normal
+2017-10-15	Workday-normal
+
+2017-11-11	Workday-klein
+2017-11-12	Workday-klein
+
+2017-12-09	Workday-normal
+2017-12-10	Workday-normal Weihnachtsfeier
+
+2018-01-20	Workday-klein
+2018-01-21	Workday-klein
+
+2018-02-17	Workday-normal
+2018-02-18	Workday-normal
+
+2018-03-03	Workday-klein
+2018-03-04	Workday-klein
+
+2018-04-21	Workday-normal
+2018-04-22	Workday-normal
+
+2018-06-09	Workday-klein
+2018-06-10	Workday-klein
+
+2017-07-07	Workday-normal
+2017-07-08	Workday-normal

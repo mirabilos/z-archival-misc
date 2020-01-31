@@ -1,0 +1,162 @@
+% Teckids e.V. - Allgemeine Vorlage (reduziert für Solo-Kalender)
+%-
+% Copyright © 2013, 2015, 2018
+%	Dominik George <dominik.george@teckids.org>
+% Copyright © 2014, 2015, 2017, 2018
+%	Thorsten “mirabilos” Glaser <thorsten.glaser@teckids.org>
+% Copyright © 2015, 2016
+%	Thorsten Glaser <t.glaser@tarent.de>
+% Copyright © 2015
+%	Niklas Bildhauer <niklas.bildhauer@teckids.org>
+%
+% Provided that these terms and disclaimer and all copyright notices
+% are retained or reproduced in an accompanying document, permission
+% is granted to deal in this work without restriction, including un‐
+% limited rights to use, publicly perform, distribute, sell, modify,
+% merge, give away, or sublicence.
+%
+% This work is provided "AS IS" and WITHOUT WARRANTY of any kind, to
+% the utmost extent permitted by applicable law, neither express nor
+% implied; without malicious intent or gross negligence. In no event
+% may a licensor, author or contributor be held liable for indirect,
+% direct, other damage, loss, or other issues arising in any way out
+% of dealing in the work, even if advised of the possibility of such
+% damage or existence of a defect, except proven that it results out
+% of said person's immediate fault when using the work as intended.
+%
+% Note that this style DOES NOT include teckids1zero under CC-BY-SA.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{teckids1m}
+
+\RequirePackage{wrapfig}
+\RequirePackage{intcalc}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[british,ngerman,shorthands=off,safe=none,math=normal,main=ngerman,headfoot=ngerman,hyphenmap=other*]{babel}%
+\RequirePackage{color}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{textcomp}
+\RequirePackage{graphicx}
+\RequirePackage{ifpdf}
+\RequirePackage{aeguill}
+\RequirePackage[shortcuts]{extdash}
+\RequirePackage[margin=2cm,bottom=2cm,footskip=8mm]{geometry}
+\RequirePackage{framed}
+\ifpdf \RequirePackage[pdftex]{hyperref}
+\else  \RequirePackage[dvips,dviwindo,hypertex]{hyperref} \fi
+\linespread{1.15}
+\RequirePackage{pxfonts}
+\renewcommand{\familydefault}{\sfdefault}
+\RequirePackage{hyphenat}
+
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg}
+
+\setlength{\parskip}{0.3cm}
+\setlength{\parindent}{0cm}
+
+% Originally from https://tex.stackexchange.com/a/159701/43807
+% Question by Charles Staats <https://tex.stackexchange.com/users/484>
+% © 2014 Fran <https://tex.stackexchange.com/users/11604/fran>
+% © 2014, 2017 mirabilos <thorsten.glaser@teckids.org>
+% The part of that answer actually taken is trivial though,
+% so the CC-WIKI requirements do not apply to this evolved excerpt.
+% This applies to fragments of the next two paragraphs only.
+
+\usepackage[table]{xcolor}
+\usepackage{newunicodechar}
+
+\newcommand\Warning{%
+ \makebox[1.4em][c]{%
+ \makebox[0pt][c]{\raisebox{.1em}{\footnotesize!}}%
+ \makebox[0pt][c]{\color{red}\huge$\bigtriangleup$}}}%
+
+% Set up more Unicode characters for LaTeX
+
+\newunicodechar{⚠}{\Warning}
+
+\usepackage{wasysym} % TeX sucks ☺
+\newunicodechar{♂}{\male}
+\newunicodechar{♀}{\female}
+\newunicodechar{¤}{\currency}
+\newunicodechar{☎}{\phone}
+\newunicodechar{☏}{\phone}% XXX
+\newunicodechar{⌕}{\recorder}
+\newunicodechar{☇}{\lightning}
+\newunicodechar{▲}{\UParrow}
+\newunicodechar{▶}{\RIGHTarrow}
+\newunicodechar{▼}{\DOWNarrow}
+\newunicodechar{◀}{\LEFTarrow}
+\newunicodechar{⌀}{\diameter}
+\newunicodechar{∢}{\varangle}
+\newunicodechar{⌑}{\wasylozenge}
+\newunicodechar{☩}{\kreuz}
+\newunicodechar{☻}{\blacksmiley}
+\newunicodechar{☺}{\smiley}
+\newunicodechar{☹}{\frownie}
+\newunicodechar{☀}{\sun}
+\newunicodechar{☼}{\sun}
+\newunicodechar{✓}{\checked}
+\newunicodechar{⍾}{\bell}
+\newunicodechar{¢}{\cent}
+\newunicodechar{‰}{\permil}
+\newunicodechar{¦}{\brokenvert}
+\newunicodechar{∴}{\wasytherefore}
+\newunicodechar{⋈}{\bowtie}
+\newunicodechar{℧}{\agemO}
+\newunicodechar{☐}{\Square}
+\newunicodechar{☒}{\Xbox}
+\newunicodechar{☑}{\CheckedBox}
+\newunicodechar{✶}{\hexstar}
+\newunicodechar{✡}{\davidsstar}
+\newunicodechar{♪}{\eigthnote}
+\newunicodechar{♩}{\quarternote}
+\newunicodechar{♫}{\twonotes}
+\newunicodechar{○}{\Circle}
+\newunicodechar{●}{\CIRCLE}
+\newunicodechar{◖}{\LEFTCIRCLE}
+\newunicodechar{◗}{\RIGHTCIRCLE}
+\newunicodechar{◐}{\LEFTcircle}
+\newunicodechar{◑}{\RIGHTcircle}
+\newunicodechar{↺}{\leftturn}
+\newunicodechar{↻}{\rightturn}
+\newunicodechar{☊}{\ascnode}
+\newunicodechar{☋}{\descnode}
+\newunicodechar{⚪}{\fullmoon}% XXX
+\newunicodechar{⚫}{\newmoon}% XXX
+\newunicodechar{☾}{\leftmoon}
+\newunicodechar{☽}{\rightmoon}
+\newunicodechar{☉}{\astrosun}
+\newunicodechar{☿}{\mercury}
+\newunicodechar{♁}{\earth}
+\newunicodechar{♃}{\jupiter}
+\newunicodechar{♄}{\saturn}
+\newunicodechar{♅}{\uranus}
+\newunicodechar{♆}{\neptune}
+\newunicodechar{♇}{\pluto}
+\newunicodechar{♈}{\aries}
+\newunicodechar{♉}{\taurus}
+\newunicodechar{♊}{\gemini}
+\newunicodechar{♋}{\cancer}
+\newunicodechar{♌}{\leo}
+\newunicodechar{♍}{\virgo}
+\newunicodechar{♎}{\libra}
+\newunicodechar{♏}{\scorpio}
+\newunicodechar{♐}{\sagittarius}
+\newunicodechar{♑}{\capricornus}
+\newunicodechar{♒}{\aquarius}
+\newunicodechar{♓}{\pisces}
+\newunicodechar{☌}{\conjunction}
+\newunicodechar{☍}{\opposition}
+
+\newunicodechar{‑}{-\nolinebreak\hspace{0pt}}
+% em dash
+\def\dash{\unskip\kern.16667em\textemdash\penalty\exhyphenpenalty\hskip.16667em\relax}
+% for footnotes
+\newcommand{\Hair}{\kern.16667em}
+
+\definecolor{teckidsorangedark}{HTML}{FF6600}%
+\definecolor{teckidsorangelight}{HTML}{FF9955}%
+\definecolor{teckidsbluegradientlight}{HTML}{00CBFA}%
+\definecolor{teckidsbluegradientdark}{HTML}{0606FA}%
+\definecolor{teckidsbluestroke}{HTML}{005EBE}%

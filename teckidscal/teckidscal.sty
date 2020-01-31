@@ -1,0 +1,660 @@
+% -*- mode: tex -*-
+%-
+% Copyright © 2016, 2017, 2018
+%	Thorsten Glaser <thorsten.glaser@teckids.org>
+%
+% Provided that these terms and disclaimer and all copyright notices
+% are retained or reproduced in an accompanying document, permission
+% is granted to deal in this work without restriction, including un‐
+% limited rights to use, publicly perform, distribute, sell, modify,
+% merge, give away, or sublicence.
+%
+% This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+% the utmost extent permitted by applicable law, neither express nor
+% implied; without malicious intent or gross negligence. In no event
+% may a licensor, author or contributor be held liable for indirect,
+% direct, other damage, loss, or other issues arising in any way out
+% of dealing in the work, even if advised of the possibility of such
+% damage or existence of a defect, except proven that it results out
+% of said person’s immediate fault when using the work as intended.
+%-
+% Teckids e.V. Wandkalender-Utilities
+
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{teckidscal}[2019/03/07 1.5 Teckids e.V. Wandkalender-Utilities]%
+\RequirePackage{pgf,pgfcalendar}%
+\input{pgflibrarycalendar.easter.def}%
+\RequirePackage{etoolbox}%
+\RequirePackage{multirow}%
+\RequirePackage{stringstrings}%
+\renewcommand{\multirowsetup}{}%
+
+% Externe Makros:
+% \teckidscalprep{1}{2016}{12}{2016}
+% \teckidscalonline{yyyy-mm-dd}		Online-Treffen
+% \teckidscalveranst[label]{yyyy-mm-dd}	Veranstaltung
+% \teckidscalworkday[label]{yyyy-mm-dd}	Workday „groß“
+% \teckidscalworkklein[txt]{yyyy-mm-dd}	Workday „klein“
+% \teckidscallabel[label]{yyyy-mm-dd}	(nur Text: VS, PM, …}
+% \teckidscalrender{Fußnoteneinleitung}
+
+% Interne Makros:
+% \tkToJD{2016-12-31} ⇒ \tkjd
+% \tkFromJD{2456737} ⇒ \tktmY-\tktmM-\tktmD
+
+% Kalenderzuweisungen:
+% \tkDayNr$JD = '1'
+% \tkDayName$JD = 'Mo*'
+% \tkDayKW$JD = '1' (ISO 8601 calendar week, only on Mondays)
+% \tkDayHoliday$JD = 'Neujahr'
+% \tkDayHolilong$JD = 'Neujahrstag'
+% \tkDayTeckids$JD = 'MGV'
+% \tkDayType$JD = 0 (normal), 1 (weekend/holiday), 2 (Veranstaltung),
+%	3 (Workday groß), 4 (Workday klein), 5 (Online-Meeting)
+
+% Renderlogik: 0 = auf weiß, 1 = fett auf grau, 2-5 = auf bunt
+%	Wandel von 0/1 auf 2+ muß bei 1 fett nach tkDayNr/Name übernehmen
+% 	DayTeckids Vorrang vor DayHoliday (letzteres in Fußnote)
+%	DayName, DayHoliday in schwarz
+%	DayTeckids auf 0/1 in fett orange, auf 2-5 in fett weiß
+
+\definecolor{teckidscal0Label}{HTML}{FF6600}%
+\definecolor{teckidscal1Label}{HTML}{FF6600}%
+\definecolor{teckidscal2Label}{HTML}{FFFFFF}%
+\definecolor{teckidscal3Label}{HTML}{FFFFFF}%
+\definecolor{teckidscal4Label}{HTML}{FFFFFF}%
+\definecolor{teckidscal5Label}{HTML}{FFFFFF}%
+\definecolor{teckidscal6Label}{HTML}{FFFFFF}%
+\definecolor{teckidscal0}{HTML}{FFFFFF}%
+\definecolor{teckidscal1}{HTML}{E6E6E6}%
+\definecolor{teckidscal2}{HTML}{8730D0}%
+\definecolor{teckidscal3}{HTML}{00CBFA}%
+\definecolor{teckidscal4}{HTML}{00CC00}%
+\definecolor{teckidscal5}{HTML}{D12A00}%
+\definecolor{teckidscal6}{HTML}{CDB38B}%
+\definecolor{teckidscalKW}{HTML}{FFBF00}%
+\definecolor{teckidscalNO}{HTML}{999999}%
+\expandafter\def\csname teckidscalcolour0\endcsname{regulärer Wochentag\hfill\color{teckidscalKW}KW\color{black}\Hair\textsuperscript1}%
+\expandafter\def\csname teckidscalcolour1\endcsname{Wochenende / \textbf{Feiertag*}}%
+\expandafter\def\csname teckidscalcolour2\endcsname{Veranstaltung}%
+\expandafter\def\csname teckidscalcolour3\endcsname{Workday „groß“}%
+\expandafter\def\csname teckidscalcolour4\endcsname{Workday „klein“}%
+\expandafter\def\csname teckidscalcolour5\endcsname{Online-Treffen}%
+\expandafter\def\csname teckidscalcolour6\endcsname{nicht-Teckids- oder\newline ungeplante Veranstaltung}%
+\def\teckidscalcolourLabel{Arbeitsgruppentreffen}%
+
+% From Bernd Raichle via http://www.gust.org.pl/projects/pearls/2006p/index_html
+\def\tkifdef#1#2#3{%
+ \begingroup \expandafter \endgroup \expandafter%
+ \ifx\csname#1\endcsname\undefined#3\else#2\fi%
+}%
+
+\newcommand*{\tkCalColsep}{&}%
+
+\newcount\tkcalbeg%	JD erster Kalendertag
+\newcount\tkcalend%	JD letzter Kalendertag
+\newcount\tkjd%		JD Laufvariable
+\newcount\tktmY%	temporäre Variable Jahr
+\newcount\tktmM%	temporäre Variable Monat
+\newcount\tktmD%	temporäre Variable Tag
+\newcounter{tkFN}%	Fußnote
+\stepcounter{tkFN}%	erste steht immer fest
+\gdef\tkFNtext{%	Fußnotentext
+ 1)~KW: Kalenderwoche%
+}%
+
+\newcount\tkCalNumMon%	Anzahl Monate (= Spalten / 3)
+\newcount\tkCalNumYr%	Jahrescolspantracker
+
+\newtoks\tkCalToks%	temporary token
+\newtoks\tkCalLineY%	current year's line
+\expandafter\newtoks\csname tkCalLine0\endcsname%
+\expandafter\newtoks\csname tkCalLine1\endcsname%
+\expandafter\newtoks\csname tkCalLine2\endcsname%
+\expandafter\newtoks\csname tkCalLine3\endcsname%
+\expandafter\newtoks\csname tkCalLine4\endcsname%
+\expandafter\newtoks\csname tkCalLine5\endcsname%
+\expandafter\newtoks\csname tkCalLine6\endcsname%
+\expandafter\newtoks\csname tkCalLine7\endcsname%
+\expandafter\newtoks\csname tkCalLine8\endcsname%
+\expandafter\newtoks\csname tkCalLine9\endcsname%
+\expandafter\newtoks\csname tkCalLine10\endcsname%
+\expandafter\newtoks\csname tkCalLine11\endcsname%
+\expandafter\newtoks\csname tkCalLine12\endcsname%
+\expandafter\newtoks\csname tkCalLine13\endcsname%
+\expandafter\newtoks\csname tkCalLine14\endcsname%
+\expandafter\newtoks\csname tkCalLine15\endcsname%
+\expandafter\newtoks\csname tkCalLine16\endcsname%
+\expandafter\newtoks\csname tkCalLine17\endcsname%
+\expandafter\newtoks\csname tkCalLine18\endcsname%
+\expandafter\newtoks\csname tkCalLine19\endcsname%
+\expandafter\newtoks\csname tkCalLine20\endcsname%
+\expandafter\newtoks\csname tkCalLine21\endcsname%
+\expandafter\newtoks\csname tkCalLine22\endcsname%
+\expandafter\newtoks\csname tkCalLine23\endcsname%
+\expandafter\newtoks\csname tkCalLine24\endcsname%
+\expandafter\newtoks\csname tkCalLine25\endcsname%
+\expandafter\newtoks\csname tkCalLine26\endcsname%
+\expandafter\newtoks\csname tkCalLine27\endcsname%
+\expandafter\newtoks\csname tkCalLine28\endcsname%
+\expandafter\newtoks\csname tkCalLine29\endcsname%
+\expandafter\newtoks\csname tkCalLine30\endcsname%
+\expandafter\newtoks\csname tkCalLine31\endcsname%
+\newtoks\tkCalClineA%
+\newtoks\tkCalClineB%
+
+\newcommand{\tkToJD}[1]{%
+ \pgfcalendardatetojulian{#1}{\tkjd}%
+}%
+\newcommand{\tkFromJD}[1]{%
+ \pgfcalendarjuliantodate{#1}{\tktmY}{\tktmM}{\tktmD}%
+}%
+
+\expandafter\def\csname tkCALday0\endcsname{Mo}%
+\expandafter\def\csname tkCALday1\endcsname{Di}%
+\expandafter\def\csname tkCALday2\endcsname{Mi}%
+\expandafter\def\csname tkCALday3\endcsname{Do}%
+\expandafter\def\csname tkCALday4\endcsname{Fr}%
+\expandafter\def\csname tkCALday5\endcsname{Sa}%
+\expandafter\def\csname tkCALday6\endcsname{So}%
+
+\expandafter\def\csname tkCALmon1\endcsname{Januar}%
+\expandafter\def\csname tkCALmon2\endcsname{Februar}%
+\expandafter\def\csname tkCALmon3\endcsname{März}%
+\expandafter\def\csname tkCALmon4\endcsname{April}%
+\expandafter\def\csname tkCALmon5\endcsname{Mai}%
+\expandafter\def\csname tkCALmon6\endcsname{Juni}%
+\expandafter\def\csname tkCALmon7\endcsname{Juli}%
+\expandafter\def\csname tkCALmon8\endcsname{August}%
+\expandafter\def\csname tkCALmon9\endcsname{September}%
+\expandafter\def\csname tkCALmon10\endcsname{Oktober}%
+\expandafter\def\csname tkCALmon11\endcsname{November}%
+\expandafter\def\csname tkCALmon12\endcsname{Dezember}%
+
+\newcommand{\tk@mkholiday}[3][teckidsargdefaulted]{%
+ \tkToJD{#2}%
+ \ifstrequal{#1}{teckidsargdefaulted}{}{%
+  \expandafter\xdef\csname tkDayHolilong\number\tkjd\endcsname{#1}%
+ }%
+ \expandafter\xdef\csname tkDayHoliday\number\tkjd\endcsname{#3}%
+ \expandafter\xdef\csname tkDayType\number\tkjd\endcsname{1}%
+ \expandafter\xdef\csname tkDayNr\number\tkjd\endcsname{\csname tkDayNr\number\tkjd\endcsname *}%
+ \expandafter\xdef\csname tkDayName\number\tkjd\endcsname{\csname tkDayName\number\tkjd\endcsname *}%
+}%
+
+% #1/#2=von Monat/Jahr #3/#4=bis Monat/Jahr
+\newcommand{\teckidscalprep}[4]{%
+ %% Kalenderwochen (ganze Jahre plus eins)
+ \tkcalend=#4%
+ \advance\tkcalend by 1%
+ \tkcalbeg=#2%
+ \loop%
+  {% to allow nested loops
+   \tkToJD{\tkcalbeg-01-04}%
+   \loop%
+    \pgfcalendarjuliantoweekday{\tkjd}{\@tempcntb}%
+   \ifnum\@tempcntb = 0\else%
+    \advance\tkjd by -1%
+   \repeat%
+   \@tempcntb=1%
+   \loop%
+    \expandafter\xdef\csname tkDayKW\number\tkjd\endcsname{\number\@tempcntb{}}%
+   \ifnum\@tempcntb < 54%
+    \advance\tkjd by 7%
+    \advance\@tempcntb by 1%
+   \repeat%
+  }%
+ \ifnum\tkcalbeg < \tkcalend%
+  \advance\tkcalbeg by 1%
+ \repeat%
+ %% Kalendergrenzen
+ \tkToJD{#4-#3-last}\tkcalend=\tkjd%
+ \tkToJD{#2-#1-01}\tkcalbeg=\tkjd%
+ %% Wochentage, Wochenenden
+ \loop%
+  \tkFromJD{\tkjd}%
+  \pgfcalendarjuliantoweekday{\tkjd}{\@tempcntb}%
+  \pgfcalendarifdate{\tktmY-\tktmM-\tktmD}{workday}%
+   {%
+    \expandafter\xdef\csname tkDayType\number\tkjd\endcsname{0}%
+   }%
+   {%
+    \expandafter\xdef\csname tkDayType\number\tkjd\endcsname{1}%
+   }%
+  \expandafter\xdef\csname tkDayNr\number\tkjd\endcsname{\number\tktmD}%
+  \expandafter\xdef\csname tkDayName\number\tkjd\endcsname{\csname tkCALday\number\@tempcntb\endcsname}%
+ \ifnum\tkjd < \tkcalend%
+  \advance\tkjd by 1%
+ \repeat%
+ %% Feiertage in Nordrhein-Westfalen, mit gesetzlichen Namen
+ \tkFromJD{\tkcalend}%
+ \@tempcntb=\tktmY%
+ \tkFromJD{\tkcalbeg}%
+ \@tempcnta=\tktmY%
+ \loop%
+  \pgfcalendar@Easter\@tempcnta%
+  %% Neujahrstag (01.01.)
+  \tk@mkholiday{\@tempcnta-01-01}{Neujahr}%
+  %% Karfreitag (Ostersonntag - 2)
+  \tkFromJD{\csname pgfcalendar@Easter@\the\@tempcnta\endcsname}%
+  \tk@mkholiday{\tktmY-\tktmM-\tktmD+-2}{Karfreitag}%
+  %% Ostersonntag
+  \tkFromJD{\csname pgfcalendar@Easter@\the\@tempcnta\endcsname}%
+  \tk@mkholiday{\tktmY-\tktmM-\tktmD}{Ostersonntag}%
+  %% Ostermontag (Ostersonntag + 1)
+  \tkFromJD{\csname pgfcalendar@Easter@\the\@tempcnta\endcsname}%
+  \tk@mkholiday{\tktmY-\tktmM-\tktmD+1}{Ostermontag}%
+  %% Tag des Bekenntnisses zu Freiheit und Frieden, sozialer Gerechtigkeit, Völkerversöhnung und Menschenwürde (01.05.)
+  \tk@mkholiday[Tag des Bekenntnisses zu Freiheit und Frieden, sozialer Gerechtigkeit, Völkerversöhnung und Menschenwürde]{\@tempcnta-05-01}{Maifeiertag}%Tag des Friedens und der Völkerversöhnung}%
+  %% Christi-Himmelfahrts-Tag (Ostersonntag + 39)
+  \tkFromJD{\csname pgfcalendar@Easter@\the\@tempcnta\endcsname}%
+  \tk@mkholiday[Christi Himmelfahrt]{\tktmY-\tktmM-\tktmD+39}{Himmelfahrt}%
+  %% Pfingstsonntag (Ostersonntag + 49)
+  \tkFromJD{\csname pgfcalendar@Easter@\the\@tempcnta\endcsname}%
+  \tk@mkholiday{\tktmY-\tktmM-\tktmD+49}{Pfingstsonntag}%
+  %% Pfingstmontag (Ostersonntag + 50)
+  \tkFromJD{\csname pgfcalendar@Easter@\the\@tempcnta\endcsname}%
+  \tk@mkholiday{\tktmY-\tktmM-\tktmD+50}{Pfingstmontag}%
+  %% Fronleichnamstag (Ostersonntag + 60)
+  \tkFromJD{\csname pgfcalendar@Easter@\the\@tempcnta\endcsname}%
+  \tk@mkholiday{\tktmY-\tktmM-\tktmD+60}{Fronleichnam}%
+  %% Tag der Deutschen Einheit (03.10.)
+  \tk@mkholiday[Tag der Deutschen Einheit]{\@tempcnta-10-03}{Dt.Einheit}%
+  %% Allerheiligentag (01.11.)
+  \tk@mkholiday{\@tempcnta-11-01}{Allerheiligen}%
+  %% 1. Weihnachtstag (25.12.)
+  \tk@mkholiday[1. Weihnachtstag]{\@tempcnta-12-25}{Weihnachten}%
+  %% 2. Weihnachtstag (26.12.)
+  \tk@mkholiday[2. Weihnachtstag]{\@tempcnta-12-26}{Weihnachten}%
+ \ifnum\@tempcnta<\@tempcntb%
+  \advance\@tempcnta by 1%
+ \repeat%
+ %% 500. Jahrestag der Reformation (31.10.2017)
+ \tk@mkholiday[500. Jahrestag der Reformation]{2017-10-31}{500. Jahrestag Reformation}%
+}%
+
+\def\tk@BoldenDay{%
+ \ifcase\csname tkDayType\number\tkjd\endcsname\or%
+  \expandafter\xdef\csname tkDayNr\number\tkjd\endcsname{%
+   \noexpand\textbf{\csname tkDayNr\number\tkjd\endcsname}%
+  }%
+  \expandafter\xdef\csname tkDayName\number\tkjd\endcsname{%
+   \noexpand\textbf{\csname tkDayName\number\tkjd\endcsname}%
+  }%
+ \fi%
+}%
+
+\newcommand{\teckidscalonline}[2][teckidsargdefaulted]{%
+ \tkToJD{#2}%
+ \ifstrequal{#1}{teckidsargdefaulted}{}{%
+  \tkifdef{tkDayTeckids\number\tkjd}{\PackageError{teckidscal}%
+   {Ein Tag kann nur ein Label haben! Fehler in Tag #2}{}}{}%
+  \expandafter\xdef\csname tkDayTeckids\number\tkjd\endcsname{#1}%
+ }%
+ \tk@BoldenDay%
+ \ifcase\csname tkDayType\number\tkjd\endcsname\or\else%
+  \PackageError{teckidscal}%
+  {Ein Tag kann nur einen Typ haben! Fehler in Tag #1}{}%
+ \fi%
+ \expandafter\xdef\csname tkDayType\number\tkjd\endcsname{5}%
+}%
+
+\newcommand{\teckidscalveranst}[2][teckidsargdefaulted]{%
+ \tkToJD{#2}%
+ \ifstrequal{#1}{teckidsargdefaulted}{}{%
+  \tkifdef{tkDayTeckids\number\tkjd}{\PackageError{teckidscal}%
+   {Ein Tag kann nur ein Label haben! Fehler in Tag #2}{}}{}%
+  \expandafter\xdef\csname tkDayTeckids\number\tkjd\endcsname{#1}%
+ }%
+ \tk@BoldenDay%
+ \ifcase\csname tkDayType\number\tkjd\endcsname\or\else%
+  \PackageError{teckidscal}%
+  {Ein Tag kann nur einen Typ haben! Fehler in Tag #2}{}%
+ \fi%
+ \expandafter\xdef\csname tkDayType\number\tkjd\endcsname{2}%
+}%
+
+\newcommand{\teckidscalworkday}[2][teckidsargdefaulted]{%
+ \tkToJD{#2}%
+ \ifstrequal{#1}{teckidsargdefaulted}{}{%
+  \tkifdef{tkDayTeckids\number\tkjd}{\PackageError{teckidscal}%
+   {Ein Tag kann nur ein Label haben! Fehler in Tag #2}{}}{}%
+  \expandafter\xdef\csname tkDayTeckids\number\tkjd\endcsname{#1}%
+ }%
+ \tk@BoldenDay%
+ \ifcase\csname tkDayType\number\tkjd\endcsname\or\else%
+  \PackageError{teckidscal}%
+  {Ein Tag kann nur einen Typ haben! Fehler in Tag #2}{}%
+ \fi%
+ \expandafter\xdef\csname tkDayType\number\tkjd\endcsname{3}%
+}%
+
+\newcommand{\teckidscalworkklein}[2][teckidsargdefaulted]{%
+ \tkToJD{#2}%
+ \ifstrequal{#1}{teckidsargdefaulted}{}{%
+  \tkifdef{tkDayTeckids\number\tkjd}{\PackageError{teckidscal}%
+   {Ein Tag kann nur ein Label haben! Fehler in Tag #2}{}}{}%
+  \expandafter\xdef\csname tkDayTeckids\number\tkjd\endcsname{#1}%
+ }%
+ \tk@BoldenDay%
+ \ifcase\csname tkDayType\number\tkjd\endcsname\or\else%
+  \PackageError{teckidscal}%
+  {Ein Tag kann nur einen Typ haben! Fehler in Tag #2}{}%
+ \fi%
+ \expandafter\xdef\csname tkDayType\number\tkjd\endcsname{4}%
+}%
+
+\newcommand{\teckidscalextveranst}[2][teckidsargdefaulted]{%
+ \tkToJD{#2}%
+ \ifstrequal{#1}{teckidsargdefaulted}{}{%
+  \tkifdef{tkDayTeckids\number\tkjd}{\PackageError{teckidscal}%
+   {Ein Tag kann nur ein Label haben! Fehler in Tag #2}{}}{}%
+  \expandafter\xdef\csname tkDayTeckids\number\tkjd\endcsname{#1}%
+ }%
+ \tk@BoldenDay%
+ \ifcase\csname tkDayType\number\tkjd\endcsname\or\else%
+  \PackageError{teckidscal}%
+  {Ein Tag kann nur einen Typ haben! Fehler in Tag #2}{}%
+ \fi%
+ \expandafter\xdef\csname tkDayType\number\tkjd\endcsname{6}%
+}%
+
+\newcommand{\teckidscallabel}[2][teckidsargdefaulted]{%
+ \ifstrequal{#1}{teckidsargdefaulted}{\PackageError{teckidscal}%
+  {Das erste Argument zu \protect\teckidscallabel\space%
+   darf nicht leer sein!}}{}%
+ \tkToJD{#2}%
+ \tkifdef{tkDayTeckids\number\tkjd}{\PackageError{teckidscal}%
+  {Ein Tag kann nur ein Label haben! Fehler in Tag #2}{}}{}%
+ \expandafter\xdef\csname tkDayTeckids\number\tkjd\endcsname{#1}%
+}%
+
+\newcommand{\tkAmdToks}[1]{%
+ \tkCalToks=\expandafter{\the\tkCalToks #1}%
+}%
+
+\newcommand{\tkAddToks}[1]{%
+ \tkCalToks=\expandafter{\the\expandafter\tkCalToks #1}%
+}%
+
+\newcommand{\tkAddTokp}[1]{%
+ \edef\1{#1}%
+ \tkCalToks=\expandafter{\the\expandafter\tkCalToks \expandafter{\1}}%
+}%
+
+\newcommand{\teckidsc@llegend}[1]{%
+ \cellcolor{teckidscal#1}\color{black}%
+  \strut\csname teckidscalcolour#1\endcsname{}\strut%
+ \tkCalColsep%
+ \cellcolor{teckidscal#1}\color{teckidscal#1Label}
+  \textbf{\strut\teckidscalcolourLabel\strut}%
+}%
+
+\linespread{1.0}%
+
+\newcommand{\teckidscalrender}[1]{%
+ \tkCalNumYr=\z@%
+ \tkCalNumMon=\z@%
+ \tkCalLineY={}%
+ \csname tkCalLine0\endcsname={}%
+ \csname tkCalLine1\endcsname={}%
+ \csname tkCalLine2\endcsname={}%
+ \csname tkCalLine3\endcsname={}%
+ \csname tkCalLine4\endcsname={}%
+ \csname tkCalLine5\endcsname={}%
+ \csname tkCalLine6\endcsname={}%
+ \csname tkCalLine7\endcsname={}%
+ \csname tkCalLine8\endcsname={}%
+ \csname tkCalLine9\endcsname={}%
+ \csname tkCalLine10\endcsname={}%
+ \csname tkCalLine11\endcsname={}%
+ \csname tkCalLine12\endcsname={}%
+ \csname tkCalLine13\endcsname={}%
+ \csname tkCalLine14\endcsname={}%
+ \csname tkCalLine15\endcsname={}%
+ \csname tkCalLine16\endcsname={}%
+ \csname tkCalLine17\endcsname={}%
+ \csname tkCalLine18\endcsname={}%
+ \csname tkCalLine19\endcsname={}%
+ \csname tkCalLine20\endcsname={}%
+ \csname tkCalLine21\endcsname={}%
+ \csname tkCalLine22\endcsname={}%
+ \csname tkCalLine23\endcsname={}%
+ \csname tkCalLine24\endcsname={}%
+ \csname tkCalLine25\endcsname={}%
+ \csname tkCalLine26\endcsname={}%
+ \csname tkCalLine27\endcsname={}%
+ \csname tkCalLine28\endcsname={}%
+ \csname tkCalLine29\endcsname={}%
+ \csname tkCalLine30\endcsname={}%
+ \csname tkCalLine31\endcsname={}%
+ \tkCalClineA={}%
+ \tkCalClineB={}%
+ \tkjd=\tkcalbeg%
+ \@tempcnta=\z@% Jahr
+ \@tempcntb=\z@% Monat
+ \loop%
+  \tkFromJD{\tkjd}%
+  \tk@BoldenDay%
+  \ifnum\@tempcnta=\tktmY\else%
+   \ifnum\@tempcnta=\z@\else%
+    \tkCalToks={}%
+    \tkAmdToks{\multicolumn}%
+    \tkAddTokp{\number\tkCalNumYr}%
+    \tkAmdToks{{|c|}}%
+    \tkAddTokp{\number\@tempcnta}%
+    \tkAmdToks{\tkCalColsep}%
+    \tkCalLineY=\expandafter{\the\expandafter\tkCalLineY \the\tkCalToks}%
+    \tkCalNumYr=0%
+   \fi%
+   \@tempcnta=\tktmY%
+  \fi%
+  \ifnum\@tempcntb=\tktmM\else%
+   \ifnum\count@<29%
+    \ifnum\tkCalNumMon=\@ne\else%
+     \csname tkCalLine29\endcsname=\expandafter{\the\csname tkCalLine29\endcsname \tkCalColsep}%
+    \fi%
+    \csname tkCalLine29\endcsname=\expandafter{\the\csname tkCalLine29\endcsname \multicolumn{3}{|c|}{\cellcolor{teckidscalNO}}}%
+   \fi%
+   \ifnum\count@<30%
+    \ifnum\tkCalNumMon=\@ne\else%
+     \csname tkCalLine30\endcsname=\expandafter{\the\csname tkCalLine30\endcsname \tkCalColsep}%
+    \fi%
+    \csname tkCalLine30\endcsname=\expandafter{\the\csname tkCalLine30\endcsname \multicolumn{3}{|c|}{\cellcolor{teckidscalNO}}}%
+   \fi%
+   \ifnum\count@<31%
+    \ifnum\tkCalNumMon=\@ne\else%
+     \csname tkCalLine31\endcsname=\expandafter{\the\csname tkCalLine31\endcsname \tkCalColsep}%
+    \fi%
+    \csname tkCalLine31\endcsname=\expandafter{\the\csname tkCalLine31\endcsname \multicolumn{3}{|c|}{\cellcolor{teckidscalNO}}}%
+   \fi%
+   \tkCalToks={}%
+   \ifnum\@tempcntb=\z@\else%
+    \tkAmdToks{\tkCalColsep}%
+   \fi%
+   \tkAmdToks{\multicolumn{3}{|c|}}%
+   \tkAddToks{\csname tkCALmon\number\tktmM\endcsname}%
+   \csname tkCalLine0\endcsname=\expandafter{\the\expandafter\expandafter\csname tkCalLine0\endcsname \the\tkCalToks}%
+   \@tempcntb=\tktmM%
+   \advance\tkCalNumMon by 1%
+   \advance\tkCalNumYr by 3%
+  \fi%
+  %
+  \tkCalToks={}%
+  \ifnum\tkCalNumMon=1\else%
+   \tkAmdToks{\tkCalColsep}%
+  \fi%
+  %
+  \tkAmdToks{\cellcolor}%
+  \tkAddTokp{teckidscal\csname tkDayType\number\tkjd\endcsname}%
+  \tkAmdToks{\color{black}}%
+  \tkAddToks{\number\tktmD}%
+  \tkAmdToks{\tkCalColsep}%
+  \tkAmdToks{\cellcolor}%
+  \tkAddTokp{teckidscal\csname tkDayType\number\tkjd\endcsname}%
+  \tkAmdToks{\color{black}}%
+  \tkAddToks{\csname tkDayName\number\tkjd\endcsname}%
+  \tkifdef{tkDayHoliday\number\tkjd}{%
+   \tkifdef{tkDayTeckids\number\tkjd}{%
+    \stepcounter{tkFN}%
+    \tkAmdToks{\textsuperscript}%
+    \tkAddTokp{\thetkFN}%
+    \let\teckidsTmp\tkFNtext%
+    \tkifdef{tkDayHolilong\number\tkjd}{%
+     \xdef\tkFNtext{\teckidsTmp \dash \thetkFN)~\tktmD.\tktmM.\tktmY: {}%
+      \csname tkDayHolilong\number\tkjd\endcsname}%
+    }{%
+     \xdef\tkFNtext{\teckidsTmp \dash \thetkFN)~\tktmD.\tktmM.\tktmY: {}%
+      \csname tkDayHoliday\number\tkjd\endcsname}%
+    }%
+    \tkAmdToks{\tkCalColsep}%
+    \tkAmdToks{\cellcolor}%
+    \tkAddTokp{teckidscal\csname tkDayType\number\tkjd\endcsname}%
+    \tkAmdToks{\color{black}}%
+   }{%
+    \tkifdef{tkDayHolilong\number\tkjd}{%
+     \stepcounter{tkFN}%
+     \tkAmdToks{\textsuperscript}%
+     \tkAddTokp{\thetkFN}%
+     \let\teckidsTmp\tkFNtext%
+     \xdef\tkFNtext{\teckidsTmp \dash \thetkFN)~\tktmD.\tktmM.\tktmY: {}%
+      \csname tkDayHolilong\number\tkjd\endcsname}%
+    }{}%
+    \tkAmdToks{\tkCalColsep}%
+    \tkAmdToks{\cellcolor}%
+    \tkAddTokp{teckidscal\csname tkDayType\number\tkjd\endcsname}%
+    \tkAmdToks{\color{black}}%
+    \tkAmdToks{\scriptsize}%
+    \tkAddToks{\csname tkDayHoliday\number\tkjd\endcsname}%
+   }%
+  }{%
+   \tkAmdToks{\tkCalColsep}%
+   \tkAmdToks{\cellcolor}%
+   \tkAddTokp{teckidscal\csname tkDayType\number\tkjd\endcsname}%
+   \tkAmdToks{\color{black}}%
+  }%
+  \tkifdef{tkDayTeckids\number\tkjd}{%
+   \tkAmdToks{\color}%
+   \tkAddTokp{teckidscal\csname tkDayType\number\tkjd\endcsname Label}%
+   \stringlength[q]{\csname tkDayTeckids\number\tkjd\endcsname}%
+   \ifnum\theresult>8%
+    \tkAmdToks{\scriptsize}%
+   \fi%
+   \tkAmdToks{\textbf}%
+   \tkAddTokp{\csname tkDayTeckids\number\tkjd\endcsname}%
+  }{%
+   \tkifdef{tkDayHoliday\number\tkjd}{}{%
+    \tkifdef{tkDayKW\number\tkjd}{%
+     \tkAmdToks{\color{teckidscalKW}\hfill\normalsize}%
+     \tkAddToks{\csname tkDayKW\number\tkjd\endcsname}%
+    }{}%
+   }%
+  }%
+  \csname tkCalLine\number\tktmD\endcsname=\expandafter{\the\expandafter\expandafter\csname tkCalLine\number\tktmD\endcsname \the\tkCalToks}%
+  \ifnum\tktmD<29\else\ifnum\tktmD>30\else%
+   \count@=\tkCalNumMon%
+   \advance\count@ by -1%
+   \multiply\count@ by 3%
+   \advance\count@ by 1%
+   \edef\1{\number\count@}%
+   \advance\count@ by 2%
+   \tkCalToks={\cline}%
+   \tkAddTokp{\1-\number\count@}%
+   \ifnum\tktmD=29%
+    \tkCalClineA=\expandafter{\the\expandafter\tkCalClineA \the\tkCalToks}%
+   \else%
+    \tkCalClineB=\expandafter{\the\expandafter\tkCalClineB \the\tkCalToks}%
+   \fi%
+  \fi\fi%
+  \count@=\tktmD%
+ \ifnum\tkjd < \tkcalend%
+  \advance\tkjd by 1%
+ \repeat%
+ \ifnum\count@<29%
+  \csname tkCalLine29\endcsname=\expandafter{\the\csname tkCalLine29\endcsname \tkCalColsep\multicolumn{3}{|c|}{\cellcolor{teckidscalNO}}}%
+ \fi%
+ \ifnum\count@<30%
+  \csname tkCalLine30\endcsname=\expandafter{\the\csname tkCalLine30\endcsname \tkCalColsep\multicolumn{3}{|c|}{\cellcolor{teckidscalNO}}}%
+ \fi%
+ \ifnum\count@<31%
+  \csname tkCalLine31\endcsname=\expandafter{\the\csname tkCalLine31\endcsname \tkCalColsep\multicolumn{3}{|c|}{\cellcolor{teckidscalNO}}}%
+ \fi%
+ %
+ \tkCalToks={}%
+ \tkAmdToks{\multicolumn}%
+ \tkAddTokp{\number\tkCalNumYr}%
+ \tkAmdToks{{|c|}}%
+ \tkAddTokp{\number\@tempcnta}%
+ \tkCalLineY=\expandafter{\the\expandafter\tkCalLineY \the\tkCalToks}%
+
+ \begin{tabu} to \linewidth {|*{\the\tkCalNumMon}{rlX[m]|}}
+  \hline\the\tkCalLineY\\\hline
+  \the\csname tkCalLine0\endcsname\\\hline
+  \the\csname tkCalLine1\endcsname\\\hline
+  \the\csname tkCalLine2\endcsname\\\hline
+  \the\csname tkCalLine3\endcsname\\\hline
+  \the\csname tkCalLine4\endcsname\\\hline
+  \the\csname tkCalLine5\endcsname\\\hline
+  \the\csname tkCalLine6\endcsname\\\hline
+  \the\csname tkCalLine7\endcsname\\\hline
+  \the\csname tkCalLine8\endcsname\\\hline
+  \the\csname tkCalLine9\endcsname\\\hline
+  \the\csname tkCalLine10\endcsname\\\hline
+  \the\csname tkCalLine11\endcsname\\\hline
+  \the\csname tkCalLine12\endcsname\\\hline
+  \the\csname tkCalLine13\endcsname\\\hline
+  \the\csname tkCalLine14\endcsname\\\hline
+  \the\csname tkCalLine15\endcsname\\\hline
+  \the\csname tkCalLine16\endcsname\\\hline
+  \the\csname tkCalLine17\endcsname\\\hline
+  \the\csname tkCalLine18\endcsname\\\hline
+  \the\csname tkCalLine19\endcsname\\\hline
+  \the\csname tkCalLine20\endcsname\\\hline
+  \the\csname tkCalLine21\endcsname\\\hline
+  \the\csname tkCalLine22\endcsname\\\hline
+  \the\csname tkCalLine23\endcsname\\\hline
+  \the\csname tkCalLine24\endcsname\\\hline
+  \the\csname tkCalLine25\endcsname\\\hline
+  \the\csname tkCalLine26\endcsname\\\hline
+  \the\csname tkCalLine27\endcsname\\\hline
+  \the\csname tkCalLine28\endcsname\\\hline
+  \the\csname tkCalLine29\endcsname\\\the\tkCalClineA
+  \the\csname tkCalLine30\endcsname\\\the\tkCalClineB
+  \the\csname tkCalLine31\endcsname\\\hline
+ \end{tabu}
+
+ \vspace{2ex}%
+
+ \tkFromJD{\tkcalbeg}%
+ \edef\TEMP{\tktmM/\tktmY}%
+ \tkFromJD{\tkcalend}%
+
+ \begin{tabu} to \linewidth {X[4]|X[0.25]|X[3m]|X[0.25]|X[3m]|X[3m]|X[m]|X[3m]|X[3m]|X[m]|X[3m]|X[3m]|}
+  \cline{5-6}\cline{8-9}\cline{11-12}
+   \multirow{3}{=}{\Huge Jahresplan \LARGE\TEMP{}–\tktmM/\tktmY}
+   & \multicolumn{1}{l}{} & \multicolumn{1}{l}{\large Legende:} & &
+   \teckidsc@llegend{0} & & \teckidsc@llegend{3} & & \teckidsc@llegend{2}\\
+  \cline{3-3}\cline{5-6}\cline{8-9}\cline{11-12}
+   & & \cellcolor{teckidscal6} & \multicolumn{9}{c}{}\\[-1.8ex]
+  \cline{5-6}\cline{8-9}\cline{11-12}
+   & & \multirow[b]{-2}{=}[-.86ex]{%
+     \cellcolor{teckidscal6}\color{black}%
+     \strut\csname teckidscalcolour6\endcsname\strut%
+    } & &
+   \teckidsc@llegend{1} & & \teckidsc@llegend{4} & & \teckidsc@llegend{5}\\
+  \cline{3-3}\cline{5-6}\cline{8-9}\cline{11-12}
+ \end{tabu}
+
+ \vspace{2ex}%
+ \linespread{1.42}\selectfont%
+ \color{black}%
+
+ Feiertage für Nordrhein-Westfalen; \emph{alle Angaben ohne Gewähr!}
+ \dash Fußnoten: \tkFNtext
+
+ #1 \dash \LaTeX-Kalender: Thorsten Glaser
+
+ \relax%
+}%
+
+\endinput

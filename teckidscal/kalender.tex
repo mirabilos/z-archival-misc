@@ -1,0 +1,51 @@
+% -*- mode: tex -*-
+%-
+% Copyright © 2015, 2016, 2017, 2018
+%	Thorsten Glaser <thorsten.glaser@teckids.org>
+%
+% Provided that these terms and disclaimer and all copyright notices
+% are retained or reproduced in an accompanying document, permission
+% is granted to deal in this work without restriction, including un‐
+% limited rights to use, publicly perform, distribute, sell, modify,
+% merge, give away, or sublicence.
+%
+% This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+% the utmost extent permitted by applicable law, neither express nor
+% implied; without malicious intent or gross negligence. In no event
+% may a licensor, author or contributor be held liable for indirect,
+% direct, other damage, loss, or other issues arising in any way out
+% of dealing in the work, even if advised of the possibility of such
+% damage or existence of a defect, except proven that it results out
+% of said person’s immediate fault when using the work as intended.
+%-
+% Teckids e.V. Wandkalender (Jahresplan, interne Termine)
+% https://www.teckids.org/docs/verein/docs/jahresplan_a3.pdf (DIN ISO A3)
+
+\PassOptionsToPackage{paper=a3,landscape}{typearea}%
+\documentclass{article}%
+\usepackage{teckids1m}%
+\geometry{a3paper,landscape,includeheadfoot,left=1cm,right=1cm,top=2cm,bottom=2cm,headheight=0cm,headsep=0cm,foot=0cm,nomarginpar}% DIN ISO A3, quer
+\pagestyle{empty}%
+\usepackage{tabu}%
+\usepackage{teckidscal}%
+\usepackage{transparent}%
+\let\chead\relax% incompatibility workaround
+\let\cfoot\relax% dito
+\usepackage{xwatermark}%
+
+\setlength{\tabcolsep}{2pt}%
+\renewcommand{\arraystretch}{1.42}%
+
+\newwatermark*[allpages,angle=0,scale=0.9,xpos=-1cm,ypos=0.666cm]{%
+ {\transparent{0.3}%
+  \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio,angle=0,origin=c]{teckids_logo_aufkleber}%
+ }%
+}%
+
+\input{jahresplan.def}%
+
+\begin{document}
+ \teckidscalrender{%
+  Planer: \teckidscalPlaner{} \dash \textcolor{red}{Änderungen vorbehalten!}%
+ }%
+\end{document}
