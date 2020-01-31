@@ -1,0 +1,903 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./WritingEwePrograms_files/filelist.xml">
+<title>Writing Ewe Programs</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>12</o:Revision>
+  <o:TotalTime>248</o:TotalTime>
+  <o:Created>2002-11-05T12:30:00Z</o:Created>
+  <o:LastSaved>2003-03-24T19:32:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1222</o:Words>
+  <o:Characters>6966</o:Characters>
+  <o:Lines>58</o:Lines>
+  <o:Paragraphs>13</o:Paragraphs>
+  <o:CharactersWithSpaces>8554</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>0</w:Zoom>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#993300;
+	mso-ansi-language:EN-GB;
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:216165989;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1178720336 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:653602164;
+	mso-list-type:hybrid;
+	mso-list-template-ids:8653814 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:673915166;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1352064786 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3
+	{mso-list-id:1756970069;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1539026434 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:2118521500;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1119127170 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./WritingEwePrograms_files/image001.gif"
+lang=EN-US link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./WritingEwePrograms_files/image002.gif" o:title="blbkgnd"
+   type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc28099275"><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>07 May 2005</span><!--[if supportFields]><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \o &quot;1-4&quot; \h \z <span
+style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><a href="#_Toc28099275">Ewe Application Development<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc28099275 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320038003000390039003200370035000000</w:data>
+</xml><![endif]--></span></span></span></a></b></span><b><span lang=EN-GB
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><a href="#_Toc28099276">Writing Ewe Programs<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc28099276 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320038003000390039003200370036000000</w:data>
+</xml><![endif]--></span></span></span></a></b></span><b><span lang=EN-GB
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><a href="#_Toc28099277">The Ewe Software Development Kit
+(SDK)<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc28099277 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320038003000390039003200370037000000</w:data>
+</xml><![endif]--></span></span></span></a></b></span><b><span lang=EN-GB
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><a href="#_Toc28099278">Setting up your Development Tools<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc28099278 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320038003000390039003200370038000000</w:data>
+</xml><![endif]--></span></span></span></a></b></span><b><span lang=EN-GB
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc4 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><a href="#_Toc28099279">Setting up your Compiler<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc28099279 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320038003000390039003200370039000000</w:data>
+</xml><![endif]--></span></span></span></a></b></span><b><span lang=EN-GB
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc4 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><a href="#_Toc28099280">Testing the Compiler<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc28099280 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320038003000390039003200380030000000</w:data>
+</xml><![endif]--></span></span></span></a></b></span><b><span lang=EN-GB
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc4 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><a href="#_Toc28099281">Running your Programs<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc28099281 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320038003000390039003200380031000000</w:data>
+</xml><![endif]--></span></span></span></a></b></span><b><span lang=EN-GB
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc4 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><a href="#_Toc28099282">Command Line Options<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc28099282 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320038003000390039003200380032000000</w:data>
+</xml><![endif]--></span></span></span></a></b></span><b><span lang=EN-GB
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:#993300;mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc28099276"><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Writing Ewe Programs</span></a><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></h2>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>The Ewe
+virtual machine executes <b>Java byte-code</b> (i.e. Java programs that have been
+compiled into “.class”) files. Therefore you write Ewe programs in the same way
+that you write Java programs, by using an Editor or Integrated Development
+Environment (IDE) to write source “.java” programs, and then using a Java
+Compiler to compile them into “.class” files.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>Ewe
+programs are different to Java programs in a few respects, but it is important
+to remember that <b>Ewe programs can be executed by any Java VM as well as the
+Ewe VM</b>. This makes your Ewe applications more portable than any other Java
+applications since Ewe VMs exist for platforms for which there are no feasible
+Java VMs (e.g. the Casio BE-300 devices).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>The
+differences between Ewe and Java are:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'>The class library is different.</span></b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'> Ewe does not use any of the
+     classes in the standard “java.” packages, except for a selected number in
+     the <b>java.lang</b> and the <b>java.lang.reflect </b>package. You should
+     only use classes and methods specified in the <b>Ewe API</b> or classes
+     provided in packages by third-party developers (or your own classes, of course).
+     Many of the ewe packages are similar to the java packages so you will find
+     porting your code to be fairly simple.<br style='mso-special-character:
+     line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]><b><o:p></o:p></b></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'>The threading model is
+     different.</span></b><span lang=EN-GB style='mso-ansi-language:EN-GB'> Ewe
+     uses a slightly different threading model to Java – it has the same
+     features and functionality as Java (i.e. synchronization with lock objects
+     that can be waited on and notified) but it is provided using a different
+     mechanism and API. This is explained in a later chapter. The important
+     thing to remember when programming is that you <b>do not use</b> the <b>synchronized</b>
+     keyword, the <b>wait()</b> or <b>notify()</b> methods, and the <b>Thread</b>
+     class. Instead you should use the API as explained in the <a
+     href="EweThreads.htm" target=MainFrame>chapter on Multi-threading</a>.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]><b><o:p></o:p></b></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'>Ewe programs start a little
+     differently</span></b><span lang=EN-GB style='mso-ansi-language:EN-GB'>.
+     There are some small differences in the way Ewe applications and standard
+     Java applications begin running. This is explained in the chapter on <a
+     href="StartingYourApplication.htm" target=MainFrame>Starting your
+     Applications</a>.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]><b><o:p></o:p></b></span></li>
+</ul>
+
+<h2 style='background:#CCFFFF'><a name="_Toc28099277"><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>The Ewe Software Development Kit (SDK)</span></a><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></h2>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>This is
+available for free from the <a href="http://www.ewesoft.com/">Ewesoft</a>
+website and allows you develop Ewe programs on virtually <b>any</b> platform –
+including, with a little creativity, some mobile platforms. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>Ewesoft <b>strongly
+recommends</b> that you use the latest Java SDK (e.g. Java2SE 1.4.2 SDK) from
+sun (<a href="http://java.sun.com/">java.sun.com</a>) to compile and test your
+Ewe applications. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>The Ewe SDK
+comprises the following components – all of which are platform independent:<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'>The Ewe Class Library</span></b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'> <b>– Ewe.jar</b>. This file is
+     used as the library class source when compiling Ewe programs <b>and</b> it
+     is used as the runtime class source to run a Ewe Application under Java
+     1.2. <b><a href="#UseEweJar">Instructions for using ewe.jar with your Java
+     VM is given here.</a><br>
+     </b><br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'>The Jewel Program Builder</span></b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'> – <b>Jewel.ewe</b> and <b>JewelData.jar.</b>
+     These two comprise the <b>Jewel Program Builder</b>. This application is
+     used to package your class files into a single distributable <b>.ewe</b>
+     file. It is also used to convert your application into platform specific
+     executable files (e.g. Windows and WinCE <b>.exe</b> files) or Java <b>.jar</b>
+     files or web Java applets. <br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><b><span lang=EN-GB style='mso-ansi-language:EN-GB'>Not
+included in the SDK but available as a separate download</span></b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo15;tab-stops:list .5in'><b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'>The Ewe API </span></b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'>and<b> Ewe Application
+     Development</b> guide – The API is the list of all Ewe classes and methods
+     in HTML format, and the Ewe Application Development guide is this very
+     document.<o:p></o:p></span></li>
+</ol>
+
+<p class=MsoToc1><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=2 type=1>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo15;tab-stops:list .5in'><b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'>Ewe VMs</span></b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'> – running a Ewe application
+     under Java is done using the <b>Ewe.jar </b><span style="mso-spacerun:
+     yes"> </span>file mentioned before, but to run on any other platform you
+     should download and install the VM appropriate for your system from
+     Ewesoft.com.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo15;tab-stops:list .5in'><b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'>A Java Compiler</span></b><span
+     lang=EN-GB style='mso-ansi-language:EN-GB'> – which you will need to
+     compile your Ewe programs. Again, Ewesoft recommends using the Java SDK
+     available from Sun, but other compilers (such as <b>Jikes</b>) should also
+     work just as well.<o:p></o:p></span></li>
+</ol>
+
+<h2 style='background:#CCFFFF'><a name="_Toc28099278"><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Setting up your Development Tools</span></a><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></h2>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>The Ewe SDK
+is a single zip file containing Ewe.jar, Jewel.ewe and JewelData.jar. You
+should unzip the SDK into a development directory of your choice on your hard
+drive (e.g. C:\ewe or /usr/ewe).<o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28099279"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-GB style='color:green;mso-ansi-language:EN-GB'>Setting up
+your Compiler</span></b></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='color:green;mso-ansi-language:EN-GB'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>You must
+tell your compiler to look in the Ewe.jar file when it is compiling your Ewe
+applications. <b>With Sun’s JDK</b> you would include <b>&lt;ewe_directory&gt;/classes/Ewe.jar</b>
+in the <b>–classpath</b> option for the javac compiler. e.g.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-GB
+style='color:blue;mso-ansi-language:EN-GB'>javac -classpath c:/ewe/classes/Ewe.jar
+MyClass.java</span></b><span lang=EN-GB style='color:blue;mso-ansi-language:
+EN-GB'><br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></span></p>
+
+<p class=MsoHeading7><span lang=EN-GB style='mso-ansi-language:EN-GB'>With the
+Jikes compiler</span><span lang=EN-GB style='mso-ansi-language:EN-GB;
+font-weight:normal'> you must do the same:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-GB
+style='color:blue;mso-ansi-language:EN-GB'>jikes -classpath
+c:/ewe/classes/Ewe.jar MyClass.java</span></b><span lang=EN-GB
+style='color:blue;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28099280"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-GB style='color:green;mso-ansi-language:EN-GB'>Testing
+the Compiler</span></b></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='color:green;mso-ansi-language:EN-GB'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>Within the <b>classes</b>
+directory of the SDK there is a <b>tests</b> subdirectory with a <b>HelloWorld.java</b><span
+style='mso-bidi-font-weight:bold'> file. Try to compile this using the command
+line or your IDE. <o:p></o:p></span></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28099281"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-GB style='color:green;mso-ansi-language:EN-GB'>Running
+your Programs</span></b></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='color:green;mso-ansi-language:EN-GB'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><a name=UseEweJar></a><span lang=EN-GB style='mso-ansi-language:
+EN-GB'>If you want to use a Java VM to run your Ewe program, then use the
+following command line:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><span
+style='mso-tab-count:1'>            </span>(Windows version) </span><b><span
+lang=EN-GB style='color:blue;mso-ansi-language:EN-GB'>java -cp ewe.jar;./ Ewe
+mypackage.MyClass<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='color:blue;mso-ansi-language:
+EN-GB'><span style='mso-tab-count:1'>            </span></span></b><span
+lang=EN-GB style='color:windowtext;mso-ansi-language:EN-GB'>(Unix version) </span><b><span
+lang=EN-GB style='color:blue;mso-ansi-language:EN-GB'>java -cp ewe.jar:./ Ewe
+mypackage.MyClass<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>To do this
+you can use the Ewe VM like this:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-GB
+style='color:blue;mso-ansi-language:EN-GB'>ewe mypackage.MyClass<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>In order
+for this to work you will have to have the EweVM directory in the standard
+command path, otherwise you will have to specify the full path to the VM.<o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28099282"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-GB style='color:green;mso-ansi-language:EN-GB'>Command
+Line Options</span></b></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='color:green;mso-ansi-language:EN-GB'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>There are a
+number of command line options that you can use when running Ewe programs.
+These are generally used to see how your application will work on different
+mobile systems. The switches include:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-GB style='mso-ansi-language:EN-GB'>/w
+&lt;screen_width_in_pixels&gt; </span><span lang=EN-GB style='mso-ansi-language:
+EN-GB;font-weight:normal'><span style="mso-spacerun: yes"> </span>= Limit the
+screen width.<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-GB style='mso-ansi-language:EN-GB'>/h
+&lt;screen_height_in_pixels&gt; </span><span lang=EN-GB style='mso-ansi-language:
+EN-GB;font-weight:normal'>= Limit the screen height.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/r </span></b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>= Tell
+the VM to consider itself running on a mobile platform.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/p</span></b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'> = Simulate a Microsoft PocketPC device or other pen-based device.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/s </span></b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>= Simulate a Microsoft SmartPhone device.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/z</span></b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'> = Simulate a monochrome (black &amp; white) system.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/n</span></b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'> = Simulate a system that does not support multiple native windows.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/m</span></b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'> = Simulate a low memory device.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/l &lt;locale&gt;</span></b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'> = Set the default Locale.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/d &lt;directory&gt;</span></b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'> = Specify a specific “program
+directory”.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/cp &lt;directories&gt;</span></b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'> = Specify a ClassPath.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>/-</span></b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'> = Force the end of VM arguments, all following arguments to be passed
+to the application.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>The format
+for the command line is:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='mso-ansi-language:EN-GB'>java -cp
+ewe.jar Ewe [vm_options] [run_class] [ewe_files] [/-] [application_arguments]</span></b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>or if you
+are using a Ewe VM.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='mso-ansi-language:EN-GB'>ewe
+[vm_options] [run_class] [ewe_files] [/-] [application_arguments]</span></b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'>Examples:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:blue;mso-ansi-language:EN-GB'><span
+style='mso-tab-count:1'>            </span><b>ewe /w 240 /h 320 ewe.ui.Welcome<br>
+</b></span><span lang=EN-GB style='color:windowtext;mso-ansi-language:EN-GB'>or</span><b><span
+lang=EN-GB style='color:blue;mso-ansi-language:EN-GB'><br>
+<span style='mso-tab-count:1'>            </span>ewe /o
+ewesoft.gaming.jigsaw.JigsawPuzzle EwesoftGames.ewe<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'>or<o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-GB style='color:blue;mso-ansi-language:
+EN-GB'><span style='mso-tab-count:1'>            </span>ewe /p eweDemo.ewe<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'>While interpreting the arguments, should the VM come across a <b>.ewe</b>
+file <b>before</b> the runtime class name has been specified (as in the third
+example above) then it will search that <b>.ewe</b> file looking for a command line
+stored within it. If found then that command line will provide the starting
+class.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'>The <b>/-</b> option is only necessary if the first application_argument
+happens to be a file with a <b>.ewe</b> extension. Without the <b>/-</b> the VM
+will interpret that application_argument as being a .ewe file which contains
+application classes and not as an argument for the application. For example the
+command line:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:blue;mso-ansi-language:EN-GB'><span
+style='mso-tab-count:1'>            </span><b>ewe ewesoft.apps.HexView
+EweConfig.ewe</b><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'><span style='mso-tab-count:1'>            </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'>The <b>EweConfig.ewe</b> file is meant to be viewed by the HexView
+application, but the VM interprets EweConfig.ewe as a .ewe library containing
+application classes. The HexView application then receives no program
+arguments. In this case we will have to use <b>/-</b> as follows:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:blue;mso-ansi-language:EN-GB'><span
+style='mso-tab-count:1'>            </span><b>ewe ewesoft.apps.HexView /-
+EweConfig.ewe</b><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='color:windowtext;mso-ansi-language:
+EN-GB'>Now the VM sees the <b>/-</b> and then passes all following arguments to
+the application.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

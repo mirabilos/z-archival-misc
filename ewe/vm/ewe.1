@@ -1,0 +1,355 @@
+.\" $MirOS: contrib/hosted/ewe/vm/ewe.1,v 1.1+ 2008/05/01 00:04:12 tg Exp $
+.\"-
+.\" Copyright (c) 2008
+.\"	Thorsten Glaser <tg@mirbsd.de>
+.\"
+.\" Provided that these terms and disclaimer and all copyright notices
+.\" are retained or reproduced in an accompanying document, permission
+.\" is granted to deal in this work without restriction, including un-
+.\" limited rights to use, publicly perform, distribute, sell, modify,
+.\" merge, give away, or sublicence.
+.\"
+.\" This work is provided "AS IS" and WITHOUT WARRANTY of any kind, to
+.\" the utmost extent permitted by applicable law, neither express nor
+.\" implied; without malicious intent or gross negligence. In no event
+.\" may a licensor, author or contributor be held liable for indirect,
+.\" direct, other damage, loss, or other issues arising in any way out
+.\" of dealing in the work, even if advised of the possibility of such
+.\" damage or existence of a defect, except proven that it results out
+.\" of said person's immediate fault when using the work as intended.
+.\" $MirOS: contrib/samples/portmdoc,v 1.11 2018/12/25 19:22:05 tg Exp $
+.\"-
+.\" Copyright (c) 2008, 2009, 2010, 2016, 2018
+.\"	mirabilos <m@mirbsd.org>
+.\"-
+.\" Try to make GNU groff and AT&T nroff more compatible
+.\" * ` generates ‘ in gnroff, so use \`
+.\" * ' generates ’ in gnroff, \' generates ´, so use \*(aq
+.\" * - generates ‐ in gnroff, \- generates −, so .tr it to -
+.\"   thus use - for hyphens and \- for minus signs and option dashes
+.\" * ~ is size-reduced and placed atop in groff, so use \*(TI
+.\" * ^ is size-reduced and placed atop in groff, so use \*(ha
+.\" * \(en does not work in nroff, so use \*(en
+.\" * <>| are problematic, so redefine and use \*(Lt\*(Gt\*(Ba
+.\" Also make sure to use \& *before* a punctuation char that is to not
+.\" be interpreted as punctuation, and especially with two-letter words
+.\" but also (after) a period that does not end a sentence (“e.g.\&”).
+.\" The section after the "doc" macropackage has been loaded contains
+.\" additional code to convene between the UCB mdoc macropackage (and
+.\" its variant as BSD mdoc in groff) and the GNU mdoc macropackage.
+.\"
+.ie \n(.g \{\
+.	if \*[.T]ascii .tr \-\N'45'
+.	if \*[.T]latin1 .tr \-\N'45'
+.	if \*[.T]utf8 .tr \-\N'45'
+.	ds <= \[<=]
+.	ds >= \[>=]
+.	ds Rq \[rq]
+.	ds Lq \[lq]
+.	ds sL \(aq
+.	ds sR \(aq
+.	if \*[.T]utf8 .ds sL `
+.	if \*[.T]ps .ds sL `
+.	if \*[.T]utf8 .ds sR '
+.	if \*[.T]ps .ds sR '
+.	ds aq \(aq
+.	ds TI \(ti
+.	ds ha \(ha
+.	ds en \(en
+.\}
+.el \{\
+.	ds aq '
+.	ds TI ~
+.	ds ha ^
+.	ds en \(em
+.\}
+.\"
+.\" Implement .Dd with the Mdocdate RCS keyword
+.\"
+.rn Dd xD
+.de Dd
+.ie \\$1$Mdocdate: \{\
+.	xD \\$2 \\$3, \\$4
+.\}
+.el .xD \\$1 \\$2 \\$3 \\$4 \\$5 \\$6 \\$7 \\$8
+..
+.\"
+.\" .Dd must come before definition of .Mx, because when called
+.\" with -mandoc, it might implement .Mx itself, but we want to
+.\" use our own definition. And .Dd must come *first*, always.
+.\"
+.Dd $Mdocdate: May 1 2008 $
+.\"
+.\" Check which macro package we use, and do other -mdoc setup.
+.\"
+.ie \n(.g \{\
+.	if \*[.T]utf8 .tr \[la]\*(Lt
+.	if \*[.T]utf8 .tr \[ra]\*(Gt
+.	ie d volume-ds-1 .ds tT gnu
+.	el .ie d doc-volume-ds-1 .ds tT gnp
+.	el .ds tT bsd
+.\}
+.el .ds tT ucb
+.\"
+.\" Implement .Mx (MirBSD)
+.\"
+.ie "\*(tT"gnu" \{\
+.	eo
+.	de Mx
+.	nr curr-font \n[.f]
+.	nr curr-size \n[.ps]
+.	ds str-Mx \f[\n[curr-font]]\s[\n[curr-size]u]
+.	ds str-Mx1 \*[Tn-font-size]\%MirBSD\*[str-Mx]
+.	if !\n[arg-limit] \
+.	if \n[.$] \{\
+.	ds macro-name Mx
+.	parse-args \$@
+.	\}
+.	if (\n[arg-limit] > \n[arg-ptr]) \{\
+.	nr arg-ptr +1
+.	ie (\n[type\n[arg-ptr]] == 2) \
+.	as str-Mx1 \~\*[arg\n[arg-ptr]]
+.	el \
+.	nr arg-ptr -1
+.	\}
+.	ds arg\n[arg-ptr] "\*[str-Mx1]
+.	nr type\n[arg-ptr] 2
+.	ds space\n[arg-ptr] "\*[space]
+.	nr num-args (\n[arg-limit] - \n[arg-ptr])
+.	nr arg-limit \n[arg-ptr]
+.	if \n[num-args] \
+.	parse-space-vector
+.	print-recursive
+..
+.	ec
+.	ds sP \s0
+.	ds tN \*[Tn-font-size]
+.\}
+.el .ie "\*(tT"gnp" \{\
+.	eo
+.	de Mx
+.	nr doc-curr-font \n[.f]
+.	nr doc-curr-size \n[.ps]
+.	ds doc-str-Mx \f[\n[doc-curr-font]]\s[\n[doc-curr-size]u]
+.	ds doc-str-Mx1 \*[doc-Tn-font-size]\%MirBSD\*[doc-str-Mx]
+.	if !\n[doc-arg-limit] \
+.	if \n[.$] \{\
+.	ds doc-macro-name Mx
+.	doc-parse-args \$@
+.	\}
+.	if (\n[doc-arg-limit] > \n[doc-arg-ptr]) \{\
+.	nr doc-arg-ptr +1
+.	ie (\n[doc-type\n[doc-arg-ptr]] == 2) \
+.	as doc-str-Mx1 \~\*[doc-arg\n[doc-arg-ptr]]
+.	el \
+.	nr doc-arg-ptr -1
+.	\}
+.	ds doc-arg\n[doc-arg-ptr] "\*[doc-str-Mx1]
+.	nr doc-type\n[doc-arg-ptr] 2
+.	ds doc-space\n[doc-arg-ptr] "\*[doc-space]
+.	nr doc-num-args (\n[doc-arg-limit] - \n[doc-arg-ptr])
+.	nr doc-arg-limit \n[doc-arg-ptr]
+.	if \n[doc-num-args] \
+.	doc-parse-space-vector
+.	doc-print-recursive
+..
+.	ec
+.	ds sP \s0
+.	ds tN \*[doc-Tn-font-size]
+.\}
+.el \{\
+.	de Mx
+.	nr cF \\n(.f
+.	nr cZ \\n(.s
+.	ds aa \&\f\\n(cF\s\\n(cZ
+.	if \\n(aC==0 \{\
+.		ie \\n(.$==0 \&MirBSD\\*(aa
+.		el .aV \\$1 \\$2 \\$3 \\$4 \\$5 \\$6 \\$7 \\$8 \\$9
+.	\}
+.	if \\n(aC>\\n(aP \{\
+.		nr aP \\n(aP+1
+.		ie \\n(C\\n(aP==2 \{\
+.			as b1 \&MirBSD\ #\&\\*(A\\n(aP\\*(aa
+.			ie \\n(aC>\\n(aP \{\
+.				nr aP \\n(aP+1
+.				nR
+.			\}
+.			el .aZ
+.		\}
+.		el \{\
+.			as b1 \&MirBSD\\*(aa
+.			nR
+.		\}
+.	\}
+..
+.\}
+.\"-
+.Dt EWE 1
+.Os
+.Sh NAME
+.Nm ewe ,
+.Nm ewene ,
+.Nm ewecl ,
+.Nm eweclne ,
+.Nm eweg2 ,
+.Nm eweg2ne ,
+.\" .Nm eweq2 ,
+.\" .Nm eweq2ne ,
+.Nm ewedev ,
+.Nm ewemp
+.Nd run a VM
+.Sh SYNOPSIS
+.Nm ewemp
+.Pp
+.Nm ewe
+.Op Fl ?hmnOoprsvxz
+.Op Fl b Ar windowtitle
+.Op Fl c Ar classheapsize
+.Op Fl cp Ar classpath
+.Op Fl d Ar progdir
+.Op Fl h Ar height
+.Op Fl l Ar locale
+.Op Fl t Ar stacksize
+.Op Fl w Ar width
+.Op Ar run_class
+.Op Ar ewe_files
+.Op Fl \-
+.Op Ar app_args
+.Sh DESCRIPTION
+The
+.Nm ewemp
+application creates a
+.Pa Pooled.ewe
+file from
+.Pa ewe.ewe
+in the current directory.
+.Pp
+The
+.Nm ewe ,
+.Nm ewene ,
+.Nm ewecl ,
+.Nm eweclne ,
+.Nm eweg2 ,
+.Nm eweg2nw ,
+.\" .Nm eweq2 ,
+.\" .Nm eweq2ne ,
+and
+.Nm ewedev
+applications all run the MirEwe Virtual Machine and
+differ only in which toolkit they use (GTK+1.2, GTK+2,
+.\" Qt2,
+or command-line),
+if they have the
+.Pa ewe.ewe
+file bundled inside themselves,
+and if they issue special debugging messages.
+.Pp
+.Nm MirEwe
+is a Virtual Machine (VM) for Java\(rg bytecode with its own class library,
+.Pa ewe.ewe
+.Pq already built into some of the executables .
+It's also available for use with the Sun VM, and has been optimised for
+use on PDAs, handhelds, and other embedded devices.
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It Fl b Ar wintitle
+Sets the window title (maybe Win32 only?).
+.It Fl c Ar classheapsize
+Increases the class heap size beyond the default of 32000 bytes.
+.It Fl cp Ar classpath
+Specifies the class path where
+.Nm Ewe
+looks for additional class libraries.
+.It Fl d Ar progdir
+Specify a specific
+.Dq program directory .
+Default seems to be the current working directory.
+.It Fl h
+Show a quick usage summary.
+.It Fl h Ar height
+Limit the screen height.
+.It Fl l Ar locale
+Set a default locale.
+.It Fl m
+Simulate a low memory device.
+.It Fl n
+Simulate a system that does not support multiple native windows.
+.It Fl O
+Rotate the screen counter-clockwise.
+.It Fl o
+Rotate the screen clockwise.
+.It Fl p
+Simulate a Microsoft\(rg PocketPC device or other pen-based device.
+.It Fl r
+Tell the VM to consider itself running on a mobile platform.
+.It Fl s
+Simulate a Microsoft\(rg SmartPhone device.
+.It Fl t Ar stacksize
+Raise the object (not VM) stack size beyond the default of 100 bytes.
+.It Fl v
+Show the version of
+.Nm MirEwe .
+.It Fl w Ar width
+Limit the screen width.
+.It Fl x
+Use the extension module path as
+.Dq program directory
+.Pq Win32 only? .
+.It Fl z
+Simulate a monochrome (black and white) system.
+.El
+.Pp
+The
+.Fl \-
+option is only necessary to stop option parsing if the first
+.Ar app_arg
+is a pathname ending in
+.Pa .ewe .
+Otherwise, it would be searched for application classes instead of
+being passed to the application as an argument.
+.Pp
+Flags can start with a forward slash
+.Pq Cm /
+instead of a dash
+.Pq Cm \- .
+.Sh SEE ALSO
+.Xr gcj 1 ,
+.Xr gij 1 ,
+.Xr java 1 ,
+.Xr javac 1
+.Sh STANDARDS
+The
+.Nm Ewe
+VM runs bytecode compiled for Java 1.1.
+.Sh HISTORY
+The
+.Nm MirEwe
+VM, 2007, is a fork of the
+.Nm Ewe
+VM, 2005, which is a derivate of the
+.Nm Waba
+VM, 2002.
+.Sh AUTHORS
+The Waba VM was written by
+.An Rick Wild
+for Wabasoft and enhanced by many.
+.Pp
+The Ewe VM has been written by
+.An Michael L Brereton Aq michael_brereton@ewesoft.com
+for Ewesoft.
+.Pp
+The MirEwe VM is a fork maintained by
+.An Thorsten Glaser Aq tg@mirbsd.de
+for the MirOS Project.
+He also wrote this manual page.
+.Sh CAVEATS
+Accessing files with
+.Nm ewe
+often sets their permissions to 0755.
+It also creates state files in your home directory.
+.Sh BUGS
+Probably many.
+We accept unified patches sent to
+.Aq miros\-discuss@mirbsd.org ,
+even though Ewe is no longer under active development.

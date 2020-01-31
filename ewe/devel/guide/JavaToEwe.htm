@@ -1,0 +1,1048 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./JavaToEwe_files/filelist.xml">
+<title>Multi-threading Classes</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>125</o:TotalTime>
+  <o:Created>2002-12-23T21:35:00Z</o:Created>
+  <o:LastSaved>2003-03-18T14:49:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1305</o:Words>
+  <o:Characters>7440</o:Characters>
+  <o:Lines>62</o:Lines>
+  <o:Paragraphs>14</o:Paragraphs>
+  <o:CharactersWithSpaces>9136</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./JavaToEwe_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./JavaToEwe_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc28432253"></a><a
+name="_Toc28432301"><span style='mso-bookmark:_Toc28432253'><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708373">Java to Ewe
+Issues<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708373 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300370033000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708374">The Ewe Packages<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708374 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300370034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708375">java.lang<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span><span
+style='mso-field-code:"PAGEREF _Toc33708375 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300370035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708376">ewe.data<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708376 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300370036000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708377">ewe.datastore<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708377 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300370037000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708378">ewe.filechooser<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708378 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300370038000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708379">ewe.fx<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708379 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300370039000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708380">ewe.graphics<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708380 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380030000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708381">ewe.io<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span><span
+style='mso-field-code:"PAGEREF _Toc33708381 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380031000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708382">ewe.net<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc33708382 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380032000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708383">ewe.reflect<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc33708383 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380033000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708384">ewe.sys<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708384 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708385">ewe.ui<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc33708385 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708386">ewe.util<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc33708386 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380036000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708387">ewe.util.zip<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span><span
+style='mso-field-code:"PAGEREF _Toc33708387 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380037000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708388">ewe.zip<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span><span
+style='mso-field-code:"PAGEREF _Toc33708388 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380038000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708389">ewex.registry<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708389 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300380039000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708390">ewex.msencrypt –
+add-on package.<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc33708390 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300390030000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708391">ewex.rapi –
+add-on package.<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc33708391 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300390031000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708392">System Level
+Classes<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708392 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300390032000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708393">Multi-threading
+Classes<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708393 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300390033000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708394">System/Runtime
+Access<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708394 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300390034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708395">Data Conversion<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span><span
+style='mso-field-code:"PAGEREF _Toc33708395 \\h"'>4<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300390035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708396">Classes
+Representing Primitive Values<span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span><span style='mso-field-code:"PAGEREF _Toc33708396 \\h"'>4<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300390036000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708397">Date/Time
+Classes<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708397 \\h"'>4<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300390037000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33708398">Locale<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33708398 \\h"'>4<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003700300038003300390038000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc33708338"></a><a name="_Toc33708373"><span
+style='mso-bookmark:_Toc33708338'><span style='mso-ansi-language:EN-GB'>Java to
+Ewe Issues</span></span></a><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></h2>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>This chapter provides
+information to experienced Java users who are starting to program in Ewe. It
+provides pointers to classes that you would need but may not easily find in the
+API. Most other classes will be found in the appropriately named packages.<o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc28432255"></a><a name="_Toc28432303"></a><a
+name="_Toc33708339"></a><a name="_Toc33708374"><span style='mso-bookmark:_Toc33708339'><span
+style='mso-bookmark:_Toc28432303'><span style='mso-bookmark:_Toc28432255'><span
+style='mso-ansi-language:EN-GB'>The Ewe Packages</span></span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h2>
+
+<h3><a name="_Toc28432256"></a><a name="_Toc33708340"></a><a name="_Toc33708375"><span
+style='mso-bookmark:_Toc33708340'><span style='mso-bookmark:_Toc28432256'><span
+style='mso-ansi-language:EN-GB'>java.lang</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>This is only a <b>subset</b> of the standard java.lang package. Only
+certain classes and certain methods in each class are implemented. Always check
+the ewe API to see if the class you want to use is there. If not, it may be
+implemented in another class in a different package.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432257"></a><a name="_Toc33708341"></a><a name="_Toc33708376"><span
+style='mso-bookmark:_Toc33708341'><span style='mso-bookmark:_Toc28432257'><span
+style='mso-ansi-language:EN-GB'>ewe.data</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>This provides general purpose data interfaces and classes, along with
+utility methods.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432258"></a><a name="_Toc33708342"></a><a name="_Toc33708377"><span
+style='mso-bookmark:_Toc33708342'><span style='mso-bookmark:_Toc28432258'><span
+style='mso-ansi-language:EN-GB'>ewe.datastore</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>This provides the implementation for the portable Ewe Database API.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432259"></a><a name="_Toc33708343"></a><a name="_Toc33708378"><span
+style='mso-bookmark:_Toc33708343'><span style='mso-bookmark:_Toc28432259'><span
+style='mso-ansi-language:EN-GB'>ewe.filechooser</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>The </span><b><span style='color:green;mso-ansi-language:EN-GB'>FileChooser</span></b><span
+style='mso-ansi-language:EN-GB'> and </span><b><span style='color:green;
+mso-ansi-language:EN-GB'>ImageFileChooser</span></b><span style='mso-ansi-language:
+EN-GB'> classes are the standard file chooser dialog boxes. The
+ImageFileChooser is used to show previews of the images during selection.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432260"></a><a name="_Toc33708344"></a><a name="_Toc33708379"><span
+style='mso-bookmark:_Toc33708344'><span style='mso-bookmark:_Toc28432260'><span
+style='mso-ansi-language:EN-GB'>ewe.fx</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>This provides multimedia primitives (similar to java.awt) including the
+base graphics for drawing. The </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>Graphics</span></b><span style='mso-ansi-language:EN-GB'> class along </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>Image</span></b><b><span
+style='mso-ansi-language:EN-GB'>, </span></b><b><span style='color:green;
+mso-ansi-language:EN-GB'>mImage</span></b><b><span style='mso-ansi-language:
+EN-GB'>, </span></b><b><span style='color:green;mso-ansi-language:EN-GB'>Brush</span></b><span
+style='mso-ansi-language:EN-GB'> and </span><b><span style='color:green;
+mso-ansi-language:EN-GB'>Pen</span></b><span style='mso-ansi-language:EN-GB'>
+are particularly useful.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432261"></a><a name="_Toc33708345"></a><a name="_Toc33708380"><span
+style='mso-bookmark:_Toc33708345'><span style='mso-bookmark:_Toc28432261'><span
+style='mso-ansi-language:EN-GB'>ewe.graphics</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>This provides higher level graphics classes, including animated images
+and the </span><b><span style='color:green;mso-ansi-language:EN-GB'>Mosaic/InteractivePanel</span></b><span
+style='mso-ansi-language:EN-GB'> classes, which can be used as a base for
+simple 2D gaming.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432262"></a><a name="_Toc33708346"></a><a name="_Toc33708381"><span
+style='mso-bookmark:_Toc33708346'><span style='mso-bookmark:_Toc28432262'><span
+style='mso-ansi-language:EN-GB'>ewe.io</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>This provides the </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>Stream</span></b><span style='mso-ansi-language:EN-GB'> class and all
+supporting and derived classes. </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>Stream</span></b><span style='mso-ansi-language:EN-GB'> objects provide
+most of the I/O in Ewe. The </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>ewe.io.IO</span></b><span style='mso-ansi-language:EN-GB'> class also
+provides some useful methods that work on all Streams. </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>RemoteCall</span></b><span
+style='mso-ansi-language:EN-GB'> and </span><b><span style='color:green;
+mso-ansi-language:EN-GB'>RemoteCallHandler</span></b><span style='mso-ansi-language:
+EN-GB'> provide an implementation of Remote Method Invocation (RMI) over Ewe
+Streams. <b>Serial Port</b> support is also provided in this package.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432263"></a><a name="_Toc33708347"></a><a name="_Toc33708382"><span
+style='mso-bookmark:_Toc33708347'><span style='mso-bookmark:_Toc28432263'><span
+style='mso-ansi-language:EN-GB'>ewe.net</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>This provides the <b>TCP/IP</b> implementation,
+virtually identical to the java.net package. This also provides <b>Infra-Red</b>
+access on devices with such a port.</p>
+
+<h3><a name="_Toc28432264"></a><a name="_Toc33708348"></a><a name="_Toc33708383"><span
+style='mso-bookmark:_Toc33708348'><span style='mso-bookmark:_Toc28432264'><span
+style='mso-ansi-language:EN-GB'>ewe.reflect</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>This is used to implement reflection in Ewe. The API is different from
+standard Java API but similar enough to be easy to use. The main difference is
+that, while the </span><b><span style='color:green;mso-ansi-language:EN-GB'>java.lang.Class</span></b><span
+style='mso-ansi-language:EN-GB'> Class can provide <b>some</b> reflection
+methods under Ewe, the </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>ewe.reflect.Reflect</span></b><span style='mso-ansi-language:EN-GB'>
+class is the main class to use for Field/Method/Constructor discovery.
+Additionally a <b>single</b> </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>ewe.reflect.Wrapper</span></b><span style='mso-ansi-language:EN-GB'>
+class is provided for passing Field/Method data and parameters.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432265"></a><a name="_Toc33708349"></a><a name="_Toc33708384"><span
+style='mso-bookmark:_Toc33708349'><span style='mso-bookmark:_Toc28432265'><span
+style='mso-ansi-language:EN-GB'>ewe.sys</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>This provides a number of System Level classes and
+methods. All multi-threaded implementation classes are provided in this class
+as well. Many of these are explained in a later section.</p>
+
+<h3><a name="_Toc28432266"></a><a name="_Toc33708350"></a><a name="_Toc33708385"><span
+style='mso-bookmark:_Toc33708350'><span style='mso-bookmark:_Toc28432266'><span
+style='mso-ansi-language:EN-GB'>ewe.ui</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>This is main GUI package, similar to java.awt, but
+far more powerful.</p>
+
+<h3><a name="_Toc28432267"></a><a name="_Toc33708351"></a><a name="_Toc33708386"><span
+style='mso-bookmark:_Toc33708351'><span style='mso-bookmark:_Toc28432267'><span
+style='mso-ansi-language:EN-GB'>ewe.util</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>Similar to the java.util package; provides a number of useful utility
+and collection classes. The </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>ewe.util.Utils</span></b><span style='mso-ansi-language:EN-GB'> class
+provides a number of useful data manipulation and sorting utilities. The </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>ewe.util.mString</span></b><span
+style='mso-ansi-language:EN-GB'> class provides a number of useful String
+manipulation routines, including String splitting.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432268"></a><a name="_Toc33708352"></a><a name="_Toc33708387"><span
+style='mso-bookmark:_Toc33708352'><span style='mso-bookmark:_Toc28432268'><span
+style='mso-ansi-language:EN-GB'>ewe.util.zip</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>This provides an API very similar to the java.util.zip API, but which is
+based on classes in the </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>ewe.zip</span></b><span style='mso-ansi-language:EN-GB'> package. It is provided
+to make it easy to convert Java programs to Ewe.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432269"></a><a name="_Toc33708353"></a><a name="_Toc33708388"><span
+style='mso-bookmark:_Toc33708353'><span style='mso-bookmark:_Toc28432269'><span
+style='mso-ansi-language:EN-GB'>ewe.zip</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>This provides Zip file support, though in an API that is somewhat
+dissimilar to java.util.zip. The </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>ewe.util.zip</span></b><span style='mso-ansi-language:EN-GB'> package
+provides a more compatible API.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432270"></a><a name="_Toc33708354"></a><a name="_Toc33708389"><span
+style='mso-bookmark:_Toc33708354'><span style='mso-bookmark:_Toc28432270'><span
+style='mso-ansi-language:EN-GB'>ewex.registry</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>This provides access to the System Registry on
+Win32/WinCE systems, and simulated access on Unix/Linux systems.</p>
+
+<h3><a name="_Toc28432271"></a><a name="_Toc33708355"></a><a name="_Toc33708390"><span
+style='mso-bookmark:_Toc33708355'><span style='mso-bookmark:_Toc28432271'><span
+style='mso-ansi-language:EN-GB'>ewex.msencrypt – add-on package.</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>This provides encryption services on PocketPC and
+Win32 systems.</p>
+
+<h3><a name="_Toc28432272"></a><a name="_Toc33708356"></a><a name="_Toc33708391"><span
+style='mso-bookmark:_Toc33708356'><span style='mso-bookmark:_Toc28432272'><span
+style='mso-ansi-language:EN-GB'>ewex.rapi – add-on package.</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>This provides access to the RAPI provided by
+ActiveSync on Win32 systems.</p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc28432273"></a><a name="_Toc28432304"></a><a
+name="_Toc33708357"></a><a name="_Toc33708392"><span style='mso-bookmark:_Toc33708357'><span
+style='mso-bookmark:_Toc28432304'><span style='mso-bookmark:_Toc28432273'><span
+style='mso-ansi-language:EN-GB'>System Level Classes</span></span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h2>
+
+<h3><a name="_Toc28432274"></a><a name="_Toc33708358"></a><a name="_Toc33708393"><span
+style='mso-bookmark:_Toc33708358'><span style='mso-bookmark:_Toc28432274'><span
+style='mso-ansi-language:EN-GB'>Multi-threading Classes</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>Ewe uses a threading model that is different to the Java threading
+model, and so the java.lang.Thread and associated classes are not used. Instead
+you use </span><b><span style='color:green;mso-ansi-language:EN-GB'>ewe.sys.mThread</span></b><span
+style='mso-ansi-language:EN-GB'> to represent a Thread of execution, </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>ewe.sys.mThreadGroup</span></b><span
+style='mso-ansi-language:EN-GB'> for grouping mThreads and the </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>ewe.sys.Lock</span></b><span
+style='mso-ansi-language:EN-GB'> class for synchronizing mThreads. There are
+other useful multi-threading classes including </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>ewe.sys.Handle</span></b><b><span
+style='mso-ansi-language:EN-GB'>, </span></b><b><span style='color:green;
+mso-ansi-language:EN-GB'>ewe.sys.Task</span></b><span style='mso-ansi-language:
+EN-GB'> and </span><b><span style='color:green;mso-ansi-language:EN-GB'>ewe.sys.TaskObject</span></b><span
+style='mso-ansi-language:EN-GB'>.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432275"></a><a name="_Toc33708359"></a><a name="_Toc33708394"><span
+style='mso-bookmark:_Toc33708359'><span style='mso-bookmark:_Toc28432275'><span
+style='mso-ansi-language:EN-GB'>System/Runtime Access</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>Most System level methods are in the </span><b><span style='color:green;
+mso-ansi-language:EN-GB'>ewe.sys</span></b><span style='mso-ansi-language:EN-GB'>
+package, with </span><b><span style='color:green;mso-ansi-language:EN-GB'>ewe.sys.Vm</span></b><span
+style='mso-ansi-language:EN-GB'> providing most of the system level access.
+This does most of the work normally found in java.lang.System (which is not
+present in Ewe). </span><b><span style='color:green;mso-ansi-language:EN-GB'>Vm</span></b><span
+style='mso-ansi-language:EN-GB'> provides methods for:<o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in'><a name="_Toc28432276"></a><a name="_Toc33708360"><span
+style='mso-bookmark:_Toc28432276'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:navy'>Executing Processes</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:navy'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='mso-ansi-language:
+EN-GB'>The </span><b><span style='color:green;mso-ansi-language:EN-GB'>exec()</span></b><span
+style='mso-ansi-language:EN-GB'> methods and </span><b><span style='color:green;
+mso-ansi-language:EN-GB'>ewe.sys.Process</span></b><span style='mso-ansi-language:
+EN-GB'> class are used for this.<o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in'><a name="_Toc28432277"></a><a name="_Toc33708361"><span
+style='mso-bookmark:_Toc28432277'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:navy'>Accessing Standard I/O Streams</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:navy'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='mso-ansi-language:
+EN-GB'>The </span><b><span style='color:green;mso-ansi-language:EN-GB'>getStandardStream()</span></b><span
+style='color:windowtext;mso-ansi-language:EN-GB'> method is used to get one of
+the standard input/output streams.<o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in'><a name="_Toc28432278"></a><a name="_Toc33708362"><span
+style='mso-bookmark:_Toc28432278'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:navy'>Accessing System Properties</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:navy'> <o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='mso-ansi-language:
+EN-GB'>The </span><b><span style='color:green;mso-ansi-language:EN-GB'>getParameter()/setParameter()</span></b><span
+style='mso-ansi-language:EN-GB'> and </span><b><span style='color:green;
+mso-ansi-language:EN-GB'>getProperty()/setProperty()</span></b><span
+style='mso-ansi-language:EN-GB'> methods are used for these.<o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in'><a name="_Toc28432279"></a><a name="_Toc33708363"><span
+style='mso-bookmark:_Toc28432279'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:navy'>Accessing Application Resources</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:navy'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='color:green;
+mso-ansi-language:EN-GB'>openRandomAccessStream()</span></b><span
+style='mso-ansi-language:EN-GB'> and </span><b><span style='color:green;
+mso-ansi-language:EN-GB'>open/readResouce()</span></b><span style='color:green;
+mso-ansi-language:EN-GB'> </span><span style='mso-ansi-language:EN-GB'>are used
+for these.<o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in'><a name="_Toc28432280"></a><a name="_Toc33708364"><span
+style='mso-bookmark:_Toc28432280'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:navy'>Loading Dynamic Link Libraries</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:navy'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='color:green;
+mso-ansi-language:EN-GB'>loadLibrary()</span></b><span style='mso-ansi-language:
+EN-GB'> is used for this.<o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in'><a name="_Toc28432281"></a><a name="_Toc33708365"><span
+style='mso-bookmark:_Toc28432281'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:navy'>Portable Exception Handling</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:navy'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='color:windowtext;
+mso-ansi-language:EN-GB'>Exceptions in Java 1.4 introduced the concept of
+exception chaining. The native Ewe VM also supports this, but Java 1.1, 1.2 and
+1.3 do not. The Vm class provides static methods that allow you to chain
+exceptions together <b>if</b> supported on the running VM, and which fail
+softly without generating run-time errors if not supported. These methods
+include: </span><b><span style='color:green;mso-ansi-language:EN-GB'>setCause()/getCause()</span></b><span
+style='color:windowtext;mso-ansi-language:EN-GB'> to set and get the cause of
+an exception. And </span><b><span style='color:green;mso-ansi-language:EN-GB'>getStackTrace()</span></b><span
+style='color:windowtext;mso-ansi-language:EN-GB'> and </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>getAStackTrace()</span></b><span
+style='color:windowtext;mso-ansi-language:EN-GB'> to get the stack trace of an
+exception as a String.</span><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in'><a name="_Toc28432282"></a><a name="_Toc33708366"><span
+style='mso-bookmark:_Toc28432282'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:navy'>Memory Management</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:navy'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:1.0in'><span lang=EN-US>These routines
+work only on a native Ewe VM as they are not provided for on a Java system. </span><b><span
+lang=EN-US style='color:green'>countObjects()</span></b><span lang=EN-US>
+counts the number referenced objects and </span><b><span lang=EN-US
+style='color:green'>getUsedMemory()</span></b><span lang=EN-US> indicates how
+much memory is being used for objects. </span><b><span lang=EN-US
+style='color:green'>getClassMemory()</span></b><span lang=EN-US> indicates how
+much class memory is being used. </span><b><span lang=EN-US style='color:green'>getMemoryStatus()</span></b><span
+lang=EN-US> can indicate the memory state of the computer.</span></p>
+
+<h4 style='margin-left:.5in'><a name="_Toc28432283"></a><a name="_Toc33708367"><span
+style='mso-bookmark:_Toc28432283'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:navy'>Miscellaneous System Routines</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:navy'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:1.0in'><b><span style='color:green;
+mso-ansi-language:EN-GB'>copyArray()</span></b><span style='color:windowtext;
+mso-ansi-language:EN-GB'> is a method that is used to copy array elements. </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>getTimeStamp()</span></b><span
+style='color:windowtext;mso-ansi-language:EN-GB'> returns a millisecond
+precision timestamp for the application. <o:p></o:p></span></p>
+
+<h4 style='margin-left:.5in'><a name="_Toc28432284"></a><a name="_Toc33708368"><span
+style='mso-bookmark:_Toc28432284'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:navy'>Native Level String Manipulation</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:navy'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:1.0in'><span style='color:windowtext;
+mso-ansi-language:EN-GB'>These are designed to provide faster String
+manipulation without creating new Strings or objects.<b> </b></span><b><span
+style='color:green;mso-ansi-language:EN-GB'>getStringChars()</span></b><span
+style='color:green;mso-ansi-language:EN-GB'> </span><span style='color:windowtext;
+mso-ansi-language:EN-GB'>will provide direct access to the character array of a
+String – under a Java VM this returns a copy of the String. </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>mutateString()</span></b><span
+style='color:windowtext;mso-ansi-language:EN-GB'> is used to mutate a String
+without creating a new one – under a Java VM a new one will be created.</span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<h3><a name="_Toc28432285"></a><a name="_Toc33708369"></a><a name="_Toc33708395"><span
+style='mso-bookmark:_Toc33708369'><span style='mso-bookmark:_Toc28432285'><span
+style='mso-ansi-language:EN-GB'>Data Conversion</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>The </span><b><span style='color:green;mso-ansi-language:EN-GB'>ewe.sys.Convert</span></b><span
+style='mso-ansi-language:EN-GB'> class handles most data conversions that are
+handled in Java in individual wrapper objects.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432286"></a><a name="_Toc33708370"></a><a name="_Toc33708396"><span
+style='mso-bookmark:_Toc33708370'><span style='mso-bookmark:_Toc28432286'><span
+style='mso-ansi-language:EN-GB'>Classes Representing Primitive Values</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>The </span><b><span style='color:green;mso-ansi-language:EN-GB'>ewe.sys.Long</span></b><span
+style='mso-ansi-language:EN-GB'> class can be used as a general object wrapper
+for any integer or boolean value. The </span><b><span style='color:green;
+mso-ansi-language:EN-GB'>ewe.sys.Double</span></b><span style='mso-ansi-language:
+EN-GB'> class can be used for double and float values.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432287"></a><a name="_Toc33708371"></a><a name="_Toc33708397"><span
+style='mso-bookmark:_Toc33708371'><span style='mso-bookmark:_Toc28432287'><span
+style='mso-ansi-language:EN-GB'>Date/Time Classes</span></span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>These are represented by </span><b><span style='color:green;mso-ansi-language:
+EN-GB'>ewe.sys.Time/ewe.sys.Date</span></b><span style='mso-ansi-language:EN-GB'>
+and </span><b><span style='color:green;mso-ansi-language:EN-GB'>TimeOfDay</span></b><span
+style='mso-ansi-language:EN-GB'>/</span><b><span style='color:green;mso-ansi-language:
+EN-GB'>DayOfYear</span></b><span style='mso-ansi-language:EN-GB'>.<o:p></o:p></span></p>
+
+<h3><a name="_Toc28432288"></a><a name="_Toc33708372"></a><a name="_Toc33708398"><span
+style='mso-bookmark:_Toc33708372'><span style='mso-bookmark:_Toc28432288'><span
+style='mso-ansi-language:EN-GB'>Locale</span></span></span></a><span
+style='mso-ansi-language:EN-GB'> <o:p></o:p></span></h3>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ansi-language:
+EN-GB'>Locale dependent data manipulation is done by </span><b><span
+style='color:green;mso-ansi-language:EN-GB'>ewe.sys.Locale</span></b><span
+style='mso-ansi-language:EN-GB'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

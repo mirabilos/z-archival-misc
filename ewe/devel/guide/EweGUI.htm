@@ -1,0 +1,508 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./EweGUI_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>1579</o:TotalTime>
+  <o:Created>2002-11-18T15:20:00Z</o:Created>
+  <o:LastSaved>2002-11-20T18:13:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>961</o:Words>
+  <o:Characters>5481</o:Characters>
+  <o:Lines>45</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>6731</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./EweGUI_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./EweGUI_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><span style='mso-ansi-language:EN-GB'>Ewe
+Application Development<o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>November 5<sup>th</sup> 2002<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<h2><span lang=EN-US>The Ewe GUI Library</span></h2>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 3,1,Heading
+4,2&quot; <span style='mso-element:field-separator'></span></span><![endif]--><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc25380920">Starting using <i>static
+void main()</i><span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc25380920 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320030000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc25380921">Starting using a <i>Runnable</i>
+Object<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc25380921 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320031000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc25380922">Starting using a <i>Form</i>
+Object<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc25380922 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320032000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc25380923">Starting using a <i>LiveData</i>
+Object<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc25380923 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320033000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc25380924">Starting using a <i>mApp</i>
+Object<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc25380924 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320034000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if supportFields]><span lang=EN-US><span
+style='mso-element:field-end'></span></span><![endif]--><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<div style='border-top:solid windowtext .5pt;border-left:none;border-bottom:
+solid windowtext .5pt;border-right:none;padding:1.0pt 0in 1.0pt 0in;background:
+#CCFFFF'>
+
+<h3 style='border:none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:
+solid windowtext .5pt;padding:0in;mso-padding-alt:1.0pt 0in 1.0pt 0in'><span
+lang=EN-US>The Control Hierarcy in Ewe</span></h3>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The GUI library in Ewe is both extensive
+and compact. It provides most of the features of advanced GUI libraries (such
+as Sun’s Swing) but with a <i>much</i> smaller footprint.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The GUI hierarchy in Ewe goes like this:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>ewe.ui.Control</span></b><span
+lang=EN-US> – is the bottom level GUI object. This is the base object for most
+discrete controls such as mInput (input boxes), mButton (buttons), mCheckBox
+(check boxes and radio boxes) and many others. It should also be the base class
+to override when designing your own controls.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>ewe.ui.Container</span></b><span
+lang=EN-US> – is the bottom level GUI container, or a Control that can contain
+child Controls. However Container provides only the base container functions
+and has no in built layout or scrolling capabilities.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>ewe.ui.Canvas</span></b><span
+lang=EN-US> – is a Container that has the beginnings of a fully scrollable
+control. It has origin and virtual size information that allow it to be
+displayed within a scrollable area.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>ewe.ui.CellPanel</span></b><span
+lang=EN-US> – is <b>the most used Container</b> in the library and is based on
+Canvas. A CellPanel provides all the auto-layout functionality in Ewe. This
+layout capability is very powerful and easy to use. So much so that no
+complicated sets of layout managers are provided in Ewe. They can all be
+handled by simple use of the CellPanel. By placing CellPanels containing
+controls within CellPanels, you can produce just about any layout scheme you
+wish without having to specify a single Control’s absolute position or size.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>ewe.ui.Form</span></b><span lang=EN-US>
+– is another of the more used Containers in the library. A Form has the ability
+to display itself within a Window or Frame and thereby be rendered on the
+device screen. It also provides a number of useful functions, such as
+automatically reacting to OK, Cancel, Yes and No buttons.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>ewe.ui.Frame</span></b><span lang=EN-US>
+– is a type of CellPanel and is a very important Control. Every control that is
+to be displayed on the screen must eventually be placed within a Frame. This is
+usually done by placing Controls in a Form and then having the Form display
+itself within its own Frame. You <i>can</i> create your own Frame and display
+within it your own contents, but this can be quite complicated and it is
+usually far more productive to use a Form instead.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>ewe.ui.Window</span></b><span
+lang=EN-US> – is a very special Container that represents the devices native application
+display surface. Under Linux, Windows or WindowsCE this represents a true
+Window. These systems allow an application to open multiple Windows, and so Ewe
+allows applications on these systems to also open multiple windows. Under an
+operating system that does not support multiple windows (e.g. PalmOS) a Window
+will represent the drawing surface assigned to that application – usually the
+entire device screen.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>ewe.ui.mApp</span></b><span lang=EN-US>
+– inherits from <b>MainWindow</b> which itself inherits from <b>Window</b>.
+There is always one <b>mApp</b> for your application and it provides a number
+of application services. Although it is a Window on multiple window systems
+(such as Windows and Linux) it will generally be invisible. However on single
+window systems (such as PalmOS) the mApp will represent the drawing area for
+your application and will always be visible.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<div style='border-top:solid windowtext .5pt;border-left:none;border-bottom:
+solid windowtext .5pt;border-right:none;padding:1.0pt 0in 1.0pt 0in;background:
+#CCFFFF'>
+
+<h3 style='border:none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:
+solid windowtext .5pt;padding:0in;mso-padding-alt:1.0pt 0in 1.0pt 0in'><span
+lang=EN-US>Displaying a User Interface</span></h3>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>In a nutshell, displaying a set of controls
+on the screen involves creating your controls and placing them within a <b>Form</b>,
+using <b>CellPanel</b>s as general-purpose containers for organizing the
+controls. The Form is then displayed using one of many <b>show(), exec()</b> or
+<b>execute()</b> methods. As we will see later <b>execute()</b> is simply an <b>exec()</b>
+followed by waiting for the Form to close.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc524668885"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>exec() vs. show() - Modal vs.
+Non-modal Frames</span></b></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The <b>exec() </b><span style="mso-spacerun: yes"> </span>and <b>show()</b>
+methods cause the Form to create a <b>FormFrame</b> object (a special type of <b>Frame</b>)
+and place itself within it. This new Frame is then positioned and displayed
+within a new <b>Window</b> or within an existing Window, or within an already existing
+Frame.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Please note the difference between the <b>exec()</b> and <b>show()</b>
+methods. The <b>exec()</b> method causes the frame to be displayed <b><i>modally</i></b>.
+That is, once it is displayed, all other frames will be disabled until the <b>exec</b>'ed
+frame is closed. In other words it acts like a dialog box. The <b>show()</b>
+method (which you will probably have limited use for) displays the frame <b><i>non-modally</i></b>
+- allowing other frames to still receive GUI input.</span></p>
+
+<p class=MsoToc1 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Please also note that unlike native Win32 or Java modal frames or
+dialogs, calling <b>exec()</b> to display a Frame <b>will <i>not</i> halt execution
+of the current GUI message Thread.</b> Although it will begin a new Thread to
+handle messages to the modal Frame, execution of the current Thread willl
+continue. When exec() is called, the new frame is displayed and control is returned
+immediately to the calling Thread. However since a new message Thread is
+created for the newly exec’ed Frame it is safe for calling Thread to block or
+go into a wait state, since the newly created message Thread will continue to
+service the new Frame.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Conversely the <b>show()</b> method will <b>not</b> create a new
+message Thread for the new Frame and so it is important that if the calling
+Thread is the old message Thread, it should not block or wait as this would
+block inputs to the newly showed Form.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Waiting for a Form to Close – execute() method<o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>When a Form is displayed a <b>ewe.sys.Handle</b> object is created
+and assigned to the <b>handle</b> variable of the Form. This Handle can be used
+to monitor the Form so that any Thread can determine when the Form has closed.
+The method instance method <b>waitUntilClosed()</b> can be used by a Thread to
+wait for the Form to close. It waits until the Handle associated with the open
+Form has reached a Stopped state. The <b>exit(int returnValue)</b> or <b>close(int
+returnValue) </b>methods are usually used to cause a displayed Form to close and
+the waitUntilClosed() method will return the <b>returnValue</b> passed to these
+methods.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The Form’s <b>execute()</b> is simply a call to <b>exec()</b>
+followed by an immediate call to <b>waitUntilClosed()</b>.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Parameters to show() and exec()<o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The <b>show()</b> and <b>exec()</b> methods that take no parameters
+are used to </span></p>
+
+<p class=MsoToc1 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

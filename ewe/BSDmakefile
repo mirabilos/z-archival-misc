@@ -1,0 +1,121 @@
+# $MirOS: contrib/hosted/ewe/BSDmakefile,v 1.39 2008/05/11 23:17:47 tg Exp $
+
+.include <bsd.own.mk>
+
+NOOBJ=		Yes
+PREFIX?=	/usr/local
+
+BMKFLAGS=
+.ifndef OStype
+BMKFLAGS+=	OStype=$$(uname)
+.endif
+
+all: ewevm
+full: classlib .WAIT ewe.ewe .WAIT ewevm
+
+classlib:
+	-rm -rf bin{com,ewe,jdk} clist.*
+	mkdir -p bin{com,ewe,jdk}
+	${MAKE} _classlib
+
+#DEBUGJFLAGS=	-deprecation -verbose -Xlint
+JFLAGS=		-source 1.3 -target 1.1 -encoding UTF-8
+
+_classlib:
+	find classes -name \*.java | sort -o clist.ewe
+	find extrajdk -name \*.java | sort -o clist.sun
+	icepick-javac -classpath "" -bootclasspath eni -extdirs eni \
+	    ${JFLAGS} ${DEBUGJFLAGS} -g:none -d binewe @clist.ewe
+	icepick-javac -classpath "" -bootclasspath eni -extdirs eni \
+	    ${JFLAGS} ${DEBUGJFLAGS} -g -d bincom @clist.ewe
+	icepick-javac -classpath bincom -extdirs eni \
+	    ${JFLAGS} ${DEBUGJFLAGS} -g -d binjdk @clist.sun
+
+# icepick-javadoc always throws errors and is basically unusable
+# so do not use this target, for now
+_javadoc: .PHONY
+	gjdoc -classpath classes -bootclasspath '' -sourcepath classes \
+	    -source 1.3 -encoding UTF-8 -charset UTF-8 -docencoding UTF-8 \
+	    -validhtml -doctitle 'Overview (MirEwe API 1.49mb4)' \
+	    -header 'MirEwe 1.49mb4 API' -bottom 'Copyright &copy; 2008 <a\
+	    href="mailto:miros-discuss@mirbsd.de">The MirOS Project</a>\
+	    and its contributors.' -d devel/javadoc -subpackages ewe:ewex:java
+
+ewevm:
+	cd ${.CURDIR}/vm && \
+	    ${MAKE} ${BMKFLAGS} obj && \
+	    ${MAKE} ${BMKFLAGS} depend && \
+	    exec ${MAKE} ${BMKFLAGS}
+
+runjewel:
+	ewe jewel/Jewel.ewe Ewe.jnf
+
+ewe.ewe:
+	rm -f devel/{CompileEwe.tgz,JavaEwe.tgz,ewe.ewe,ewe.jar}
+	${MAKE} devel/ewe.ewe
+
+devel/ewe.ewe:
+	cd classes && find . | egrep '\.(bmp|dat|html?|jpg|png|wav)$$' | \
+	    cpio -pdu ../bincom/
+	cd classes && find . | egrep '\.(bmp|dat|html?|jpg|png|wav)$$' | \
+	    cpio -pdu ../binewe/
+	ewecl jewel/Jewel.ewe -c Ewe.jnf
+	chmod 664 jewel/J* Ewe.jnf $@
+	cd bincom && find . -type f -print0 | xargs -0 chmod 644
+	rm -f bincom/Locale.dat
+	cd bincom && find . -type f | \
+	    sed 's#^\./##' | \
+	    cpio -oC512 -Hustar -Mdist | \
+	    gzip -n9 >../devel/CompileEwe.tgz
+	cd binjdk && find . -name \*.class | cpio -pdu ../bincom/
+	cd classes && find ewe ewex -name \*.java | cpio -pdu ../bincom/
+	cd extrajdk && find ewe Ewe.java -name \*.java | cpio -pdu ../bincom/
+	cd bincom && find . -type f -print0 | xargs -0 chmod 644
+	rm -rf bincom/java/lang
+	cd bincom && find . -type f | \
+	    sed 's#^\./##' | \
+	    cpio -oC512 -Hustar -Mdist | \
+	    gzip -n9 >../devel/JavaEwe.tgz
+	cd extrajar && find . -type f | fgrep -v CVS | cpio -pdu ../bincom/
+	cd bincom && find . -type f -print0 | xargs -0 chmod 644
+	cd bincom && find . -type f | \
+	    fgrep -v -e /CVS/ -e .java | \
+	    sed 's#^\./##' | \
+	    cpio -oC512 -Hustar -Mdist | \
+	    gzip -n9 >../devel/ewe.jar.tgz
+#XXX does not work yet
+#	@print Note: don’t forget to run ewemp on $@ to MakePool
+
+install: beforeinstall
+
+obj depend ewe install clean cleandir:
+	cd ${.CURDIR}/vm && exec ${MAKE} ${BMKFLAGS} ${.TARGET:S/^ewe$/all/}
+
+cleandir: localclean
+
+localclean:
+	-cd ${.CURDIR} && rm -rf bin{com,ewe,jdk} clist.*
+
+beforeinstall:
+	${INSTALL} -d -o ${BINOWN} -g ${BINGRP} -m ${DIRMODE} \
+	    ${PREFIX}/share/doc/ewe ${PREFIX}/share/ewe
+	cd ${.CURDIR}/devel && \
+	    find guide javadoc -type f | fgrep -v /CVS/ | sort | \
+	    cpio -pdvu ${PREFIX}/share/doc/ewe/ && \
+	    cp SetupSDK.htm Setup_{1,2,3,4,5}.jpg ${PREFIX}/share/doc/ewe/ && \
+	    cp ../Ewe.ico ../LICENCE CompileEwe.tgz JavaEwe.tgz ewe.ewe ewe.jar.tgz \
+	    ewex_registry.dll java_ewe.dll ${PREFIX}/share/ewe/ && \
+	    for optf in CompileEwe.zip JavaEwe.zip ewe.jar; do \
+		[[ ! -s $$optf ]] || cp $$optf ${PREFIX}/share/ewe/; \
+	done
+	cd ${.CURDIR} && find examples -type f | fgrep -v /CVS/ | sort | \
+	    cpio -pdvu ${PREFIX}/share/doc/ewe/
+	cd ${PREFIX}/share && \
+	    chown -R ${BINOWN}:${BINGRP} {doc/,}ewe && \
+	    find {doc/,}ewe -type d -print0 | xargs -0 chmod ${DIRMODE} && \
+	    find {doc/,}ewe -type f -print0 | xargs -0 chmod ${NONBINMODE}
+	${INSTALL} -c -o ${BINOWN} -g ${BINGRP} -m ${NONBINMODE} \
+	    ${.CURDIR}/eni/eni.h ${PREFIX}/include/
+
+.PHONY: all full classlib _classlib ewevm runjewel ewe.ewe \
+    obj depend ewe install beforeinstall clean cleandir localclean

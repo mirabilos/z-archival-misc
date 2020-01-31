@@ -1,0 +1,936 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./ApplicationGui_files/filelist.xml">
+<link rel=Edit-Time-Data href="./ApplicationGui_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>13</o:Revision>
+  <o:TotalTime>375</o:TotalTime>
+  <o:Created>2003-03-04T20:38:00Z</o:Created>
+  <o:LastSaved>2003-03-18T16:07:00Z</o:LastSaved>
+  <o:Pages>6</o:Pages>
+  <o:Words>2127</o:Words>
+  <o:Characters>12126</o:Characters>
+  <o:Lines>101</o:Lines>
+  <o:Paragraphs>24</o:Paragraphs>
+  <o:CharactersWithSpaces>14891</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1033"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./ApplicationGui_files/image001.gif"
+lang=EN-GB link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1031" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./ApplicationGui_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-begin'></span></span><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>DATE \@
+&quot;dd MMMM yyyy&quot; \* MERGEFORMAT </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="http://www.ewesoft.com/">http://www.ewesoft.com/</a></span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34593121">Application GUI
+Issues<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34593121 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003500390033003100320031000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34593122">Simple Form
+Enhancement Methods<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34593122 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003500390033003100320032000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34593123">public CellPanel
+[] addToolbar()<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc34593123 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003500390033003100320033000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34593124">public Control
+[] addTabbedPanel(boolean useExpandingTabs)<span style='color:black;display:
+none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span><span style='mso-field-code:"PAGEREF _Toc34593124 \\h"'>4<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003500390033003100320034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34593125">Modifying Tab
+Behavior<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34593125 \\h"'>5<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003500390033003100320035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34593126">Adding Controls
+Next To Tabs<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34593126 \\h"'>5<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003500390033003100320036000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34593127">The AppForm
+Class<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34593127 \\h"'>6<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003500390033003100320037000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc34593121"><span lang=EN-US>Application
+GUI Issues</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>So far we have dealt with Ewe's GUI from
+the standpoint of creating general Forms. This chapter deals with more detailed
+issues especially those related to the creation and display of your
+application's Main Form.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This chapter will be of particular interest
+to mobile developers, mostly because of the variations of displays on the
+various mobile devices that their applications may target. For example, the
+PocketPC platform provides a button to activate and select the type of input
+panel to be used. This button is at the bottom right of the screen, within the
+user's application screen space, and may be programmed to appear and disappear.
+It may be the case that you wish to display data or tool/menu bars along this
+bottom row but do not wish to have it be obscured by this button. Ewe provides
+the necessary tools to do this.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Ewe provides a <b>SipButton</b> control to
+handle the possible existence of a SIP button, which effectively acts as a
+placeholder, reserving space where the SipButton would be. However the Form
+control provides methods for creating toolbars and other controls that will
+automatically use this control. As a result you should not need to use this
+control yourself when building your forms.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Additionally, most GUI elements are
+designed with space saving in mind. For example the <b>mTabbedPanel</b>, very
+useful for your application's main Form - especially on PDAs with limited
+screen space, can allow you to place controls in line with its tabs, either to
+the right or left of them.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc34593122"><span lang=EN-US>Simple
+Form Enhancement Methods</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>These methods are useful for adding
+controls to a Form that are SIP aware and will look good on any platform. <b>Generally,
+you should call these methods first</b> before adding any other controls, since
+they generally return specific CellPanels that you should then use to add your
+controls.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc34593123"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>public CellPanel [] addToolbar()</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This method will add a horizontal CellPanel
+to the Form. The location where the toolbar is added depends on the running OS.
+On PocketPC it is at the bottom, on others it is generally at the top. If the
+OS is PocketPC, then space is reserved for the SIP button within the toolbar.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This method sets up the Form as necessary
+and then returns an array of two CellPanels. The CellPanel at index 0 is the
+toolbar panel to which you should add your toolbar controls. The CellPanel at
+index 1 takes up the rest of the Form and is the one that you should add your
+Form's main data controls. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Here is a simple example, it adds a toolbar
+and then adds a MenuBar and tool buttons to the toolbar. Note that this control
+inherits from Editor which is a type of Form.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#E6E6E6'>package samples.ui;</pre><pre style='background:
+#E6E6E6'>import ewe.ui.*;</pre><pre style='background:#E6E6E6'>import ewe.fx.*;</pre><pre
+style='background:#E6E6E6'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#E6E6E6'>//##################################################################</pre><pre
+style='background:#E6E6E6'>public class TestForm extends Editor{</pre><pre
+style='background:#E6E6E6'>//##################################################################</pre><pre
+style='background:#E6E6E6'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#E6E6E6'>//===================================================================</pre><pre
+style='background:#E6E6E6'>public TestForm()</pre><pre style='background:#E6E6E6'>//===================================================================</pre><pre
+style='background:#E6E6E6'>{</pre><pre style='background:#E6E6E6'><span
+style='mso-tab-count:1'>        </span>title = &quot;Test Toolbars&quot;;</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>CellPanel [] p = addToolbar();</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>p[0].defaultTags.set(INSETS,new Insets(0,1,0,1));</pre><pre
+style='background:#E6E6E6'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#E6E6E6'><span
+style='mso-tab-count:1'>        </span>MenuBar mb = new MenuBar();</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>Menu m = new Menu(new String[]{&quot;Open&quot;,&quot;Save&quot;,&quot;-&quot;,&quot;Quit&quot;},&quot;File&quot;);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>mb.addMenu(m,&quot;File&quot;);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>p[0].addNext(mb).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#E6E6E6'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>// Add a toolbutton.<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#E6E6E6'><span
+style='mso-tab-count:1'>        </span>Control c = new mButton(new mImage(&quot;ewe/savesmall.bmp&quot;,Color.White));</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>c.setToolTip(&quot;Save Document&quot;);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>p[0].addNext(c).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>c = new mButton(new mImage(&quot;ewe/exitsmall.bmp&quot;,Color.White));</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>c.setToolTip(&quot;Quit&quot;);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>p[0].addNext(c).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#E6E6E6'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>// Add main data control, a mTextPad in this case.<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#E6E6E6'><span
+style='mso-tab-count:1'>        </span>p[1].addLast(new mTextPad(20,40));</pre><pre
+style='background:#E6E6E6'>}</pre><pre style='background:#E6E6E6'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#E6E6E6'>//##################################################################</pre><pre
+style='background:#E6E6E6'>}</pre><pre style='background:#E6E6E6'>//##################################################################</pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Here's what it looks like on the screen. Note that on PocketPC, the
+toolbar will be at the bottom, in line with the SIP button.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:222pt;
+ height:291pt'>
+ <v:imagedata src="./ApplicationGui_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=296 height=388
+src="./ApplicationGui_files/image004.jpg" v:shapes="_x0000_i1025"><![endif]></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Handling events generated from these controls is as simple as adding
+EventListeners to the toolbar container (p[0] in our example).</span></p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+background:#E6E6E6'><a name="_Toc34593124"><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>public Control [] addTabbedPanel(boolean
+useExpandingTabs)</span></b></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Tabbed panels are provided in Ewe by the <b>mTabbedPanel</b> class.
+There are two main purposes for using these. </span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The first and more common purpose is to split up your user interface
+into different tabbed sections. In this case you would set the <b>useExpandingTabs</b>
+parameter to <b>false.</b> This method would then add a tabbed panel to the Form
+that would take up the entire area of the Form. The tabs would be placed either
+at the top of the tabbed panel, or at the bottom depending on the OS. Under
+PocketPC, the tabs are placed at the bottom, in line with the SIP button. With
+this parameter, the returned Control array contains only one element, which is
+the mTabbedPanel object itself.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The second purpose, which is something unique to Ewe, is to provide
+multiple toolbars when there is limited screen space (as on a PDA). This is
+made possible via the <b>auto-expanding</b> feature of the mTabbedPanel class.
+This feature allows the data area of the tabbed panel to appear when a tab is
+selected, and completely disappear when no tabs are selected. With this
+feature, you generally also have a data area where your application's main data
+is shared. As the toolbar tabs expand and contract, the main data area is
+resized appropriately. To select this feature you would set the <b>useExpandingTabs</b>
+parameter to <b>true</b>. This method would then return an array of two elements.
+The element at index 0 would be the added mTabbedPanel, and the one at index 1
+would be the CellPanel into which you should place your main application data.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The example below shows how you use addTabbedPanel() with the
+expanding tabbed panel option.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#E6E6E6'>package samples.ui;</pre><pre style='background:
+#E6E6E6'>import ewe.ui.*;</pre><pre style='background:#E6E6E6'>import ewe.fx.*;</pre><pre
+style='background:#E6E6E6'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#E6E6E6'>//##################################################################</pre><pre
+style='background:#E6E6E6'>public class TestTabForm extends Editor{</pre><pre
+style='background:#E6E6E6'>//##################################################################</pre><pre
+style='background:#E6E6E6'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#E6E6E6'>public MenuItem menuBar = new MenuItem();</pre><pre
+style='background:#E6E6E6'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#E6E6E6'>//===================================================================</pre><pre
+style='background:#E6E6E6'>public TestTabForm()</pre><pre style='background:
+#E6E6E6'>//===================================================================</pre><pre
+style='background:#E6E6E6'>{</pre><pre style='background:#E6E6E6'><span
+style='mso-tab-count:1'>        </span>title = &quot;Test Tabs&quot;;</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>Control [] p = addTabbedPanel(true);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>mTabbedPanel mt = (mTabbedPanel)p[0];</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>CellPanel data = (CellPanel)p[1];</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>CellPanel fileTools = new CellPanel();</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>Card c = mt.addCard(fileTools,&quot;File&quot;,null);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>c.iconize(ewe.io.File.getIcon(ewe.io.File.ClosedFolderIcon),true);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>fileTools.defaultTags.set(INSETS,new Insets(0,1,0,1));</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>fileTools.addNext(new mButton(new mImage(&quot;ewe/opensmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>fileTools.addNext(new mButton(new mImage(&quot;ewe/savesmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>fileTools.addNext(new mButton(new mImage(&quot;ewe/exitsmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>CellPanel editTools = new CellPanel();</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>c = mt.addCard(editTools,&quot;Edit&quot;,null);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>c.iconize(&quot;ewe/editsmall.bmp&quot;,Color.White,true);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>editTools.defaultTags.set(INSETS,new Insets(0,1,0,1));</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>editTools.addNext(new mButton(new mImage(&quot;ewe/copysmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>editTools.addNext(new mButton(new mImage(&quot;ewe/cutsmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>editTools.addNext(new mButton(new mImage(&quot;ewe/pastesmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>data.addLast(new mTextPad(20,40));</pre><pre
+style='background:#E6E6E6'>}</pre><pre style='background:#E6E6E6'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#E6E6E6'>//##################################################################</pre><pre
+style='background:#E6E6E6'>}</pre><pre style='background:#E6E6E6'>//##################################################################</pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The images below show the form when no tabs are selected and when
+the Edit tab is selected.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75"
+ style='width:171pt;height:186.75pt'>
+ <v:imagedata src="./ApplicationGui_files/image005.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=228 height=249
+src="./ApplicationGui_files/image006.jpg" v:shapes="_x0000_i1026"><![endif]><span
+style="mso-spacerun: yes">    </span><!--[if gte vml 1]><v:shape id="_x0000_i1027"
+ type="#_x0000_t75" style='width:171pt;height:186.75pt'>
+ <v:imagedata src="./ApplicationGui_files/image007.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=228 height=249
+src="./ApplicationGui_files/image008.jpg" v:shapes="_x0000_i1027"><![endif]></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Again, on PocketPC, the tabs would be placed at the bottom, in line
+with the SIP button.</span></p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+background:#E6E6E6'><a name="_Toc34593125"><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Modifying Tab Behavior</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The <b>addCard()</b> method of mTabbedPanel is used to add a new tab
+to the panel and returns a <b>Card</b> object. There are a number of things you
+can do with this object, but the one that is of most interest is to call one of
+the <b>iconize()</b> methods. This method associates an icon with the tab that
+is used along with the name of the tab as specified by <b>addCard()</b>. The
+iconize() method comes in a number of forms allowing<span style="mso-spacerun:
+yes">  </span>you to specify the icon in a number of ways. Some of these
+methods have a parameter called <b>iconOnlyWhenClosed</b>. If this parameter is
+set <b>true</b> (as it is in the above example) then when that tab is <b>not</b>
+selected, <b>only</b> the icon will be displayed, and not the text of the tab
+name.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>In cases where the iconOnlyWhenClosed is set true for a card, it is
+possible to also tell the mTabbedPanel to <b>never</b> show the text of the
+tab, but to <b>only</b> show the icon even when the tab is selected. This may
+be desirable for applications like the one above, where you are using the
+mTabbedPanel as a container for tool buttons. If you want this to be the case,
+then you should set the <b>dontExpandTabs</b> member of mTabbedPanel to be
+true. </span></p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+background:#E6E6E6'><a name="_Toc34593126"><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Adding Controls Next To Tabs</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>This is another feature unique to Ewe and very useful for small
+screen displays. It allows you to place controls to the left and right of the
+tabs. <i>Because of the position of the SIP button, it is advised that you add
+controls to the left of the tabs only, but this is completely up to you.</i></span></p>
+
+<p class=MsoToc1 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>To do this call the <b>getExtraControls(boolean isLeft)</b> method
+of the mTabbedPanel. This returns a CellPanel that will be placed to the left
+of the tabs (isLeft == true) or the right of the tabs (isLeft == false). For
+example if you add the following lines of code to the example:</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>MenuBar mb = new MenuBar();</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>Menu m = new Menu(new String[]{&quot;Open&quot;,&quot;Save&quot;,&quot;-&quot;,&quot;Quit&quot;},&quot;File&quot;);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>mb.addMenu(m,&quot;File&quot;);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>mt.getExtraControls(true).addNext(mb).setCell(DONTSTRETCH);</pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Then you will add a menu to the left of the tabs, as shown in the
+figure below.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><!--[if gte vml 1]><v:shape id="_x0000_i1028" type="#_x0000_t75"
+ style='width:178.5pt;height:174.75pt'>
+ <v:imagedata src="./ApplicationGui_files/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=238 height=233
+src="./ApplicationGui_files/image010.jpg" v:shapes="_x0000_i1028"><![endif]></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+background:#CCFFFF'><a name="_Toc34593127"><span lang=EN-US>The AppForm Class</span></a></h2>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>This class, which inherits from Editor, uses all the features
+described above and provides convenient variables to which you can add your
+menus, tools and data controls. The various constructors for the AppForm will
+create either a toolbar, or a tabbed panel for your Form. If you choose to use
+a tabbed panel, you can additionally choose to use an auto-expanding tabbed
+panel or not.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Here are the constructors for AppForm()&nbsp; <!-- ======== CONSTRUCTOR SUMMARY ======== --><o:p></o:p></span></p>
+
+<!-- -->
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 width="100%" style='width:100.0%;
+ mso-cellspacing:0in;mso-padding-alt:2.25pt 2.25pt 2.25pt 2.25pt'>
+ <tr>
+  <td colspan=2 style='background:#CCCCFF;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><b><span lang=EN-US>Constructor Summary</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><code><b><span lang=EN-US style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="E:apieweuiAppForm.html#AppForm()">AppForm</a></span></b></code><code><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>()</span></code><span
+  lang=EN-US> <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new
+  AppForm() with no tabbed panels.</span></p>
+  </td>
+  <td style='border:none;background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US style='font-size:10.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><code><b><span lang=EN-US style='font-size:10.0pt;
+  font-family:"Courier New"'><a
+  href="E:apieweuiAppForm.html#AppForm(boolean, boolean)">AppForm</a></span></b></code><code><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>(boolean&nbsp;useTabs,
+  boolean&nbsp;autoExpandingTabs)</span></code><span lang=EN-US> <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a
+  new AppForm() that can be set to use tabbed panels or not.</span></p>
+  </td>
+  <td style='border:none;background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US style='font-size:10.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><code><b><span lang=EN-US style='font-size:10.0pt;
+  font-family:"Courier New"'><a
+  href="E:apieweuiAppForm.html#AppForm(java.lang.Object)">AppForm</a></span></b></code><code><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>(<a
+  href="E:apijavalangObject.html">Object</a>&nbsp;objectToEdit)</span></code><span
+  lang=EN-US> <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a
+  new AppForm() that does not use tabbed panels and will also edit the
+  specified object.</span></p>
+  </td>
+  <td style='border:none;background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US style='font-size:10.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><code><b><span lang=EN-US style='font-size:10.0pt;
+  font-family:"Courier New"'><a
+  href="E:apieweuiAppForm.html#AppForm(java.lang.Object, boolean, boolean)">AppForm</a></span></b></code><code><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>(<a
+  href="E:apijavalangObject.html">Object</a>&nbsp;objectToEdit,
+  boolean&nbsp;useTabs, boolean&nbsp;autoExpandingTabs)</span></code><span
+  lang=EN-US> <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create an AppForm
+  that can optionally use tabs and will also edit the specified object.</span></p>
+  </td>
+  <td style='border:none;background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US style='font-size:10.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><code><b><span lang=EN-US style='font-size:10.0pt;
+  font-family:"Courier New"'><a
+  href="E:apieweuiAppForm.html#AppForm(java.lang.Object, boolean, boolean, boolean)">AppForm</a></span></b></code><code><span
+  lang=EN-US style='font-size:10.0pt;font-family:"Courier New"'>(<a
+  href="E:apijavalangObject.html">Object</a>&nbsp;objectToEdit,
+  boolean&nbsp;useTabs, boolean&nbsp;autoExpandingTabs,
+  boolean&nbsp;placeMenuAndTools)</span></code><span lang=EN-US> <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create an AppForm
+  that can optionally use tabs and will also edit the specified object, and can
+  optionally not place the menu and tools.</span></p>
+  </td>
+  <td style='border:none;background:white;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US style='font-size:10.0pt'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The second constructor is the one that you would most likely use. If
+<b>useTabs</b> is true then a tabbed panel will be used and you can optionally
+specify to use auto-expanding tabbed panels.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>After the constructor you should add your menus to the <b>menus</b> member
+variable (a MenuBar), add your tools to the <b>tools</b> member variable (a
+CellPanel), add tabs to the <b>tabs</b> member variable, and data to the <b>data</b>
+member variable.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Here is a quick example:</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#E6E6E6'>package samples.ui;</pre><pre style='background:
+#E6E6E6'>import ewe.ui.*;</pre><pre style='background:#E6E6E6'>import ewe.fx.*;</pre><pre
+style='background:#E6E6E6'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#E6E6E6'>//##################################################################</pre><pre
+style='background:#E6E6E6'>public class TestForm extends AppForm{</pre><pre
+style='background:#E6E6E6'>//##################################################################</pre><pre
+style='background:#E6E6E6'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#E6E6E6'>//===================================================================</pre><pre
+style='background:#E6E6E6'>public TestForm()</pre><pre style='background:#E6E6E6'>//===================================================================</pre><pre
+style='background:#E6E6E6'>{</pre><pre style='background:#E6E6E6'><span
+style='mso-tab-count:1'>        </span>// Going to use expanding tabs.</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>super(true,true);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>title = &quot;Test AppForm&quot;;</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>Menu m = new Menu(new String[]{&quot;Open&quot;,&quot;Save&quot;,&quot;-&quot;,&quot;Quit&quot;},&quot;File&quot;);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>menus.addMenu(m,&quot;File&quot;);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>CellPanel fileTools = new CellPanel();</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>Card c = tabs.addCard(fileTools,&quot;File&quot;,null);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>c.iconize(ewe.io.File.getIcon(ewe.io.File.ClosedFolderIcon),true);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>fileTools.defaultTags.set(INSETS,new Insets(0,1,0,1));</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>fileTools.addNext(new mButton(new mImage(&quot;ewe/opensmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>fileTools.addNext(new mButton(new mImage(&quot;ewe/savesmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>fileTools.addNext(new mButton(new mImage(&quot;ewe/exitsmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>CellPanel editTools = new CellPanel();</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>c = tabs.addCard(editTools,&quot;Edit&quot;,null);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>c.iconize(&quot;ewe/editsmall.bmp&quot;,Color.White,true);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>editTools.defaultTags.set(INSETS,new Insets(0,1,0,1));</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>editTools.addNext(new mButton(new mImage(&quot;ewe/copysmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>editTools.addNext(new mButton(new mImage(&quot;ewe/cutsmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>editTools.addNext(new mButton(new mImage(&quot;ewe/pastesmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>//</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>tools.addNext(new mButton(new mImage(&quot;ewe/exitsmall.bmp&quot;,Color.White))).setCell(DONTSTRETCH);</pre><pre
+style='background:#E6E6E6'><span style='mso-tab-count:1'>        </span>data.addLast(new mTextPad(20,40));</pre><pre
+style='background:#E6E6E6'>}</pre><pre style='background:#E6E6E6'>//##################################################################</pre><pre
+style='background:#E6E6E6'>}</pre><pre style='background:#E6E6E6'>//##################################################################</pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>And here is the form that this produces.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><!--[if gte vml 1]><v:shape id="_x0000_i1029" type="#_x0000_t75"
+ style='width:178.5pt;height:174.75pt'>
+ <v:imagedata src="./ApplicationGui_files/image011.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=238 height=233
+src="./ApplicationGui_files/image012.jpg" v:shapes="_x0000_i1029"><![endif]></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

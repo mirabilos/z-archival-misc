@@ -1,0 +1,931 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Locales_files/filelist.xml">
+<link rel=Edit-Time-Data href="./Locales_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>11</o:Revision>
+  <o:TotalTime>321</o:TotalTime>
+  <o:Created>2003-03-11T13:30:00Z</o:Created>
+  <o:LastSaved>2003-03-19T13:41:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1552</o:Words>
+  <o:Characters>8852</o:Characters>
+  <o:Lines>73</o:Lines>
+  <o:Paragraphs>17</o:Paragraphs>
+  <o:CharactersWithSpaces>10870</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:13.5pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:553930377;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1303674366 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1029"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./Locales_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1027" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./Locales_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"></a><a
+name="_Toc6219390"><span style='mso-bookmark:_Toc33663851'><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'>19 March 2003</span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'><span style='mso-ansi-language:EN-GB'>Michael
+L Brereton<o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'></span><a href="http://www.ewesoft.com/"><span
+style='mso-bookmark:_Toc6219390'><span lang=EN-US>http://www.ewesoft.com/</span></span><span
+style='mso-bookmark:_Toc6219390'></span></a><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><!--[if supportFields]><span style='mso-bookmark:_Toc6219390'></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><b><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>TOC \h
+\z \t &quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; </span></b><span
+lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><a href="#_Toc35598804"><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US>Locale And
+Internationalization</span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35598804 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003500390038003800300034000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc35598805"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Creating a Locale Object</span></b></span><span style='mso-bookmark:
+_Toc6219390'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35598805 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003500390038003800300035000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc35598806"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Getting Locale Specific Data</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35598806 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003500390038003800300036000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc35598807"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Loading Locale Specific Data</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35598807 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003500390038003800300037000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc35598808"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Resource Configuration File</span></b></span><span style='mso-bookmark:
+_Toc6219390'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35598808 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>3</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003500390038003800300038000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc35598809"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Resources in System Registry</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35598809 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>4</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003500390038003800300039000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc35598810"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Comparing/Manipulating Text Data</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35598810 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>4</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003500390038003800310030000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc6219390'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<span style='mso-bookmark:_Toc6219390'></span>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35598804"><span lang=EN-US>Locale
+And Internationalization</span></a></h2>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Ewe provides a <b>ewe.sys.Locale</b>
+class that can allow your application to adapt to the locale of its runtime
+environment. It provides services in a number of ways:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>It can provide you with local names and values for specific items of
+data.</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>It can format and parse formatted text in a locale specific way.</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>It can allow you to automatically display the correct application
+specific text depending on the local language.</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>It can correctly compare text strings of a particular language.</span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Locales in Ewe
+basically operate by using a main <b>Language</b> specifier (encoded as a two
+letter language code) and a <b>Country</b> specifier (encoded as a three letter
+country code). These together uniquely identify locale specific information
+looked up by the Locale object.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35598805"><span lang=EN-US>Creating
+a Locale Object</span></a></h2>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>A Locale object created using the
+default constructor will represent the default language and country as
+specified by the operating system or Ewe installation. However you can also use
+<b>ewe.sys.Vm.getLocale()</b> to retrieve a pre-created default Locale object
+without having to create a new one each time.</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>Creating a Locale object for a
+specific language and country can be done using the constructor:</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><b><span lang=EN-US>public Locale(String
+languageCode, String countryCode, boolean forceSupport);</span></b></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>This consturctor will throw an <b>IllegalArgumentException</b>
+if the language and country combination is not supported unless <b>forceSupport
+</b>is<b> true</b>, in which case a Locale is created that is <b>only</b> able
+to report its language code and country code as specified by the constructor
+parameters. Using <b>forceSupport</b> with an unsupported language/country is
+really only useful when retrieving Locale specific application data as
+explained in a later section.</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>The countryCode may be null, in
+which case one of the supported locales with the specified languageCode is used
+(if it exists).</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>Some platforms may be unable to
+report what locale the OS is running on (perhaps because the OS itself does not
+support locale information). However, you can set the default locale for the
+running application explicitly using:</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><b><span lang=EN-US>public static boolean
+setDefault(String languageCode, String countryCode, int options);</span></b></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>One option available is <b>FORCE_CREATION</b>.
+This works similar to the <b>forceSupport</b> parameter mentioned in the
+previous method. It forces the support of the specified language and country
+even if it is not natively supported on that platform. From this point any
+default Locale objects created will be of the language and country specified.</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>Locales actually use a <b>Locale ID</b>,
+a platform specific integer, to internally identify locales. This ID should not
+be parsed but it can be used to set the locale that a Locale object represents.
+This can be done via the <b>set(int id)</b> method, or you can create a new
+Locale with the specified ID using the constructor <b>Locale(int id)</b>. This
+is generally useful in combination with the method:</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><b><span lang=EN-US>static int []</span></b><span
+lang=EN-US> <b>getAllIds(int options);</b></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>This method returns all the IDs
+supported by the running platform. You cannot determine the language and
+country by parsing the individual IDs, but you can create a Locale for the ID
+and then get information on the language and country of the Locale.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35598806"><span lang=EN-US>Getting
+Locale Specific Data</span></a></h2>
+
+<p class=MsoBodyTextIndent2><span lang=EN-US>This is one of the main uses of
+Locale. There are a number of specific items of data that can be retrieved via
+the method:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>String
+getString(int infoCode, int forValue, int options);</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The API for
+Locale lists all the possible values of <b>infoCode</b> (e.g. COUNTRY_ENGLISH,
+DAY_OF_WEEK, etc.), what data they return and the correct values for the <b>forValue</b>
+parameter. Note that no options are as yet defined so you should set <b>options</b>
+to be zero.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>There is another
+method:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>int
+fromString(int infoCode, String value, int options);</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This is used to
+convert from a String that represents DAY, SHORT_DAY, MONTH, SHORT_MONTH or
+AM_PM into the appropriate value for that data type. For example
+&quot;January&quot; should be converted to 1 when MONTH is specified as the
+infoCode.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35598807"><span lang=EN-US>Loading
+Locale Specific Data</span></a></h2>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This allows your
+application to use and display different text data depending on the locale of
+the application at execution time. This is achieved either through a
+configuration file that contains different text for different languages or
+through similar information stored in the Registry (the configuration file
+method is recommended).</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This
+functionality is implemented through the <b>ewe.sys.LocalResource</b> interface
+which has two methods:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>Object get(int
+resourceID, Object defaultValue);<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>Object
+get(String resourceID, Object defaultValue);</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Basically, a
+LocalResource object, which internally would be linked to a particular
+language/country combination, would return the appropriate data object (usually
+a String, but potentially any object) given a resource ID code presented as an integer
+value or a String value.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>You can implement
+your own LocalResource objects as you wish but if you use the configuration
+file or registry method you can use the Ewe library's default implementations.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>To get the Ewe
+library LocalResource object you first create the Locale object that represents
+the language/country that you are interested in (in most cases this will be the
+system default language) and then call the method:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>LocalResource
+getLocalResource(String&nbsp;moduleName, boolean&nbsp;returnNullIfNotFound)<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This method looks
+for configuration information as specified by the <b>moduleName</b> parameter
+and then returns a LocalResource object which will get its data for that
+configuration information. If the configuration information could not be found
+then normally a LocalResource will be returned whose <b>get()</b> methods <b>always</b>
+returns the <b>defaultValue</b>. If <b>returnNullIfNotFound</b> is true,
+however, null will be returned if the configuration information could not be
+found.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The configuration
+information which is referenced by <b>moduleName</b> is located in one of two
+places, in a configuration file or in the system Registry.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35598808"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Resource Configuration File</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Below is an
+example of a configuration file.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>{ewe.ui.Welcome}</pre><pre style='background:
+#F3F3F3'> {LocalResources}</pre><pre style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{es}</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>100=Bienvenido a EWE!!!</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{..}</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{es-ARG}</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>100=Argentinian Bienvenido a EWE!!!</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{..}</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{es-URY}</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>100=Uraguayan Bienvenido a EWE!!!</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{..}</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{de}</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>100=Willkommen auf EWE!!!</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{..}</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{xx}</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>100=Fake Welcome to Ewe!</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">  </span>{..}</pre><pre
+style='background:#F3F3F3'> {..}</pre><pre style='background:#F3F3F3'>{..}</pre>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The format of
+this file is compatible with the <b>ewe.io.TreeConfigFile</b> structure. This
+is a file that represents a tree structure, similar to a file system. The
+values within the <b>{}</b> braces represent directory names and the values of
+the format <b>&lt;name&gt;=&lt;value&gt;</b> represent individual values within
+the directory. The <b>{..}</b> values indicate the end of a directory. The
+structure given by the example above looks like:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>ewe.ui.Welcome</pre><pre style='background:
+#F3F3F3'><span style="mso-spacerun: yes">  </span>|</pre><pre style='background:
+#F3F3F3'><span style="mso-spacerun: yes">  </span>'- LocalResources</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>|</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>+- es</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>|<span style="mso-spacerun: yes">   </span>'- 100=Bienvenido a EWE!!!</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>|</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>+- es-ARG</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>|<span style="mso-spacerun: yes">   </span>'- 100=Argentinian Bienvenido a EWE!!!</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>|</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>+- es-URY</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>|<span style="mso-spacerun: yes">   </span>'- 100=Uraguayan Bienvenido a EWE!!!</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>|</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>+- de</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>|<span style="mso-spacerun: yes">   </span>'- 100=Velkomin de EWE!!!</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>|</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">       </span>'- xx</pre><pre
+style='background:#F3F3F3'><span style="mso-spacerun: yes">           </span>'- 100=Fake Welcome to EWE!!!</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The local resources
+in a configuration file for a module called <b>ModuleName</b> must be in the
+structure as shown above where <b>ModuleName</b> replaces <b>ewe.ui.Welcome</b>
+in our example.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Each subdirectory
+under <b>LocalResources</b> is either a language code such as <b>es </b>(Spanish)
+or a language code combined with a country code such as <b>es-ARG</b>
+(Spanish-Argentina). </span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>When searching
+for the value for an ID under a Locale that specifies both language <b>and </b>country,
+the LocalResource will look for a matching ID under the language-country
+subdirectory of the config file. If that could not be found it will look for
+the ID under the language subdirectory (without the country extension) of the
+config file. If it still could not be found it will give up and return the
+default value.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Here is an
+example use that goes with the config file example above:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>Locale l = Vm.getLocale();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>LocalResource lr = l.getLocalResource(&quot;ewe.ui.Welcome&quot;,false);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>String welcomeMessage = (String)lr.get(100,&quot;Welcome to Ewe&quot;);</pre>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Note that the
+LocalResource object will convert an integer ID into a String ID representing
+that value.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35598809"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Resources in System Registry</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>To place your
+locale specific data in the system registry for a particular module name you
+must create a key named:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>HKEY_LOCAL_MACHINE\Software\Ewesoft\Applications\LocalResources\&lt;moduleName&gt;<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Within this key
+you can have a String value <b>ConfigFile</b> which specifies the absolute
+location of a configuration file (of the same structure as explained in the
+previous section) that holds the local resources.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>If you wish to
+place the actual resource data in the registry you must have a sub-key for each
+language or language-country and within that sub-key you will have data values
+for each ID.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent2><span lang=EN-US>For example, here is how some of
+the configuration info in the example configuration file would be placed in the
+registry.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='margin-left:.25in;text-align:center'><span
+lang=EN-US><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:379.5pt;
+ height:130.5pt'>
+ <v:imagedata src="./Locales_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=506 height=174
+src="./Locales_files/image004.jpg" v:shapes="_x0000_i1025"><![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35598810"><span lang=EN-US>Comparing/Manipulating
+Text Data</span></a></h2>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Depending on the
+locale, how text data is compared may be different. There are several methods
+that Locale provides for comparing text data correctly.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>int compare(char
+one, char two, int options);<o:p></o:p></span></b></p>
+
+<p class=MsoBodyTextIndent3><span lang=EN-US>int compare(char [] one, int
+oneStart, int oneLength, char [] two, int twoStart, int twoLength, int
+options);</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>int
+compare(String one, String two, int options);<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>ewe.util.Comparer
+getStringComparer(int options);<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>All these
+methods, except the last, return a value &lt; 0 if the first parameter is
+considered less than the second, &gt; 0 if it is considered greater and 0 if
+both are considered equal. The <b>options</b> parameter can be any of <b>IGNORE_CASE,
+IGNORE_SYMBOLS, IGNORE_NONSPACE</b> ORed together (only the IGNORE_CASE option
+applies for the first compare()).</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>There are also
+methods for changing case:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>char
+changeCase(char letter, boolean toUpper);<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>void
+changeCase(char [] letters, int start, int length, boolean toUpper);</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

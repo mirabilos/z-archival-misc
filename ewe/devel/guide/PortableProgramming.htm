@@ -1,0 +1,772 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./PortableProgramming_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>16</o:TotalTime>
+  <o:Created>2003-03-13T18:31:00Z</o:Created>
+  <o:LastSaved>2003-03-13T18:48:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>1522</o:Words>
+  <o:Characters>8680</o:Characters>
+  <o:Lines>72</o:Lines>
+  <o:Paragraphs>17</o:Paragraphs>
+  <o:CharactersWithSpaces>10659</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;
+	font-style:italic;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;
+	font-style:italic;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:452291558;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1147955168 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./PortableProgramming_files/image001.gif"
+lang=EN-GB link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./PortableProgramming_files/image001.gif" o:title="blbkgnd"
+   type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-begin'></span></span><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>DATE \@
+&quot;dd MMMM yyyy&quot; \* MERGEFORMAT </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>13 March 2003</span><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="http://www.ewesoft.com/">http://www.ewesoft.com/</a></span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+lang=EN-US><span style='mso-element:field-begin'></span></span></b><b><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>TOC \h
+\z \t &quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35330021">Programming for
+Portability<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35330021 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330030003000320031000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35330022">The ewe.io.File
+Class<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35330022 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330030003000320032000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35330023">Using the
+un-extended ewe.io.File Class<span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-begin'></span></span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35330023 \h </span><span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330030003000320033000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35330024">The Program
+Directory<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35330024 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330030003000320034000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35330025">Portable File
+Methods<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35330025 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330030003000320035000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35330026">Accessing
+Program Resources<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35330026 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330030003000320036000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35330027">RandomAccessStream
+ewe.sys.Vm.openRandomAccessStream(String path, String mode)<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1'> </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35330027 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330030003000320037000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35330028">Stream ewe.sys.Vm.openResource(Class
+aClass, String resourceName)<span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'> </span></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-begin'></span></span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35330028 \h </span><span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330030003000320038000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span lang=EN-US><span
+style='mso-element:field-end'></span></span></b><![endif]--><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc530041928"></a><a
+name="_Toc35330021"><span style='mso-bookmark:_Toc530041928'><span lang=EN-US>Programming
+for Portability</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>This chapters gives information on writing
+your Ewe programs so that it may be run on a desktop system, mobile system or
+as an Applet within a browser without alteration. It covers file access, and IO
+streams.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Before we begin there is an important
+method you should know. <b>ewe.sys.Vm.getAppletProperties()</b>. This returns
+properties relevant to an Ewe program running as an Applet. Even if you do not
+use the data returned by this method, you can use it to determine if your
+program is running as an Application (if this method returns null) or as an
+Applet (if it returns a PropertyList object).</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that many web servers and operating
+systems are <b>case-sensitive</b> when dealing with file names, and some are
+not. You should therefore <b>always</b> assume a case-sensitive system and
+ensure that the case of the paths you use in your program matches the case of
+the program stored on your disk. <b>Be wary of Windows! It has a nasty habit of
+displaying file names with letter cases different to the actual case of the
+file</b>.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc530041929"></a><a
+name="_Toc35330022"><span style='mso-bookmark:_Toc530041929'><span lang=EN-US>The
+ewe.io.File Class</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>The class ewe.io.File provides two
+functions:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'><span
+     lang=EN-US>It is used, un-extended, to represent actual files on a file
+     system accessible locally.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'><span
+     lang=EN-US>It can be extended to represent file-like object on other file
+     systems. Examples of this include ewe.zip.ZipEntryFile,
+     ewe.io.FakeFileSystem.FakeFile and ewex.rapi.RapiFile. These extended File
+     objects can be used by the FileChooser class to browse the file system
+     associated with the extended File object.</span><span lang=EN-US
+     style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ol>
+
+<h4 style='background:#E6E6E6'><a name="_Toc530041930"></a><a
+name="_Toc35330023"><span style='mso-bookmark:_Toc530041930'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Using
+the un-extended ewe.io.File Class</span></b></span></a><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Using the constructor <b>new File(String
+path)</b> or <b>new File(File directory,String path)</b> will create a File
+object that represents a local file. The resulting object <b>cannot</b> be used
+by an Applet since they are not allowed to access the local file system. You
+should therefore avoid using this unless you absolutely want to access the
+local file system.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The better way to get a new File object is
+to call one of the <b>File.getNewFile()</b> methods.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>            </span><b>public
+static File getNewFile();<o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>            </span><b>public
+static File getNewFile(String path);<o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>            </span><b>public
+static File getNewFile(File directory, String path);<o:p></o:p></b></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>These return a “blank” File object that is
+of the correct type for use on the default file system. Normally, this will
+return a standard <b>ewe.io.File</b> object, but there may be circumstances
+where it does not. For example, if you have a file called <b>“_filesystem.zip”</b>
+in the working directory of your application when running under Java, or on the
+server when running as an applet, this zip file is parsed and a “fake”
+(virtual) file system is created using the file and directory structure within
+the zip file. Calling <b>File.getNewFile()</b> will then instead return a <b>FakeFileSystem.FakeFile</b>
+object which is used to access files within this virtual file system.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Once you have a File object as provided by <b>getNewFile()</b>
+you can then use it to access any file in the file system, and even create IO
+streams to access the data in the files by using the portable file methods as
+outlined in the section: <b>Portable File Methods</b>.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc530041931"></a><a
+name="_Toc35330024"><span style='mso-bookmark:_Toc530041931'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>The
+Program Directory</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>It is convenient when storing files
+associated with an application to be able to determine the “working directory”
+for the application. On some platforms (e.g. WinCE) there is no concept of a
+“current working directory” and so all file names must be specified relative to
+the root directory of a local file volume. One work-around is to have the
+application put an entry in the system registry that specifies where its data files
+should be stored. While this can work it can be very inconvenient. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>For convenience, Ewe provides a way to
+determine the <b>“program directory”</b> of a running program. If the program
+is running directly from <b>.class</b> files on the local file system (which
+can be done on the desktop), and not from a <b>.ewe</b> file, then the program
+directory will be the current working directory. If the program is running from
+a <b>.ewe</b> file, then the program directory will be the directory containing
+the .ewe file. If the program is being run from an Applet, the program
+directory will be root on the default file system being used (which may be a
+virtual file system). </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The program directory can be determined by
+calling <b>File.getProgramDirectory()</b>. This gets a default File object via
+File.getNewFile() and then polls it using File.getInfo() to determine the
+program directory.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc530041932"></a><a
+name="_Toc35330025"><span style='mso-bookmark:_Toc530041932'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Portable
+File Methods</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>These are methods that allow you to have
+full browse and IO access to a file system given a File object appropriate for
+that system. By using these methods you will never have to use <b>new</b> to
+acquire a new File object or to acquire IO streams to the files. You will also
+ensure that your application will work regardless of the underlying file system
+being used.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>void set(File directory, String path);</span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This sets a File
+to represent a different file object as specified by the parent directory and
+child path. This is useful if you are processing large directories since it
+avoids a lot of expensive object creation. The directory provided may be null,
+but if it is not, then it must be of the same type as the original file.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>File getNew(File directory, String
+path);</span></b><b><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This is the way
+you should create a new File object given another one. The newly created object
+will be of the same class as the original File. The parent <b>directory</b>
+specified should also <b>be of the same class</b> as the File object being
+used, or it can be null (in which case <b>path</b> must specify the full path
+name of the file).</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>File getParent();</span></b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This provides the
+parent File object for the specified object. The returned File will be of the
+same type as the original.</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>File getChild(String childPath);</span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This creates a new
+File object that represents a child file of the original file. The returned
+File will be of the same type as the original. Note that a File object will
+always be returned, even if the child does not exist.</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>Stream toWritableStream(boolean append);</span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This creates (if
+possible) an output stream that can be used to write to the file represented by
+the File object. If the file is invalid, or if the file system is read-only,
+then this will throw an IOException. Note that if this method returns a stream,
+the file will automatically be created (if it does not exists) and cleared (if
+it does exist and <b>append</b> is not specified).</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>Stream toReadableStream();</span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US style='font-family:Arial'>This
+creates (if possible) an input stream that can be used to read sequentially
+from the file represented by the File object. If the file does not exist, then
+this will throw an IOException<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>RandomAccessStream
+toRandomAccessStream(String mode);</span></b><b><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This creates (if
+possible) a RandomAccessStream that can be used to read and write randomly to
+the file represented by the File object. The mode should be <b>&quot;r&quot;</b>
+or <b>&quot;rw&quot;.</b> If the mode is not compatible with the file system
+(e.g. you ask for write access in a read-only system) the File will throw an
+IOException.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc530041933"></a><a
+name="_Toc35330026"><span style='mso-bookmark:_Toc530041933'><span lang=EN-US>Accessing
+Program Resources</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>Program resources are extra read-only files
+that an application uses during execution. They may reside either on the local
+file system (when running on a desktop), or on a web server (when running as an
+Applet) or in a <b>.ewe</b> file (when running on a mobile device or on a
+desktop). Additionally, in the case of an Applet, the program resources may be
+stored in a file called <b>“_resources.zip”</b> that is read in once when the
+Applet initializes.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Because of the different ways in which the
+resources may be stored it is a bad idea to assume that a resource will be in
+any one particular form. There are two main methods in <b>ewe.sys.Vm</b> which
+you should use to access the data in a resource.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4><a name="_Toc35330027"><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US>RandomAccessStream ewe.sys.Vm.openRandomAccessStream(String path, String
+mode)</span></b></a><b style='mso-bidi-font-weight:normal'><span lang=EN-US><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This method
+returns a RandomAccessStream that can be used to access the bytes of the named
+resource. If the resource is a File on the local file system, then this will
+return a RandomAccessFile object that can be read or written. Bytes written to
+the stream will be stored on the local file system in this case. However if the
+resource is in a <b>.ewe</b> file or resides on the server, then the system
+will provide a read-only RandomAccessStream. Depending on the platform this
+RandomAccessStream <b>may</b> allow writes, but in this case the writes will <b>not</b>
+be saved permanently. The <b>mode</b> should be <b>&quot;r&quot; </b>or <b>&quot;rw&quot;.</b></span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4><a name="_Toc35330028"><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US>Stream ewe.sys.Vm.openResource(Class aClass, String resourceName)</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This method
+attempts to open a read-only stream to the data bytes associated with a
+resource that may be associated with a specific class. If <b>aClass</b> is null
+<b>or</b> if <b>aClass</b> is a class that has been loaded via the system
+classloader, then it passes the request on to <b>openRandomAccessStream()</b>
+and returns the resulting RandomAccessStream. However if <b>aClass</b> has been
+loaded via a Classloader that has inherited from <b>ewe.util.mClassLoader</b>,
+then it will call the <b>openResource()</b> method of the <b>mClassLoader</b>
+to attempt to get a stream to the resource bytes. However, if this fails, it
+will again pass the request to <b>openRandomAccessStream()</b>.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US>Note that as of version 1.14, the int
+ewe.sys.Vm.loadResourceOrFile(String path, ByteArray destination) method has
+been deprecated and you should not use it. Instead use openResource().</span></p>
+
+<p class=MsoHeading7><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Generally you should only use these methods
+to get <b>read</b> access to the program resources. If you need to write
+configuration information you should do so by writing to a File on the local
+file system.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that the <b>Vm </b>methods <b>readResource</b>
+and <b><span style="mso-spacerun: yes"> </span>releaseResource</b> are used to
+access system-level, OS dependent resources and not application resources.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

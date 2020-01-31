@@ -1,0 +1,1248 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./GuiLibrary_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>841</o:TotalTime>
+  <o:Created>2003-03-13T22:54:00Z</o:Created>
+  <o:LastSaved>2003-03-14T13:37:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>2055</o:Words>
+  <o:Characters>11716</o:Characters>
+  <o:Lines>97</o:Lines>
+  <o:Paragraphs>23</o:Paragraphs>
+  <o:CharactersWithSpaces>14388</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:718943687;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1742702346 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:1385791048;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1396941588 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l2
+	{mso-list-id:1813785951;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1566390420 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./GuiLibrary_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./GuiLibrary_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><span style='mso-ansi-language:EN-GB'>Ewe
+Application Development<o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>14 March 2003</span><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+lang=EN-US><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397942">The GUI Library
+– Simple Controls<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397942 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900340032000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397943">Text Display
+Controls<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397943 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900340033000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397944">Text Edit
+Controls<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397944 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900340034000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397945">Buttons and
+Checkboxes<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397945 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900340035000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397946">Choices, Menus
+and Lists<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397946 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900340036000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397947">Dynamic Controls
+and MultiPanels<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397947 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900340037000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397948">The GUI Library
+– Complex Controls<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397948 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>4</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900340038000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397949">Complex
+Containers<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397949 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>4</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900340039000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397950">Table Based
+Controls<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397950 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>4</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900350030000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397951">Mosaic Based
+Controls<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397951 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>5</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900350031000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397952">FileChooser
+Controls<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397952 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>5</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900350032000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35397953">Miscellaneous
+Controls<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35397953 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>5</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003900350033000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span lang=EN-US><span
+style='mso-element:field-end'></span></span></b><![endif]--><b><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc33711717"></a><a
+name="_Toc510256952"></a><a name="_Toc35397942"><span style='mso-bookmark:_Toc510256952'><span
+style='mso-bookmark:_Toc33711717'><span lang=EN-US>The GUI Library – Simple
+Controls</span></span></span></a><span style='mso-bookmark:_Toc510256952'></span></h2>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc510256952'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<h4 style='background:#E6E6E6'><span style='mso-bookmark:_Toc510256952'><a
+name="_Toc33711718"></a><a name="_Toc35397943"><span style='mso-bookmark:_Toc33711718'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Text
+Display Controls</span></b></span></a></span><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>These are controls that are used to display
+text but do not provide any editing capabilities.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256953"></a><a name="_Toc33711719"><span style='mso-bookmark:
+_Toc510256953'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>mLabel</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a single line label. </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>You can set the <b>control</b> field
+to refer to another Control on the display. If you do this, pen/mouse presses
+on the mLabel will be passed on to the Control. For example, if you have a
+label for a text editing control, clicking on the label will shift focus to the
+editing control.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256954"></a><a name="_Toc33711720"><span style='mso-bookmark:
+_Toc510256954'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>MessageArea</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a multi-line label (it inherits
+from <b>mLabel</b>). Use <b>setText()</b> to set the text for the control with
+each line of text being separated by <b>\n</b> (newline) characters.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256955"></a><a name="_Toc33711721"><span style='mso-bookmark:
+_Toc510256955'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>TextMessage</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a multi-line text display that automatically
+wraps its text to fit in the space allocated to the control. It fully
+implements ScrollClient, so it can be placed in a ScrollBarPanel.<span
+style="mso-spacerun: yes">  </span>This is the best control to use when you
+have a lot of information to display (e.g. a help file).</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc510256956"></a><a
+name="_Toc33711722"></a><a name="_Toc35397944"><span style='mso-bookmark:_Toc33711722'><span
+style='mso-bookmark:_Toc510256956'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Text Edit Controls</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>These are controls that inherit from the
+abstract <b>EditControl</b> class. </span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>You can set the <b>validator </b>field
+to an <b>InputValidator</b> to validate keys as they are being entered.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256957"></a><a name="_Toc33711723"><span style='mso-bookmark:
+_Toc510256957'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>mInput</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a single line input control.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>You can set the <b>isPassword</b> field
+true to display only <b>*</b> characters during input.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc33711724"></a><a name="_Toc510256958"><span style='mso-bookmark:
+_Toc33711724'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>mTextPad</span></b></span></a><span
+style='mso-bookmark:_Toc510256958'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></span></h5>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc510256958'><span lang=EN-US>This
+is a multi-line input control. It will automatically scroll within its area but
+it will not display scroll bars. You have to place it in a <b>ScrollablePanel</b>
+(e.g. a <b>ScrollBarPanel</b>) to utilize the scroll bars. This control also
+allows wrapping of lines to fit within the display and allows the use of
+shifted cursor keys for clipboard operations.</span></span></p>
+
+<h5><span style='mso-bookmark:_Toc510256958'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>DateDisplayInput<o:p></o:p></span></b></span></h5>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc510256958'><span lang=EN-US>This
+control is used to display and enter a date/time value. Entering of a Date is done
+via a pop-up calendar like interface, unless there is not enough display area,
+in which case it is entered via a single input line.</span></span></p>
+
+<p class=MsoToc1><span style='mso-bookmark:_Toc510256958'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<span style='mso-bookmark:_Toc510256958'></span>
+
+<h4 style='background:#E6E6E6'><a name="_Toc510256959"></a><a
+name="_Toc33711725"></a><a name="_Toc35397945"><span style='mso-bookmark:_Toc33711725'><span
+style='mso-bookmark:_Toc510256959'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Buttons and Checkboxes</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<h5><a name="_Toc510256960"></a><a name="_Toc33711726"><span style='mso-bookmark:
+_Toc510256960'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>mButton</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is the basic button object. This type
+of button can display an image along with text. If you are using an image with
+text, you should set the <b>textPosition</b> field to be <b>mGraphics.Up</b> if
+the text is above the image, or <b>mGraphics.Down</b> if the text is below the
+image.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256961"></a><a name="_Toc33711727"><span style='mso-bookmark:
+_Toc510256961'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>mCheckBox</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is the basic checkbox/radio button
+object. You can retrieve the state of the checkbox by using <b>getState()</b>
+and you can set the state using <b>setState(boolean)</b>.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>To make the checkbox one of a set of
+mutually exclusive radio buttons create a <b>CheckBoxGroup</b> object and call <b>setGroup(CheckBoxGroup)</b>
+on each of the checkboxes to go into the group. </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that when you are using
+CheckBoxGroups, pressed events which are generated by each mCheckBox are
+captured by the CheckBoxGroup and the target of the event is changed from
+referring to the originating mCheckBox, to referring to the CheckBoxGroup. That
+is, the events now seem to originate from the CheckBoxGroup instead of
+originating from an individual mCheckBox.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256962"></a><a name="_Toc33711728"><span style='mso-bookmark:
+_Toc510256962'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>ButtonCheckBox</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a type of mCheckBox which is
+displayed as a normal button. When its state is <b>true</b> it is displayed as
+being in the depressed state. You can use ButtonCheckBox objects with
+CheckBoxGroup objects as well.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc510256963"></a><a
+name="_Toc33711729"></a><a name="_Toc35397946"><span style='mso-bookmark:_Toc33711729'><span
+style='mso-bookmark:_Toc510256963'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Choices, Menus and Lists</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>These all inherit from the abstract <b>ChoiceControl</b>
+class which allow a user to select one of a list of possible options. The <b>mList</b>
+control also has the ability to allow the user to select more than one item out
+of the list.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>A ChoiceControl has a <b>items</b> member
+which is a <b>Vector</b> containing each selectable item in the control. All
+the methods that add items to the control will add to this Vector. You can add
+any one of two types of objects to this vector. You can add <b>String</b>
+objects, or you can add <b>MenuItem</b> objects.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>A <b>MenuItem</b> is mostly used for Menu
+controls only. They allow for sub-menus, separators and also for individual
+items to be disabled or checked. The MenuItem <b>label</b> field holds the text
+which is to be displayed in the list.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The following methods should be used to
+manipulate the items in a <b>ChoiceControl</b>. None of them (except for <b>changeItem()</b>)
+will call a repaint of the control.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>removeAll()</span></b><span lang=EN-US>
+– This clears the list of options.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>addItem(Object item)</span></b><span
+lang=EN-US> – This adds an individual item. The item itself may be a String or
+a <b>MenuItem</b> object.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>addItems(String [])</span></b><span
+lang=EN-US> – This adds a set of string items.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>insertItemAt(Object item,int index)</span></b><span
+lang=EN-US> – This adds an item at a particular index.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>changeItem(int index,String newText)</span></b><span
+lang=EN-US> – This changes the text associated with the item at the index.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>deleteItem(int index)</span></b><span
+lang=EN-US> – This deletes the specified item.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The following methods should be used to
+query the status and items in a <b>ChoiceControl</b>.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>getItemAt(int index)</span></b><span
+lang=EN-US> – This returns a <b>MenuItem</b> which represents the item at the
+specified index. If you added the items for the ChoiceControl as MenuItem
+objects, then this will return the MenuItem you added at that index. If you
+added the items for the ChoiceControl as <b>Strings</b> then a dummy MenuItem
+object is returned with its <b>label</b> field set to the String which you
+added at that index.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>getSelectedItem()</span></b><span
+lang=EN-US> – This returns the Object added at the selected index (either a
+String or a MenuItem). It returns null if no item is selected.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>indexOf(Object item)</span></b><span
+lang=EN-US> – This returns the index of the item in the control. The item can
+be a String or a MenuItem.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256964"></a><a name="_Toc33711730"><span style='mso-bookmark:
+_Toc510256964'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>mChoice</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a simple dropdown choice control.
+It displays a line of text and a drop-down button on the right. Pressing the
+pen on the line of text will cycle the text to the next item in the list.
+Pressing the pen on the drop-down button will display a menu of selectable
+items.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>If you set <b>dropDownButton</b> to <b>false</b>
+the drop-down button will not be displayed.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>If you set <b>alwaysDrop</b> to <b>true</b>
+the drop-down list will be displayed even if you press on the text area.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Use <b>setText() </b>and <b>getText()</b>
+to get the text representation of the current selection. You can also use <b>select(int
+index)</b> to select a particular item index, and you can access the <b>selectedIndex</b>
+field to retrieve the index of the currently selected item. If no item is
+selected, <b>selectedIndex</b> will be –1.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256965"></a><a name="_Toc33711731"><span style='mso-bookmark:
+_Toc510256965'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Menu</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a multi-level menu control. The
+individual items on the menu may have sub-menus, may be disabled and may be
+checked. See the separate chapter on Using Menus and Lists for more details on
+these advanced features. Whenever you add String items to a Menu they are
+automatically converted to new MenuItems.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Menus will fire a <b>MenuEvent</b> with the
+type set to <b>MenuEvent.SELECTED</b> when an item is selected. The <b>selectedItem</b>
+field in the MenuEvent specifies which item was selected (this may be a String
+or a MenuItem – depending on the control which generated it and what was
+added).</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256966"></a><a name="_Toc33711732"><span style='mso-bookmark:
+_Toc510256966'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>mList</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a standard list box which inherits
+from <b>Menu</b>. It can be set to allow multiple selections by setting <b>multiSelect</b>
+to <b>true</b>. mList controls generate <b>ListEvent</b> objects (which inherit
+from <b>MenuEvent</b>) but also generate events when items are unselected, in
+which case the type is set to <b>ListEvent.DESELECTED</b>.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256967"></a><a name="_Toc33711733"><span style='mso-bookmark:
+_Toc510256967'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>MenuChoice</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is an mChoice control which allows a
+full menu (with submenus if necessary) its drop-down<span style="mso-spacerun:
+yes">  </span>menu. This is in contrast to an mChoice which only allows a flat
+list for its drop-down menu.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256968"></a><a name="_Toc33711734"><span style='mso-bookmark:
+_Toc510256968'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>mComboBox</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is an mInput field combined with an
+mChoice field to provide a control which allows the user to enter arbitrary
+text, or to select text from a list. You have access to both the mInput (<b>input</b>
+field) and mChoice (<b>choice</b> field) of the ComboBox.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256969"></a><a name="_Toc33711735"><span style='mso-bookmark:
+_Toc510256969'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>MenuComboBox</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a ComboBox with the <b>choice</b>
+field set to a MenuChoice control instead of a plain mChoice control.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256970"></a><a name="_Toc33711736"><span style='mso-bookmark:
+_Toc510256970'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>PullDownMenu</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a button (drawn flat normally)
+which when pressed, displays an associated menu. PullDownMenus will work at the
+bottom or top of the screen. They will automatically fit the menu onto the
+screen.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256971"></a><a name="_Toc33711737"><span style='mso-bookmark:
+_Toc510256971'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>SimpleList</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a list that does not use a Vector
+object to store the items in the list. It allows you to create lists of
+arbitrary length without worrying about running out of memory. The idea is that
+you override the methods which retrieve the individual list items which are to
+be displayed. To implement a SimpleList you should override the following
+methods:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>int getItemCount() – This should
+return the number of items in the list.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>String getDisplayItem(int index) –
+This should return a String representing the item to display in the list at the
+specified index.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>Object getObjectAt(int index) – This
+should return the Object data representing the item at the specified index.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc510256972"></a><a
+name="_Toc33711738"></a><a name="_Toc35397947"><span style='mso-bookmark:_Toc33711738'><span
+style='mso-bookmark:_Toc510256972'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Dynamic Controls and MultiPanels</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>SingleContainer<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a Container that can hold a single
+control (which itself may be a container) and can change the control it
+contains dynamically using a <b>setControl()</b> method. This is provided
+because changing the contents of a Panel or CellPanel is not a simple
+procedure.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>MultiPanel <o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is actually an interface that allows
+multiple controls to be placed in the same area in a container, where only one
+of the controls is visible at a time. The control set which is visible at any
+time is selected programmatically through the MultiPanel interface methods, or
+via user input (e.g. by selecting a Tab in an mTabbedPanel).</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256973"></a><a name="_Toc33711739"><span style='mso-bookmark:
+_Toc510256973'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>CardPanel</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>A CardPanel is a full implementation of a
+MultiPanel which has no user methods for selecting which item to display. This
+can only be done programmatically. </span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<h5><a name="_Toc510256974"></a><a name="_Toc33711740"><span style='mso-bookmark:
+_Toc510256974'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>mTabbedPanel</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a MultiPanel which allows users to
+select which item to display by selecting on of a number of tabs.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35397948"><span lang=EN-US>The GUI
+Library – Complex Controls</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35397949"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Complex Containers</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Canvas<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>Use this as your base class if you are
+designing your own Control as it provides partial support for a scrollable
+control.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Frame<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>In order for any control to be visible it
+must be placed in a <b>Frame</b>. A Frame can be complex, having a draggable
+title bar, close button and resize bar, or it can be simple and borderless
+displaying its contents at a fixed location. You will almost never have to
+create a Frame yourself. You would usually use a <b>Form</b> to display
+controls on-screen. The Form object will create its own Frame when you request
+it to be displayed.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Window<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is represents the OS native window or
+the application drawing surface (for OSes that do not support multiple windows
+for an application). Again, you would almost never have to create a Window yourself,
+a Form object is capable of creating and displaying a Window to contain its
+Frame which then contains the Form.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Form<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a container that is designed to
+hold a form-like user interface. It is also capable of displaying itself on
+screen in a new Frame and Window (if necessary) through its <b>execute()</b> or
+<b>show()</b> methods.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Editor<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a special type of Form that allows
+for the automatic transfer of data from an Object field to an on-screen UI
+control. This is explained in the chapter <b>GUI Data Transfer</b> and <b>Live
+Objects</b>.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>AppForm<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a special type of Editor designed
+to be used as the &quot;main&quot; form for an application. It provides a
+number of features including the automatic setup of toolbars and menu bars as
+well as being SIP aware on the PocketPC. The use of an AppForm is explained in
+the chapter <b>Application GUI Issues</b>.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33711741"></a><a name="_Toc35397950"><span
+style='mso-bookmark:_Toc33711741'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Table Based Controls</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>TableControl <o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is the basic Table control in Ewe and
+can be used to provide very powerful data presentations or useful more complex
+controls. </span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>TreeControl <o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is actually a type of TableControl. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Using Table and Tree controls are explained
+in their own chapters in this guide.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35397951"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Mosaic Based Controls</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>These controls are in the <b>ewe.graphics </b>package
+and are explained in detail in the chapter on Mosaic Controls.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Mosaic<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is control is used to display, flicker
+free, any number of images on screen, some or all of which may be moving or be
+animated. </span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>MosaicPanel<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is an extension of Mosaic and provides
+methods that you override to detect when the user moves the mouse around the
+Mosaic, over and off of images, or when the user presses the pen/mouse on the
+images.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>InteractivePanel<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is an extension of MosaicPanel and
+allows selected images to be dragged around the MosaicPanel and dropped in any
+location or on each other. Methods are provided to detect when images are
+picked up, dropped or moved over each other. The <b>Solitaire</b> example uses
+an InteractivePanel for its implementation.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35397952"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>FileChooser Controls</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>These controls allow you to browse and
+select files on a file system or virtual file system. They are located in the <b>ewe.filechooser</b>
+package.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>FileChooser<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is the standard FileChooser and can be
+the base for developing more complex FileChoosers.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>ImageFileChooser<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is a FileChooser that displays an
+image preview of decodable images on the file system.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35397953"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Miscellaneous Controls</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>ImageControl<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is used to display an Image in a
+container. The displayed image can be changed and you have options for scaling
+the image.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>PageDisplay<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal><span lang=EN-US>This is in the <b>ewe.graphics</b> package.
+It provides a way of displaying a set of displayable units (PageDisplayUnit
+objects) in a scrollable canvas. However, it is much simpler than a Mosiac and
+does not clip the displayed units like a normal container. It can be used as
+the base for a control like a web browser, for example.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

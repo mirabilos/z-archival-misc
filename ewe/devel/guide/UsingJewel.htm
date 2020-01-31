@@ -1,0 +1,1223 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./UsingJewel_files/filelist.xml">
+<link rel=Edit-Time-Data href="./UsingJewel_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>25</o:Revision>
+  <o:TotalTime>1408</o:TotalTime>
+  <o:Created>2002-11-05T19:32:00Z</o:Created>
+  <o:LastSaved>2003-03-17T14:55:00Z</o:LastSaved>
+  <o:Pages>6</o:Pages>
+  <o:Words>1862</o:Words>
+  <o:Characters>10617</o:Characters>
+  <o:Lines>88</o:Lines>
+  <o:Paragraphs>21</o:Paragraphs>
+  <o:CharactersWithSpaces>13038</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:8;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:green;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:79300929;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2099440372 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1
+	{mso-list-id:300961870;
+	mso-list-type:hybrid;
+	mso-list-template-ids:227830882 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:665547855;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1195058374 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:799298338;
+	mso-list-type:hybrid;
+	mso-list-template-ids:758801444 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:852695005;
+	mso-list-type:hybrid;
+	mso-list-template-ids:941650104 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5
+	{mso-list-id:1627081890;
+	mso-list-type:hybrid;
+	mso-list-template-ids:866805062 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1033"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./UsingJewel_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1031" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./UsingJewel_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><span style='mso-ansi-language:EN-GB'>Ewe
+Application Development<o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>17 March 2003</span><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+lang=EN-US><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661427"><span
+lang=EN-US style='mso-ansi-language:EN-GB'><span lang=EN-US>Using the Jewel
+Program Builder</span></span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-begin'></span></span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35661427 \h </span><span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400320037000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661428"><span
+lang=EN-US style='mso-ansi-language:EN-GB'><span lang=EN-US>Step 1 – Creating a
+E<span lang=EN-US>we file</span></span></span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661428 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400320038000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661429">Program
+Specs/Command Line<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661429 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400320039000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661430">Output File
+Specifications<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661430 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330030000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661431">Ewe File
+Directories/Masks Entries<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661431 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330031000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661432">Ewe File
+Creation<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661432 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330032000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661433">Saving Your
+Program Specs<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661433 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330033000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661434"><span
+lang=EN-US style='mso-ansi-language:EN-GB'><span lang=EN-US>Step 2 – Creating
+Additional Targets</span></span><span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661434 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>4</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330034000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661435">Java Targets<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661435 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>4</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330035000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661436">Windows CE
+Targets<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661436 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>4</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330036000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661437">Windows Desktop
+Targets<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661437 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>4</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330037000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661438">Creating a
+Windows Icon<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661438 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>5</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330038000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661439">Creating a
+Target<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661439 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>5</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400330039000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35661440"><span
+lang=EN-US style='mso-ansi-language:EN-GB'><span lang=EN-US>Additional Tools</span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35661440 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>5</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600360031003400340030000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span lang=EN-US><span
+style='mso-element:field-end'></span></span></b><![endif]--><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35661427"><span style='mso-ansi-language:
+EN-GB'>Using the Jewel Program Builder</span></a><span style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></h2>
+
+<p class=MsoNormal><span lang=EN-US>This chapter explains how to use the <b>Jewel</b>
+program to create distributable Ewe applications. To do so, we will create a
+distributable version of the <b>Solitaire</b> sample application.</span><span
+lang=EN-US style='font-family:"Book Antiqua";mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>As mentioned before creating a distributable
+file requires two steps:<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>Creating a portable <b>.ewe</b> file containing all the
+     application classes and resources. This Ewe file can then be executed on
+     any system with a Ewe VM installed.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><i><span
+     lang=EN-US>(Optionally) </span></i><span lang=EN-US>The Ewe file can then be
+     used to create any of a number of platform dependant executable files. </span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Jewel is used to accomplish both these
+tasks.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>First we will ensure that the Solitaire
+sample is installed correctly in your environment. Open an MSDOS window and <b>cd</b>
+into the <b>classes</b> subdirectory of your Ewe programming environment. Then
+run Solitaire by entering: <b>ewe solitaire.Solitaire</b> or <b>jwe
+solitaire.Solitaire. </b>Once you confirm that Solitaire is working, we can use
+Jewel to create our distributable files.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35661428"><span style='mso-ansi-language:
+EN-GB'>Step 1 – Creating a Ewe file</span></a><span style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></h2>
+
+<p class=MsoNormal><span lang=EN-US>To do this we will run the Jewel program
+builder. This is located in the <b>programs</b> subdirectory of the Ewe SDK. If
+you are running a Windows system and have installed the Ewe VM, then you can
+just double-click the <b>Jewel.ewe</b> file and the application will begin
+running. Otherwise you may have to use the command line from within the
+programs directory using:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='color:blue'><span
+style='mso-tab-count:1'>            </span>ewe Jewel.ewe<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'>If you do not have
+a native Ewe VM for your platform then you will have to run Jewel using your
+Java VM. To do this you must download the <b>ewe.jar</b> archive from the
+Ewesoft website <b>or</b> you can use a zip file utility to open <b>JewelData.jar</b>
+and extract the ewe.jar archive from the <b>resources</b> directory within
+Jewel.jar. Once you have it you can execute Jewel by entering:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='color:windowtext'><span
+style='mso-tab-count:1'>            </span></span></b><b><span lang=EN-US
+style='color:blue'>java -cp ewe.jar Ewe Jewel.ewe<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'>Once you do this
+the Jewel main screen will appear.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+style='color:windowtext'><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:487.5pt;
+ height:399.75pt'>
+ <v:imagedata src="./UsingJewel_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=650 height=533
+src="./UsingJewel_files/image004.jpg" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661399"></a><a name="_Toc35661429"><span
+style='mso-bookmark:_Toc35661399'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Program Specs/Command Line</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This section is used to set the name of the
+program (this is not the same as the name of the <b>.ewe</b> file – it is the
+name of any special targets that you may produce) and the starting class of the
+application. Enter the values “Solitaire” and “solitaire.Solitaire” as shown in
+the screen shot.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can specify additional command line
+options using the <b>Edit Command Line</b> button, but we will not be dealing
+with this now. The command line information is added to the <b>.ewe</b> file
+that you will create as a special <b>.run</b> entry with the same name as the <b>.ewe</b>
+file. This is how the VM knows what the starting class will be when it executes
+the <b>.ewe</b> file.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661400"></a><a name="_Toc35661430"><span
+style='mso-bookmark:_Toc35661400'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Output File Specifications</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The <b>Output Ewe File</b> is used to
+specify the <b>.ewe</b> file that you will create. Enter a file name here or
+use the <!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75"
+ style='width:15.75pt;height:15.75pt' o:bordertopcolor="this"
+ o:borderleftcolor="this" o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="./UsingJewel_files/image005.jpg" o:title=""/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]--><![if !vml]><img width=21 height=21
+src="./UsingJewel_files/image006.jpg" v:shapes="_x0000_i1026"><![endif]><span
+style="mso-spacerun: yes"> </span>button to select a file using a FileChooser
+box. The other options for the output file are:<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo6;tab-stops:list .5in'><b><span
+     lang=EN-US>Add Command Line</span></b><span lang=EN-US> – this is necessary
+     if the <b>.ewe</b> file is to be used as an application. If you are
+     creating a <b>.ewe</b> file to be used as a class library only, then you
+     can turn off this option.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo6;tab-stops:list .5in'><b><span
+     lang=EN-US>Use String Pool</span></b><span lang=EN-US> – This is a special
+     type of class compression that pools together all the Strings used in all
+     the classes that are going into the <b>.ewe</b> file. This can reduce the
+     size of your <b>.ewe</b> file to about 75% of what it would be without
+     this option.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo6;tab-stops:list .5in'><b><span
+     lang=EN-US>Add Install File</span></b><span lang=EN-US> – This is used to
+     add a special install file to the <b>.ewe</b> file that is used by the VM
+     on certain systems to allow the application to be natively installed in
+     the OS. Currently this is used only by the Ewe VM on the Sharp Zaurus. The
+     <b>Edit Install File</b> is used along with this option.</span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661401"></a><a name="_Toc35661431"><span
+style='mso-bookmark:_Toc35661401'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Ewe File Directories/Masks Entries</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This is what you use to specify the files
+that are going into your <b>.ewe</b> file and what path they will have once in
+the <b>.ewe</b> file. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Each entry in this list specifies:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-US style='color:blue'>A Source Directory</span></b><span
+     lang=EN-US> that contains files that are going into the <b>.ewe</b> file.<br>
+     <br>
+     You can enter the directory directly or select it using a FileChooser.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-US style='color:blue'>A File/Mask</span></b><span lang=EN-US> that
+     specifies which files in the directory will go into the <b>.ewe</b> file.<br>
+     <br>
+     This can be any standard file mask, such as <b>*.class</b> or <b>S*.class</b>,
+     or it can be a full file name with no <b>*</b> characters at all. You can
+     specify more than one mask by separating them with semi-colons (e.g <b>*.class;*.png</b>).<b><br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></b></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-US style='color:blue'>A Path in Ewe</span></b><span lang=EN-US>
+     that specifies what path the files will have in the <b>.ewe</b> file.<br>
+     <br>
+     <b><i>This is very important – getting this value wrong will result in your
+     application being unable to locate resources and classes in your .ewe file</i></b><i>.</i><br>
+     <br>
+     The Ewe VM requires the standard Java convention that classes within a
+     package be placed in a directory named after that package. For example the
+     <b>solitaire.Solitiare</b> class must be represented by a file named <b>Solitaire.class</b>
+     stored in a directory called <b>solitaire</b>. <b><br>
+     <br>
+     </b>After you enter the source Directory for the entry, Jewel will make a
+     list of likely paths that you would use within your <b>.ewe</b> file and
+     place it in the drop down box associated with the Path input box. You
+     would therefore most likely be able to select it easily from this box.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-US>An </span></b><b><span lang=EN-US style='color:blue'>Include
+     Subdirectories</span><span lang=EN-US> option</span></b><span lang=EN-US>
+     that tells Jewel to include subdirectories of the specified directory in
+     the <b>.ewe</b> file, using the same mask specification.</span></li>
+</ul>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>To add an entry into the list, press the <!--[if gte vml 1]><v:shape
+ id="_x0000_i1027" type="#_x0000_t75" style='width:15.75pt;height:14.25pt'
+ o:bordertopcolor="this" o:borderleftcolor="this" o:borderbottomcolor="this"
+ o:borderrightcolor="this">
+ <v:imagedata src="./UsingJewel_files/image007.jpg" o:title=""/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]--><![if !vml]><img width=23 height=21
+src="./UsingJewel_files/image008.gif" v:shapes="_x0000_i1027"><![endif]><span
+style="mso-spacerun: yes"> </span>button and then enter the information for the
+entry. You can use the information from the screen shot above.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can <b>preview</b> the files that each
+entry will place in the <b>.ewe</b> file by pressing the <b>Preview Files</b>
+button. This is very useful to ensure that the files are going in the correct
+place in the <b>.ewe</b> file.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661402"></a><a name="_Toc35661432"><span
+style='mso-bookmark:_Toc35661402'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Ewe File Creation</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The <b>Create Ewe File</b> button is used
+to create the final <b>.ewe</b> file. The <b>Show Files</b> button will show
+all the files that are going into the final <b>.ewe</b> file. The <b>Run Ewe
+File</b> button will tell the VM to attempt to run the <b>.ewe</b> file using a
+separate instance of the Ewe VM.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Press the <b>Create Ewe File</b> button now
+to create <b>Solitaire.ewe</b>. You can then try running it from within Jewel
+or you can run it from the command line.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661403"></a><a name="_Toc35661433"><span
+style='mso-bookmark:_Toc35661403'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Saving Your Program Specs</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Use the <b>Save</b> option from the <b>File</b>
+menu to save your program specifications as a <b>.jnf</b> file. Save this one
+as <b>Solitaire.jnf </b>in the <b>programs</b> directory.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35661434"><span style='mso-ansi-language:
+EN-GB'>Step 2 – Creating Additional Targets</span></a><span style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></h2>
+
+<p class=MsoNormal><span lang=EN-US>Remember that a <b>.ewe</b> file is a fully
+portable file, able to be executed on any system with a Ewe VM or a Java
+Virtual machine along with the ewe.jar file. However you can also package your
+application in a number of different forms for execution on a number of
+different targets. These include:</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661404"></a><a name="_Toc35661435"><span
+style='mso-bookmark:_Toc35661404'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Java Targets</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><b><span
+     lang=EN-US>Java Jar Files</span></b><span lang=EN-US> – for both Java 1.2
+     VMs and for Java 1.1/PersonalJava VMs. <br>
+     <br>
+     The <b>jar</b> files produced for these targets contain your application
+     classes and resources <b>and</b> the Ewe libraries for Java. This means
+     that these jar files are fully self-contained and do not require a VM to
+     be present nor the ewe.jar archive.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><b><span
+     lang=EN-US>Java Applets</span></b><span lang=EN-US> – for both Java 1.2
+     and Java 1.1 VMs.<br>
+     <br>
+     This produces a complete file list needed to deploy your application as a
+     Web Applet. Again, it provides <b>all</b> the files required, including
+     the Ewe libraries for Java. <br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><b><span
+     lang=EN-US>Microsoft Jexegen</span></b><span lang=EN-US> – for use with
+     Microsoft’s Jexegen utility. This utility creates a Windows executable
+     file from a Java application.</span></li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661405"></a><a name="_Toc35661436"><span
+style='mso-bookmark:_Toc35661405'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Windows CE Targets</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Jewel can produce Windows <b>.exe</b>
+format files for execution on all Windows CE platforms and processors from
+WinCE 2.11 up to PocketPC. The <b>.exe</b> files produced <b>do not contain the
+Ewe VM</b>, only your application classes and resources. When they are run,
+they will invoke the Ewe VM on the target platform (by dynamic linking to the
+ewe.dll file). Therefore for these <b>.exe</b> files to work the Ewe VM must be
+installed on the target system.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Since these are Windows executable files
+they can contain their own Windows icon, and Jewel provides a way of specifying
+which icon should be assigned to the executable. In fact, Jewel allows you to
+build up a Windows icon (which contains any number of differently sized
+bitmaps) from any BMP or PNG images. This will be discussed later.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661406"></a><a name="_Toc35661437"><span
+style='mso-bookmark:_Toc35661406'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Windows Desktop Targets</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>There are two types of Windows Desktop
+executable files that you can create:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo15;tab-stops:list .5in'><b><span
+     lang=EN-US>Dynamic Linked</span></b><span lang=EN-US> – similar to the
+     Windows CE executables, in that they do not contain the Ewe VM, but rather
+     invoke the installed VM on the target computer when run.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo15;tab-stops:list .5in'><b><span
+     lang=EN-US>Static Linked</span></b><span lang=EN-US> – which contains the
+     full version of the Ewe VM. This means that it is fully self-contained and
+     will run on any Windows system, even without the Ewe VM installed. However
+     you <b>will</b> have to include the <b>ewex_registry.dll</b> file when
+     distributing the application.</span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>All of these targets are produced in their
+own directory within a directory named after your program </span></p>
+
+<p class=MsoNormal><span lang=EN-US>name (i.e. a directory called <b>Solitaire</b>
+in our example). This directory will be placed in the same location as the <b>.jnf</b>
+file for your project.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:487.5pt;height:399.75pt'>
+ <v:imagedata src="./UsingJewel_files/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=650 height=533
+src="./UsingJewel_files/image010.jpg" v:shapes="_x0000_i1028"><![endif]></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661407"></a><a name="_Toc35661438"><span
+style='mso-bookmark:_Toc35661407'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Creating a Windows Icon</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'>The <b>Build Icon</b>
+button allows you to build a Windows Icon from any number of bitmaps and it
+will bring up the Windows Icon Maker screen as shown below. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+ id="_x0000_i1029" type="#_x0000_t75" style='width:460.5pt;height:271.5pt'>
+ <v:imagedata src="./UsingJewel_files/image011.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=614 height=362
+src="./UsingJewel_files/image012.jpg" v:shapes="_x0000_i1029"><![endif]></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'>A Windows Icon
+contains a number of differently sized bitmaps, usually containing at least a 16x16
+and a 32x32 bitmap. The icon that is selected at any time depends on the
+context in which it is displayed.<span style="mso-spacerun: yes">  </span>Each
+bitmap also has a <b>mask</b> associated with it that tells the system which
+areas of the bitmap are to be considered transparent.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'>The Icon Maker
+allows you to load up images from files (BMP or PNG) and then optionally select
+a particular color to be made transparent (if a transparent area is not already
+defined for the image). This means that you can use any simple editor (like
+Paintbrush) to create a bitmap, fill up the transparent areas with a particular
+color that is not used anywhere else in the bitmap, and then use the Icon Maker
+to create a Windows icon from it.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'>Use this feature
+now to create an Icon for our Solitaire example. In the <b>programs</b>
+directory there are two bitmaps: <b>solitaire_exe_icon.bmp</b> and <b>solitaire_exe_iconsmall.bmp</b>.
+Load them both into the Icon Maker and then click on the orange area for both.
+Then save the Icon as <b>Solitaire.ico</b> in the <b>programs</b> directory.
+When you close the Windows Icon Maker it will automatically select this new
+icon as the Windows Icon for the Solitaire project.<o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35661408"></a><a name="_Toc35661439"><span
+style='mso-bookmark:_Toc35661408'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Creating a Target</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>To create one of the targets simply check
+the ones you are interested in and press the <b>Build Targets</b> button. A
+progress dialog will appear during the creation process. <b>Note that the Java
+targets take some time to create since it involves the unzipping and re-zipping
+of a large number of individual Java classes.</b> </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Once the targets are created a <b>Solitaire</b>
+subdirectory will appear in the same directory as the <b>Solitaire.jnf</b> file
+that you saved. Within this new subdirectory will be a subdirectory for each of
+the targets that you selected. These targets are ready for distribution or
+deployment.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35661440"><span style='mso-ansi-language:
+EN-GB'>Additional Tools</span></a><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></h2>
+
+<p class=MsoNormal><span lang=EN-US>Jewel provides a number of other tools that
+are useful to the Ewe developer. These include:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo18;tab-stops:list .5in'><span
+     lang=EN-US>A <b>PNG Icon Maker</b>. This is similar to the Windows Icon
+     Maker. It takes any bitmap and lets you select a particular color to be
+     made transparent. You can then save the image as a <b>PNG</b> image and use
+     it in your Ewe applications.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo18;tab-stops:list .5in'><span
+     lang=EN-US>A <b>Ewe Native Interface (ENI) Library Builder</b>. This takes
+     a class that contains native Java methods and produces a template C++ file
+     that you can use to create dynamic linked libraries (both Windows and
+     Unix) that implement these native methods. Please note that this
+     implementation will also work for Sun's Java VM as well.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo18;tab-stops:list .5in'><span
+     lang=EN-US>A <b>Resource Extractor</b>. This allows you to extract
+     selected Jewel resources and save them as files on your hard-drive.</span></li>
+</ul>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

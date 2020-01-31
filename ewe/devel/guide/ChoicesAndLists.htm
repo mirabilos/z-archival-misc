@@ -1,0 +1,1312 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./ChoicesAndLists_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>17</o:TotalTime>
+  <o:Created>2003-07-20T01:08:00Z</o:Created>
+  <o:LastSaved>2003-07-20T01:26:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>659</o:Words>
+  <o:Characters>3757</o:Characters>
+  <o:Lines>31</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>4613</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:.5in right dotted 510.7pt;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:141118365;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-272609970 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1
+	{mso-list-id:188035413;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2029855178 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2
+	{mso-list-id:329528270;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1641468558 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3
+	{mso-list-id:494297089;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1475338070 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4
+	{mso-list-id:1180512595;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-655053172 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5
+	{mso-list-id:1302611953;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1624663120 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6
+	{mso-list-id:1701931004;
+	mso-list-type:hybrid;
+	mso-list-template-ids:451150544 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./ChoicesAndLists_files/image001.gif"
+lang=EN-GB link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./ChoicesAndLists_files/image001.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"></a><a
+name="_Toc512399297"></a><a name="_Toc844177"><span style='mso-bookmark:_Toc512399297'><span
+style='mso-bookmark:_Toc33663851'><span style='mso-ansi-language:EN-GB'>Ewe
+Application Development</span></span></span></a><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'>19 July 2003</span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="http://www.ewesoft.com/"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US>http://www.ewesoft.com/</span></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc1><span style='mso-bookmark:_Toc844177'><span style='mso-bookmark:
+_Toc512399297'></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial'><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+4,2,Heading 5,3&quot; <span style='mso-element:field-separator'></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412233"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial'>The Ewe
+Native Interface</span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412233 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200330033000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;font-weight:normal'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc1><span style='mso-bookmark:_Toc844177'><span style='mso-bookmark:
+_Toc512399297'></span></span><a href="#_Toc46412234"><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span style='font-family:
+Arial'>The object_access Class</span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span style='font-family:
+Arial;color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412234 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200330034000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;font-weight:normal'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412235"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Native Example</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412235 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200330035000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412236"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Using References – Local vs Global</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412236 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>6<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200330036000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412237"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Java Types Signatures</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412237 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>6<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200330037000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412238"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>The java_string Utility Class</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412238 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>7<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200330038000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412239"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Using object_access – Class/Object Independent
+Functions</span></b></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412239 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>7<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200330039000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412240"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Class Access Methods</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412240 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>7<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340030000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412241"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Reference Access Methods</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412241 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>8<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340031000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412242"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Class and Object Binding Methods</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412242 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>8<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340032000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412243"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>New object_access Creation</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412243 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>8<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340033000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412244"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Field and Method Discovery Methods</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412244 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>8<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340034000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412245"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Exception Handling</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412245 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>8<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340035000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412246"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Synchronization</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412246 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>8<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340036000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412247"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Object and String Creation and Utilities</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412247 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>9<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340037000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412248"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Array Access Methods</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412248 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>9<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340038000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412249"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Method Invocation</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412249 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>10<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200340039000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412250"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Using object_access – Class Specific Functions</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412250 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>10<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350030000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412251"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Class Utilities</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412251 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>10<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350031000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412252"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Field Discovery and Static Field Value
+Access</span></b></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412252 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>10<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350032000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412253"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Method Discovery</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412253 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350033000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412254"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Using object_access – Object Specific Functions</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412254 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350034000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412255"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Object Utilities</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412255 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350035000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412256"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Field Value Access</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412256 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350036000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412257"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Performing Asynchronous Operations – Using the
+new_thread class</span></b></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412257 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350037000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412258"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Important Notes on Using Threads</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412258 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350038000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412259"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Method 1 - Resuming a Sleeping Calling
+Thread (Not Recommended)</span></b></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412259 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>12<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200350039000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412260"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Method 2 – Using a Handle Object
+(Recommended Method)</span></b></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1 dotted'> </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412260 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>13<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200360030000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412261"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Using the Handle of the new_thread</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412261 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>15<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200360031000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412262"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>The mThread Library</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc46412262 \h </span></span></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>15<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200360032000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412263"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>Creating an mThread</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412263 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>16<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200360033000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412264"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>mThread Methods</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412264 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>16<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200360034000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><a
+href="#_Toc46412265"><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='font-family:Arial'>mLock Methods</span></b></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc46412265 \h </span></span></span><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'><span lang=EN-US
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>17<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300340036003400310032003200360035000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span></a><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc844177'><span
+style='mso-bookmark:_Toc512399297'></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc844177'><span style='mso-bookmark:_Toc512399297'></span></span><span
+style='mso-bookmark:_Toc844177'><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></span></p>
+
+<span style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc844177'></span>
+
+<h2 style='background:#CCFFFF'><span lang=EN-US>Choices, Menus and Lists</span></h2>
+
+<p class=MsoNormal><span lang=EN-US>The Ewe UI library comes with a number of
+related choice, menu and list controls, each of which are dynamic (the items
+they display can be modified dynamically).</span></p>
+
+<h4 style='background:#E6E6E6'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>ewe.ui.ChoiceControl<o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This is the base for all choice controls
+and so its methods apply to all these controls. The items in the choice control
+are stored in a publicly accessible Vector called <b>items</b>. You are free to
+view and modify this Vector although you are advised to use one of the
+different methods that add/remove/list the items instead.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>After adding/removing items to your
+ChoiceControl you should call <i>updateItems()</i>. This tells the control to
+update itself and the scroll bars of its ScrollServer to reflect the new items.</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>While most choice controls use this Vector
+for item storage, the class <b>SimpleList</b> does not. That class requires you
+to override specific methods to dynamically fetch the items in the list. This
+allows you to display arbitrarily large lists without having to store data for
+each item in memory since you can fetch or create each item as it is needed.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Each item in a list can be either a simple String
+or a MenuItem. A MenuItem can have sub-menus, icons, be disabled or enabled or
+even be indented.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The native Ewe VM supports an interface
+(the Ewe Native Interface - ENI) that allows you to write dynamic-link
+libraries (DLLs) in C++ (or</span></p>
+
+</div>
+
+</body>
+
+</html>

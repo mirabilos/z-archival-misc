@@ -1,0 +1,851 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./LiveObject_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>9</o:Revision>
+  <o:TotalTime>135</o:TotalTime>
+  <o:Created>2003-03-14T14:04:00Z</o:Created>
+  <o:LastSaved>2003-10-04T14:13:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1580</o:Words>
+  <o:Characters>9010</o:Characters>
+  <o:Lines>75</o:Lines>
+  <o:Paragraphs>18</o:Paragraphs>
+  <o:CharactersWithSpaces>11064</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:.5in;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1316452588;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1737144634 1756548748 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-weight:bold;}
+@list l1
+	{mso-list-id:1622607348;
+	mso-list-type:hybrid;
+	mso-list-template-ids:649333322 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1683627906;
+	mso-list-type:hybrid;
+	mso-list-template-ids:216177094 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./LiveObject_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./LiveObject_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-begin'></span></span><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>DATE \@
+&quot;dd MMMM yyyy&quot; \* MERGEFORMAT </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>04 October 2003</span><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="http://www.ewesoft.com/">http://www.ewesoft.com/</a></span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><!--[if supportFields]><span style='mso-ansi-language:EN-GB'><span
+style='mso-element:field-begin'></span><span style="mso-spacerun:
+yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; <span
+style='mso-element:field-separator'></span></span><![endif]--><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc35767010">Live Objects<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1'>  </span><span
+style='mso-field-code:"PAGEREF _Toc35767010 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310030000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35767011"><b style='mso-bidi-font-weight:normal'>ewe.util.Comparable</b><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1'>  </span><span
+style='mso-field-code:"PAGEREF _Toc35767011 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310031000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35767012"><b style='mso-bidi-font-weight:normal'>ewe.util.Copyable</b><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1'>  </span><span
+style='mso-field-code:"PAGEREF _Toc35767012 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310032000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35767013"><b style='mso-bidi-font-weight:normal'>ewe.data.DataUnit
+(extends Copyable and Comparable)</b><span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'> </span><span style='mso-field-code:"PAGEREF _Toc35767013 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310033000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35767014"><b style='mso-bidi-font-weight:normal'>ewe.data.DataObject</b><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1'> </span><span
+style='mso-field-code:"PAGEREF _Toc35767014 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310034000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35767015"><b style='mso-bidi-font-weight:normal'>ewe.data.LiveData
+(extends DataUnit, FieldListener)</b><span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'> </span><span style='mso-field-code:"PAGEREF _Toc35767015 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310035000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35767016"><b style='mso-bidi-font-weight:normal'>ewe.data.LiveObject
+(extends DataObject implements LiveData)</b><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'> </span><span style='mso-field-code:"PAGEREF _Toc35767016 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310036000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35767017">Important Issues with Editors<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35767017 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310037000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35767018">Testing Live Objects<span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35767018 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310038000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35767019"><b style='mso-bidi-font-weight:normal'>Testing
+using a ListEditor</b><span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1'>  </span><span
+style='mso-field-code:"PAGEREF _Toc35767019 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000310039000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35767020"><b style='mso-bidi-font-weight:normal'>Testing
+using a SaveableEditor</b><span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1'>  </span><span
+style='mso-field-code:"PAGEREF _Toc35767020 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700360037003000320030000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc515176412"></a><a
+name="_Toc35767010"><span style='mso-bookmark:_Toc515176412'><span lang=EN-US>Live
+Objects</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>The <b>ewe.data.LiveData</b> interface is a
+very important one in ewe. It represents objects that, in a way, “know” how to
+display themselves on the screen, how to allow users to edit themselves, how to
+validate their own data and how to encode/decode their data to savable text
+strings. The LiveData interface itself is an extension of many others. These
+are listed below.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc515176413"></a><a
+name="_Toc35767011"><span style='mso-bookmark:_Toc515176413'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>ewe.util.Comparable</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><b><span lang=EN-US>int compareTo(Object other)</span></b><span
+lang=EN-US> – This method will compare <b>this</b> object with the <b>other</b>
+object. If it decides that the other object is less than this object, it will
+return a value greater than zero. If it decides that the other object is
+greater than this object, it will return a value less than zero. If the two
+objects are considered equal, it will return zero.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can think of this as a subtraction
+operation where <b>other</b> is subtracted from <b>this</b> and the result is
+returned.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc515176414"></a><a
+name="_Toc35767012"><span style='mso-bookmark:_Toc515176414'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>ewe.util.Copyable</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><b><span lang=EN-US>Object getCopy()</span></b><span
+lang=EN-US> – This should return a copy of the object.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc515176415"></a><a
+name="_Toc35767013"><span style='mso-bookmark:_Toc515176415'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>ewe.data.DataUnit
+(extends Copyable and Comparable)</span></b></span></a><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><b><span lang=EN-US>Object getNew()</span></b><span
+lang=EN-US> – This returns a new instance of the object.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>void copyFrom(Object other)</span></b><span
+lang=EN-US> – This tells the object to copy its data from the other object.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc515176416"></a><a
+name="_Toc35767014"><span style='mso-bookmark:_Toc515176416'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>ewe.data.DataObject</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This is an object that completely
+implements the DataUnit interface. It is meant to be a convenient base for
+creating new objects. The following is the default behavior. <br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span
+     lang=EN-US>getNew()</span></b><span lang=EN-US> will use the Reflection
+     API to attempt to create a new instance of the object via a public default
+     constructor. If successful, the object created will be returned. For this
+     to work the class <b>must</b> have a public default constructor –
+     otherwise any extending classes will have to override this method.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span
+     lang=EN-US>getCopy()</span></b><span lang=EN-US> will call first call <b>getNew()</b>
+     and then invoke <b>copyFrom()</b> on the created object passing it this
+     object as a parameter. <br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span
+     lang=EN-US>copyFrom(Object other)</span></b><span lang=EN-US> invokes the <b>ewe.util.Utils.copy(Object
+     source,Object dest)</b> method with this as the destination and the other
+     as the source. The <b>Utils.copy()</b> method attempts a field by field
+     copy.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span
+     lang=EN-US>compareTo(Object other)</span></b><span lang=EN-US> returns 0
+     if the two Objects are the same object, or 1 otherwise.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span
+     lang=EN-US>equals(Object other)</span></b><span lang=EN-US> returns true
+     if <b>compareTo()</b> returns 0. </span><span lang=EN-US style='font-family:
+     "Book Antiqua"'><o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>All of these methods can be overridden if
+necessary.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc515176417"></a><a
+name="_Toc35767015"><span style='mso-bookmark:_Toc515176417'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>ewe.data.LiveData
+(extends DataUnit, FieldListener)</span></b></span></a><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>A <b>LiveData </b>object is one that is
+likely to be edited visually and/or saved to permanent storage. The LiveData
+interface adds the following methods to DataUnit.</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo6;tab-stops:list .5in'><b><span
+     lang=EN-US>Editor getEditor(int forWhat)</span></b><span lang=EN-US> –
+     This requests for the object to provide an Editor object to be used to visually
+     edit its data. The <b>forWhat</b> parameter can be used to specify what
+     aspect or subsection of the data is to be edited. It is optional for a
+     LiveData object use this parameter.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo6;tab-stops:list .5in'><b><span
+     lang=EN-US>IImage getIcon()</span></b><span lang=EN-US> – This request for
+     the object to provide an icon for the object. If the object has none
+     defined it can return null.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo6;tab-stops:list .5in'><b><span
+     lang=EN-US>String getName()</span></b><span lang=EN-US> – This requests
+     for the object to provide a short name for itself. This name can be used
+     for displaying in lists or tables etc. The name is not required to be
+     unique.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo6;tab-stops:list .5in'><b><span
+     lang=EN-US>String textEncode()</span></b><span lang=EN-US> – This requests
+     for the object to encode itself as a text string.<br style='mso-special-character:
+     line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo6;tab-stops:list .5in'><b><span
+     lang=EN-US>void textDecode(String encoded) – </span></b><span lang=EN-US>This
+     requests for the object to decode itself from a text string which has been
+     created by <b>textEncode()</b>.</span><span lang=EN-US style='font-family:
+     "Book Antiqua"'><o:p></o:p></span></li>
+</ul>
+
+<h4 style='background:#E6E6E6'><a name="_Toc515176418"></a><a
+name="_Toc35767016"><span style='mso-bookmark:_Toc515176418'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>ewe.data.LiveObject
+(extends DataObject implements LiveData)</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>A <b>LiveObject</b> should be the base
+object for most of your editable objects and it provides most of the
+functionality required of LiveData objects. Extending a LiveObject should be
+done in this way:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-US>Creating an Editor</span></b><span lang=EN-US> – To do this do <b>not</b>
+     override <b>getEditor()</b> instead override <b>void addToPanel(CellPanel
+     cp, Editor f, int whichEditor)</b>. Add all your components to the
+     CellPanel “cp” and add your fields to the Editor “f”. <br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-US>Handling getCopy() and getNew()</span></b><span lang=EN-US> –
+     Ensure that you provide a public default constructor for your object. This
+     allows the base implementation of <b>getNew()</b> to automatically create
+     a new object for you. To allow automatic field copying other than all
+     public fields you should declare a public String variable named <b>_fields</b>
+     that is set to be a comma separated list of all the fields (which must be
+     public) you want automatically copied. If this field does not exist then
+     all public fields will be copied. If you need to do some more advanced
+     copying or there are fields to copy which cannot be made public, then
+     override <b>copyFrom(Object other)</b> and be sure to call <b>super.getCopy()</b>
+     after you have done your copying.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-US>Handling textEncode()</span></b><span lang=EN-US> – Don’t
+     override this method. Instead override the method <b>TextEncoder
+     encode(TextEncoder te)<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></b></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo9;tab-stops:list .5in'><b><span
+     lang=EN-US>Handling textDecode()</span></b><span lang=EN-US> – Don’t
+     override this method. Instead override the method <b>TextDecoder
+     decode(TextDecoder td)</b></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>ewe.util.TextEncoder</span></b><span
+lang=EN-US> and <b>ewe.util.TextDecoder</b> are classes which encode text data
+using standard URL encoding. You add data to TextEncoder by adding a named
+field and a text string as the value of that field. The TextEncoder encodes
+these fields such that no spaces or control characters are in the final output
+text. These would have been replaced by <b>%xx</b> codes where <b>xx</b> is a
+hexadecimal value.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>TextEncoders/TextDecoders also deal with
+nested encoded data. You can encode text that itself has been produced by a
+TextEncoder.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Please see the file <b>samples/data/PersonInfo.java</b>
+and <b>samples/data/BigPersonInfo.java</b> for examples of extending a <b>LiveObject</b>
+and then how to extend it further. However there are some default behavior for
+LiveObject that you should also know about.</span></p>
+
+<h4 style='background:#E6E6E6'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Default LiveObject Behavior - Editor Creation<o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>By default the <b>getEditor(int options)</b>
+method will first call <b>makeNewEditor(int options)</b> to have it create and
+return an Editor. By default this simply creates and returns a standard Editor
+object, but you are free to override this and return a different Editor. It
+then creates a new CellPanel, places it in a ScrollBarPanel and then places the
+ScrollBarPanel in the Editor. You can access this scrollbar panel control in
+the editor by accessing the editor property &quot;<b>MainScrollBarPanel</b></span><b><span
+style='mso-ansi-language:EN-GB'>&quot;</span></b><span style='mso-ansi-language:
+EN-GB'>. For example:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>ScrollBarPanel sbp =<span style="mso-spacerun: yes">  </span>(ScrollBarPanel)editor.getProperties().getValue(&quot;MainScrollBarPanel&quot;,null);</pre>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>However when initially
+created this ScrollBarPanel is disabled and its scroll bars will never appear.
+To enable it you can call the static LiveObject method <b>enableEditorScrolling(Editor
+ed, boolean enable)</b> to enable/disable editor scrolling.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>After the Editor is
+setup as listed above the method <b>addToPanel(CellPanel cp, Editor ed, int
+options)</b> is called. <b>This</b> is the method that you should override to
+add controls to the editor by adding it to the panel <b>cp</b>.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>If you do not override
+the <b>addToPanel()</b> method then the LiveObject will attempt to add all
+public fields of the LiveObject class to the editor.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>UIBuilder</b>
+class is very useful for creating Editors for LiveObjects. See the next chapter
+on how to use it.<o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Default LiveObject Behavior - Text Encoding<o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>By default, the <b>textEncode()</b>
+method will create a new <b>TextEncoder</b> object (used for encoding data as
+text) and then call <b>TextEncoder encode(TextEncoder te)</b>. This is the
+method that you should override. In this method you should encode the fields
+you want and any other data into the TextEncoder. Then you call <b>super.encode(te)</b>
+to pass the data to the super encode() method.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Similarly, the <b>textDecode()</b>
+method will create a new <b>TextDecoder</b> object and then call <b>TextDecoder
+decode(TextDecoder td)</b>. This is the method that you should override. In
+this method you decode the fields you encoded in encode() and then pass the
+TextDecoder object to the super decode() method.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Within the <b>encode()</b>
+method you can use the method: <b>TextEncoder encodeFields(String
+fieldNames,TextEncoder te,String baseName)</b>. This will encode a specific set
+of fields as declared by the class. Similarly in <b>decode()</b> you can use
+the method: <b>TextDecoder decodeFields(String fieldNames,TextDecoder td,String
+baseName)</b>.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Here is an example of
+an object encoding a specific set of three fields.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>//-------------------------------------------------------------------</pre><pre
+style='background:#F3F3F3'>protected TextEncoder encode(TextEncoder te)</pre><pre
+style='background:#F3F3F3'>//-------------------------------------------------------------------</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>encodeFields(&quot;lastName,firstNames,gender&quot;,te,&quot;PersonInfo&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return super.encode(te);</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'>//-------------------------------------------------------------------</pre><pre
+style='background:#F3F3F3'>protected TextDecoder decode(TextDecoder td)</pre><pre
+style='background:#F3F3F3'>//-------------------------------------------------------------------</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>decodeFields(&quot;lastName,firstNames,gender&quot;,td,&quot;PersonInfo&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return super.decode(td);</pre><pre
+style='background:#F3F3F3'>}</pre>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>If you do not override
+<b>encode()</b> or <b>decode()</b> then the base implementation of LiveObject
+will encode/decode all public fields of the class.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";color:windowtext;
+mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35767017"><span lang=EN-US>Important
+Issues with Editors</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>Remember that when data is changed within
+Controls in an Editor, all FieldListeners (which will be the object being
+edited, in the case of Live Objects) will automatically be informed of the data
+change. However it is not the case that programmatic changes to the data in the
+object will be automatically updated in the Controls on the Editor. To do so
+you <b>must</b> call the Editor methods <b>toControls(String fieldList)</b> or <b>toControls()</b>.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>When the Editor detects a DataChange in one
+of its controls (caused by the user changing data on-screen) it will itself
+generate a DataChangeEvent to indicate to any interested listener that at least
+one piece of data has been changed. This is used by other Controls that may
+have to take action depending on whether data has been changed or not. Examples
+of this are the ListEditor and the SaveableEditor.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>However when you change data
+programmatically, and even after you call <b>toControls()</b> the Editor does
+not generate its own DataChangeEvent, and so other controls will not know that
+any data has changed at all. To ensure that this event is generated, call the <b>notifyDataChange()</b>
+method on the Editor after changing data and calling <b>toControls()</b>.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35767018"><span lang=EN-US>Testing
+Live Objects</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>It is very easy to test a LiveObject
+implementation, you simply need to quote it as the starting class for your
+application. For example you could do:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>ewe samples.data.PersonInfo</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>And the Editor for the object will be
+created and displayed.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35767019"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Testing using a ListEditor</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>You can also test editing a LiveObject
+within a standard <b>ewe.ui.ListEditor</b>. This is a control that lets you
+edit a list of editable objects. This class can be configured in a number of
+ways, but to run it in its default configuration against a particular object
+simply provide the full class name as program argument:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>ewe ewe.ui.ListEditor samples.data.PersonInfo</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Now you can edit multiple PersonInfo using
+a single Editor.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35767020"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Testing using a SaveableEditor</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This is an Editor that lets you save to
+disk the contents of a LiveObject, which you can later load back into the
+LiveObject. Again this is very easy to use, simply enter:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>ewe ewe.ui.SaveableEditor
+samples.data.PersonInfo</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can also run a SaveableEditor on a
+ListEditor that edits your LiveObject using the <b>-list</b> option like this:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>ewe ewe.ui.SaveableEditor -list
+samples.data.PersonInfo</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>Now you can save and load complete lists of
+PersonInfo objects.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

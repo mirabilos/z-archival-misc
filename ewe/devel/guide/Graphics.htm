@@ -1,0 +1,821 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Graphics_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>5</o:TotalTime>
+  <o:Created>2003-03-14T13:42:00Z</o:Created>
+  <o:LastSaved>2003-03-14T13:49:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>980</o:Words>
+  <o:Characters>5591</o:Characters>
+  <o:Lines>46</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>6866</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+code
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:611866644;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2069718692 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:680741129;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1449144644 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2
+	{mso-list-id:815417567;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1364568586 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3
+	{mso-list-id:936593236;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1173379156 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:1245382965;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1436274148 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:1474133562;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1465730672 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6
+	{mso-list-id:1840148327;
+	mso-list-type:hybrid;
+	mso-list-template-ids:395188258 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l7
+	{mso-list-id:1881822054;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1865572128 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./Graphics_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./Graphics_files/image001.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"></a><a
+name="_Toc530041994"><span style='mso-bookmark:_Toc33663851'><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></span></a><span
+style='mso-bookmark:_Toc530041994'><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc530041994'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><span
+style='mso-ansi-language:EN-GB'>14 March 2003</span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc530041994'><span style='mso-ansi-language:EN-GB'>Michael
+L Brereton<o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc530041994'></span><a href="http://www.ewesoft.com/"><span
+style='mso-bookmark:_Toc530041994'><span lang=EN-US>http://www.ewesoft.com/</span></span><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><!--[if supportFields]><span style='mso-bookmark:_Toc530041994'></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US><span style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading
+2,1,Heading 3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'></span><a
+href="#_Toc35398671"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Graphics – Drawing and Painting</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35398671 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390038003600370031000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35398672"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>The ewe.fx.Graphics Class</span></b></span><span style='mso-bookmark:
+_Toc530041994'><b><span lang=EN-US style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35398672 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390038003600370032000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35398673"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Important notes about Graphics Objects</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35398673 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390038003600370033000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35398674"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>BufferedGraphics</span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35398674 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390038003600370034000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35398675"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Drawing and Filling Methods – Pen and Brush Objects</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35398675 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390038003600370035000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35398676"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Drawing Images</span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35398676 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390038003600370036000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35398677"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Flushing and Freeing Graphics</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35398677 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390038003600370037000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041994'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<span style='mso-bookmark:_Toc530041994'></span>
+
+<h2 style='background:#CCFFFF'><a name="_Toc13645695"></a><a name="_Toc35398671"><span
+style='mso-bookmark:_Toc13645695'><span lang=EN-US>Graphics – Drawing and
+Painting</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc13645696"></a><a name="_Toc35398672"><span
+style='mso-bookmark:_Toc13645696'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>The ewe.fx.Graphics Class</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This class provides all the functionality
+for drawing lines, shapes, text and images onto a <b>drawing surface</b>. Under
+Ewe, a drawing surface implements the <b>ewe.fx.ISurface</b> interface. In fact
+this interface has no methods, but merely tells the class library that there
+exists native methods that allow drawing operations to be performed on the
+object.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Under Ewe there are three types of
+surfaces:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo11;tab-stops:list .5in'><span
+     lang=EN-US>A <b>Window</b> surface – represented by <b>ewe.ui.Window</b>.</span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo11;tab-stops:list .5in'><span
+     lang=EN-US>An <b>Image</b> surface – represented by <b>ewe.fx.Image.</b></span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo11;tab-stops:list .5in'><span
+     lang=EN-US>A <b>Printer Job</b> surface – represented by <b>ewe.fx.PrinterJob</b>.</span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You create a Graphics object for a surface
+using the constructor: <b>Graphics(ISurface surface)</b>. In fact, this is the
+only constructor available for Graphics.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc13645697"></a><a name="_Toc35398673"><span
+style='mso-bookmark:_Toc13645697'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Important notes about Graphics Objects</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Graphics objects are mostly used in a write
+only mode. That is, pixel data is <b>sent</b> to the Graphics object only.
+However there are some Graphics operations that require the ability to <b>read</b>
+pixel data from the Graphics. This includes:</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo12;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>Copy operations – where an area is
+copied from an area of a Graphics object to a different area of a possible
+different Graphics object.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo12;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>And/Or/XOr drawing operations – where
+existing pixels are altered by new pixels being written.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo12;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>Transparency/Alpha-blending operations
+– where existing pixels are merged somehow with new pixels being written.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Although, these operations may not mean that
+you, the programmer, wish to read the pixel data, they inherently require the
+underlying graphical system to be able to read pixel data already written to a
+Graphics object.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>However this ability is not supported by
+all systems, on all surface types. When it comes to these types of operations
+it will generally be the case that:</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo13;tab-stops:list .5in'><span
+     lang=EN-US>An <b>Image</b> surface will <b>always</b> be able to support
+     pixel reading.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo13;tab-stops:list .5in'><span
+     lang=EN-US>A <b>Window</b> surface <b>may sometimes</b> support pixel
+     reading (e.g. yes on Win32, no on the Zaurus)</span><span lang=EN-US
+     style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo13;tab-stops:list .5in'><span
+     lang=EN-US>A <b>PrinterJob</b> surface <b>will almost never</b> support
+     pixel reading.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There are also <b>composite</b> Graphics
+objects that will not allow such operations. These are Graphics objects that
+somehow alter the pixel data being written before they turn up on an actual
+drawing surface. <b>ewe.fx.RotatedGraphics</b> is an example of such a Graphics
+object.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc13645698"></a><a name="_Toc35398674"><span
+style='mso-bookmark:_Toc13645698'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>BufferedGraphics</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>A <b>BufferedGraphics</b> object can be
+used to get around the inconsistencies in the capabilities of the different
+drawing surfaces. Given a target Graphics object, a <b>BufferedGraphics</b>
+object provides a temporary Image on which you can perform any drawing
+operation, before the final data is sent to the target Graphics object. The <b>BufferedGraphics</b>
+object will only provide a temporary image <b>if</b> the target Graphics object
+does not support the complex graphics operations. Therefore it is safe and
+efficient to use it, no matter what the surface of the target Graphics happens
+to be.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You should use BufferedGraphics when you
+are drawing a <b>Control</b> or drawing to a <b>PrinterJob</b> and you need to
+perform some of these complex operations. You would use it something like this:</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>void doSomeDrawing(Graphics gr)</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>BufferedGraphics bg = new BufferedGraphics(gr,new Rect(10,10,40,20));</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>Graphics draw = bg.getGraphics();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>//…</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>// Do all the draw operations now using the &quot;draw&quot; graphics.</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>//…</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>draw.release();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>gr.flush();</pre><pre
+style='background:#F3F3F3'>}</pre>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc13645699"></a><a name="_Toc35398675"><span
+style='mso-bookmark:_Toc13645699'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Drawing and Filling Methods – Pen and Brush
+Objects</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>There are a number of drawing operations
+supported by Graphics, including <b>drawLine()</b>, <b>drawRect(),
+drawPolygon(), drawEllipse(), drawPie() </b>and <b>drawArc()</b>. Each of these
+operations use a <b>Pen</b> object to determine the thickness, color and style
+of the line used. Calling <b>setPen()</b> on the Graphics object will set the
+Pen to be used for all following draw operations.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There are also a number of <b>fill</b>
+operations supported by Grpahics, including <b>fillRect(), fillPolygon(),
+fillEllipse(), fillPie() </b><span style="mso-spacerun: yes"> </span>and <b>fillClosedArc()</b>.
+Each of these operations draws the outline of the shape using the current <b>Pen</b>
+object, and then fills it with the current <b>Brush</b> object. Calling <b>setBrush()</b>
+on the Graphics object will set the Brush to be used for all following fill
+operations. You can fill an area without drawing the outline by setting the Pen
+to <b>null</b> by using <b>setPen(null);</b> before the fill operation.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There is also a <b>setColor()</b> method
+that is a simple way of changing the color for subsequent draw operations. <b>setColor()</b>
+will set the current Pen to be a solid line of thickness one pixel and with the
+specified color. It will also set the current Brush to be a solid brush of the
+specified color. There is also a <b>setBackground()</b> method that is used to
+specify what the current background color should be.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc13645700"></a><a name="_Toc35398676"><span
+style='mso-bookmark:_Toc13645700'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Drawing Images</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>There are a number of methods that can be
+used to draw Images, though you should avoid using them if possible. Rather you
+should use <b>mImage</b> objects whenever you can, and then let the <b>mImage</b>
+draw itself on the Graphics by calling the <b>mImage.draw(Graphics g, int x,
+int y, int options)</b> instead. You can create an mImage using a normal image
+and also specify a transparency mask for the image, or a transparency color for
+the image. The mImage will then know which method to use to draw itself on the
+Graphics.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc13645701"></a><a name="_Toc35398677"><span
+style='mso-bookmark:_Toc13645701'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Flushing and Freeing Graphics</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Some Graphics objects <b>may</b> cache the
+draw operations done to them, so that they do not turn up on their destination
+surface immediately. These Graphics objects will require a <b>flush()</b>
+method call in order for the surface to be updated to show all the Graphics
+operations done. A <b>RotatedGraphics</b> object is an example of such a
+Graphics object.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>When you are finished using a Graphics
+object that you have created, you should call <b>free()</b> on it. This calls <b>flush()</b>
+on the object and then releases all resources associated with the Graphics
+object. Even thought this will be done when the Graphics object is garbage
+collected, you should always do this as soon as you can to release shared
+systems resources that may be used by the object.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

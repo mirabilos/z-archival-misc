@@ -1,0 +1,659 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./StartingYourApplication_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>15</o:TotalTime>
+  <o:Created>2002-11-18T14:53:00Z</o:Created>
+  <o:LastSaved>2003-03-18T14:47:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>686</o:Words>
+  <o:Characters>3912</o:Characters>
+  <o:Lines>32</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>4804</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./StartingYourApplication_files/image001.gif"
+lang=EN-GB link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./StartingYourApplication_files/image002.gif" o:title="blbkgnd"
+   type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><span style='mso-ansi-language:EN-GB'>Ewe
+Application Development<o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<h2><a name="_Toc25380844"><span lang=EN-US>Starting your Ewe Application</span></a></h2>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+lang=EN-US><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 3,1,Heading
+4,2&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc25380920">Starting using <i>static
+void main()</i><span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc25380920 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320030000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc25380921">Starting using a
+<i>Runnable</i> Object<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc25380921 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320031000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc25380922">Starting using a
+<i>Form</i> Object<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc25380922 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320032000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc25380923">Starting using a
+<i>LiveData</i> Object<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc25380923 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320033000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc25380924">Starting using a
+<i>mApp</i> Object<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc25380924 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300320035003300380030003900320034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span lang=EN-US><span
+style='mso-element:field-end'></span></span></b><![endif]--><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<div style='border-top:solid windowtext .5pt;border-left:none;border-bottom:
+solid windowtext .5pt;border-right:none;padding:1.0pt 0in 1.0pt 0in;background:
+#CCFFFF'>
+
+<h3 style='border:none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:
+solid windowtext .5pt;padding:0in;mso-padding-alt:1.0pt 0in 1.0pt 0in'><a
+name="_Toc226644"></a><a name="_Toc25380845"></a><a name="_Toc25380920"><span
+style='mso-bookmark:_Toc25380845'><span style='mso-bookmark:_Toc226644'><span
+lang=EN-US>Starting using <i>static void main()</i></span></span></span></a></h3>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This is, of course, the standard way of
+starting a Java application, and you <b>can</b> start a Ewe application this
+way. However you must use <b>ewe.sys.Vm.startEwe()</b> at the start of the
+method, and you must stop your program running using <b>ewe.sys.Vm.exit()</b>.
+Here is an example:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<pre><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//##################################################################<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>public class MainEwe {<span lang=EN-US
+style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre style='background:
+#F3F3F3'>//##################################################################<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>public static void main(String args[])<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>{<span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>ewe.sys.Vm.startEwe(args); <span
+style='color:#999999'>// This line must be executed first.</span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:#999999'>//</span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:#999999'>// Now you can do whatever you want.</span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:#999999'>//</span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>new ewe.filechooser.FileChooser().execute(); <span
+style='color:#999999'>// For example.</span><span lang=EN-US style='color:#999999;
+mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:#999999'>//</span><span lang=EN-US style='color:#999999;
+mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ewe.sys.Vm.exit(0); <span
+style='color:#999999'>// You must use this to exit the Ewe application.</span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>}<span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//##################################################################<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>}<span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//##################################################################<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>To run such a class
+under a Ewe VM simply do: <b>ewe MainEwe</b>. </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US style='color:green'>The other methods of
+starting a Ewe application are generally only used in special circumstances and
+if you would like to get started quickly using Ewe, then you can move to the
+next chapter now.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<div style='border-top:solid windowtext .5pt;border-left:none;border-bottom:
+solid windowtext .5pt;border-right:none;padding:1.0pt 0in 1.0pt 0in;background:
+#CCFFFF'>
+
+<h3 style='border:none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:
+solid windowtext .5pt;padding:0in;mso-padding-alt:1.0pt 0in 1.0pt 0in'><a
+name="_Toc226645"></a><a name="_Toc25380846"></a><a name="_Toc25380921"><span
+style='mso-bookmark:_Toc25380846'><span style='mso-bookmark:_Toc226645'><span
+lang=EN-US>Starting using a <i>Runnable</i> Object</span></span></span></a></h3>
+
+</div>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>In this case, any
+object that implements <b>java.lang.Runnable</b> can be used. The object will
+be created and the <b>run()</b> method will be called. When the run() method
+returns, the application will exit. The class <b>must</b> have a public default
+constructor that takes no arguments.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<pre><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>//##################################################################<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>public class RunEwe implements Runnable{<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//##################################################################<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>public void run()<span lang=EN-US style='mso-ansi-language:
+EN-US'><o:p></o:p></span></pre><pre style='background:#F3F3F3'>{<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:#999999'>// You can do whatever you wish here.</span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>new ewe.filechooser.FileChooser().execute(); <span
+style='color:#999999'>// For example.</span><span lang=EN-US style='color:#999999;
+mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:#999999'>//</span><span lang=EN-US style='color:#999999;
+mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:#999999'>// You can access the program arguments via the variable </span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:#999999'>// <b>ewe.ui.mApp.programArguments</b></span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:#999999'>// When run() returns the application will exit.</span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:#999999'>// You can always also call ewe.sys.Vm.exit(0); to exit as well.</span><span
+lang=EN-US style='color:#999999;mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>}<span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//##################################################################<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>}<span lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//##################################################################<span
+lang=EN-US style='mso-ansi-language:EN-US'><o:p></o:p></span></pre>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>Again to run this
+under ewe simply do: <b>ewe RunEwe</b></span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<div style='border-top:solid windowtext .5pt;border-left:none;border-bottom:
+solid windowtext .5pt;border-right:none;padding:1.0pt 0in 1.0pt 0in;background:
+#CCFFFF'>
+
+<h3 style='border:none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:
+solid windowtext .5pt;padding:0in;mso-padding-alt:1.0pt 0in 1.0pt 0in'><a
+name="_Toc226646"></a><a name="_Toc25380847"></a><a name="_Toc25380922"><span
+style='mso-bookmark:_Toc25380847'><span style='mso-bookmark:_Toc226646'><span
+lang=EN-US>Starting using a <i>Form</i> Object</span></span></span></a></h3>
+
+</div>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>A <b>ewe.ui.Form</b>
+object is one which is able to display itself on screen using a <b>show()</b>
+or <b>execute()</b> method. When you tell the Ewe VM to start executing a Form object,
+it will attempt to create an instance of the Form and then call show() on it.
+It also sets the <b>exitSystemOnClose</b> variable of the Form to be <b>true</b>.
+Therefore, by default, when the Form is closed it will exit the application
+(you can always change this during the running of the application).</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>In order for this to
+work the Form object must have a <b>public default constructor</b> so that a
+new instance can be created by the VM. The <b>ewe.filechooser.FileChooser</b>
+is a type of Form and so you can execute it directly using: <b>ewe
+ewe.filechooser.FileChooser</b> and <b>jwe ewe.ui.FileChooser</b>.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<div style='border-top:solid windowtext .5pt;border-left:none;border-bottom:
+solid windowtext .5pt;border-right:none;padding:1.0pt 0in 1.0pt 0in;background:
+#CCFFFF'>
+
+<h3 style='border:none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:
+solid windowtext .5pt;padding:0in;mso-padding-alt:1.0pt 0in 1.0pt 0in'><a
+name="_Toc226647"></a><a name="_Toc25380848"></a><a name="_Toc25380923"><span
+style='mso-bookmark:_Toc25380848'><span style='mso-bookmark:_Toc226647'><span
+lang=EN-US>Starting using a <i>LiveData</i> Object</span></span></span></a></h3>
+
+</div>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>A <b>ewe.data.LiveData</b>
+Object is one which can provide an <b>ewe.ui.Editor</b> object (a type of <b>Form</b>)
+to display and edit itself. When you tell the Ewe VM to start executing a
+LiveData object, it will create an instance of the object and then call <b>getEditor(0)</b>
+on the object to retrieve the default editor for the object. It will then
+display the returned Editor object in the same way the Form object is displayed
+above.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<div style='border-top:solid windowtext .5pt;border-left:none;border-bottom:
+solid windowtext .5pt;border-right:none;padding:1.0pt 0in 1.0pt 0in;background:
+#CCFFFF'>
+
+<h3 style='border:none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:
+solid windowtext .5pt;padding:0in;mso-padding-alt:1.0pt 0in 1.0pt 0in'><a
+name="_Toc226648"></a><a name="_Toc25380849"></a><a name="_Toc25380924"><span
+style='mso-bookmark:_Toc25380849'><span style='mso-bookmark:_Toc226648'><span
+lang=EN-US>Starting using a <i>mApp</i> Object</span></span></span></a></h3>
+
+</div>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>Every Ewe
+application must have an instance of <b>ewe.ui.mApp</b>. This acts as the “Main
+Window” for the application – even though at times it may be invisible. In each
+of the start methods described previously, a default <b>mApp</b> would have
+been created and made invisible before your code would actually be run. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>However it <b>is</b>
+possible for you to override <b>mApp</b> to have your own customized main
+window (in fact, in early versions of Ewe, this was the only way to start a Ewe
+application). However, unless you have a specific reason for overriding mApp,
+you should use one of the other methods described above. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

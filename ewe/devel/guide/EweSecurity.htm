@@ -1,0 +1,1650 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./EweSecurity_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>13</o:Revision>
+  <o:TotalTime>1480</o:TotalTime>
+  <o:Created>2003-09-23T03:02:00Z</o:Created>
+  <o:LastSaved>2003-10-03T15:30:00Z</o:LastSaved>
+  <o:Pages>8</o:Pages>
+  <o:Words>3794</o:Words>
+  <o:Characters>21627</o:Characters>
+  <o:Lines>180</o:Lines>
+  <o:Paragraphs>43</o:Paragraphs>
+  <o:CharactersWithSpaces>26559</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-indent:.25in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:121.5pt;
+	margin-bottom:.0001pt;
+	text-indent:-103.5pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:12851847;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1080498582 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:25837326;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1762897210 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:172957541;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1623498178 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:349796232;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-321734414 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:409547755;
+	mso-list-type:hybrid;
+	mso-list-template-ids:317621990 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:928346203;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1534917846 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6
+	{mso-list-id:1109592755;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1859173146 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:1609891913;
+	mso-list-type:hybrid;
+	mso-list-template-ids:599838406 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:1695888480;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-231591414 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l8:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./EweSecurity_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./EweSecurity_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"></a><a
+name="_Toc6219390"><span style='mso-bookmark:_Toc33663851'><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'>03 October 2003</span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'><span style='mso-ansi-language:EN-GB'>Michael
+L Brereton<o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'></span><a href="http://www.ewesoft.com/"><span
+style='mso-bookmark:_Toc6219390'><span lang=EN-US>http://www.ewesoft.com/</span></span><span
+style='mso-bookmark:_Toc6219390'></span></a><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><!--[if supportFields]><span style='mso-bookmark:_Toc6219390'></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><b><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>TOC \h
+\z \t &quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; </span></b><span
+lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><a href="#_Toc52623648"><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US>Ewe Data Security</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623648 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600340038000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623649"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Introduction to Data Encryption</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623649 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600340039000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623650"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Symmetric Ciphers</span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623650 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350030000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623651"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Public Key Ciphers</span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623651 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350031000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623652"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Session Keys</span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623652 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>3</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350032000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623653"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Digital Signatures</span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623653 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>3</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350033000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623654"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Ewe Security Classes</span></b></span><span style='mso-bookmark:
+_Toc6219390'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623654 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>3</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350034000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623655"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Symmetric Ciphers - Encryptor and Decryptor</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623655 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>3</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350035000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623656"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Public Key Encryption - RSAKey</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623656 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>4</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350036000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623657"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Message Hashing - SHA1</span></b></span><span style='mso-bookmark:
+_Toc6219390'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623657 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>5</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350037000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623658"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Digital Signatures - Signature</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623658 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>5</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350038000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52623659"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>The SecureDocument Class</span></b></span><span style='mso-bookmark:
+_Toc6219390'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52623659 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>6</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003600320033003600350039000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span></a><span
+style='mso-bookmark:_Toc6219390'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc6219390'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<span style='mso-bookmark:_Toc6219390'></span>
+
+<h2 style='background:#CCFFFF'><a name="_Toc52623648"><span lang=EN-US>Ewe Data
+Security</span></a></h2>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This chapter
+deals with using the Ewe library to provide strong security for your
+application data using data encryption. Note that Java provides a <b>very</b>
+large and exhaustive security <b>API</b> but in order to use it you need to
+know quite a bit about cryptography and most likely you will need a third-party
+cryptography package for implementation. By contrast, the Ewe security API is
+quite simple to use and you will be able to secure your data quite easily.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>If you are
+familiar with encryption concepts you can skip to the section on <b><a
+href="#_Ewe_Security_Classes">Ewe Security Classes</a></b>.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc52623649"><span lang=EN-US>Introduction
+to Data Encryption</span></a></h2>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Data encryption
+is a process whereby unencrypted data (<b>plaintext</b>) is converted into a
+form which cannot be converted back to its plaintext state without the use of a
+<b>key </b>(which is a particular sequence of bytes). The idea is that only the
+party that the encryptor intends to be able to read the plaintext would have
+access to that key. An encryption process must be strong enough such that it
+would be considered unfeasible (not necessarily impossible) for any other party
+to attempt to guess or reverse-engineer the key from the encrypted data and
+thereby gain access the plaintext. This is usually accomplished by having the
+key be of at least a minimum size (number of bits) - the exact size depending
+on the encryption scheme and strength required.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>There are two
+main types of encryption schemes to consider:<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l6 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><b><span
+lang=EN-US style='color:navy'>Symmetric ciphers</span></b><span lang=EN-US>,
+where the <b>same</b> key is used to both encrypt and decrypt the data.<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l6 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>Asymmetric ciphers, also called </span><b><span lang=EN-US
+style='color:navy'>Public Key ciphers</span></b><span lang=EN-US>, uses a <b>pair
+of keys</b>, where one key is used to encrypt data and another is used to
+decrypt it. Usually one key is made public and one is kept private. It must
+also be the case that it is not feasible to guess or calculate the private key,
+given the public key.</span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>One
+implementation of each scheme is provided in the Ewe library. There are some
+distinct characteristics of these two types of keys:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Symmetric ciphers are generally fast and require lower bit
+     length for higher strengths.</span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Public Key ciphers are much slower and require much higher bit
+     lengths for the equivalent strength of symmetric cipher.</span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>There is no limit on the size of data that can be encrypted by
+     Symmetric ciphers.</span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Public Key ciphers place a limit on the size of the data that
+     can be encrypted, usually directly related to the bit size of the key
+     pair.</span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Symmetric ciphers cannot be used to validate or certify that
+     any particular data was produced by any particular source.</span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Public Key ciphers can be used to certify that data has not
+     been altered and to prove that data was produced or certified by a
+     particular party.</span></li>
+</ol>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52623650"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Symmetric Ciphers</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Symmetric ciphers
+are very straightforward and simple. The cipher uses the key to transform the
+data to its encrypted state. Later on the same key is used to decrypt the data
+to its original state. It is fast and very convenient for closed systems, where
+the key does not have to be passed from one person to another. For example data
+in a database could be encrypted in this way, where the key is derived from a
+password that was presented when the database was created. From that point on
+all data in the database is encrypted using that key and whenever a user wishes
+to access the database, that same password has to be presented again so that
+the key can be regenerated and used to decrypt and access the data.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Symmetric ciphers
+are less useful where the key has to be transmitted somehow across great
+distances or across insecure or un-trusted systems and networks. The problem
+then becomes how to transmit the key securely. This will be discussed in the
+next section on Public Key ciphers.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Symmetric
+encryption/decryption is provided by the Ewe classes <b>Encryptor</b> and <b>Decryptor</b>
+(both in the ewe.security package). These classes implement the <b>Blowfish</b>
+CBC cryptographic algorithm and they also implement the <b>ewe.io.DataProcessor</b>
+interface, which is any general process that transforms a sequence of bytes
+into another processed sequence of bytes.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Encryptor can
+optionally compress the transmitted data before encryption which tends to add
+to the security of the document since possible recognizable patterns are
+usually removed through the compression process.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>However although
+you can use the Encryptor and Decryptor classes as you wish, you can also use
+the <b>SecureDocument</b> class to perform encryption/decryption in a standard
+way, without having to deal with the individual encryptors and decryptors. This
+class is explained in a section under the <b>For Experienced Users</b> section.</span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52623651"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Public Key Ciphers</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Despite the
+obvious limitations of Public Key ciphers, they possess properties that allow
+for very powerful security functions that we will now discuss.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Remember that a
+Public Key cipher consists of a pair of keys such that one key cannot be
+derived from the other. One of the keys is considered the public key (we'll
+call it <b>U</b>) and another the private key (which we'll call <b>V</b>).
+Generally the public key is published freely, so that anyone can gain access to
+it. However the private key is held <b>only</b> by the owner of the key and is
+never revealed to anyone else. In fact, usually when the private key is stored
+it is encrypted using a symmetric encryption, where only the owner knows the
+password.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The power of this
+cipher is due to the following properties:<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l3 level1 lfo7;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>A message encrypted with key <b>U</b> can only be decrypted with key
+<b>V</b> (not even U can decrypt it).<br>
+<br>
+This means that when you encrypt data with a public key, <b>only the owner of
+the private key can decrypt it.</b> Since the public key can be know by anyone,
+transmitting it over an insecure network is not a problem. This provides <b>security</b>
+for your data - only its intended receiver can read it since only the receiver
+has the private key.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l3 level1 lfo7;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>A message encrypted with key <b>V</b> can only be decrypted with key
+<b>U</b>.<br>
+<br>
+This means that if you can decrypt data with a public key, <b>then it must have
+been the owner of the private key that encrypted it.</b> Since no one else
+knows the private key, only its owner is capable of encrypting data with it.
+This provides <b>authentication</b> for your data - you know that it is from a
+particular source.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Unfortunately,
+because Public Key encryption is very slow, and because it limits the size of
+the data that can be encrypted, it is not feasible to encrypt an entire message
+with either private or public key. However both security and authentication can
+be provided using Public Key system through the use of <b>Session Keys</b> and <b>Digital
+Signatures</b>.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52623652"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Session Keys</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Data security is
+provided when only the intended recipient of encrypted data can decrypt it back
+into its original plaintext. However, as we just mentioned, encrypting data of
+arbitrary length is not possible using a Public Key. The way around this is for
+the sender to select a random symmetric key for a specific symmetric encryption
+algorithm (e.g. Blowfish) which is called the <b>Session</b> key. That key is
+then used with the symmetric algorithm to encrypt the data <b>and</b> that
+Session key is encrypted using the receiver's <b>public</b> key, and <b>both</b>
+the encrypted data <b>and</b> the encrypted Session key is sent to the
+recipient.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>When the
+recipient receives the data, it decodes the Session key using its <b>private</b>
+key and then uses the Session key to decrypt the data.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This procedure
+improves security even more since the Session key can be random for each
+message so that the risk of a key being compromised is greatly reduced.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52623653"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Digital Signatures</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>A digital signature
+is a straightforward idea that requires Public/Private Key encryption to work.
+A hash code (a practically unique number) for a message is produced by some
+kind of processing of all the bytes of a message. That hash code is then
+encrypted using the encryptor's <b>private</b> key and this is stored or
+transmitted along with the data as a signature. Upon receiving the data and the
+signature the same hashing procedure is done on the data and the hash stored in
+the signature is decrypted with the encryptor's <b>public</b> key. The
+calculated hash is then compared with the decrypted hash and if they match,
+then the message is considered to be authentic and unaltered and to have
+originated from the owner of matching private key.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><span
+style="mso-spacerun: yes"> </span></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Ewe modifies the
+signature concept a bit by adding two further elements to the signature apart
+from the hash code of the message:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo9;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>The <b>length</b> of the message is also encrypted into the
+signature.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo9;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>An optional <b>timestamp</b> (to millisecond precision) is also
+encrypted into the signature.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The <b>Signature</b>
+class is used to either create a signature, or to verify data against an
+already created signature.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc52623654"></a><a
+name="_Ewe_Security_Classes"></a><span style='mso-bookmark:_Toc52623654'><span
+lang=EN-US>Ewe Security Classes</span></span></h2>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Ewe provides the
+following classes for data encryption, all of which are in the <b>ewe.security</b>
+package.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>Encryptor,
+Decryptor</span></b><span lang=EN-US> - These provide up to 448 bit <b>Blowfish</b>
+symmetric encryption.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>RSA, RSAKey</span></b><span
+lang=EN-US> - These provide arbitrary length <b>RSA</b> Public Key encryption.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>SHA1</span></b><span
+lang=EN-US> - This provides SHA1 160-bit message digests.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>Signature</span></b><span
+lang=EN-US> - This provides document signing functionality.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>SecureDocument</span></b><span
+lang=EN-US> - This combines the classes above to produce data that is <b>encrypted,
+compressed </b>and <b>signed</b> (or a subset of this functionality).</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>These classes
+together are sufficient to produce a fully secure application framework,
+although not sufficient to interface with other standard encryption schemes.
+For that you will need to acquire or adapt other Java encryption schemes.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52623655"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Symmetric Ciphers - Encryptor and
+Decryptor</span></b></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>These two classes
+provide Blowfish CBC encryption, which provides for up to 448-bit
+encryption.<span style="mso-spacerun: yes">  </span>You create instances of the
+classes by providing either a multi-byte key using a byte array, or you can
+create an instance using a String password. When you provide a String as a
+password an <b>SHA1</b> object is used to create a 160-bit hash of the
+password, and that hash is then used as the key.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>You can use the
+Encryptor/Decryptor in two ways: as a general <b>DataProcessor</b>
+implementation, or you can use the more useful <b>encrypt()</b> and <b>decrypt()</b>
+methods.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>The <b>encrypt()</b> method has the
+following signature:</span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent3 style='background:#F3F3F3'><span lang=EN-US
+style='color:#003300;font-weight:normal'>ByteArray </span><span lang=EN-US
+style='color:#003300'>encrypt</span><span lang=EN-US style='color:#003300;
+font-weight:normal'>(ByteArray dest, byte[] plaintext, int offset, int length,
+int options, Signature signature) throws IOException<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoToc1><span lang=EN-US>This method processes the provided plaintext
+data as follows:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>The data is compressed using a DeflaterOutputStream <b>unless</b>
+one of the options specified is <b>ENCRYPT_WITHOUT_COMPRESSION</b>. <br>
+Compressing the data increases the processing time but makes a brute force
+decryption attack harder because it tends to obscure possibly recognizable
+patterns in the data.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>Next, the data is &quot;salted&quot; - that is to say a measure of
+randomness is applied to the message. This means that even repeated messages
+will have very different encrypted byte patterns, again making it harder to
+attack.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>If the <b>signature</b> parameter is not null then an SHA1 object is
+used to create a hash of the message and this hash is then &quot;signed&quot;
+to certify the source of the message. This procedure is explained in a
+following section. The bytes produced by the signature are <b>not</b> included
+in the encrypted message, you will have to store/send this signature via
+another method.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l0 level1 lfo11;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>The salted data is then processed by the Encryptor to produce the
+final encrypted bytes, and these are then placed in the <b>dest</b> ByteArray
+or a new ByteArray and this is returned by the method.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The method <b>byte[]
+encrypt(byte[] plaintext,int offset,int length)</b> is a convenience method
+that encrypts the data <b>without compression</b> and without signing the data
+and then returns the final encrypted bytes as a complete byte array.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>The matching Decryptor method has
+the signature:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent3 style='background:#F3F3F3'><span lang=EN-US
+style='color:#003300;font-weight:normal'>ByteArray </span><span lang=EN-US
+style='color:#003300'>decrypt</span><span lang=EN-US style='color:#003300;
+font-weight:normal'>(ByteArray dest, byte[] encryptedData,int offset,int
+length, Signature signature) throws StreamCorruptedException<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US style='color:
+#003300'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This method takes
+the encrypted bytes produced by <b>encrypt()</b> and places the fully decrypted
+original data in the <b>dest</b> ByteArray, or a new one if dest is null. This
+method will detect automatically if the data was compressed before encryption
+and decompress it as necessary. If <b>signature</b> is not null, it should
+contain the signature bytes that were produced by encrypt() and the decrypt()
+method will then attempt to verify that the data was in fact the same as that
+was signed by the encryptor. If it fails then a StreamCorruptedExcption will be
+thrown.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Again there is a
+convenience method </span><b><span lang=EN-US style='color:#003300'>byte[]
+decrypt(byte[] ciphertext, int offset, int length)</span></b><span lang=EN-US
+style='color:#003300'> </span><span lang=EN-US>which decrypts the data without
+signature verification and returns the original data as a complete byte array.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52623656"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Public Key Encryption - RSAKey</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>An <b>RSAKey</b>
+represents one of the keys in an RSA key pair. Information as to whether it is
+a private or public key is not stored in the object - that is left to a higher
+key organization system. Remember that an RSA public key is implemented in
+exactly the same way as a private key, it is just that one numeric value is
+different for each.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The method </span><b><span
+lang=EN-US style='color:#003300'>encrypt(byte[] data, int offset, int length)</span><span
+lang=EN-US> </span></b><span lang=EN-US>is used to encrypt the data into an
+array of bytes. The </span><b><span lang=EN-US style='color:#003300'>decrypt(byte[]
+encrypted, int offset, int length)</span></b><span lang=EN-US> is used to
+decrypt encrypted data. Note that data encrypted with a one key can only be
+decrypted by the other key, and vice-versa.<span style="mso-spacerun: yes"> 
+</span>Also note that the number of bytes that can be encrypted is limited to
+the number of bits in the key pair.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>To create an
+RSAKey pair use the static method in the class RSA <b>RSAKey[] createNew(int
+bitlength, long randomSeed)</b>. This creates a new RSAKey pair either of which
+can be used as the private or public key. Note that a 400-bit key is
+recommended to allow for signing of documents and the longer the key size the
+more secure it is. However creating the key takes some time that is
+proportional to the key size so you will probably want to use a system where
+you need to create keys as infrequently as possible.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Note also that
+private key values that are to be reused should be stored in an encrypted form,
+using as strong a symmetric cipher as feasible. The classes in the Ewe library
+can certainly provide this kind of functionality.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52623657"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Message Hashing - SHA1</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Ewe provides the
+class <b>SHA1</b> to provide a 160-bit (20 byte) hash of an arbitrary byte
+sequence. After creating the SHA1 object you can call the following methods:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l7 level1 lfo13;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US style='color:#003300'>void <b>update</b>(byte[]
+data, int offset, int length)</span><span lang=EN-US> - to add more data to the
+sequence to be hashed. Call this as many times as necessary until the data is
+complete. There are other </span><b><span lang=EN-US style='color:#003300'>update()</span></b><span
+lang=EN-US> convenience methods.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l7 level1 lfo13;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US style='color:#003300'>void <b>digest</b>()</span><span
+lang=EN-US> - to perform the final hash operation on all the data added.<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l7 level1 lfo13;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US style='color:#003300'>int <b>getDigest</b>(byte[]
+destination, int offset)</span><span lang=EN-US> - to copy the final digest
+bytes into an output byte array. There is also <b>byte[] getDigest()</b> to get
+the final digest bytes in a new 20-byte array.<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l7 level1 lfo13;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US style='color:#003300'>void <b>reset</b>()</span><span
+lang=EN-US> - to reset the object so that it can make a digest on a new set of
+data.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoBodyTextIndent2><span lang=EN-US>There are some convenience methods
+that you can use to generate message hashes quickly, such as:</span></p>
+
+<p class=MsoBodyTextIndent2><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent2 style='margin-left:.75in;text-indent:-.25in;
+mso-list:l1 level1 lfo15;tab-stops:list .75in'><![if !supportLists]><span
+lang=EN-US style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US style='color:#003300'>byte[] <b>digest</b>(byte[]
+data, int offset, int length)</span><span lang=EN-US> - create a digest of the
+data and return it immediately. This assumes that no more data is to come.<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoBodyTextIndent2 style='margin-left:.75in;text-indent:-.25in;
+mso-list:l1 level1 lfo15;tab-stops:list .75in'><![if !supportLists]><span
+lang=EN-US style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US style='color:#003300'>byte[] <b>digest</b>(byte[]
+data)</span><span lang=EN-US> - similar to the one above but this digest the
+entire provided array.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoBodyTextIndent2 style='margin-left:.25in;text-indent:0in'><span
+lang=EN-US>You should still call </span><b><span lang=EN-US style='color:#003300'>reset()</span></b><span
+lang=EN-US> before calling these methods.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52623658"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Digital Signatures - Signature</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>To create a
+Signature</span></b><span lang=EN-US> to be used to sign data you should use
+the constructor:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;background:#F3F3F3'><b><span
+lang=EN-US style='color:#003300'>Signature</span></b><span lang=EN-US
+style='color:#003300'>(EncryptionKey signersPrivateKey,Time signatureTime)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>You provide the
+constructor with the signer's private key and an optional timestamp for the signature.
+If the <b>signatureTime</b> parameter is null then no timestamp will be stored
+in the generated signature. Once the Signature has been created in this way you
+use the following call to produce the encrypted signature bytes.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;background:#F3F3F3'><span
+lang=EN-US style='color:#003300'>byte[] <b>sign</b>(byte[] data, int offset,
+int length, SHA1 digest)<o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This method
+returns the encrypted signature bytes <b>and</b> places it in the public member
+variable <b>signature</b>. The <b>digest</b><span style='mso-bidi-font-weight:
+bold'> parameter is an optional pre-created SHA1 to use to create the hash of
+the data. If it is null a new one will be created and used.<o:p></o:p></span></span></p>
+
+<p class=MsoToc1><span lang=EN-US style='mso-bidi-font-weight:bold'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US>To verify a Signature</span></b><span lang=EN-US
+style='mso-bidi-font-weight:bold'> use the constructor:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US style='mso-bidi-font-weight:
+bold'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>Signature</span></b><span lang=EN-US style='color:#003300;
+mso-bidi-font-weight:bold'>(byte[] signature,EncryptionKey signersPublicKey)
+throws StreamCorruptedException<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoToc1><span lang=EN-US style='mso-bidi-font-weight:bold'>This
+constructor will decrypt the signature using the provided public key and then
+set the</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US> </span></b><span
+lang=EN-US style='mso-bidi-font-weight:bold'>public member variables </span><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US>length</span></b><span
+lang=EN-US style='mso-bidi-font-weight:bold'> and </span><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US>time</span></b><span lang=EN-US style='mso-bidi-font-weight:
+bold'>. If no timestamp was included in the signature then </span><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US>time</span></b><span
+lang=EN-US style='mso-bidi-font-weight:bold'> will be set to null. Once the
+Signature has been created in this manner you can verify a document against the
+signature using:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent style='background:#F3F3F3'><span lang=EN-US
+style='color:#003300'>boolean <b>verify</b>(byte[] data, int offset, int
+length, SHA1 digest)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This hashes the
+data and then compares the hash code with the code stored in signature, and
+also compares the length of the data with the stored length. If they both match
+then the method returns true, otherwise it will return false. The </span><b><span
+lang=EN-US style='color:#003300'>digest</span></b><span lang=EN-US> parameter
+is an optional pre-created digest. If it is null a new one will be created and
+used. Another method exists for verifying data that you have already created a
+hash for:</span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;background:#F3F3F3'><span
+lang=EN-US style='color:#003300'>boolean <b>verify</b>(int dataLength, byte[]
+digest)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The provided
+digest must have been created using an SHA1 object.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52623659"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>The SecureDocument Class</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>A <b>SecureDocument</b>
+contains data that has been either <b>encrypted</b> or <b>signed</b> or <b>both</b>.
+A SecureDocument should always be stored in its entirety to ensure long-term
+security and authenticity.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>A SecureDocument need not be
+encrypted, it can be in plaintext form but contain a signature generated by the
+document producer. This allows for authentication of the data content as well
+as verification of its source. In order for this to work the creator of the
+document must be in possession of a private key and the receiver of the
+document must be in possession of the corresponding public key.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>If a
+SecureDocument is encrypted this can be done in two ways. One way is for a symmetric
+cipher to be used to encrypt the data where the cipher key is know and kept
+secret by both the sender and the receiver. Another, more secure way, can be
+used if the <b>receiver</b> has a public/private key pair. In that case the
+sender can randomly choose a symmetric <b>session key</b> and then encrypt that
+random session key using the receiver's public key. The key is then used to
+create an Encryptor whch is then used to encrypt the data. Both the encrypted
+session key and the encrypted data (which was encrypted using the session key)
+are stored and sent together along with any signature. Upon receiving the data
+the receiver uses the private key to decrypt the session key and then uses the
+session key to decrypt the data.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>To summarize the
+following features are available for a SecureDocument.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo17;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>Sender has a Public/Private Key
+pair</span></b><span lang=EN-US> - then the document can be <b>signed</b>
+whether it is encrypted or not.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo17;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>Receiver has a Public/Private Key
+pair</span></b><span lang=EN-US> - then the document can be encrypted using a
+random session key. The session key is encrypted using the receiver's public
+key making it decodable by the receiver only.<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo17;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>Sender and Receiver know a secret
+(symmetric) key</span></b><span lang=EN-US> - then the document can be
+encrypted using that key.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoToc1><span lang=EN-US>A SecureDocument is stored and transmitted as
+a sequence of bytes, but apart from a possible included signature, no other
+data about the origin of intended recipient of the document is stored - that is
+left to a higher level document management system. The SecureDocument class is
+therefore used to either create the sequence of bytes or decode the sequence of
+bytes that make up the secure document.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>To use a SecureDocument, either for
+creating or decoding a secure document, call the default constructor and then
+call one of the setData() methods:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>SecureDocument
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>setData</span></b><span lang=EN-US style='color:#003300;
+mso-bidi-font-weight:bold'>(byte[] data, int offset, int length);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>SecureDocument
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>setData</span></b><span lang=EN-US style='color:#003300;
+mso-bidi-font-weight:bold'>(byte[] data);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>These methods set
+the data for the SecureDocument whether it be the plaintext <b>or</b> the
+encoded/encrypted data. Later you will either call <b>encode()</b> or <b>decode()</b>
+on the data to create the secure document bytes or to retrieve the document
+plaintext respectively. Both these methods returns the SecureDocument itself.</span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>After setting the
+data you then set the security settings by providing the appropriate keys or
+encryptor/decryptors. For example you would call:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>SecureDocument
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>setKeys</span></b><span lang=EN-US style='color:#003300;
+mso-bidi-font-weight:bold'> (EncryptionKey receiverKey, EncryptionKey
+creatorKey);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>If you are <b><i>creating</i></b>
+a secure document then the <b>receiverKey</b> would be the receiver's <b>public</b>
+key and the <b>creatorKey</b> would be your (the sender's) <b>private</b> key.
+The <b>creatorKey</b> is necessary for signing the document - if it is null
+then the document will not be signed. The <b>receiverKey</b> allows a random
+session key to be chosen and used to encrypt the data. If no receiverKey is
+provided then the setEncryptor() or setPassword() method must be used if you
+need the document to be encrypted.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>If you are <b><i>decoding</i></b>
+a secure document then the <b>receiverKey</b> would be your <b>private</b> key
+and the <b>creatorKey</b> would be the sender's <b>public </b>key. The <b>creatorKey</b>
+is necessary for verifying any signature included in the document - if it is
+null then signature verification will be skipped. The <b>receiverKey</b> is
+necessary to decrypt the session key that was used to encrypt the document
+data. If no receiverKey is provided then the setDecryptor() or setPassword()
+method must be used to decrypt the document.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>If the sender
+does not have access to the receiver's public key or the receiver does not have
+one, then you must set the password/encryptor explicitly using one of the following
+method calls:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>SecureDocument
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>setPassword</span></b><span lang=EN-US style='color:#003300;
+mso-bidi-font-weight:bold'> (String password);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>SecureDocument
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>setPassword</span></b><span lang=EN-US style='color:#003300;
+mso-bidi-font-weight:bold'> (byte[] key);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>SecureDocument
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>setEncryptor</span></b><span lang=EN-US style='color:
+#003300;mso-bidi-font-weight:bold'> (DataProcessor encryptor);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Similarly, when
+decoding the document, if the receiver has no private key, it will have to
+explicitly set the decryptor by using one of the setPassword() methods or the
+method:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>SecureDocument
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>setEncryptor</span></b><span lang=EN-US style='color:
+#003300;mso-bidi-font-weight:bold'> (DataProcessor encryptor);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>You can also set
+the options <b>dontUseCompression</b> - to disable compressing the data when
+encrypting, and <b>dontTimestampSignature</b> - to disable the placing of a
+timestamp along with the document signature. These options only apply when you
+are creating a secure document from plain text, they have no effect when
+decoding.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>After setting the
+encryption parameters using the method calls above call the encode() method to
+generate the secure document bytes:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>ByteArray
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>encode</span></b><span lang=EN-US style='color:#003300;
+mso-bidi-font-weight:bold'>(ByteArray destination) <o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Note that at
+least one security option must be set (e.g. either a signature is to be
+produced, or the data is to be encrypted) otherwise this method will generate
+an IllegalStateException to indicate that the document will not be made secure
+in any way. The resulting sequence of bytes should be transmitted or stored in
+its entirety, and it can be decoded and verified by using another
+SecureDocument which has had the correct decryption parameters set. To do this
+you would use the method:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>ByteArray
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>decode</span></b><span lang=EN-US style='color:#003300;
+mso-bidi-font-weight:bold'>(ByteArray dest)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This method
+throws an IOException or StreamCorruptedException if the data is corrupt or
+fails the decryption/validation process.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>You can also use
+a SecureDocument object to easily verify that the entity the application is communicating
+with is who it claims to be. If you possess the <b>public</b> key for, say, a
+server that you wish to communicate with, you can verify that you are in fact
+communicating with that server if you can get it to prove that it is in
+possession of the matching <b>private</b> key. The SecureDocument class
+provides this function using three methods:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>byte[]
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>makeAuthenticator</span></b><span lang=EN-US
+style='color:#003300;mso-bidi-font-weight:bold'>(EncryptionKey serverPublicKey)
+throws IOException<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>byte[]
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>authenticate</span></b><span lang=EN-US style='color:
+#003300;mso-bidi-font-weight:bold'>(byte[] authenticator,EncryptionKey
+myPrivateKey) throws IOException<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:112.5pt;text-indent:-94.5pt;background:
+#F3F3F3'><span lang=EN-US style='color:#003300;mso-bidi-font-weight:bold'>boolean
+</span><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:#003300'>validateAuthenticator</span></b><span lang=EN-US
+style='color:#003300;mso-bidi-font-weight:bold'>(byte[] reply)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>These methods are used like this:<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>The client, which is in possession of the server's public key and
+has made a connection to an entity claiming to be the server somehow, creates a
+new SecureDocument.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>Without calling any other methods and without setting up any
+security parameters the client invokes the <b>makeAuthenticator()</b> method on
+the SecureDocument providing the <b>public</b> key of the server..<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>The client takes the bytes returned by makeAuthenticator() and sends
+it to the server, along with some sort of request for authentication. It holds
+on to the original SecureDocument and waits for a reply.<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>When the server receives the data bytes and understands that it
+needs to prove its identity will also create a new SecureDocument and then
+calls <b>authenticate()</b> on the received bytes, providing its secret <b>private</b>
+key.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>The bytes returned by <b>authenticate()</b> are then sent back to
+the client.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>When the server receives the authenticated bytes from the server
+will call <b>validateAuthenticator</b>() on the <b>same</b> SecureDocument from
+steps 1 and 2, providing it with the bytes returned from the server. If the
+method returns true, then the server is in fact in possession of the matching private
+key. If it returns false, then the server has failed to prove that it is in
+possession of the private key.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Note that the
+sequence of bytes produced by <b>makeAuthenticator()</b> will be random so as
+to prevent the capture of past authenticator bytes for re-use by a masquerader.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

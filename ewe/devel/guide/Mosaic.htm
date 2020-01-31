@@ -1,0 +1,560 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Mosaic_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>4</o:TotalTime>
+  <o:Created>2003-03-14T15:38:00Z</o:Created>
+  <o:LastSaved>2003-03-18T20:46:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>549</o:Words>
+  <o:Characters>3133</o:Characters>
+  <o:Lines>26</o:Lines>
+  <o:Paragraphs>6</o:Paragraphs>
+  <o:CharactersWithSpaces>3847</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1853252536;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1145639952 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:1875775625;
+	mso-list-type:hybrid;
+	mso-list-template-ids:428397936 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./Mosaic_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./Mosaic_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"></a><a
+name="_Toc512399297"><span style='mso-bookmark:_Toc33663851'><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></span></a><span
+style='mso-bookmark:_Toc512399297'><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc512399297'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc512399297'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc512399297'><span style='mso-ansi-language:EN-GB'>Michael
+L Brereton<o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc512399297'></span><a href="http://www.ewesoft.com/"><span
+style='mso-bookmark:_Toc512399297'><span lang=EN-US>http://www.ewesoft.com/</span></span><span
+style='mso-bookmark:_Toc512399297'></span></a><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc512399297'><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc512399297'></span><!--[if supportFields]><span style='mso-bookmark:_Toc512399297'></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc512399297'><b><span
+style='font-family:Arial;mso-ansi-language:EN-GB'><span style="mso-spacerun:
+yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; </span></b><span
+lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><a href="#_Toc35405338"><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial'>The
+Mosaic Control</span></b></span><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc35405338 \h </span></b><span lang=EN-US><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003300330038000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc512399297'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'></span></a><span
+style='mso-bookmark:_Toc512399297'><b><span style='font-family:Arial;
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc512399297'></span><a href="#_Toc35405339"><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial'>Mosaic</span></b></span><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc35405339 \h </span></b><span lang=EN-US><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003300330039000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc512399297'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'></span></a><span
+style='mso-bookmark:_Toc512399297'><b><span style='font-family:Arial;
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc512399297'></span><a href="#_Toc35405340"><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial'>MosaicPanel</span></b></span><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc35405340 \h </span></b><span lang=EN-US><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003300340030000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc512399297'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'></span></a><span
+style='mso-bookmark:_Toc512399297'><b><span style='font-family:Arial;
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc512399297'></span><a href="#_Toc35405341"><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial'>InteractivePanel</span></b></span><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc35405341 \h </span></b><span lang=EN-US><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003300340031000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc512399297'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'></span></a><span
+style='mso-bookmark:_Toc512399297'><b><span style='font-family:Arial;
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc512399297'></span><a href="#_Toc35405342"><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial'>Mosaic Sample</span></b></span><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc512399297'><b><span lang=EN-US style='font-family:Arial;
+color:black;display:none;mso-hide:screen;text-decoration:none;text-underline:
+none'> PAGEREF _Toc35405342 \h </span></b><span lang=EN-US><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'><b><span
+lang=EN-US style='font-family:Arial;color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'>2</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003300340032000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc512399297'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'></span></a><span
+style='mso-bookmark:_Toc512399297'><b><span style='font-family:Arial;
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc512399297'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc512399297'></span><span style='mso-bookmark:_Toc512399297'><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<h2 style='background:#CCFFFF'><span style='mso-bookmark:_Toc512399297'><a
+name="_Toc35405338"><span lang=EN-US>The Mosaic Control</span></a></span></h2>
+
+<p class=MsoNormal><span lang=EN-US>The <b>ewe.graphics.Mosaic</b> Control,
+when used with <b>ewe.graphics.AniImage</b> images provides a very easy way to write
+2D graphics games and applications. The Mosaic takes care of displaying
+multiple moving/animated images without flicker or refresh problems. There are
+three levels of Mosaics which you can use:</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>Mosaic</span></b><span lang=EN-US>
+– this is the bottom level control. It handles the screen display and
+refreshing individual images or screen areas.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>MosaicPanel</span></b><span
+lang=EN-US> – this control adds pen interpretation code. It decodes pen presses
+to determine if any image is being pressed, clicked or dragged.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>Interactive Panel</span></b><span
+lang=EN-US> – this control provides most of the functionality of an interactive
+scene. It allows images to be picked up, dragged and dropped. It catches
+circumstances where one image is dragged over or off another, or when one image
+is dropped on top of another.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc512399298"></a><a
+name="_Toc35405339"><span style='mso-bookmark:_Toc512399298'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Mosaic</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Using a Mosaic is fairly easy. After you
+create the Mosaic, you create AniImage objects and add them to the Mosaic using
+<b>addImage()</b>. You can remove images by using <b>removeImage()</b>. Use the
+<b>move(int x, int y)</b> or <b>translate(int dx, int dy)</b> methods to move
+the images within the Mosaic and use one of the <b>change()</b> methods to
+change the appearance of the image. After moving/changing the image, call <b>refresh()</b>
+on the <b>AniImage</b> to update it on the screen. You can also call <b>refresh(AniImage
+which,Graphics g)</b> on the Mosaic, but the first method is the preferred way.
+Use <b>refresh()</b> on the Mosaic to refresh the entire Mosaic.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>These are the main methods you need to
+create an animated scene or game – and if you do not need to respond to pen
+presses, this is probably all you would need to use.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc512399299"></a><a
+name="_Toc35405340"><span style='mso-bookmark:_Toc512399299'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>MosaicPanel</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Use this when you want to respond to pen
+input. It provides a set of methods that indicate when the user has
+pressed/released/dragged an image in the Mosaic. Override these methods to
+provide your functionality. These methods include: <b>imagePressed(), imageReleased(),
+imageBeginDragged(), imageDragged(), imageNotDragged()</b> and some others.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that this control does not implement
+any image moving – if you need to have images moved with pen input then use an
+InteractivePanel.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc512399300"></a><a
+name="_Toc35405341"><span style='mso-bookmark:_Toc512399300'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>InteractivePanel</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This panel catches pen inputs and
+implements the moving of images for you. It provides an additional set of
+methods to indicate when images are dragged/dropped over other images. In order
+for this to work correctly you must note the following:</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>If an image is to be moved on screen
+using the pen, it must have the <b>IsMoveable</b> bit set in the <b>properties</b>
+variable.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>If you want to detect if an image is
+dragged over a destination image you must add the destination image to the <b>touching</b>
+Vector of the InteractivePanel. Only these images are checked against moving
+images to see if the moving image is either touching it or is being dragged
+over/off it.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc512399301"></a><a
+name="_Toc35405342"><span style='mso-bookmark:_Toc512399301'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Mosaic
+Sample</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The file <b>samples\mosaic\MosaicDemo.java</b>
+has an example of the use of an InteractivePanel. It shows a folder and five
+pages. The pages can be picked up and dropped into the folder – the folder
+itself is also moveable. When all pages have been dropped in the folder a
+message box will be displayed.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

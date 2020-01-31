@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//gnu.org///DTD XHTML 1.1 plus Target 1.0//EN" "../../resources/xhtml11-target10.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><title>Random</title><script src="../../resources/gjdoc.js" type="text/javascript"><!-- this comment required for konqueror 3.2.2 --></script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="generator" content="GNU Gjdoc Standard Doclet"/><meta name="keywords" content="ewe.util.Random class"/><meta name="keywords" content="setSeed()"/><meta name="keywords" content="next()"/><meta name="keywords" content="nextBytes()"/><meta name="keywords" content="nextInt()"/><meta name="keywords" content="nextLong()"/><meta name="keywords" content="nextBoolean()"/><meta name="keywords" content="nextFloat()"/><meta name="keywords" content="nextDouble()"/><meta name="keywords" content="nextGaussian()"/><link rel="stylesheet" type="text/css" href="../../resources/gjdochtml-clean-layout.css" title="GNU Clean"/><link rel="stylesheet" type="text/css" href="../../resources/gjdochtml-clean-color1.css" title="GNU Clean"/></head><body class="content class" onload="if(parent.contentPageLoaded)parent.contentPageLoaded(document.title)"><table class="navbar div top"><tr><td class="navbar div top"><div class="navbar div top"><span class="navbar item enabled"><a href="../../overview-summary.html">Overview</a></span> <span class="navbar item enabled"><a href="package-summary.html">Package</a></span> <span class="navbar item enabled"><a href="tree.html">Tree</a></span> <span class="navbar item enabled"><a href="../../alphaindex.html">Index</a></span> <span class="navbar item enabled"><a href="../../deprecated.html">Deprecated</a></span> <span class="navbar item enabled"><a href="../../about.html">About</a></span></div></td><td class="header" rowspan="2">MirEwe 1.49mb4 API</td></tr><tr><td class="navi"><a href="../../ewe/util/Properties.html">Prev Class</a> | <a href="../../ewe/util/Range.html">Next Class</a></td><td class="navi"><a href="../../index.html" title="Show in a frameset" target="_top">Frames</a> | <a href="Random.html" title="Show without frames" target="_top">No Frames</a> </td></tr><tr><td class="navi">Summary: Nested | Field | <a href="#summary-methods">Method</a> | <a href="#summary-constructors">Constr</a></td><td class="navi">Detail: Nested | Field | <a href="#detail-methods">Method</a> | <a href="#detail-constructors">Constr</a></td></tr></table><div class="class title outer"><h3 class="class title-package">ewe.util</h3><h1 class="class title-class">Class Random</h1></div><div class="class inheritance-tree"><ul class="inheritance 0"><li class="inheritance 0"><code><a href="../../java/lang/Object.html">java.lang.Object</a></code></li><li><ul class="inheritance 1"><li class="inheritance 1"><code>ewe.util.Random</code></li><li></li></ul></li></ul></div><dl class="class subclasses"><dt class="class subclasses header"><b>Known Direct Subclasses:</b></dt><dd class="class subclasses header"><a href="../../ewe/security/SecureRandom.html" title="Class in ewe.security">SecureRandom</a></dd></b></dt></dl><hr/><div class="class synopsis outer"><div class="class synopsis declaration"><code>public class <b class="class synopsis name">Random</b></code></div><div class="class synopsis superclass"><code>extends <a href="../../java/lang/Object.html" title="Class in java.lang">Object</a></code></div></div><hr/><div class="class description"> This class generates pseudorandom numbers.  It uses the same
+ algorithm as the original JDK-class, so that your programs behave
+ exactly the same way, if started with the same seed.
+ <p/>
+ The algorithm is described in <em>The Art of Computer Programming,
+ Volume 2</em> by Donald Knuth in Section 3.2.1.  It is a 48-bit seed,
+ linear congruential formula.
+ <p/>
+ If two instances of this class are created with the same seed and
+ the same calls to these classes are made, they behave exactly the
+ same way.  This should be even true for foreign implementations
+ (like this), so every port must use the same algorithm as described
+ here.
+ <p/>
+ If you want to implement your own pseudorandom algorithm, you
+ should extend this class and overload the <code>next()</code> and
+ <code>setSeed(long)</code> method.  In that case the above
+ paragraph doesn't apply to you.
+ <p/>
+ This class shouldn't be used for security sensitive purposes (like
+ generating passwords or encryption keys.  See <code>SecureRandom</code>
+ in package <code>java.security</code> for this purpose.
+ <p/>
+ For simple random doubles between 0.0 and 1.0, you may consider using
+ Math.random instead.
+ <p/>
+</div><div class="taglet"></div><div class="taglet"></div><div class="taglet"><dl class="tag list"><dt class="tag section header"><b>See Also:</b></dt><dd><code>java.security.SecureRandom</code>, <a href="../../java/lang/Math.html#random:"><code>Math.random()</code></a></dd></dl></div><div class="taglet"></div><div class="taglet"></div><a name="summary-constructors" id="summary-constructors"/><dl class="table container"><dd><table class="class summary" border="1" width="100%"><tr class="table header"><td colspan="2"><h2 class="table header">Constructor Summary</h2></td></tr><tr><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#Random:">Random</a>()</code></dt><dd class="description"> Creates a new pseudorandom number generator.</dd></dl></td></tr><tr><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#Random:long">Random</a>(long&nbsp;seed)</code></dt><dd class="description"> Creates a new pseudorandom number generator, starting with the
+ specified seed, using <code>setSeed(seed);</code>.</dd></dl></td></tr></table></dd></dl><a name="summary-methods" id="summary-methods"/><dl class="table container"><dd><table class="class summary" border="1" width="100%"><tr class="table header"><td colspan="2"><h2 class="table header">Method Summary</h2></td></tr><tr><td class="left" valign="top"><code class="synopsis">protected  int</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#next:int">next</a>(int&nbsp;bits)</code></dt><dd class="description"> Generates the next pseudorandom number.</dd></dl></td></tr><tr><td class="left" valign="top"><code class="synopsis"> boolean</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#nextBoolean:">nextBoolean</a>()</code></dt><dd class="description"> Generates the next pseudorandom boolean.</dd></dl></td></tr><tr><td class="left" valign="top"><code class="synopsis"> void</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#nextBytes:byte-">nextBytes</a>(byte[]&nbsp;bytes)</code></dt><dd class="description"> Fills an array of bytes with random numbers.</dd></dl></td></tr><tr><td class="left" valign="top"><code class="synopsis"> double</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#nextDouble:">nextDouble</a>()</code></dt><dd class="description"> Generates the next pseudorandom double uniformly distributed
+ between 0.0 (inclusive) and 1.0 (exclusive).</dd></dl></td></tr><tr><td class="left" valign="top"><code class="synopsis"> float</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#nextFloat:">nextFloat</a>()</code></dt><dd class="description"> Generates the next pseudorandom float uniformly distributed
+ between 0.0f (inclusive) and 1.0f (exclusive).</dd></dl></td></tr><tr><td class="left" valign="top"><code class="synopsis"> double</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#nextGaussian:">nextGaussian</a>()</code></dt><dd class="description"> Generates the next pseudorandom, Gaussian (normally) distributed
+ double value, with mean 0.0 and standard deviation 1.0.</dd></dl></td></tr><tr><td class="left" valign="top"><code class="synopsis"> int</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#nextInt:">nextInt</a>()</code></dt><dd class="description"> Generates the next pseudorandom number.</dd></dl></td></tr><tr><td class="left" valign="top"><code class="synopsis"> int</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#nextInt:int">nextInt</a>(int&nbsp;n)</code></dt><dd class="description"> Generates the next pseudorandom number.</dd></dl></td></tr><tr><td class="left" valign="top"><code class="synopsis"> long</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#nextLong:">nextLong</a>()</code></dt><dd class="description"> Generates the next pseudorandom long number.</dd></dl></td></tr><tr><td class="left" valign="top"><code class="synopsis"> void</code></td><td class="right"><dl class="list"><dt class="synopsis"><code><a href="#setSeed:long">setSeed</a>(long&nbsp;seed)</code></dt><dd class="description"> Sets the seed for this pseudorandom number generator.</dd></dl></td></tr></table></dd></dl><dl class="table container"><dd><table class="class summary" border="1" width="100%"><tr class="table sub header"><td colspan="2"><h3 class="table sub header">Methods inherited from class java.lang.<a href="../../java/lang/Object.html" title="Class in java.lang">Object</a></h3></td></tr><tr><td class="inherited"><a href="../../java/lang/Object.html#clone:" title="clone()"><code class="member">clone</code></a>, <a href="../../java/lang/Object.html#equals:Object" title="equals(Object)"><code class="member">equals</code></a>, <a href="../../java/lang/Object.html#finalize:" title="finalize()"><code class="member">finalize</code></a>, <a href="../../java/lang/Object.html#getClass:" title="getClass()"><code class="member">getClass</code></a>, <a href="../../java/lang/Object.html#hashCode:" title="hashCode()"><code class="member">hashCode</code></a>, <a href="../../java/lang/Object.html#toString:" title="toString()"><code class="member">toString</code></a></td></tr></table></dd></dl><a name="detail-constructors" id="detail-constructors"/><h2 class="section header">Constructor Details</h2><div class="section"><a name="Random:" id="Random:"/><div class="member detail outer"><h3 class="member detail name">Random</h3><pre class="member detail synopsis">public Random()</pre><blockquote class="member detail name"><div class="member detail description"> Creates a new pseudorandom number generator.  The seed is initialized
+ to the current time, as if by
+ <code>setSeed(new ewe.sys.Time().getTime());</code>.
+</div><div class="taglet"></div><div class="taglet"></div><div class="taglet"><dl class="tag list"><dt class="tag section header"><b>See Also:</b></dt><dd><a href="../../java/lang/System.html#currentTimeMillis:"><code>System.currentTimeMillis()</code></a></dd></dl></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="Random:long" id="Random:long"/><div class="member detail outer"><h3 class="member detail name">Random</h3><pre class="member detail synopsis">public Random(long seed)</pre><blockquote class="member detail name"><div class="member detail description"> Creates a new pseudorandom number generator, starting with the
+ specified seed, using <code>setSeed(seed);</code>.
+</div><div class="parameter"><dl><dt class="header"><b>Parameters:</b></dt><dd class="item"><code class="name">seed</code><span class="separator"> - </span><span class="description">the initial seed</span></dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div></div><a name="detail-methods" id="detail-methods"/><h2 class="section header">Method Details</h2><div class="section"><a name="next:int" id="next:int"/><div class="member detail outer"><h3 class="member detail name">next</h3><pre class="member detail synopsis">protected int next(int bits)</pre><blockquote class="member detail name"><div class="member detail description"> Generates the next pseudorandom number.  This returns
+ an int value whose <code>bits</code> low order bits are
+ independent chosen random bits (0 and 1 are equally likely).
+ The implementation for java.util.Random is:
+
+<pre>protected synchronized int next(int bits)
+{
+seed = (seed * 0x5DEECE66DL + 0xBL) &amp; ((1L &lt;&lt; 48) - 1);
+return (int) (seed &gt;&gt;&gt; (48 - bits));
+}</pre>
+</div><div class="parameter"><dl><dt class="header"><b>Parameters:</b></dt><dd class="item"><code class="name">bits</code><span class="separator"> - </span><span class="description">the number of random bits to generate, in the range 1..32</span></dd></dl></div><div class="member detail return list"><dl><dt class="member detail return header"><b>Returns:</b></dt><dd class="member detail return item">the next pseudorandom value</dd></dl></div><div class="taglet"><dl class="tag list"><dt class="tag section header"><b>Since:</b></dt><dd>1.1</dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="nextBoolean:" id="nextBoolean:"/><div class="member detail outer"><h3 class="member detail name">nextBoolean</h3><pre class="member detail synopsis">public boolean nextBoolean()</pre><blockquote class="member detail name"><div class="member detail description"> Generates the next pseudorandom boolean.  True and false have
+ the same probability.  The implementation is:
+
+<pre>public boolean nextBoolean()
+{
+return next(1) != 0;
+}</pre>
+</div><div class="member detail return list"><dl><dt class="member detail return header"><b>Returns:</b></dt><dd class="member detail return item">the next pseudorandom boolean</dd></dl></div><div class="taglet"><dl class="tag list"><dt class="tag section header"><b>Since:</b></dt><dd>1.2</dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="nextBytes:byte-" id="nextBytes:byte-"/><div class="member detail outer"><h3 class="member detail name">nextBytes</h3><pre class="member detail synopsis">public void nextBytes(byte[] bytes)</pre><blockquote class="member detail name"><div class="member detail description"> Fills an array of bytes with random numbers.  All possible values
+ are (approximately) equally likely.
+ The JDK documentation gives no implementation, but it seems to be:
+
+<pre>public void nextBytes(byte[] bytes)
+{
+for (int i = 0; i &lt; bytes.length; i += 4)
+{
+int random = next(32);
+for (int j = 0; i + j &lt; bytes.length &amp;&amp; j &lt; 4; j++)
+{
+bytes[i+j] = (byte) (random &amp; 0xff)
+random &gt;&gt;= 8;
+}
+}
+}</pre>
+</div><div class="parameter"><dl><dt class="header"><b>Parameters:</b></dt><dd class="item"><code class="name">bytes</code><span class="separator"> - </span><span class="description">the byte array that should be filled</span></dd></dl></div><div class="member detail thrown list"><dl><dt class="member detail thrown header"><b>Throws:</b></dt><dd class="member detail thrown item"><code class="name"><a href="../../java/lang/NullPointerException.html" title="Class in java.lang">NullPointerException</a></code><span class="separator"> - </span><span class="description">if bytes is null</span></dd></dl></div><div class="taglet"><dl class="tag list"><dt class="tag section header"><b>Since:</b></dt><dd>1.1</dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="nextDouble:" id="nextDouble:"/><div class="member detail outer"><h3 class="member detail name">nextDouble</h3><pre class="member detail synopsis">public double nextDouble()</pre><blockquote class="member detail name"><div class="member detail description"> Generates the next pseudorandom double uniformly distributed
+ between 0.0 (inclusive) and 1.0 (exclusive).  The
+ implementation is as follows.
+
+<pre>public double nextDouble()
+{
+return (((long) next(26) &lt;&lt; 27) + next(27)) / (double)(1L &lt;&lt; 53);
+}</pre>
+</div><div class="member detail return list"><dl><dt class="member detail return header"><b>Returns:</b></dt><dd class="member detail return item">the next pseudorandom double</dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="nextFloat:" id="nextFloat:"/><div class="member detail outer"><h3 class="member detail name">nextFloat</h3><pre class="member detail synopsis">public float nextFloat()</pre><blockquote class="member detail name"><div class="member detail description"> Generates the next pseudorandom float uniformly distributed
+ between 0.0f (inclusive) and 1.0f (exclusive).  The
+ implementation is as follows.
+
+<pre>public float nextFloat()
+{
+return next(24) / ((float)(1 &lt;&lt; 24));
+}</pre>
+</div><div class="member detail return list"><dl><dt class="member detail return header"><b>Returns:</b></dt><dd class="member detail return item">the next pseudorandom float</dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="nextGaussian:" id="nextGaussian:"/><div class="member detail outer"><h3 class="member detail name">nextGaussian</h3><pre class="member detail synopsis">public double nextGaussian()</pre><blockquote class="member detail name"><div class="member detail description"> Generates the next pseudorandom, Gaussian (normally) distributed
+ double value, with mean 0.0 and standard deviation 1.0.
+ The algorithm is as follows.
+
+<pre>public synchronized double nextGaussian()
+{
+if (haveNextNextGaussian)
+{
+haveNextNextGaussian = false;
+return nextNextGaussian;
+}
+else
+{
+double v1, v2, s;
+do
+{
+v1 = 2 * nextDouble() - 1; // between -1.0 and 1.0
+v2 = 2 * nextDouble() - 1; // between -1.0 and 1.0
+s = v1 * v1 + v2 * v2;
+}
+while (s &gt;= 1);
+double norm = Math.sqrt(-2 * Math.log(s) / s);
+nextNextGaussian = v2 * norm;
+haveNextNextGaussian = true;
+return v1 * norm;
+}
+}</pre>
+
+ <p/>This is described in section 3.4.1 of <em>The Art of Computer
+ Programming, Volume 2</em> by Donald Knuth.
+</div><div class="member detail return list"><dl><dt class="member detail return header"><b>Returns:</b></dt><dd class="member detail return item">the next pseudorandom Gaussian distributed double</dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="nextInt:" id="nextInt:"/><div class="member detail outer"><h3 class="member detail name">nextInt</h3><pre class="member detail synopsis">public int nextInt()</pre><blockquote class="member detail name"><div class="member detail description"> Generates the next pseudorandom number.  This returns
+ an int value whose 32 bits are independent chosen random bits
+ (0 and 1 are equally likely).  The implementation for
+ java.util.Random is:
+
+<pre>public int nextInt()
+{
+return next(32);
+}</pre>
+</div><div class="member detail return list"><dl><dt class="member detail return header"><b>Returns:</b></dt><dd class="member detail return item">the next pseudorandom value</dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="nextInt:int" id="nextInt:int"/><div class="member detail outer"><h3 class="member detail name">nextInt</h3><pre class="member detail synopsis">public int nextInt(int n)</pre><blockquote class="member detail name"><div class="member detail description"> Generates the next pseudorandom number.  This returns
+ a value between 0(inclusive) and <code>n</code>(exclusive), and
+ each value has the same likelihodd (1/<code>n</code>).
+ (0 and 1 are equally likely).  The implementation for
+ java.util.Random is:
+
+<pre>
+public int nextInt(int n)
+{
+if (n &lt;= 0)
+throw new IllegalArgumentException("n must be positive");
+if ((n &amp; -n) == n)  // i.e., n is a power of 2
+return (int)((n * (long) next(31)) &gt;&gt; 31);
+int bits, val;
+do
+{
+bits = next(31);
+val = bits % n;
+}
+while(bits - val + (n-1) &lt; 0);
+return val;
+}</pre>
+
+ <p/>This algorithm would return every value with exactly the same
+ probability, if the next()-method would be a perfect random number
+ generator.
+
+ The loop at the bottom only accepts a value, if the random
+ number was between 0 and the highest number less then 1&lt;&lt;31,
+ which is divisible by n.  The probability for this is high for small
+ n, and the worst case is 1/2 (for n=(1&lt;&lt;30)+1).
+
+ The special treatment for n = power of 2, selects the high bits of
+ the random number (the loop at the bottom would select the low order
+ bits).  This is done, because the low order bits of linear congruential
+ number generators (like the one used in this class) are known to be
+ ``less random'' than the high order bits.
+</div><div class="parameter"><dl><dt class="header"><b>Parameters:</b></dt><dd class="item"><code class="name">n</code><span class="separator"> - </span><span class="description">the upper bound</span></dd></dl></div><div class="member detail return list"><dl><dt class="member detail return header"><b>Returns:</b></dt><dd class="member detail return item">the next pseudorandom value</dd></dl></div><div class="member detail thrown list"><dl><dt class="member detail thrown header"><b>Throws:</b></dt><dd class="member detail thrown item"><code class="name"><a href="../../java/lang/IllegalArgumentException.html" title="Class in java.lang">IllegalArgumentException</a></code><span class="separator"> - </span><span class="description">if the given upper bound is negative</span></dd></dl></div><div class="taglet"><dl class="tag list"><dt class="tag section header"><b>Since:</b></dt><dd>1.2</dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="nextLong:" id="nextLong:"/><div class="member detail outer"><h3 class="member detail name">nextLong</h3><pre class="member detail synopsis">public long nextLong()</pre><blockquote class="member detail name"><div class="member detail description"> Generates the next pseudorandom long number.  All bits of this
+ long are independently chosen and 0 and 1 have equal likelihood.
+ The implementation for java.util.Random is:
+
+<pre>public long nextLong()
+{
+return ((long) next(32) &lt;&lt; 32) + next(32);
+}</pre>
+</div><div class="member detail return list"><dl><dt class="member detail return header"><b>Returns:</b></dt><dd class="member detail return item">the next pseudorandom value</dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div><hr/><a name="setSeed:long" id="setSeed:long"/><div class="member detail outer"><h3 class="member detail name">setSeed</h3><pre class="member detail synopsis">public void setSeed(long seed)</pre><blockquote class="member detail name"><div class="member detail description"> Sets the seed for this pseudorandom number generator.  As described
+ above, two instances of the same random class, starting with the
+ same seed, should produce the same results, if the same methods
+ are called.  The implementation for java.util.Random is:
+
+<pre>public synchronized void setSeed(long seed)
+{
+this.seed = (seed ^ 0x5DEECE66DL) &amp; ((1L &lt;&lt; 48) - 1);
+haveNextNextGaussian = false;
+}</pre>
+</div><div class="parameter"><dl><dt class="header"><b>Parameters:</b></dt><dd class="item"><code class="name">seed</code><span class="separator"> - </span><span class="description">the new seed</span></dd></dl></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div><div class="taglet"></div></blockquote></div></div><p class="navbar bottom spacer"> </p><table class="navbar div bottom"><tr><td><div class="navbar div top"><span class="navbar item enabled"><a href="../../overview-summary.html">Overview</a></span> <span class="navbar item enabled"><a href="package-summary.html">Package</a></span> <span class="navbar item enabled"><a href="tree.html">Tree</a></span> <span class="navbar item enabled"><a href="../../alphaindex.html">Index</a></span> <span class="navbar item enabled"><a href="../../deprecated.html">Deprecated</a></span> <span class="navbar item enabled"><a href="../../about.html">About</a></span></div></td></tr></table><hr/>Copyright &copy; 2008 <a href="mailto:miros-discuss@mirbsd.de">The MirOS Project</a> and its contributors.</body></html>

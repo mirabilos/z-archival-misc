@@ -1,0 +1,1148 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./TreeControls_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>15</o:TotalTime>
+  <o:Created>2003-03-14T15:22:00Z</o:Created>
+  <o:LastSaved>2003-03-14T15:37:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1953</o:Words>
+  <o:Characters>11133</o:Characters>
+  <o:Lines>92</o:Lines>
+  <o:Paragraphs>22</o:Paragraphs>
+  <o:CharactersWithSpaces>13672</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1230111472;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-874758530 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:2070112472;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-989069180 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./TreeControls_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./TreeControls_files/image001.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-begin'></span></span><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>DATE \@
+&quot;dd MMMM yyyy&quot; \* MERGEFORMAT </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>14 March 2003</span><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="http://www.ewesoft.com/">http://www.ewesoft.com/</a></span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+style='font-family:Arial;mso-ansi-language:EN-GB'><span style='mso-element:
+field-begin'></span><span style="mso-spacerun: yes"> </span>TOC \h \z \t
+&quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405157">Tree Controls<span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405157 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100350037000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405158">Object Representation organization vs. Object Composition
+organization<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405158 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100350038000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405159">Object Representation in Trees – Using ewe.data.TreeNode<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405159 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100350039000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405160">Node Traversing Methods<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405160 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100360030000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405161">Tree Control Methods<span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405161 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100360031000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405162">The MutableTreeNode Interface<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405162 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100360032000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405163">The LiveTreeNode Object<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405163 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100360033000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405164">Using TreeNode in a TreeControl<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405164 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>2</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100360034000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405165">Lines and Indexes of a TreeControl<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405165 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100360035000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405166">Modifying the Tree Structure<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405166 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100360036000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US style='font-family:Arial'><a
+href="#_Toc35405167">Object Composition in Trees – Using the TreeModelAdapter
+Class<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span></span><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'> PAGEREF _Toc35405167 \h </span><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>4</span><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003100360037000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></b></span><b><span
+style='font-family:Arial;color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35405157"><span lang=EN-US>Tree
+Controls</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>This chapter gives information on using
+Tree UI controls. These are very powerful controls that can handle cut/paste
+operations as well as drag and drop operations. This chapter will discuss two
+methods of organizing your data so that it may be displayed in a tree control,
+as well as the methods needed to detect when the user interacts with the tree.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35405158"><span lang=EN-US>Object
+Representation organization vs. Object Composition organization</span></a></h2>
+
+<p class=MsoNormal><a name="_Toc530041930"><span lang=EN-US>Trees, tables and
+lists are controls that display a range of data. There may be circumstances where
+this range of data is fairly small – say less than 100 data elements, or where
+the range is very large – say tens or hundreds of thousands of elements. In the
+case where the data range is small it may be convenient to have each element
+represented in memory as an Object organized in some sort of structure. For
+trees, this structure would be a tree type data structure, for tables a grid
+data structure would be appropriate, and for lists a single dimensional vector
+would be appropriate. This allows the programmer to create the entire structure
+once and then allow the control to access the various elements within the
+structure (depending on the view the user is interacting with) with no further
+programmer assistance. This approach can be thought of as <b>Object
+Representation</b>.</span></a><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>However
+when dealing with large ranges of data this approach will not be appropriate.
+In addition to the extended time required to read and create the structure,
+there will also be the problem of memory limitations. Generally in these cases,
+the actual data to be displayed would be stored on a local file system, and in
+these instances it is usually better to only read, decode and construct objects
+to represent the data when it is necessary to display that data on screen.
+Because only a small range of data is normally visible at a time, this approach
+usually works well at the expense of a slight delay in display refresh time.
+This approach can be thought of as on-demand <b>Object Composition</b>.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>In
+the Ewe UI library you can use either of these approaches when displaying data
+in trees, tables and lists, usually be inheriting from one of two base control
+classes. Tree and Table controls separate the “physical” user interface
+elements of the control from the data representation of the control. They do
+this by having a separate object representing the control (ewe.ui.TableControl
+and ewe.ui.TreeControl) and separate object representing the data
+(ewe.ui.TableModel and ewe.ui.TreeTableModel). You should note that TreeControl
+inherits from TableControl and TreeTableModel inherits from TableModel.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<h2 style='background:#CCFFFF'><span style='mso-bookmark:_Toc530041930'><a
+name="_Toc35405159"><span lang=EN-US>Object Representation in Trees – Using
+ewe.data.TreeNode</span></a><span lang=EN-US> </span></span></h2>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>This
+is very easy to do, since the basic TreeTableModel is geared towards easy
+display of tree data using the <b>ewe.data.TreeNode</b> interface. This interface
+represents data elements that can have a single parent and several children.
+The interface consists of methods that allow a tree structure of such elements
+to be traversed and to be displayed in a TreeControl.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<h4 style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'><a
+name="_Toc35405160"><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:green'>Node Traversing Methods</span></b></a></span><span
+style='mso-bookmark:_Toc530041930'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></span></h4>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>These
+include: <b>int getChildCount(), TreeNode getChild(int childIndex)</b> and <b><span
+style="mso-spacerun: yes"> </span>TreeNode getParent()</b>. These are the
+primary methods used to go up and down a tree data structure consisting of
+TreeNode objects.</span></span><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<h4 style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'><a
+name="_Toc35405161"><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:green'>Tree Control Methods</span></b></a></span><span
+style='mso-bookmark:_Toc530041930'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></span></h4>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>These
+are methods that are primarily used by a TreeControl when displaying a tree
+data structure. They include:</span></span><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>boolean canExpand(), boolean isLeaf(), boolean expand()</span></b><span
+lang=EN-US> and <b>boolean collapse()</b></span></span><span style='mso-bookmark:
+_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>isLeaf() </span></b><span lang=EN-US>tells the control whether to
+consider the TreeNode to be a leaf (which will not contain children) or a node
+(which may contain children). <b>canExpand()</b> tells the control whether or
+not it should display a ‘+’ symbol next to the node icon, used by the user to
+expand the node to display its children. <b>expand()</b> tells the node that
+the user has requested the node to be expand, and that the node, if necessary,
+should gather and organize its children. After calling this method, the methods
+<b>getChildCount() </b>and <b>getChild()</b> will be called to display the
+node’s children on-screen. This is useful for data structures that prefer to
+delay the gathering and construction of children until the user requests them
+to be displayed on-screen. Similarly, the <b>collapse()</b> method tells the
+node that the user has collapsed the node and that, if it wishes, it can free its
+children until the next <b>expand()</b> call.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<h4 style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'><a
+name="_Toc35405162"><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:green'>The MutableTreeNode Interface</span></b></a></span><span
+style='mso-bookmark:_Toc530041930'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></span></h4>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>This
+interface is an extension of TreeNode and represents a data object that can
+have its children and parent manipulated. This is in contrast to TreeNode that
+only has methods to report the state of the tree data structure, but has none
+to modify it. Most implementations of a TreeNode will actually implement this
+interface as well.</span></span><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<h4 style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'><a
+name="_Toc35405163"><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:green'>The LiveTreeNode Object</span></b></a></span><span
+style='mso-bookmark:_Toc530041930'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></span></h4>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>This
+object is a full implementation of MutableTreeNode that also implements the
+ewe.data.LiveData object, a very useful application-oriented object. You can
+inherit from LiveTreeNode to build your data tree and then provide the
+TreeTableModel of the TreeControl that you are using with the root object of
+your data tree. The tree will then be viewable within the TreeControl.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>Some
+methods you will want to override for this include:</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-13.5pt'><span
+style='mso-bookmark:_Toc530041930'><b><span lang=EN-US>String getName()</span></b><span
+lang=EN-US> – This returns the name of the object and will be displayed next to
+its icon.</span></span><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-13.5pt'><span
+style='mso-bookmark:_Toc530041930'><b><span lang=EN-US>IImage getIcon()</span></b><span
+lang=EN-US> – This should return a 16x16 image representing an icon to be
+displayed for the node. By default it returns null which indicates to the tree
+control that default images should be used.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-13.5pt'><span
+style='mso-bookmark:_Toc530041930'><b><span lang=EN-US>boolean isLeaf()</span></b><span
+lang=EN-US> – By default this returns true if the node’s child count is zero.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-13.5pt'><span
+style='mso-bookmark:_Toc530041930'><b><span lang=EN-US>boolean canExpand()</span></b><span
+lang=EN-US> – By default this returns true if the node’s child count is not
+zero.</span></span><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<h4 style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'><a
+name="_Toc35405164"><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:green'>Using TreeNode in a TreeControl</span></b></a></span><span
+style='mso-bookmark:_Toc530041930'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></span></h4>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>To
+set the root object in the tree control use <b>TreeControl.getTreeTableModel()</b>
+to get the TreeTableModel for the control and then call <b>TreeTableModel.setRootObject(TreeNode
+root)</b>. After doing this you can then display the tree control, but remember
+to place it in a ScrollBarPanel like this:</span></span><span style='mso-bookmark:
+_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<pre style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'>…</span></pre><pre
+style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'>TreeControl tc = new TreeControl();</span></pre><pre
+style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'>Form f = new Form();</span></pre><pre
+style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'>f.addLast(new ScrollBarPanel(tc));</span></pre><pre
+style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'>tc.getTreeTableModel().setRootObject(myRootObject);</span></pre><pre
+style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'>…</span></pre>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>Displaying
+the form will then display the tree control with its associated data structure.</span></span></p>
+
+<h4 style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'><a
+name="_Toc35405165"><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:green'>Lines and Indexes of a TreeControl</span></b></a></span><span
+style='mso-bookmark:_Toc530041930'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></span></h4>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>One
+of the properties of a TreeControl is that <b>each row</b> in the display represents
+<b>exactly one</b> node or leaf on-screen. This row is referred to as the <b>line</b>
+or <b>index</b> of the TreeControl (the two terms are used interchangeably).
+There is a direct mapping between a <b>line</b> and a single displayed node or
+leaf. Similarly, <b>if</b> a leaf or node is exposed on-screen, it is
+associated with a unique <b>line/index</b>.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>There
+are several methods of TreeTableModel which use or return <b>line/index</b>
+values. In fact, this is the primary method of manipulating the TreeControl’s
+display. There are two methods that allow you to map TreeNode objects to
+line/index values.</span></span><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>int indexOf(TreeNode node)</span></b><span lang=EN-US> </span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>This returns the line/index of the TreeNode <b>if it is on-screen</b>.
+If it is not (i.e. its parent has not been expanded) it will return –1.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>TreeNode getTreeNodeAt(int index)</span></b><span lang=EN-US> </span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>This returns the associated TreeNode at a particular index in the
+TreeControl.</span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>Here
+are some useful TreeTableModel methods, most of which use line/index values.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>void paintLine(int line)</span></b></span><span style='mso-bookmark:
+_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>This immediately repaints the specified line.</span></span></p>
+
+<p class=MsoBodyTextIndent style='margin-left:0in'><span style='mso-bookmark:
+_Toc530041930'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>void reExpandNode(int line)<o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>This causes the node on the specified line to collapse and be
+re-expanded. This is useful if you have made major changes to the child list of
+a particular node. However please note that the methods described in the
+section “Modifying the Tree Structure” may be more appropriate to update the
+display under some circumstances.</span></span></p>
+
+<h4 style='background:#E6E6E6'><span style='mso-bookmark:_Toc530041930'><a
+name="_Toc35405166"><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='color:green'>Modifying the Tree Structure</span></b></a></span><span
+style='mso-bookmark:_Toc530041930'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></span></h4>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>Modifying
+a tree of MutableTreeNode objects is very easy using the addChild() or
+removeChild() methods. However changes that you make to your object tree will
+not automatically be reflected in the TreeControl. In order for this to happen
+you must inform the tree control of what changes you have made so it will know
+which nodes and which children to refresh on-screen. Here are some <b>TreeTableModel</b>
+methods that you can use to update the display based on changes made to the
+tree data structure.</span></span><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>boolean inserted(TreeNode parent, TreeNode child, boolean
+selectChild)</span></b></span><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>You should call this method <b>after</b> you have inserted a new TreeNode
+as a child of a parent TreeNode. It prompts the display to re-expand the parent
+as needed to include the new child. You can set <b>selectChild</b> to be true
+if you want the new child to be automatically selected. This call re-organizes
+the tree controls internal data structure but does not refresh the display. You
+must call <b>update()</b> on the TreeTableModel to refresh the on-screen
+display.</span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>boolean deleted(TreeNode parent, int indexOfDeletedChild)</span></b></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>You should call this method <b>after</b> you have deleted a child TreeNode
+from a parent TreeNode. It prompts the display to re-expand the parent as
+needed to include the new child. You must provide it with the index of the
+deleted child (i.e. its index when it was still a child of the parent). You
+must call <b>update()</b> on the TreeTableModel to refresh the on-screen
+display.</span></span><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>These
+two methods, <b>inserted</b> and <b>deleted</b> are the most memory and time
+efficient way to update the tree control when you have made changes to the
+underlying tree data structure. You can call them several times before calling <b>update()</b>
+since they do not refresh the on-screen display themselves. </span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<h2 style='background:#CCFFFF'><span style='mso-bookmark:_Toc530041930'><a
+name="_Toc35405167"><span lang=EN-US>Object Composition in Trees – Using the
+TreeModelAdapter Class</span></a><span lang=EN-US> </span></span></h2>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>The
+<b>TreeModelAdapter</b> class is an extension of the TreeTableModel class that
+you can use to display tree data that do <b>not </b>need to be organized in a
+structure of TreeNode objects. The way this class works is as follows:</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='mso-bookmark:_Toc530041930'><span lang=EN-US>An object is <b>not</b>
+     created for a node <b>until</b> the node is expanded. When it is expanded
+     the class must create an object to represent the node, based on the parent
+     node object (which would have been previously constructed) and the index
+     of the node within its parent.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></span><span style='mso-bookmark:_Toc530041930'><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='mso-bookmark:_Toc530041930'><span lang=EN-US>The data for an <b>unexpanded</b>
+     node or a leaf is determined from its parent object and its index within
+     the parent object. This includes its name, icon and flags.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></span><span style='mso-bookmark:_Toc530041930'><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='mso-bookmark:_Toc530041930'><span lang=EN-US>The root object will
+     always have a parent object of <b>null</b> and a child index of 0.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></span><span style='mso-bookmark:_Toc530041930'><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo2;tab-stops:list .5in'><span
+     style='mso-bookmark:_Toc530041930'><span lang=EN-US>There is no
+     restriction on the type of object that you use to represent an expanded
+     node. The object itself is not used except as a reference for accessing
+     the child data and for creating child nodes.</span></span><span
+     style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:
+     "Book Antiqua"'><o:p></o:p></span></span></li>
+</ul>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>Here
+are the methods that must be overridden:</span></span><span style='mso-bookmark:
+_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>Object createObjectFor(Object parent, int childIndex)</span></b></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>This requests a new Object to represent the data of the child at the
+specified index in the specified parent. The only time <b>parent</b> will ever
+be null is when an object is being created for the root of the tree. In this
+case <b>childIndex</b> will only be 0.</span></span><span style='mso-bookmark:
+_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>int getChildCount(Object parent)</span></b></span><span
+style='mso-bookmark:_Toc530041930'><b><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>This is used to get the number of children for a particular parent
+node.</span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>String getDisplayString(Object parent, int childIndex)</span></b></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>This is used to get the name to display for a particular child node.</span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>These
+three are the absolute minimum that you should override to display your tree
+data. However the effect of only overriding this would be:</span></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo4;tab-stops:list .5in'><span
+     style='mso-bookmark:_Toc530041930'><span lang=EN-US>All nodes would have
+     the same icon (folders).</span></span><span style='mso-bookmark:_Toc530041930'><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo4;tab-stops:list .5in'><span
+     style='mso-bookmark:_Toc530041930'><span lang=EN-US>All nodes would be
+     considered expandable.</span></span><span style='mso-bookmark:_Toc530041930'><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></li>
+</ol>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>Two
+important methods that you can override are:</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>IImage getIcon(Object parent, int childIndex)</span></b></span><span
+style='mso-bookmark:_Toc530041930'><b><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>This returns the icon for a particular child of a parent node. By
+default this returns null.</span></span></p>
+
+<p class=MsoBodyTextIndent><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>void adjustFlags(Object parent, long [] indexes, byte [] flags)</span></b></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>The <b>indexes</b> and <b>flags</b> parameters are arrays each of
+the same length equal to the child count for the parent object. For each
+element in the <b>flags</b> array, you can switch on or off the bit values <b>IsNode</b>
+and <b>CanExpand</b>. This will tell the model whether the child at a
+particular index in the parent is a node or a leaf, and whether it can be
+expanded or not. The method by default leaves the flags unaltered, each one
+with the IsNode and CanExpand bits set.</span></span><span style='mso-bookmark:
+_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US>There
+is an alternative to using the <b>adjustFlags()</b> method. If you set the <b>dynamicCanExpand</b>
+member of the TreeModelAdapter to be true, then the flags for each node/leaf in
+the display will be queried each time it is displayed. This results in a call
+to:</span></span><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041930'><b><span
+lang=EN-US>byte getFlags(Object parent, int childIndex, byte savedFlags)</span></b></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:_Toc530041930'><span
+lang=EN-US>This should return an adjusted value of <b>savedFlags</b> with the
+bits <b>IsNode</b> and <b>CanExpand</b> set on or off appropriately. This
+method is only called if dynamicCanExpand is true.</span></span><span
+style='mso-bookmark:_Toc530041930'><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></span></p>
+
+<span style='mso-bookmark:_Toc530041930'></span>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,767 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./GuiDataTransfer_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>32</o:TotalTime>
+  <o:Created>2003-03-14T13:54:00Z</o:Created>
+  <o:LastSaved>2003-05-16T17:15:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1511</o:Words>
+  <o:Characters>8613</o:Characters>
+  <o:Lines>71</o:Lines>
+  <o:Paragraphs>17</o:Paragraphs>
+  <o:CharactersWithSpaces>10577</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:.5in;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:32584645;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1827105856 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:395514460;
+	mso-list-type:hybrid;
+	mso-list-template-ids:798895668 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2
+	{mso-list-id:2103989834;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1605009470 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./GuiDataTransfer_files/image001.gif"
+lang=EN-GB link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./GuiDataTransfer_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-begin'></span></span><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>DATE \@
+&quot;dd MMMM yyyy&quot; \* MERGEFORMAT </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>16 May 2003</span><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="http://www.ewesoft.com/">http://www.ewesoft.com/</a></span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><!--[if supportFields]><span style='mso-ansi-language:EN-GB'><span
+style='mso-element:field-begin'></span><span style="mso-spacerun:
+yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; <span
+style='mso-element:field-separator'></span></span><![endif]--><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc35399499">GUI Data Transfer<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1'>  </span><span
+style='mso-field-code:"PAGEREF _Toc35399499 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003400390039000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35399500">The Editor Control<span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'> </span><span style='mso-field-code:"PAGEREF _Toc35399500 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003500300030000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35399501">The InputStack Control<span style='color:black;display:
+none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'> </span><span style='mso-field-code:"PAGEREF _Toc35399501 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003500300031000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35399502">Field Change and Action Events<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35399502 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003500300032000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35399503"><b style='mso-bidi-font-weight:normal'>The
+fieldChanged() method</b><span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1'>   </span><span
+style='mso-field-code:"PAGEREF _Toc35399503 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003500300033000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35399504"><b style='mso-bidi-font-weight:normal'>The
+action() method</b><span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1'>   </span><span
+style='mso-field-code:"PAGEREF _Toc35399504 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003500300034000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35399505">Editor Example<span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35399505 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003500300035000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35399506"><b style='mso-bidi-font-weight:normal'>Editor
+Notes</b><span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1'>  </span><span
+style='mso-field-code:"PAGEREF _Toc35399506 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003500300036000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532254346"></a><a
+name="_Toc35399499"><span style='mso-bookmark:_Toc532254346'><span lang=EN-US>GUI
+Data Transfer</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>The Ewe environment provides an easy way to
+transfer data between a GUI control (e.g. an mInput text control, or a
+mCheckBox control) and a field (member variable) of an object. This is done via
+an <b>Editor</b> control, which inherits from <b>Form</b>.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532254347"></a><a
+name="_Toc35399500"><span style='mso-bookmark:_Toc532254347'><span lang=EN-US>The
+Editor Control</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>Being a type of Form control, an Editor is
+a container for controls. However it does have an important extra capability:
+it can automatically transfer data from an UI control to a field (member
+variable) of an Object that is being edited. This works as follows:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>The public <b>objectClass</b> field of the Editor must be set
+     to be a <b>ewe.reflect.Reflect</b> object that represents the objects that
+     will be edited.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>You associate a <b>fieldname</b> with controls added to the
+     Editor that matches the name of a member variable in the Object to be
+     edited using the call <b>addField(Control addedControl, String fieldName)</b></span></li>
+</ul>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Each call to addField() will prompt the
+Editor to look at the class specification for the edited Object to locate the
+matching field variable (using the Reflection API). Then a <b>ewe.reflect.FieldTransfer</b>
+object is associated with that control. This FieldTransfer will then be used to
+transfer data between the Object field and the associated control in the way
+most appropriate for the data type.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Calling <b>setObject(Object object)</b> on
+the Editor will then associate an instance of the data object with the Editor.
+This causes all data from the edited object to be transferred to the controls
+in the Editor in a manner that is compatible with the GUI control. For example
+if the control is an mInput (single line text input) or mTextPad (multi line
+text input) and the field variable is of type String, it will set the text of
+the control to be the same text as the member variable. This eliminates the
+need to explicitly set each control value via calls such as setText() or
+setState().</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Additionally, once the data has been
+displayed on screen, any changes made to the data by the user via the on-screen
+controls, will be transferred automatically to the object being edited. This eliminates
+the need to explicitly fetch each control value via calls such as getText() or
+getState().</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US style='font-family:Arial'>In order for
+the Editor to work correctly the Class of the object being edited must be
+public and each field being edited must also be public. This is because of
+standard security restrictions in the Reflection API.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>To summarize, you must do the following
+steps to be able to edit an object via an Editor:</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>Create a new Editor and set the <b>objectClass</b> field to be
+     a Reflect object that represents the class of the object to be edited. You
+     can create a Reflect object by calling <b>Reflect.getForName(String
+     fullyQualifiedClassName)</b> or by calling <b>Reflect.getForObject(Object
+     object)</b>.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>Add controls to the Editor. If a control should represent data in
+     the object to be edited, associate the field name with the control by
+     calling: <b>addField(Control control, String fieldname)</b>.<br
+     style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>Set the object to be edited by calling <b>setObject(Object obj)</b>
+     on the Editor. If the Editor is being displayed on screen, the controls
+     will be immediately updated. You can call setObject() multiple times to
+     edit multiple objects if you need to. Each time it is called, the controls
+     are updated to reflect the data in the new object.<br style='mso-special-character:
+     line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>All user changes to the data will automatically change the data
+     in the object being edited, but programmatic changes to the object fields
+     will <b>not</b> be automatically updated in the Editor controls. If your
+     program changes data in the object while it is being edited you <b>must</b>
+     call <b>toControls(String fieldnames)</b>. <b>fieldnames </b>is a comma
+     separated list of fields that you want the Editor to update on screen. You
+     can also call <b>toControls()</b> with no arguments to update all of the
+     Editor controls.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You should use the following controls to
+represent different data:<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=155 valign=top style='width:116.6pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US>mInput</span></b><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+  <td width=541 valign=top style='width:405.4pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Single lines of text and any numeric
+  values (int, float, double, long).</span><span lang=EN-US style='font-family:
+  "Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=155 valign=top style='width:116.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US>mTextPad</span></b><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+  <td width=541 valign=top style='width:405.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Multiple lines of text.</span><span
+  lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=155 valign=top style='width:116.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US>mCheckBox</span></b><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+  <td width=541 valign=top style='width:405.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Boolean (true/false) values.</span><span
+  lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=155 valign=top style='width:116.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoToc1><span lang=EN-US>mChoice/mComboBox</span></p>
+  </td>
+  <td width=541 valign=top style='width:405.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Text values and integer values.</span><span
+  lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=155 valign=top style='width:116.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><b><span lang=EN-US>DateDisplayInput</span></b><span
+  lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+  <td width=541 valign=top style='width:405.4pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Time/TimeOfDay/DayOfYear values.</span><span
+  lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Using a <b>DataConverter</b> object it is
+possible to edit more complex data values using more controls, but that will be
+covered in an advanced section.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532254348"></a><a
+name="_Toc35399501"><span style='mso-bookmark:_Toc532254348'><span lang=EN-US>The
+InputStack Control</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>An <b>InputStack</b> is a type of container
+which makes it easy to add a series of inputs with associated prompts. The
+InputStack takes care of aligning the controls and prompts. You simply add a
+control to the InputStack and specify a string prompt. It will create a label
+to represent the prompt and add it to itself in addition to adding the control.
+You do this by calling: <b>add(Control control, String prompt)</b>. This method
+returns the control that was added. This allows you add a field to the Editor
+at the same time as you add it to the input stack by doing<b> </b>something
+like:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>editor.addField(inputStack.add(new
+mInput(),”Name:”),”name”);</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Just remember to add the input stack itself
+to the Editor using addLast() or addNext().</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532254349"></a><a
+name="_Toc35399502"><span style='mso-bookmark:_Toc532254349'><span lang=EN-US>Field
+Change and Action Events</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>It is frequently desirable to detect when a
+field value has been changed by the user, in order to begin some action or to
+validate the input. Additionally, there may be action events (e.g. a button
+press) that you would like to trap and act upon, even though no particular data
+is associated with the action (e.g. a button to clear the fields of an object).</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>These are both facilitated by the Editor
+object through the <b>FieldListener</b> interface. You can add FieldListener
+objects to the Editor by adding them to the Editor’s <b>fieldListeners</b> variable
+(which is a Vector). However, if the object which is being edited (the one sent
+to <b>setObject()</b>) itself implements the FieldListener interface, then it
+will automatically be added to the Editor’s fieldListeners Vector. This is the
+preferred way of doing things as it allows you to group together in one class
+both the data to be edited <b>and</b> code used to validate the object data
+during entry.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc532254350"></a><a
+name="_Toc35399503"><span style='mso-bookmark:_Toc532254350'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>The
+fieldChanged() method</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>A FieldListener has two methods that will
+be called during entry. The first is <b>fieldChanged(ewe.reflect.FieldTransfer
+ft,Editor ed)</b>. This is called <b>after</b> the Editor has updated the
+member variables in the object being edited. If you explicitly change any data
+in the object within this method you <b>must</b> call <b>ed.toControls(&lt;fieldnames&gt;)</b>
+in order for those changes to be reflected on screen. The <b>FieldTransfer</b>
+parameter sent to the method is the object which actually does the work of the
+gui-object data transfer. You can tell which field has been modified by
+checking the <b>fieldName</b> variable in the FieldTransfer object. The control
+which is being used to represent the field is given by the <b>dataInterface</b>
+variable in the FieldTransfer object.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that if the type of a field in an
+object is <b>ewe.ui.MenuItem</b> then this can be used to detect when a menu
+item has been selected in the menu which is associated with the Control
+assigned to field. For example if the Control is a <b>PullDownMenu</b> then
+when the user selects an item within the PullDownMenu the <b>fieldChanged()</b>
+method is invoked and the new value of the field will be the <b>MenuItem</b>
+object which was just selected.<span style="mso-spacerun: yes">  </span>See the
+Editor Example to see how this is used.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc532254351"></a><a
+name="_Toc35399504"><span style='mso-bookmark:_Toc532254351'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>The
+action() method</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The second method that can be called during
+entry is <b>action(FieldTransfer ft,Editor ed)</b>. This is called when a
+control that is associated with a field name generates a <b>ControlEvent.PRESSED</b>
+event. <b>When assigning field names to controls which are to be used for
+generating action() events only (e.g. an mButton) the field name which is
+assigned should NOT correspond to an actual variable name in the object being
+edited.</b> Again, if you explicitly change any data in the object within this
+method you <b>must</b> call <b>ed.toControls(&lt;fieldnames&gt;)</b> in order
+for those changes to be reflected on screen.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You will be surprised to discover that using
+these two methods is enough to handle the great majority of your user interface
+forms. You will probably never have to deal with control events again.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There is also another FieldListener method <b>void
+fieldEvent(FieldTransfer xfer,Editor editor,Object event).</b> This gets called
+when an event is fired by a control and the event is <b>not</b> a PRESSED event
+and the event is not a Pen/Mouse/Focus event. You can use this to trap events
+from other complex or custom GUI controls.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532254352"></a><a
+name="_Toc35399505"><span style='mso-bookmark:_Toc532254352'><span lang=EN-US>Editor
+Example</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>To see an example of using an Editor go to
+the <b>classes\samples\editor</b> directory in the development environment and
+look at the file: <b>PersonInfo.java</b> and <b>EditPerson.java</b>. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc532254353"></a><a
+name="_Toc35399506"><span style='mso-bookmark:_Toc532254353'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Editor
+Notes</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>An important thing to note about the Editor
+class is that it implements the FieldListener interface itself. This means you
+can extend the Editor class and create an Editor object which can edit itself!
+In fact, this is the default behavior for the Editor. When you first create an
+Editor, the constructor sets the <b>objectClass</b> variable to be a Reflect object
+representing its own class, and it calls <b>setObject()</b> passing itself as
+the object to be edited. Here is the source code for the Editor constructor:</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>//================================</span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US>public Editor()</span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US>//================================</span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US>{</span></b><b><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US><span style='mso-tab-count:1'>            </span>objectClass
+= Reflect.getForObject(this);</span></b><b><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US><span style='mso-tab-count:1'>            </span>setObject(this);</span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1><span lang=EN-US>}</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Here is an example of this is in the file: <b>LoginScreen.java</b>
+in the <b>classes\samples\editor</b> directory. It shows an Editor editing
+itself. This also demonstrates a button which has an associated menu that pops-up
+when the button is held down or if the right mouse button is pressed on it. It
+shows how to determine which action has been taken by the user.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

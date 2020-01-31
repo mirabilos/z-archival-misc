@@ -1,0 +1,827 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./AdvancedLayouts_files/filelist.xml">
+<link rel=Edit-Time-Data href="./AdvancedLayouts_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>10</o:TotalTime>
+  <o:Created>2003-03-13T20:47:00Z</o:Created>
+  <o:LastSaved>2003-03-18T14:59:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1061</o:Words>
+  <o:Characters>6052</o:Characters>
+  <o:Lines>50</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>7432</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoBlockText, li.MsoBlockText, div.MsoBlockText
+	{margin-top:0in;
+	margin-right:41.25pt;
+	margin-bottom:0in;
+	margin-left:9.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:#CCFFCC;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1030"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./AdvancedLayouts_files/image001.gif"
+lang=EN-GB link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1028" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./AdvancedLayouts_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-begin'></span></span><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>DATE \@
+&quot;dd MMMM yyyy&quot; \* MERGEFORMAT </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="http://www.ewesoft.com/">http://www.ewesoft.com/</a></span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35337922">Advanced Control
+Layout and Modifications<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc35337922 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330037003900320032000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35337923">Tagging a
+Control<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc35337923 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330037003900320033000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35337924">Borders<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc35337924 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330037003900320034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35337925">Modifying
+Controls<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc35337925 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330037003900320035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc507135566"></a><a
+name="_Toc507135661"></a><a name="_Toc35337922"><span style='mso-bookmark:_Toc507135661'><span
+style='mso-bookmark:_Toc507135566'><span lang=EN-US>Advanced Control Layout and
+Modifications</span></span></span></a><span lang=EN-US> </span></h2>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc507135567"></a><a
+name="_Toc507135662"></a><a name="_Toc35337923"><span style='mso-bookmark:_Toc507135662'><span
+style='mso-bookmark:_Toc507135567'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Tagging a Control</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'> <o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>A tag is an integer value (which represents
+some tag name) coupled with an object value (represented by <b>ewe.util.Tag</b>).
+It is a way of adding specific values to any object with a <b>TagList</b>
+(including Controls) in a very memory conservative way. You can set tags on a
+Control by calling the <b>setTag()</b> method. There are tags which are used by
+controls to specify how they behave in CellPanels. These are explained below. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoHeading7><span lang=EN-US style='mso-ansi-language:EN-US'>INSETS <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This specifies the
+distance between the cell boundary and the start of the area allocated in the
+cell for the control and you must use an <b>ewe.fx.Insets</b> object to specify
+the values. The constructor for Insets is Insets(int top,int left,int
+bottom,int right) For example: </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>addLast(new
+mButton(&quot;Hello&quot;)).setTag(INSETS, new Insets(2,3,2,3)); </span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US
+style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>The button will
+now be placed two pixels below and above the cell top and bottom boundaries,
+and three pixels after and before the left and right boundaries. By default, no
+INSETS tag is specified which defaults to no inset values. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoHeading7><span lang=EN-US style='mso-ansi-language:EN-US'>SPAN <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This specifies the
+number of cells a control occupies horizontally and vertically. You must
+provide a <b>Dimension</b> object to specify the horizontal (width) and
+vertical span (height) of the control. By default the span will be set to <b>(-1,
+-1)</b>. A value of less than zero for the width or height indicates that it
+should initially try to be 1, but if it is placed adjacent to an empty cell on its
+right or below it, it should automatically extend the control into these empty
+cells. Consider the following lines: </span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoToc4><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US style='mso-ansi-language:EN-US'>addLast(new
+mButton(&quot;Hello&quot;));<br>
+addNext(new mButton(&quot;There&quot;));<br>
+addLast(new mButton(&quot;OK?&quot;)); <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>The first row only
+introduces one cell horizontally. The second row introduces two. The end result
+is that the CellPanel will be a grid of two cells across and two cells down.
+However the top right cell is unoccupied. Because by default the span of the
+first button would be (-1, -1) during the make() process it will be set to span
+across into the empty cell so that the whole grid of controls is still properly
+aligned. This is called auto-spanning. Auto-spanning is done both horizontally
+and vertically.<span style="mso-spacerun: yes">  </span>If you don't want a
+cell to be auto-spanned, set its span to be explicitly (1,1) like so: </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US style='mso-ansi-language:EN-US'>addLast(new
+mButton(&quot;Hello&quot;)).setTag(SPAN,new Dimension(1,1));<br>
+addNext(new mButton(&quot;There&quot;));<br>
+addLast(new mButton(&quot;OK?&quot;)); <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>Now the first
+button will be aligned directly over the second button only, and will not be
+stretched over the third button. </span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoHeading7><span lang=EN-US style='mso-ansi-language:EN-US'>PREFERREDSIZE,
+MINIMUMSIZE, MAXIMUMSIZE <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This sets the
+preferred, minimum and maximum sizes of the control, and must be specified by
+Dimension objects. Because these are so often called they have their own
+methods as well: </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US style='mso-ansi-language:EN-US'>Control.setPreferredSize(Dimension),
+Control.setMinimumSize(Dimension), Control.setMaximumSize(Dimension) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>However, remember
+that the maximum size of a control does not have any effect on layout yet. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoHeading7><span lang=EN-US style='mso-ansi-language:EN-US'>TEXTSIZE
+(not implemented yet) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>This sets the
+preferred size of the control to be a certain number of characters wide and
+high. However this has not been implemented yet. </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc507135568"></a><a
+name="_Toc507135663"></a><a name="_Toc35337924"><span style='mso-bookmark:_Toc507135663'><span
+style='mso-bookmark:_Toc507135568'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Borders</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'> <o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The <b>int borderWidth</b> variable
+specifies how far the grid of cells is placed from the edge of each side of the
+CellPanel. The <b>int borderStyle </b>variable specifies the type of border
+that will be drawn around the CellPanel. The values you can use are: </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US>BDR_RAISEDOUTER, BDR_SUNKENOUTER,
+BDR_RAISEDINNER, BDR_SUNKENINNER </span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You should have one OUTER style OR'ed with
+one INNER style. Together with these, or alone, you can also OR with: </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoHeading7><span lang=EN-US style='mso-ansi-language:EN-US'>BDR_OUTLINE,
+BDR_NOBORDER, BDR_DOTTED <o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>BDR_OUTLINE specified that a flat single
+line should be drawn around the panel. This can be in addition to the raised or
+sunken inner/outer borders - or it can be used without them. BDR_NOBORDER
+specifies that no border should be drawn. BDR_DOTTED specifies a dotted border
+is to be drawn. When this option is specified all other border options (except
+for NOBORDER) are overridden. </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can also OR these values with border
+flags that specify which sides of the border should be drawn: </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>BF_TOP, BF_BOTTOM, BF_RIGHT, BF_LEFT,
+BF_RECT </span></b><span lang=EN-US>(all sides) </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There is also <b>BF_FLAT</b> that overrides
+the 3D effect and forces a flat border, and <b>BF_MONO</b> which forces black
+and white border drawing only. </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There are some convenience values defined
+for you: </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US>EDGE_RAISED <span style='mso-tab-count:
+1'>      </span>= (BDR_RAISEDOUTER | BDR_RAISEDINNER)|BF_RECT<br>
+EDGE_SUNKEN <span style='mso-tab-count:1'>    </span>= (BDR_SUNKENOUTER |
+BDR_SUNKENINNER)|BF_RECT<br>
+EDGE_ETCHED <span style='mso-tab-count:1'>    </span>= (BDR_SUNKENOUTER |
+BDR_RAISEDINNER)|BF_RECT<br>
+EDGE_BUMP <span style='mso-tab-count:1'>         </span>= (BDR_RAISEDOUTER |
+BDR_SUNKENINNER)|BF_RECT;</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>NOTE</span></b><span lang=EN-US>: If you
+specify a border style you must also specify a border width that is wide enough
+to display the border without overlapping onto the cells. A value of two is the
+minimum value you should use for the 3D border styles. </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>NOTE ALSO</span></b><span lang=EN-US>:
+If you specify a non-zero border width, and the border style is set to zero,
+then a solid border WILL be drawn around your control. If you want a border
+spacing but do not want the border to be drawn, then set <b>borderStyle</b> to
+be BDR_NOBORDER. </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>In addition to Panels, borders also apply
+to many other controls. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>A <b>Text Border</b> is a special type of
+border that can be placed around Panels and CellPanels. This is basically a
+single line of text and an etched border around the Panel. To display such a
+border around a Panel, simply call <b>setText()</b><span style="mso-spacerun:
+yes">  </span>on the Panel. The example below (from the previous chapter) shows
+a text border <b>&quot;Testing the panel&quot;</b> around a Panel.</span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:136.5pt;
+ height:111pt'>
+ <v:imagedata src="./AdvancedLayouts_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=182 height=148
+src="./AdvancedLayouts_files/image004.jpg" v:shapes="_x0000_i1025"><![endif]></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc507135569"></a><a
+name="_Toc507135664"></a><a name="_Toc35337925"><span style='mso-bookmark:_Toc507135664'><span
+style='mso-bookmark:_Toc507135569'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Modifying Controls</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'> <o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>There are a number of ways the look and
+behavior of a Control can be modified. This is accomplished by setting or
+clearing bitwise flags in the <b>modifier</b> member variable. For convenience
+there are a number of methods which are used to set and clear flags without
+affecting the state of the other flags. </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>public int modify(int flagsToSet, int
+flagsToClear); </span></b><b><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This sets and clears the flags specified.
+The return value is the value of the flags (both the set and clear flags)
+before the operation is done. You can use this to restore the flags to its
+original values by using:<br>
+<br>
+<b>public void restore(int valueReturnedByModify,int
+flagsToSetORedWithFlagsToClear); </b></span><b><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>For example: </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre><span lang=EN-US style='mso-ansi-language:EN-US'>int oldValue = aControl.modify(DontPaint,Disabled);<br>
+// do some code...<br>
+aControl.restore(oldValue,DontPaint|Disabled); <o:p></o:p></span></pre>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><b><span lang=EN-US>public void
+modifyAll(int toSet,int toClear,boolean doThisOne); </span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>This modifies all
+the sub-controls of the control. If doThisOne is true, then it also modifies
+the control itself. </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>To check on the status
+of the modifier use this: </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><b><span lang=EN-US>public boolean
+hasModifier(int which,boolean inheritFromParent); </span></b><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>There are many
+others, check the API for more details and check the API for the class <b>ewe.ui.ControlConstants</b>
+to get the complete list of flags. </span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+
+<div class=MsoNormal align=center style='text-align:center;tab-stops:.5in'><span
+lang=EN-US>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1221 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./AdvancedDatabases_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>8</o:Revision>
+  <o:TotalTime>830</o:TotalTime>
+  <o:Created>2002-12-17T10:57:00Z</o:Created>
+  <o:LastSaved>2003-02-22T20:34:00Z</o:LastSaved>
+  <o:Pages>8</o:Pages>
+  <o:Words>3057</o:Words>
+  <o:Characters>17426</o:Characters>
+  <o:Lines>145</o:Lines>
+  <o:Paragraphs>34</o:Paragraphs>
+  <o:CharactersWithSpaces>21400</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:307323461;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2115014152 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1
+	{mso-list-id:392238602;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1704604646 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2
+	{mso-list-id:599990681;
+	mso-list-type:hybrid;
+	mso-list-template-ids:880992272 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3
+	{mso-list-id:734013077;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1207539012 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4
+	{mso-list-id:838040016;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-581515166 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5
+	{mso-list-id:887766116;
+	mso-list-type:hybrid;
+	mso-list-template-ids:407425486 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6
+	{mso-list-id:948589873;
+	mso-list-type:hybrid;
+	mso-list-template-ids:315622096 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./AdvancedDatabases_files/image001.gif"
+lang=EN-GB link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./AdvancedDatabases_files/image002.gif" o:title="blbkgnd"
+   type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc28093618"></a><a
+name="_Toc33694924"><span style='mso-bookmark:_Toc28093618'><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>20 March 2003</span><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33695013">Advanced
+Database Topics<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33695013 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390035003000310033000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33695014">The
+DatabaseEntry Object<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc33695014 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390035003000310034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33695015">Special Data
+Fields<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33695015 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390035003000310035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33695016">Setting Up A
+Database For Synchronization<span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>.. </span><span style='mso-field-code:"PAGEREF _Toc33695016 \\h"'>2<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390035003000310036000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33695017">The
+ewe.datastore.Synchronizer Class<span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span><span style='mso-field-code:"PAGEREF _Toc33695017 \\h"'>3<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390035003000310037000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33695018">Synchronizing
+Across a RemoteConnection (EweSync)<span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span><span style='mso-field-code:"PAGEREF _Toc33695018 \\h"'>6<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390035003000310038000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc28093619"></a><a name="_Toc33694925"></a><a
+name="_Toc33695013"><span style='mso-bookmark:_Toc33694925'><span
+style='mso-bookmark:_Toc28093619'><span lang=EN-US>Advanced Database Topics</span></span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>In the previous chapter, use of the Ewe
+Database API was described and the technique of using a Java object as a means
+of easily reading and writing records to a Database. In this chapter we will
+discuss the Database API in more detail.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28093620"></a><a name="_Toc33694926"></a><a
+name="_Toc33695014"><span style='mso-bookmark:_Toc33694926'><span
+style='mso-bookmark:_Toc28093620'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>The DatabaseEntry Object</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The DatabaseEntry object is the actual
+object used to read and write the data of each record. It is responsible for
+encoding and decoding the fields into bytes for storage and retrieval. You write
+field values into the DatabaseEntry using one of the <b>setField()</b> methods
+(e.g. setField(int fieldID, String value)) and retrieve values using one of the
+<b>getField()</b> methods. <b>deleteFieldValue() </b>will delete a field from
+the entry. After setting field values you call <b>save()</b> to write the
+DatabaseEntry to the database.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There are a number of other methods that
+you can use and these include:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>byte []
+toBytes()</span></b><span lang=EN-US> is used to convert an entry into a byte
+array suitable for transmission.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>void decodeFrom(byte
+[] bytes)</span></b><span lang=EN-US> is used to convert a byte array back into
+a DatabaseEntry.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>void
+copyFrom(DatabaseEntry other)</span></b><span lang=EN-US> is used to copy the
+data portion of another DatabaseEntry.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>void
+duplicateFrom(DatabaseEntry other)</span></b><span lang=EN-US> is used to
+duplicate another DatabaseEntry completely.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28093621"></a><a name="_Toc33694927"></a><a
+name="_Toc33695015"><span style='mso-bookmark:_Toc33694927'><span
+style='mso-bookmark:_Toc28093621'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Special Data Fields</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>There are a number of special pre-defined
+fields that you can add to your database using <b>addSpecialField()</b> most of
+which will have their data automatically set as appropriate. The ones that you
+may most likely need to use are:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>OID_FIELD</span></b><span
+lang=EN-US> – This is a unique 64-bit long value used as an identifier for each
+record. This is essential for doing any kind of synchronization.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>FLAGS_FIELD</span></b><span
+lang=EN-US> – This is a 32-bit int value that can be used to hold different
+flags for each entry. The only flag that is predefined is <b>FLAG_SYNCHRONIZED</b>
+with a value of <b>0x40000000</b>.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>MODIFIED_FIELD</span></b><span
+lang=EN-US> – This is a time and date value that specifies when the record was
+last modified.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>MODIFIED_BY_FIELD</span></b><span
+lang=EN-US> – This is a 64-bit long value used to identify the database that
+last modified the record.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>CREATED_FIELD</span></b><span
+lang=EN-US> – This is a time and date value that specifies when the record was
+first created.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>The first two fields are the minimum required
+for synchronization. When a record is first created (i.e. when save() is called
+on it for the first time) it is assigned its own OID value. When a record is
+created or modified, the FLAG_SYCHRONIZED bit is cleared. </span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>Deleting a record that has an OID assigned
+will mark the record as being deleted, and may have its data erased (although
+its special fields will remain). It will not appear in any FoundEntries and can
+only be accessed using the <b>getDeletedSince()</b> method or the <b>getDeletedEntry()</b>
+method. The <b>eraseEntry()</b> method is used to remove the entry from the
+database completely.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The MODIFIED_FIELD and MODIFIED_BY_FIELD
+are updated whenever save() is called on the entry, and the CREATED_FIELD is
+set when the record is saved for the first time.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that when save() is called on a
+database entry, or when one of the add() or set() methods are called in the
+FoundEntries, then the save implementation is passed to the<b>
+Database.saveEntry()</b> method. This is the method that will set or modify all
+these special fields. However, during synchronization you may need to set these
+values yourself and then save a record <b>without</b> having these values
+altered. The <b>Database.storeEntry()</b> is used for this (which is also used
+with the <b>FoundEntries.store()</b> method). These methods store the
+DatabaseEntry as it is without changing or adding any values.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28093622"></a><a name="_Toc33694928"></a><a
+name="_Toc33695016"><span style='mso-bookmark:_Toc33694928'><span
+style='mso-bookmark:_Toc28093622'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Setting Up A Database For Synchronization</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This should be done when a Database is
+first initialized and involves the adding of some or all of these special
+fields (depending on the level of synchronization you require).</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>A convenience method <b>Database.enableSynchronization(int
+options)</b> is provided to set up the database for synchronization. With <b>no</b>
+options specified, this method does the following:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>It adds the OID_FIELD special field.</span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>It adds a &quot;_ByOID&quot; sort to the database that sorts
+     the database by OID.</span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>It adds the FLAG_FIELD special field.</span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>It adds a &quot;_BySync&quot; sort that sorts the database by
+     the Flag field and then by OID.</span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>You should not use the “_ByOID” and “_BySync”
+names explicitly, rather you should use the values <b>Database.OidSortName</b>
+and <b>Database.SyncSortName</b>. These names have “_” characters in front of
+them to indicate that these are not sorts that are meant to be used by the
+database user, but are meant for special operations instead.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>If you specify the <b>SYNC_STORE_MODIFICATION_DATE</b>
+option then the method will additionally:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>Add the MODIFIED_FIELD special field.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>Add a &quot;_ByModified&quot; (<b>ModifiedSortName</b>)<b> </b>sort
+     that sorts the database by the Modified date field and then by OID.</span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>If you specify the <b>SYNC_STORE_MODIFICATION_BY</b>
+option then the method will additionally:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo9;tab-stops:list .5in'><span
+     lang=EN-US>Add the MODIFIED_BY_FIELD special field.</span></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo9;tab-stops:list .5in'><span
+     lang=EN-US>Add a &quot;_ByModifiedBy&quot; (<b>ModifiedBySortName</b>)<b> </b>sort
+     that sorts the database by the Modified By field and then by OID.</span></li>
+</ol>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>If you specify the <b>SYNC_STORE_CREATED</b>
+option then the method will additionally:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><span
+     lang=EN-US>Add the CREATED_FIELD special field.</span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo12;tab-stops:list .5in'><span
+     lang=EN-US>Add a &quot;_ByCreated&quot; (<b>CreatedSortName</b>)<b> </b>sort
+     that sorts the database by the Created date field and then by OID.</span></li>
+</ol>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Here is an example of initializing a
+Database for synchronization. This example asks that the modification date and
+the modified by who field be used.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public Database openMyDatabase(String name) throws ewe.io.IOException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>Database db = DataStore.initializeDatabase(name,new Contact());</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (db != null){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>db.enableSynchronization(</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>SYNC_STORE_MODIFICATION_DATE|SYNC_STORE_MODIFIED_BY);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>db.save();</pre><pre style='background:
+#F3F3F3'><span style='mso-tab-count:1'>        </span><span style='mso-tab-count:
+1'>        </span>db.close();</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>}</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>return DataStore.openDatabase(name,&quot;rw&quot;);</pre><pre
+style='background:#F3F3F3'>}</pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28093623"></a><a name="_Toc33694929"></a><a
+name="_Toc33695017"><span style='mso-bookmark:_Toc33694929'><span
+style='mso-bookmark:_Toc28093623'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>The ewe.datastore.Synchronizer Class</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This class can be used to implement a full
+synchronization system. In fact it is used to implement the <b>RemoteSynchronizer</b>
+described later. <b>Synchronizer</b> uses only the FLAG_SYNCHRONIZED bit in the
+FLAGS_FIELD and the OID_FIELD value to implement synchronization between two
+databases.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This Synchronization is a two-phase
+process. The first phase involves reconciling changes made on the remote
+database with the local database. The second phase involves reconciling changes
+made on the local database with the remote. The Synchronizer only has direct
+access to the local database (i.e. it can only search and access entries in the
+local database), so there are some methods that request data from the remote
+database that need to be implemented in order to make a full Synchronizer. This
+is done in the RemoteSynchronizer which uses Remote Calls to get that data.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The first phase of the Synchronization
+process goes like this:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo15;tab-stops:list .5in'><span
+     lang=EN-US>Get from the remote database, a count of the number of items
+     that are not synchronized.</span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo15;tab-stops:list .5in'><span
+     lang=EN-US>Get the encoded bytes of each unsynchronized entry from the
+     remote database.</span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo15;tab-stops:list .5in'><span
+     lang=EN-US>For each unsynchronized remote entry, either modify the
+     equivalent entry in the local database to match the remote entry <b>or</b>
+     add the remote entry to the local database (if it is a new entry).</span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo15;tab-stops:list .5in'><span
+     lang=EN-US>As a special case, if the remote entry is discovered to be
+     changed on the local database as well as on the remote, then the user must
+     say which of the two modified entries is to be kept. This is conflict
+     resolution.</span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo15;tab-stops:list .5in'><span
+     lang=EN-US>Get from the remote database, a count of all the deleted items.</span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo15;tab-stops:list .5in'><span
+     lang=EN-US>For each deleted item get OID of the entry.</span></li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo15;tab-stops:list .5in'><span
+     lang=EN-US>Erase each deleted item from the local database and the remote
+     database.</span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Here is the simplified code for the first
+phase of the synchronization process:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><span style='color:gray'><span
+style='mso-tab-count:1'>        </span>// Get all entries in the local database, sorted by OID.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// This way we can search to find the local entry that matches<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// any remote enry.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>FoundEntries fe = <b><span
+style='color:green'>getByOID()</span></b>;</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>int num = <b>countRemoteUnsynchronizedEntries()</b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>for (int i = 0; i&lt;num; i++){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>byte [] un = <b>getRemoteUnsynchronizedEntry(i)</b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>if (un == null) break;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>DatabaseEntry de = fe.getNew();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>de.decodeFrom(un);</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+2'>               </span>// See if a matching local entry is unsynchronised too.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>int found = <b><span
+style='color:green'>getMatchingEntry(de,fe)</span></b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>if (found != -1){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>DatabaseEntry my = fe.get(found);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>if (!<b><span style='color:green'>isSynchronized(my)</span></b>){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:3'>                    </span><span
+style='mso-tab-count:1'>        </span>int resolve = resolveConflict(de,my);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:3'>                    </span><span
+style='mso-tab-count:1'>        </span>if (resolve == LOCAL_TO_REMOTE){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:3'>                    </span><span
+style='mso-tab-count:1'>        </span><span style='mso-tab-count:1'>        </span><b>markRemoteAsSynchronized(i)</b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:3'>                    </span><span
+style='mso-tab-count:1'>        </span><span style='mso-tab-count:1'>        </span>continue;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:3'>                    </span><span
+style='mso-tab-count:1'>        </span>}</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:2'>               </span><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>}</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span><b><span style='color:green'>addOrReplace(de,fe)</span></b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span><b>markRemoteAsSynchronized(i)</b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// Now get the OIDs of the deleted entries on the remote<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// and erase them.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>int deleted = <b>countRemoteDeletedEntries()</b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>for (int i = 0; i&lt;deleted; i++){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>long del = <b>getRemoteDeletedEntry(i)</b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>if (del == 0) break;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span><b><span style='color:green'>erase(del,fe)</span></b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span><b>eraseDeletedOnRemote(i)</b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The methods in </span><b><span lang=EN-US
+style='color:green'>green</span></b><span lang=EN-US> are implemented in the
+Synchronizer and are shown below. The methods in <b>bold</b> must be
+implemented as part of a full Synchronizer implementation.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>//-------------------------------------------------------------------</pre><pre
+style='background:#F3F3F3'>private int <b>checkSort</b>(String sort)</pre><pre
+style='background:#F3F3F3'>//-------------------------------------------------------------------</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>int got = database.findSort(sort);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (got == 0) throw new IllegalStateException(&quot;Database does not have the appropriate sort criteria.&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return got;</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'>* This gets all the unsynchronized entries, but not the deleted entries. You<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>* can get deleted items from the database directly.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>**/<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public FoundEntries <b>getUnsynchronized</b>() throws ewe.io.IOException, IllegalStateException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>FoundEntries all = database.getEntries(checkSort(database.SyncSortName));</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return all.getSubSet(all.findAll(new Comparer(){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>public int compare(Object one,Object two){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>DatabaseEntry de = (DatabaseEntry)two;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>if (!de.hasField(Database.FLAGS_FIELD)) return 1;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>int flags = de.getField(Database.FLAGS_FIELD,0);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>if ((flags &amp; Database.FLAG_SYNCHRONIZED) != 0) return -1;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>return 0;</pre><pre style='background:
+#F3F3F3'><span style='mso-tab-count:2'>               </span>}</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}));</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'>* This marks the entry at as being synchronized.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>**/<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public void <b>markAsSynchronized</b>(DatabaseEntry entry)</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>int value = entry.getField(Database.FLAGS_FIELD,0);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>value |= Database.FLAG_SYNCHRONIZED;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>entry.setField(Database.FLAGS_FIELD,value);</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'>* This marks the entry at the specified index as being synchronized.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>**/<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public void <b>markAsSynchronized</b>(FoundEntries entries,int index) throws ewe.io.IOException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>DatabaseEntry de = entries.get(index);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (de != null){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>markAsSynchronized(de);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>entries.store(de);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'> * Get all the entries in the database, sorted by OID.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'> **/<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public FoundEntries <b>getByOID</b>() throws ewe.io.IOException, IllegalStateException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>return database.getEntries(checkSort(database.OidSortName));</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'>* This locates the entry with the specified OID. The FoundEntries object must<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>* have been found using the findByOID() method (i.e. using the sortByOid<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>* criteria).<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>*/<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public int <b>findByOID</b>(FoundEntries entries,long oid) throws ewe.io.IOException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>return entries.findFirst(new ewe.sys.Long().set(oid));</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'> * Get the OID for an entry.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'> */<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public long <b>getOID</b>(DatabaseEntry entry) throws IllegalStateException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>if (!entry.hasField(Database.OID_FIELD)) </pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>throw new IllegalStateException(&quot;No OID assigned.&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return entry.getField(Database.OID_FIELD,(long)0);</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'> * Returns the state of the synchronized flag.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'> */<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public boolean <b>isSynchronized</b>(DatabaseEntry entry) throws IllegalStateException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>if (!entry.hasField(Database.FLAGS_FIELD)) </pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>throw new IllegalStateException(&quot;No Flags assigned.&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return ((entry.getField(Database.FLAGS_FIELD,(int)0) &amp; Database.FLAG_SYNCHRONIZED) != 0);</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public int <b>getMatchingEntry</b>(DatabaseEntry remoteEntry,FoundEntries myEntriesSortedByOID) throws ewe.io.IOException, IllegalStateException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>long oid = getOID(remoteEntry);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return findByOID(myEntriesSortedByOID,oid);</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'>* Given a remote entry, add or replace it in this database.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>**/<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public void <b>addOrReplace</b>(DatabaseEntry entry, FoundEntries myEntriesSortedByOID) </pre><pre
+style='background:#F3F3F3'>throws ewe.io.IOException, IllegalStateException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>int toReplace = getMatchingEntry(entry,myEntriesSortedByOID);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (toReplace == -1){</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// Was not found in my database so it must be new.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>DatabaseEntry de = myEntriesSortedByOID.getNew();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>de.duplicateFrom(entry);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>markAsSynchronized(de);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>database.storeEntry(de);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}else{</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// Was found, so replace the existing entry.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>DatabaseEntry de = myEntriesSortedByOID.get(toReplace);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>de.duplicateFrom(entry);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>markAsSynchronized(de);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>myEntriesSortedByOID.store(de);<span
+style='mso-tab-count:1'> </span><span style='mso-tab-count:1'>        </span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'> * This is called after an OID marked as deleted on this database has been<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'> * erased from the remote database. It erases it from this database too.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'> */<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public void <b>eraseDeleted</b>(long oid) throws ewe.io.IOException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>DatabaseEntry got = database.getDeletedEntry(oid);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (got != null) database.eraseEntry(got);</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/**<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'>* Given the OID of an entry in the remote database, <o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>* erase it completely from this database.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>**/<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public void <b>erase</b>(long oid,FoundEntries myEntriesSortedByOID) throws ewe.io.IOException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>int found = findByOID(myEntriesSortedByOID,oid);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (found == -1) return;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>myEntriesSortedByOID.erase(found);</pre><pre
+style='background:#F3F3F3'>}</pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>Phase two of the process, sending the local
+unsynchronized entries to the remote database is very similar and is shown
+below:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>FoundEntries mine = <b><span
+style='color:green'>getUnsynchronized()</span></b>;</pre><pre style='background:
+#F3F3F3'><span style='mso-tab-count:1'>        </span>for (int i = 0; i&lt;mine.size(); i++){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>DatabaseEntry de = mine.get(i);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span><b>sendEntryToRemote(de)</b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span><b><span style='color:green'>markAsSynchronized(mine,i)</span></b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// Now send the deleted OIDs to the remote database.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>long [] del = database.getDeletedSince(null);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>for (int i = 0; i&lt;del.length; i++){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span><b>eraseEntryOnRemote(del[i])</b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span><b><span style='color:green'>eraseDeleted(del[i])</span></b>;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28093624"></a><a name="_Toc33694930"></a><a
+name="_Toc33695018"><span style='mso-bookmark:_Toc33694930'><span
+style='mso-bookmark:_Toc28093624'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Synchronizing Across a RemoteConnection
+(EweSync)</span></b></span></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Setting up an application for database
+synchronization across the desktop-mobile connection is a very simple
+procedure. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo18;tab-stops:list .5in'><span
+     lang=EN-US>Define a special command line option for the application that
+     tells it that it will be synchronizing instead of operating normally (e.g.
+     &quot;sync&quot;).</span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo18;tab-stops:list .5in'><span
+     lang=EN-US>When the application starts it should put an entry in the
+     Registry that is the correct command line to run the application in sync
+     mode.</span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo18;tab-stops:list .5in'><span
+     lang=EN-US>When the application runs in Sync mode it creates and uses a
+     RemoteSynchronizer to synchronize the database.</span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that Registry access works on Linux
+systems and PDAs as well as on Win32/WinCE systems. The Registry access is
+simulated on Linux systems using a DataStorage file called Registry.dat which
+is stored in the same location as the Ewe executable file.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>Here is an example using our Contact example.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>import ewe.datastore.*;</pre><pre
+style='background:#F3F3F3'>import ewe.ui.*;</pre><pre style='background:#F3F3F3'>import ewe.io.File;</pre><pre
+style='background:#F3F3F3'>import ewe.sys.Time;</pre><pre style='background:
+#F3F3F3'>import ewex.registry.*;</pre><pre style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'>public class Contact {//extends LiveObject implements HasProperties{</pre><pre
+style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>public String lastName = &quot;Branson&quot;;</pre><pre
+style='background:#F3F3F3'>public String firstName = &quot;Richard&quot;;</pre><pre
+style='background:#F3F3F3'>public String company = &quot;Virgin&quot;;</pre><pre
+style='background:#F3F3F3'>public ewe.sys.Date dob = new ewe.sys.Date();</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>public String _sorts = &quot;By Name$i|lastName,firstName| By DOB$t|dob,lastName,firstName&quot;;</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>public String getName() {return lastName+&quot;, &quot;+firstName;}</pre><pre
+style='background:#F3F3F3'>public String toString() {return getName();}</pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//Open the database and initialize it if necessary.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public static Database <b>getDatabase</b>(String name) throws ewe.io.IOException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>Database db = DataStore.initializeDatabase(name,new Contact());</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (db != null){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>db.enableSynchronization(0);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>db.save();</pre><pre style='background:
+#F3F3F3'><span style='mso-tab-count:1'>        </span><span style='mso-tab-count:
+1'>        </span>db.close();</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>}</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>db = DataStore.openDatabase(name,&quot;rw&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return db;</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>/*<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'>This places an entry in the Registry that points to the location<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>of the Ewe application file that holds this class along with the<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>special &quot;sync&quot; command line switch that tells it to run in sync<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>mode.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>This information is stored in the key:<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>HKEY_LOCAL_MACHINE\Software\EweSoft\Contacts<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>and is stored as a String value named &quot;Sync&quot;.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>This value will be looked up when the desktop synchronizer is run<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>in order to run the synchronizer on the mobile device.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>*/<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>private static boolean registerApplication()</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'>try{</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>File pd = File.getNewFile(File.getProgramDirectory());</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>File app = pd.getChild(&quot;Contacts.ewe&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>RegistryKey rk = Registry.getLocalKey(</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>Registry.HKEY_LOCAL_MACHINE, </pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>&quot;Software\\EweSoft\\Contacts&quot;,true,true);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>rk.setValue(&quot;Sync&quot;,&quot;\&quot;&quot;+app.getAbsolutePath()+&quot;\&quot; sync&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return true;</pre><pre
+style='background:#F3F3F3'>}catch(Exception e){</pre><pre style='background:
+#F3F3F3'><span style='mso-tab-count:1'>        </span>return false;</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'>}</pre><pre
+style='background:#F3F3F3'><span style='color:gray'>/*<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>This is used to synchronize the contacts.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>*/<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>private static boolean synchronizeContacts()</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ProgressBarForm.display(&quot;Conctact Synchronizer&quot;,</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>ewe.sys.Vm.isMobile()?&quot;Contacting desktop...&quot;:&quot;Contacting mobile device...&quot;,null);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>RemoteSynchronizer rs = null;</pre><pre
+style='background:#F3F3F3'>try{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>rs = RemoteSynchronizer.<b>synchronizeOnRemoteConnection</b>(</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//This is the database name.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>&quot;Contacts&quot;,</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//This is the same key as stored in the registry.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>&quot;HKEY_LOCAL_MACHINE\\Software\\EweSoft\\Contacts\\Sync&quot;,</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//This is a TimeOut value.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>new ewe.sys.TimeOut(30*1000),</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//These are connection options.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>ewe.io.RemoteConnection.MOBILE_IS_EWE_APPLICATION|</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>ewe.io.RemoteConnection.MOBILE_GET_COMMAND_FROM_REGISTRY</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>);</pre><pre
+style='background:#F3F3F3'>}finally{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ProgressBarForm.clear();</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ewe.sys.Handle h = rs.synchronize(</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>&quot;Synchronizing Contacts&quot;,&quot;The desktop is synchronizing&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>h.waitUntilStopped();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (h.errorObject != null) return false;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return true;</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public static void main(String args[])</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ewe.sys.Vm.startEwe(args);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (args.length == 0) try{</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>registerApplication();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>Database db = getDatabase(&quot;Contacts&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>Editor ed = DatabaseTableModel.getTestEditor(db);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>ed.execute();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}catch(ewe.io.IOException e){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>new ReportException(e,null,null,false).execute();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}else{</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>if (args[0].equals(&quot;sync&quot;))</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>synchronizeContacts();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>ewe.sys.Vm.exit(0);</pre><pre
+style='background:#F3F3F3'>}</pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The method <b>RemoteSynchronizer.synchronizeOnRemoteConnection(String
+databaseName, String remoteCommand, TimeOut timeout, int remoteOptions)</b> is
+used to make the link between the desktop synchronizer and the remote
+synchronizer. It works like this:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>When run on the desktop it will:</span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo21;tab-stops:list .5in'><span
+     lang=EN-US>Call the ewe.io.RemoteConnection getConnection() to get an
+     instance of RemoteConnection.</span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo21;tab-stops:list .5in'><span
+     lang=EN-US>Call the makeSyncConnection() method to make a socket
+     connection between the desktop and mobile applications.</span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo21;tab-stops:list .5in'><span
+     lang=EN-US>Create a RemoteCallHandler from the connected socket.</span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo21;tab-stops:list .5in'><span
+     lang=EN-US>Create a RemoteSynchronizer from the RemoteCallHandler.</span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Once the RemoteSynchronizer is created a
+call to <b>synchronize()</b> does the synchronization. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The example above can be used as a simple
+database application complete with synchronization over the remote connection.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

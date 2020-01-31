@@ -1,0 +1,884 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Reflection_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>2</o:TotalTime>
+  <o:Created>2003-03-14T15:42:00Z</o:Created>
+  <o:LastSaved>2003-03-14T15:44:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>954</o:Words>
+  <o:Characters>5440</o:Characters>
+  <o:Lines>45</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>6680</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:right dotted 510.7pt;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:284893541;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1216477864 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:379667402;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1300445184 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./Reflection_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./Reflection_files/image001.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc20537297"></a><a
+name="_Toc33663851"></a><a name="_Toc6219390"><span style='mso-bookmark:_Toc33663851'><span
+style='mso-bookmark:_Toc20537297'><span style='mso-ansi-language:EN-GB'>Ewe
+Application Development</span></span></span></a><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='mso-ansi-language:EN-GB'>14 March 2003</span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><a
+href="http://www.ewesoft.com/"><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span lang=EN-US>http://www.ewesoft.com/</span></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc1><span style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:
+_Toc20537297'></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;font-weight:
+normal'><span style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading
+2,1,Heading 3,2,Heading 4,3&quot; </span></span></span><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span style='font-family:
+Arial'><span style='mso-element:field-separator'></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><a
+href="#_Toc35405562"><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial'>Reflection
+API</span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35405562 \h </span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003500360032000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:windowtext;font-weight:normal'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><a
+href="#_Toc35405563"><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Java Type Encoding</span></b></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35405563 \h </span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003500360033000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc1><span style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:
+_Toc20537297'></span></span><a href="#_Toc35405564"><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span style='font-family:
+Arial'>java.lang.Class</span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35405564 \h </span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003500360034000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:windowtext;font-weight:normal'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><a
+href="#_Toc35405565"><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial'>Class.forName() vs Reflect.forName()</span></b></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35405565 \h </span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003500360035000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:windowtext'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc1><span style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:
+_Toc20537297'></span></span><a href="#_Toc35405566"><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span style='font-family:
+Arial'>ewe.reflect.Array</span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35405566 \h </span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003500360036000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:windowtext;font-weight:normal'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc1><span style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:
+_Toc20537297'></span></span><a href="#_Toc35405567"><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span style='font-family:
+Arial'>ewe.reflect.Wrapper</span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35405567 \h </span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003500360037000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:windowtext;font-weight:normal'><o:p></o:p></span></span></span></p>
+
+<p class=MsoToc1><span style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:
+_Toc20537297'></span></span><a href="#_Toc35405568"><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span style='font-family:
+Arial'>ewe.reflect.Reflect</span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35405568 \h </span></span></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-bookmark:_Toc20537297'><span style='font-family:Arial;color:black;
+text-decoration:none;text-underline:none'><span style='display:none;mso-hide:
+screen'><span style='mso-element:field-separator'></span></span></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003400300035003500360038000000</w:data>
+</xml><![endif]--></span></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'><span
+style='font-family:Arial;color:windowtext;font-weight:normal'><o:p></o:p></span></span></span></p>
+
+<h2><span style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-element:field-end'></span><![endif]--><span style='mso-bookmark:
+_Toc6219390'><span style='mso-bookmark:_Toc20537297'></span></span><span
+style='mso-bookmark:_Toc20537297'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></h2>
+
+<h2 style='background:#CCFFFF'><span style='mso-bookmark:_Toc20537297'><a
+name="_Toc35405562"><span lang=EN-US>Reflection API</span></a></span></h2>
+
+<p class=MsoNormal><span lang=EN-US>Like Java, Ewe has a number of features
+that allow the programmer to discover, at runtime, information about a
+particular class. Although a lot of the Ewe reflection API is quite different
+to the Java reflection API, it provides all the same functionality. The Ewe API
+achieves the same functionality using much fewer classes and methods.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc20537298"></a><a name="_Toc35405563"><span
+style='mso-bookmark:_Toc20537298'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Java Type Encoding</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The <b>ewe.reflect.Reflect</b> class is
+used to provide a number of reflection methods. Many of these methods require
+the specification of Java types (both primitive and Object types) as Strings,
+or they return Java types as Strings. The convention used by Java to encode
+types is described below. These are referred to as <b>java encoded types</b>.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 style='mso-cellspacing:1.5pt;margin-left:35.6pt;
+ mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  lang=EN-US>Java Type Signature </span></b><b><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  lang=EN-US>Java Type </span></b><b><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoHeading7><span lang=EN-US>V</span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>void</span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoHeading7><span lang=EN-US>Z </span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>boolean </span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoHeading7><span lang=EN-US>B </span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>byte </span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoHeading7><span lang=EN-US>C </span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>char </span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoHeading7><span lang=EN-US>S </span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>short </span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoHeading7><span lang=EN-US>I </span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>int </span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoHeading7><span lang=EN-US>J </span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>long </span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoHeading7><span lang=EN-US>F </span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>float </span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoHeading7><span lang=EN-US>D </span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>double </span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><strong><span lang=EN-US>L</span></strong><span
+  lang=EN-US> <em>fully-qualified-class</em> <strong>; </strong></span><span
+  lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>Object</span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><strong><span lang=EN-US>[</span></strong><span
+  lang=EN-US> <em>type </em></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><em><span lang=EN-US style='font-style:normal'>Array of </span><span
+  lang=EN-US>type</span></em><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=165 style='width:123.75pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><strong><span lang=EN-US>(</span></strong><span
+  lang=EN-US> <em>arg-types </em><strong>)</strong> <em>ret-type </em></span><span
+  lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+  <td width=166 style='width:124.5pt;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span lang=EN-US>Method type </span><span lang=EN-US
+  style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that the <b><i>fully-qualified-class</i></b>
+specifies the full package name of a class using ‘<b>/’</b> characters instead
+of <b>‘.’</b> characters. Also note the <b>L</b> and <b>;</b> characters at the
+start and end of the class type. So for example the <b>java.lang.Object</b>
+class is encoded as <b>“Ljava/lang/Object;”</b> </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc20537299"></a><a name="_Toc35405564"><span
+style='mso-bookmark:_Toc20537299'><span lang=EN-US>java.lang.Class</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>This class in Ewe implements a large subset
+of its functionality in Java. The Ewe API for Class specifies what it actually
+does provide. The functionality in Class that is not provided by Ewe relates to
+the discovery of Methods, Constructors and Fields. The <b>ewe.reflect.Reflect</b>
+class is used for this and will be discussed later.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc20537300"></a><a name="_Toc35405565"><span
+style='mso-bookmark:_Toc20537300'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Class.forName() vs Reflect.forName()</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>A <b>Class</b> object can represent the
+class of any Object, Array or Primitive type. The static <b>Class.forName()</b>
+method is normally used in Java to acquire a Class object that represents a
+particular Class, given the full package name <b>(not Java type encoded)</b>.
+However, under the <b>Java VM</b> this method is unable to load classes that
+are stored in a <b>.ewe</b> file. Therefore the static <b>Reflect.getForName()</b>
+method should be used instead. This provides a new Reflect object that
+represents the specified class, and you can then use the <b>Reflect.getReflectedClass()</b>
+method to retrieve a Class object that also represents that class.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Another useful method in Reflect is <b>Reflect.getClass(String
+type, Class requestor)</b>. This is the most flexible method, allowing you to
+get classes representing primitive types as well. It therefore requires a <b>java
+encoded type name</b>. The <b>requestor</b> argument is optional (may be null)
+and specifies the Class that is requesting the <b>getClass()</b> method. If the
+class could not be retrieved via a normal lookup, then the ClassLoader of the
+requestor class (if any) is also checked to see if it could the class.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc20537301"></a><a name="_Toc35405566"><span
+style='mso-bookmark:_Toc20537301'><span lang=EN-US>ewe.reflect.Array</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>This class has a number of static methods
+that provide information about any array object. It has a number of methods in
+common with the standard <b>java.lang.reflect.Array</b> class including:</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>boolean isArray(Object array)</span></b><span
+lang=EN-US> – Returns true if an Object is an array.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>Class getComponentType()</span></b><span
+lang=EN-US> – Get the type of the individual elements of the array.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>int getLength()</span></b><span
+lang=EN-US> – Get the length of the array.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>Object newInstance(Class componentType,int
+length)</span></b><span lang=EN-US> – Create a new array.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Array also provides a method to set the
+value of an array element and one to retrieve the value of an array element.
+These are:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>Wrapper getElement(Object array,int
+index,Wrapper dest)</span></b><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>void setElement(Object array,int
+index,Wrapper value)</span></b><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>These two methods utilize a <b>ewe.reflect.Wrapper</b>
+object to transfer any Java value. This includes primitive types and
+object/array types. <b>Wrapper</b> objects are also used when invoking methods
+and setting/getting field values through reflection.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>Note:</span></b><span lang=EN-US> Java
+uses different wrapper Objects for different data types (e.g. Integer,
+Character, etc.). However, to reduce the size of the Ewe library, only the
+Wrapper class is used for all data types.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc20537302"></a><a name="_Toc35405567"><span
+style='mso-bookmark:_Toc20537302'><span lang=EN-US>ewe.reflect.Wrapper</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>The <b>Wrapper</b> class is very easy to
+use and a Wrapper object is reusable.<span style="mso-spacerun: yes"> 
+</span>To set the value of a Wrapper (and therefore also set the type of the
+Wrapper) you would use one of the <b>set&lt;type&gt;()</b> methods. For
+example, calling <b>wrapper.setInt(1000);</b> will set the type of the Wrapper to
+<b>Wrapper.INT</b> and also set its value to be 1000.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The <b>get&lt;type&gt;()</b> methods are
+used to retrieve the value within a wrapper that has been set by the VM or by a
+<b>set&lt;type&gt;()</b> method. However if you call one of the <b>get</b>
+methods that is not exactly the correct type of the Wrapper (e.g. trying to
+call <b>getInt()</b> when the Wrapper type is Object) will cause a
+RuntimeException to be thrown.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The <b>to&lt;type&gt;()</b> methods are
+used to convert the data stored within a Wrapper to a particular type. This is
+only allowed if the types are considered compatible by the VM. For example you
+can call <b>toInt()</b> if the type of the Wrapper is <b>INT, CHAR </b>or<b>
+SHORT</b>, but not if it is <b>DOUBLE</b> or <b>OBJECT</b>.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can use <b>getType()</b> to discover
+the type of the Wrapper. </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc20537303"></a><a name="_Toc35405568"><span
+style='mso-bookmark:_Toc20537303'><span lang=EN-US>ewe.reflect.Reflect</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>This class does most of the work of
+Reflection. It existed before the <b>Class</b> and <b>Array</b> classes were
+implemented under Ewe and so has a number of methods that perform the same
+function as those that exist under Class and Array.<span style="mso-spacerun:
+yes">  </span>However you should try to use the Class and Array methods in
+preference to the Reflect methods.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Because <b>Reflect</b> existed before
+Class, most of the methods use <b>java encoded type</b> Strings instead of
+Class objects to specify data types. This also tends to be a little faster
+since new Class objects need not be created during method calls.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The task that you will most likely use
+Reflect for is to acquire <b>Method, Constructor</b> and <b>Field</b>
+information on a particular Object. This is done using the <b>getMethod(),</b> <b>getConstructor()</b>
+and <b>getField()</b> methods. These methods, as well as the methods for using
+these Objects are documented in the API.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

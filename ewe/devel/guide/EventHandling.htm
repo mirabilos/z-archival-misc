@@ -1,0 +1,918 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./EventHandling_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>8</o:Revision>
+  <o:TotalTime>75</o:TotalTime>
+  <o:Created>2003-03-05T20:04:00Z</o:Created>
+  <o:LastSaved>2003-03-18T15:46:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>1950</o:Words>
+  <o:Characters>11120</o:Characters>
+  <o:Lines>92</o:Lines>
+  <o:Paragraphs>22</o:Paragraphs>
+  <o:CharactersWithSpaces>13656</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./EventHandling_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./EventHandling_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-begin'></span></span><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>DATE \@
+&quot;dd MMMM yyyy&quot; \* MERGEFORMAT </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="http://www.ewesoft.com/">http://www.ewesoft.com/</a></span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34645619">The Ewe GUI
+Event Model<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc34645619 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003600340035003600310039000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34645620">The PRESSED
+ControlEvent and DATA_CHANGED DataChangeEvent<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span><span style='mso-field-code:"PAGEREF _Toc34645620 \\h"'>1<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003600340035003600320030000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34645621">Event Handling
+Example<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34645621 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003600340035003600320031000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34645622">Event Listeners<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34645622 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003600340035003600320032000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34645623">Displaying Other
+Forms and MessageBoxes<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34645623 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003600340035003600320033000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34645624">Menu and List
+Events<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34645624 \\h"'>5<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003600340035003600320034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34645625">SELECTED and
+DESELECTED Events<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34645625 \\h"'>5<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003600340035003600320035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc34645626">PRESSED Events<span
+style='color:black;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc34645626 \\h"'>5<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330034003600340035003600320036000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532253596"></a><a
+name="_Toc34645619"><span style='mso-bookmark:_Toc532253596'><span lang=EN-US>The
+Ewe GUI Event Model</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>Like most GUI based systems, Ewe uses an <b>event</b>-based
+model for receiving user input and for generating control actions. You react to
+user input in your applications by trapping and handling the appropriate
+events.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The main events received by your controls will
+be pen/mouse events (as represented by a <b>PenEvent</b> object) and keyboard
+events (as represented by a <b>KeyEvent</b> object). These events are sent
+directly to a single Control object as determined by the Window manager. For
+PenEvents the Window manager determines the actual Control object being pressed
+and sends the appropriate event directly to it, adjusting x and y co-ordinates
+of the on-screen mouse/pen location to be relative to the target Control. For
+KeyEvents the Window manager determines which Control has the current keyboard
+“focus” and sends the KeyEvent directly to it.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>In each case the appropriate Event is sent
+synchronously to the target by calling the Control’s <b>postEvent()</b>
+method.<span style="mso-spacerun: yes">  </span>This method will call the <b>onEvent()</b>
+method of the Control which it then uses to adjust its internal state and, if
+necessary, generate further Events in reaction to the user input.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The Events generated by the Control objects
+themselves are then passed to its parent container via a call to the parent’s <b>onEvent()</b>
+method. The event is passed all the way up the parent chain until it reaches
+the top-level Window. The parent can determine which control generated the
+Event by looking at the <b>target</b> member of the Event. Most of the events
+that you will be handling will be those generated by Controls in reaction to
+user input.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that Pen/Mouse and Key events are <b>not</b>
+passed up the Gui control tree.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532253597"></a><a
+name="_Toc34645620"><span style='mso-bookmark:_Toc532253597'><span lang=EN-US>The
+PRESSED ControlEvent and DATA_CHANGED DataChangeEvent</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>There are two main event types that are
+generated by Control objects in reaction to user input and these are the two
+that you will be handling the most.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Some Controls, such as mButton controls, do
+not have an internal state but will react to a pen press. When the appropriate
+user action is performed on the Control they generate a <b>ControlEvent</b>
+with the <b>type</b> of the Event set to <b>ControlEvent.PRESSED</b>. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Most other Controls, such as mInput and
+mCheckBox controls, keep some form of data as an internal state. User input may
+cause that state to change. These Controls generate a <b>DataChangeEvent</b>
+with the <b>type</b> of the Event set to <b>DataChangEvent.DATA_CHANGED</b>. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Using these two events alone, you will be
+able to handle the majority of user input in your programs. Note that some
+Controls (such as mCheckBox controls) will generate both a PRESSED and
+DATA_CHANGED event, but you should handle only one of them.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>An example of handling events is given
+below. It is a simple Form that takes as input two numbers and calculates
+another value from them. The numbers are either multiplied or divided depending
+on what the user chooses in the mChoice.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You will note that the calculation is done
+and the result updated once the user changes any of the inputs. This is caused
+by handling the DataChange event.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532253598"></a><a
+name="_Toc34645621"><span style='mso-bookmark:_Toc532253598'><span lang=EN-US>Event
+Handling Example</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>package samples.events;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>import ewe.ui.*;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//##################################################################<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>public class Events extends Form{<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//##################################################################<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>mInput firstNumber, secondNumber, result;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>mChoice operation;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>mButton message,quit;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>public Events()<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>{<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>title = &quot;Form Demo&quot;;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>resizable = true;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addLast(firstNumber = new mInput(),HSTRETCH,FILL);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addLast(secondNumber = new mInput(),HSTRETCH,FILL);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addLast(result = new mInput(),HSTRETCH,FILL);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>result.modify(DisplayOnly,0);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addLast(operation = new mChoice(new String[]{&quot;Multiply&quot;,&quot;Divide&quot;},0),HSTRETCH,FILL);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addNext(message = new mButton(&quot;Message&quot;),HSTRETCH,FILL);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addNext(quit = new mButton(&quot;Exit&quot;),HSTRETCH,FILL);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//-------------------------------------------------------------------<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>private void calculate()<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//-------------------------------------------------------------------<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>{<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>try{<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>double one = ewe.sys.Convert.toDouble(firstNumber.getText());<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>double two = ewe.sys.Convert.toDouble(secondNumber.getText());<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>double answer = <o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>operation.getInt() == 0 ? one*two : one/two;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>result.setText(&quot;&quot;+answer);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>}catch(Exception e){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>result.setText(e.getMessage());<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>public void onEvent(Event ev)<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>{<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>if (ev instanceof DataChangeEvent &amp;&amp; ev.type == DataChangeEvent.DATA_CHANGED){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>calculate();<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>}else if (ev instanceof ControlEvent &amp;&amp; ev.type == ControlEvent.PRESSED){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>if (ev.target == quit){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>mApp.mainApp.exit(0);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>}else if (ev.target == message){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>new MessageBox(&quot;Hello&quot;,&quot;Hello there!&quot;,MBOK).execute();<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>super.onEvent(ev); //Make sure you call this.<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//##################################################################<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//##################################################################</span></pre>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>This example shows
+how you normally handle “Form-centric” data input. There is another method of
+handling input which is more “Object-centric” and uses an Editor to
+automatically update variables in an Object from data entered by the user. This
+is discussed in a later chapter.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532253599"></a><a
+name="_Toc34645622"><span style='mso-bookmark:_Toc532253599'><span lang=EN-US>Event
+Listeners</span></span></a></h2>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>As we have seen, the
+event model allows parent Controls to capture events generated by their child
+controls. However it is also possible for an object which is not a container
+for a Control to handle the Control’s events. Any object which implements the <b>EventListener</b>
+interface can receive such events. You can do this by calling the <b>addListener(EventListener
+listener)</b> method on a Control. You can also call <b>removeListener()</b>
+later to remove the listener.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc532253600"></a><a
+name="_Toc34645623"><span style='mso-bookmark:_Toc532253600'><span lang=EN-US>Displaying
+Other Forms and MessageBoxes</span></span></a></h2>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>Any data that you
+wish to be displayed should be put within a Form (you can also place Forms
+within Forms) and then displayed by calling one of the <b>show()</b> or <b>exec()</b>
+or <b>execute()</b> methods of the top-level Form. These methods cause the Form
+to create a <b>Frame</b> to contain itself and then place the Frame on-screen,
+either in a new Window or within an existing Window.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>You can call these
+methods at any time, even during event handling, but you must know the
+implications of each call so as <b>not to block the GUI event delivery mThread and
+therefore make your application unresponsive to user input.</b></span><b><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>The <b>exec()</b>
+method displays a Form <b>modally</b>. That is to say, from that point on, only
+the Frame containing that Form will receive user input. <b>This method does not
+block the current thread</b> and the method will return immediately. However a <b>new
+event delivery thread will be started</b> and this will allow the new Frame to
+receive input even if the thread that called <b>exec()</b> should be blocked by
+a <b>sleep()</b> or by waiting on a handle state.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>The <b>execute()</b>
+method simply calls the <b>exec()</b> method (to display the form modally) and
+then blocks the current thread until the displayed Form has exited. It then
+returns the <b>exitValue</b> of the Form. Again, it <b>is</b> safe to call <b>execute()</b>
+from any mThread, including the event delivery thread.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>The <b>show()</b>
+method displays a Form <b>non-modally</b>. The new Form is displayed and the
+method returns immediately, <b>but a new event delivery thread will not be
+created</b>. Therefore you should not block the event delivery thread if you
+call the <b>show()</b> method since there will be no other delivery thread to
+handling incoming user events.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>Here is an example
+that shows how you can display new Forms and the correct and incorrect way to
+handle waiting for the Form to close. It is saved as ShowExec.java in
+samples/ui.</span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>import ewe.ui.*;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//##################################################################<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>public class ShowExec extends Form{<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//##################################################################<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>public ShowExec()<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>{<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>title = &quot;Show/Exec Demo&quot;;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span><o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>mButton b;<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addLast(b = new mButton(&quot;Execute a Message Box!&quot;));<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//This functions correctly.<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>b.addListener(new EventListener(){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>public void onEvent(Event ev){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>if (ev.type == ControlEvent.PRESSED){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>Control c = ((Control)ev.target);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>String txt = c.getText();<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>c.setText(&quot;Waiting...&quot;);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>new MessageBox(&quot;Executed&quot;,&quot;This will execute() OK!&quot;,MBOK).execute();<span
+style='mso-tab-count:1'>        </span><o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>c.setText(txt); <o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>});<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//This functions correctly as well.<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addLast(b = new mButton(&quot;Show a Message Box!&quot;));<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>b.addListener(new EventListener(){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>public void onEvent(Event ev){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>if (ev.type == ControlEvent.PRESSED){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>Control c = ((Control)ev.target);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>String txt = c.getText();<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>c.setText(&quot;Waiting...&quot;);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>new MessageBox(&quot;Shown&quot;,&quot;This will show() OK!&quot;,MBOK).show();<span
+style='mso-tab-count:1'>  </span><o:p></o:p></span></pre><pre style='background:
+#E6E6E6'><span style='mso-fareast-font-family:"Courier New";color:windowtext;
+mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>c.setText(txt); <o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>});<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//This is wrong! It calls a show, which does NOT spawn a new event thread,<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//and then attempts to wait, which blocks all Gui events. It eventually gives<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//up and returns after 5 seconds.<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addLast(b = new mButton(&quot;Bad Show and Wait for Message Box!&quot;));<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>b.addListener(new EventListener(){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>public void onEvent(Event ev){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>if (ev.type == ControlEvent.PRESSED){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>Control c = ((Control)ev.target);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>String txt = c.getText();<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>c.setText(&quot;Waiting...&quot;);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>MessageBox mb = new MessageBox(&quot;Shown&quot;,&quot;This will show() OK!\nBut will block for 5 seconds.&quot;,MBOK);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>mb.show();<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>//This will block the event thread for 5 seconds.<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>mb.waitUntilClosed(new ewe.sys.TimeOut(5000));<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>c.setText(txt); <o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>});<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//If you want to wait on a non-modal form to close, you will have to spawn another<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//mThread instead.<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>//<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>addLast(b = new mButton(&quot;Good Show and Wait for Message Box!&quot;));<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>b.addListener(new EventListener(){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>public void onEvent(Event ev){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:3'>                       </span>if (ev.type == ControlEvent.PRESSED){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>final Control c = ((Control)ev.target);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>final String txt = c.getText();<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>c.modify(Disabled,0);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>c.setText(&quot;Waiting...&quot;);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>final MessageBox mb = new MessageBox(&quot;Shown&quot;,&quot;This will show() OK!&quot;,MBOK);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>mb.show();<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>new ewe.sys.mThread(){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:5'>                                      </span>public void run(){<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:6'>                                              </span>mb.waitUntilClosed();<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:6'>                                              </span>c.modify(0,Disabled);<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:6'>                                              </span>c.setText(txt); <o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:5'>                                      </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:4'>                               </span>}.start();<span
+style='mso-tab-count:3'>                     </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:2'>               </span>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>        </span>});<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//##################################################################<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>}<o:p></o:p></span></pre><pre
+style='background:#E6E6E6'><span style='mso-fareast-font-family:"Courier New";
+color:windowtext;mso-ansi-language:EN-GB'>//##################################################################</span></pre><pre><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre>
+
+<h2 style='background:#CCFFFF'><a name="_Toc34645624"><span lang=EN-US>Menu and
+List Events</span></a></h2>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>These events are a
+little more complicated than the PRESSED and DATA_CHANGED events and need some
+explaining.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc34645625"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>SELECTED and DESELECTED Events</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>Menus and mLists
+generate MenuEvent and ListEvent objects. In fact ListEvent inherits from
+MenuEvent and so are very similar, just as an mList inherits from Menu. These
+events have a field called <b>selectedItem</b> and this will indicate the item
+selected (or deselected) that caused the event to be generated. This field is
+of type Object because it can be <b>either</b> a MenuItem object (which is
+usually the case) <b>or</b> a String representing the text of the item. So when
+you are handling a MenuEvent/ListEvent you should always check what type this
+value is at run-time and not assume it is one or the other.</span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>Menu events also
+have a field called <b>menu</b>. This indicates the Menu or mList that the
+selectedItem belongs to. This may be different from the <b>target</b> of the event,
+which is the usual way you determine the source of the event. However the
+target of a MenuEvent may change as the event propagates up chains of
+sub-menus. Each parent menu that detects a MenuEvent coming from one of its
+sub-menus will modify the target field so that it appears to come from itself.
+However, it will not change the menu field, so this always refers to the
+original generator of the event.<span style="mso-spacerun: yes">  </span>This
+also happens with the MenuBar control – it too changes the target field so that
+any events generated by menus that it contains will look as though they come
+from the MenuBar itself.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc34645626"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>PRESSED Events</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>Menus are generally
+used for the selection of a single item within a menu or a set of menus. As a
+result they will generate a standard PRESSED event when an item (which is not
+associated with a sub-menu) is selected via the keyboard or pen/mouse press.</span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US>Lists are generally
+used differently, and frequently multiple item selection is allowed. Therefore
+the PRESSED event is generally not generated unless an item is <b>double
+clicked</b> with the pen/mouse.</span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

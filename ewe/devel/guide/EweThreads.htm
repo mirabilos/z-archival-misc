@@ -1,0 +1,1270 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./EweThreads_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>11</o:Revision>
+  <o:TotalTime>72</o:TotalTime>
+  <o:Created>2002-12-22T20:49:00Z</o:Created>
+  <o:LastSaved>2003-03-14T14:00:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>2400</o:Words>
+  <o:Characters>13681</o:Characters>
+  <o:Lines>114</o:Lines>
+  <o:Paragraphs>27</o:Paragraphs>
+  <o:CharactersWithSpaces>16801</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.2in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:839082278;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1906428160 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:1484739162;
+	mso-list-type:hybrid;
+	mso-list-template-ids:281855900 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2
+	{mso-list-id:1860124459;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1170609262 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./EweThreads_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./EweThreads_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc28099275"></a><a
+name="_Toc28341128"></a><a name="_Toc6371533"><span style='mso-bookmark:_Toc28341128'><span
+style='mso-bookmark:_Toc28099275'><span style='mso-ansi-language:EN-GB'>Ewe
+Application Development</span></span></span></a><span style='mso-bookmark:_Toc6371533'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6371533'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'><span
+style='mso-ansi-language:EN-GB'>14 March 2003</span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6371533'><span style='mso-ansi-language:EN-GB'>Michael
+L Brereton<o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6371533'></span><a href="http://www.ewesoft.com/"><span
+style='mso-bookmark:_Toc6371533'><span lang=EN-US>http://www.ewesoft.com/</span></span><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc6371533'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><!--[if supportFields]><span style='mso-bookmark:_Toc6371533'></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial'><span style="mso-spacerun: yes"> </span>TOC \h \z \t
+&quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'></span><a
+href="#_Toc35399278"><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial'>Threads and Real-Time API</span></b></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399278 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200370038000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'></span></a><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:windowtext'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399279"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>Non-mThread Program Threads</span></b></span><span style='mso-bookmark:
+_Toc6371533'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399279 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200370039000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399280"><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial'>ewe.sys.mThread</span></b></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399280 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380030000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'></span></a><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:windowtext'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399281"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>Suspending an mThread</span></b></span><span style='mso-bookmark:
+_Toc6371533'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399281 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380031000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399282"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>The GUI Event Delivery mThread</span></b></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399282 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380032000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399283"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>Thread Synchronization</span></b></span><span style='mso-bookmark:
+_Toc6371533'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399283 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380033000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399284"><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial'>TimeOut Objects</span></b></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399284 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380034000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'></span></a><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:windowtext'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399285"><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial'>Lock Objects – ewe.sys.Lock</span></b></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399285 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380035000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'></span></a><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:windowtext'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399286"><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial'>Handles</span></b></span><span style='mso-bookmark:
+_Toc6371533'><b><span style='font-family:Arial;color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399286 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380036000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'></span></a><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:windowtext'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399287"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>Handle State</span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399287 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380037000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399288"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>Handle Progress</span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399288 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>4<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380038000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399289"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>Other Handle methods</span></b></span><span style='mso-bookmark:
+_Toc6371533'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399289 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>4<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200380039000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399290"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>Return Values</span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399290 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>4<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200390030000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399291"><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial'>Tasks</span></b></span><span style='mso-bookmark:
+_Toc6371533'><b><span style='font-family:Arial;color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399291 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>4<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200390031000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'></span></a><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:windowtext'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399292"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>The ewe.sys.Task Interface</span></b></span><span style='mso-bookmark:
+_Toc6371533'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399292 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>4<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200390032000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399293"><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US>The ewe.sys.TaskObject Class</span></b></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399293 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>4<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200390033000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span></a><span style='mso-bookmark:_Toc6371533'><b><span
+style='color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6371533'></span><a href="#_Toc35399294"><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial'>ProgressBarForm Objects</span></b></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35399294 \h </span></b></span><span style='mso-bookmark:_Toc6371533'><b><span
+style='font-family:Arial;color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>5<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390039003200390034000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-bookmark:_Toc6371533'></span></a><span
+style='mso-bookmark:_Toc6371533'><b><span style='font-family:Arial;color:windowtext'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc6371533'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6371533'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6371533'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<h2 style='background:#CCFFFF'><span style='mso-bookmark:_Toc6371533'><a
+name="_Toc28341129"></a><a name="_Toc35228658"></a><a name="_Toc35399278"><span
+style='mso-bookmark:_Toc35228658'><span style='mso-bookmark:_Toc28341129'><span
+lang=EN-US>Threads and Real-Time API</span></span></span></a></span></h2>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>Ewe, like the
+original Waba, provides a single threaded user environment. This allows the Ewe
+VM to easily work on platforms that do not support pre-emptive multithreading.
+Although the VM itself may utilize multiple native threads for its operation on
+platforms that support this, it guarantees that only one user program thread is
+running at a time. </span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>On top of this
+environment is an <b>ewe.sys.mThread</b> implementation that provides a
+threading API virtually identical to the standard <b>java.lang.Thread</b>. The
+only difference is that an mThread execution will never be pre-empted so that
+another can run. Instead, an mThread must explicitly call one of a number of
+sleep() or wait() methods to give up control to another mThread. However,
+because most Input/Output and GUI operations have implicit sleep() or wait()
+calls, <b>you almost never have to program the sleep() yourself</b>.</span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><i><span lang=EN-US>The mThread
+class uses an <b>ewe.sys.Coroutine</b> class for its actual implementation.
+However you should never create and use a Coroutine itself. Always use an
+mThread instead.<o:p></o:p></span></i></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc6371534"></a><a name="_Toc28341130"></a><a
+name="_Toc35228659"></a><a name="_Toc35399279"><span style='mso-bookmark:_Toc35228659'><span
+style='mso-bookmark:_Toc28341130'><span style='mso-bookmark:_Toc6371534'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Non-mThread
+Program Threads</span></b></span></span></span></a><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>There are times when
+a thread of execution is running but is not within an mThread. These include:</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>When an application begins and the VM
+calls the <b>mApp.startup()</b> method. <br>
+<i>Since you normally use the main() method for starting your application, you
+will hardly have to use this thread.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></i></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>When a program requests <b>timer ticks</b>
+from the VM. The VM will call the <b>ticked()</b> method of the client object
+at regular intervals until the timer ticks are cancelled. <br>
+<i>With the introduction of Coroutines, using Timer Ticks is deprecated as an mThread
+with sleep() methods will provide the same functionality.<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></i></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>When a program request a <b>callInMessageThread()</b>.
+The VM will call the <b>callback()</b> method of the client object at the
+soonest opportunity.<br>
+<i>Although this is used by the VM for OS specific functions, you will hardly
+have to use this method.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></i></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>During a paint() or resize() message
+from the VM.<br>
+<i>These methods should be executed as soon as possible so calling mThread
+methods that cause a sleep() or wait() should be avoided in these methods in
+any case.</i></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><b><span lang=EN-US>Each of these
+threads must return completely before another thread can be initiated or
+continued</span></b><span lang=EN-US>.</span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>Note the the <b>main()</b>
+method that is run when a Ewe application begins <b>is</b> within an mThread.
+If you need to determine if the current thread is running in an mThread, call
+the static mThread method <b>boolean inThread()</b>.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc6371535"></a><a name="_Toc28341131"></a><a
+name="_Toc35228660"></a><a name="_Toc35399280"><span style='mso-bookmark:_Toc35228660'><span
+style='mso-bookmark:_Toc28341131'><span style='mso-bookmark:_Toc6371535'><span
+lang=EN-US>ewe.sys.mThread</span></span></span></span></a></h2>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>The Coroutine
+class provides all the functionality needed for Ewe multi-threading, but does
+not provide an API that is consistent with <b>java.lang.Thread</b>. The <b>ewe.sys.mThread</b>
+class is a class that provides virtually the same API as java.lang.Thread but
+uses Coroutines as the underlying multi-threaded mechanism. This allows
+programmers to easily port multi-threaded code between Java and Ewe with very
+little, if any, changes to the code. <b>Using mThread is now the preferred
+method of multi-threading in Ewe and you should avoid using Coroutines
+directly.</b></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc6371537"></a><a name="_Toc35228661"></a><a
+name="_Toc35399281"><span style='mso-bookmark:_Toc35228661'><span
+style='mso-bookmark:_Toc6371537'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Suspending an </span></b></span></span></a><span
+style='mso-bookmark:_Toc35399281'><span style='mso-bookmark:_Toc35228661'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>mThread</span></b></span></span><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>Once the mThread <b>run()</b>
+method begins execution no other thread will execute until either <b>a)</b> the
+run() method exits – at which point the mThread ends permanently, or <b>b)</b>
+the mThread calls its <b>sleep() </b>or<b> nap() </b>or<b> yield()</b> method,
+or calls the <b>join()</b> method of another mThread.<span style="mso-spacerun:
+yes">  </span></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc6371538"></a><a name="_Toc35228662"></a><a
+name="_Toc35399282"><span style='mso-bookmark:_Toc35228662'><span
+style='mso-bookmark:_Toc6371538'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>The GUI Event Delivery </span></b></span></span></a><span
+style='mso-bookmark:_Toc35399282'><span style='mso-bookmark:_Toc35228662'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>mThread</span></b></span></span><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>This is an mThread
+that is used to post Gui events from the underlying windowing system to the
+application Control objects. It sleeps until an event is ready for delivery and
+then wakes up and delivers the event via a call to <b>postEvent()</b> on the
+target control. Displaying a Frame or Form <b>modally</b> will cause a new
+event delivery mThread to be created to handle events for that Frame. This
+allows you to display a Form and wait for it to close even within the original
+event delivery mThread.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc6371539"></a><a name="_Toc28341132"></a><a
+name="_Toc35228663"></a><a name="_Toc35399283"><span style='mso-bookmark:_Toc35228663'><span
+style='mso-bookmark:_Toc28341132'><span style='mso-bookmark:_Toc6371539'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Thread
+Synchronization</span></b></span></span></span></a><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>Ewe does not
+support true threads and so the <b>synchronized</b> keyword as well as the <b>wait()</b>
+and <b>notify()</b> methods are <b>not</b> supported. Additionally, because all
+threads are non-preemptive the programmer does not have to worry about
+unexpected changes of object state by other threads unless a <b>sleep()</b>/<b>join()</b>
+call is explicitly made.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>However there may
+be times when the programmer wants only one thread to be executing in a section
+of code (which may contain <b>sleep()</b> calls) at a time. Normally, the <b>synchronized</b>
+keyword is used for this purpose. Since Ewe does not support this keyword it
+instead provides a <b>ewe.sys.Lock</b> object for this purpose. These are
+explained in a later section.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc6371540"></a><a name="_Toc28341133"></a><a
+name="_Toc35228664"></a><a name="_Toc35399284"><span style='mso-bookmark:_Toc35228664'><span
+style='mso-bookmark:_Toc28341133'><span style='mso-bookmark:_Toc6371540'><span
+lang=EN-US>TimeOut Objects</span></span></span></span></a></h2>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>A <b>ewe.sys.TimeOut</b>
+object specifies a length of time allowed for some operation to execute with
+millisecond precision. You create a TimeOut object by calling its constructor
+with the length of time in milliseconds as the parameter. Once this is done you
+can call the following methods on it:</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>boolean hasExpired()</span></b><span
+lang=EN-US> – This reports whether or not the specified time-out period has
+elapsed.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>void reset()</span></b><span
+lang=EN-US> – This tells the TimeOut to restart the countdown with the same
+period as before.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>int remaining()</span></b><span
+lang=EN-US> – This reports the number of milliseconds left before expiring. If
+it returns &lt;= 0 then the timeout has expired.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>int elapsed()</span></b><span
+lang=EN-US> – This reports the number of milliseconds that has elapsed since
+creation or since the last <b>reset()</b>.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><b><span lang=EN-US>void expire()</span></b><span
+lang=EN-US> – Forces an early expiration of the TimeOut.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>There are also two
+constant TimeOut objects that are predefined – <b>TimeOut.Forever</b> which
+never expires, and <b>TimeOut.Immediate</b> which is always expired. These are
+useful when you want to either wait indefinitely or not at all.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc6371541"></a><a name="_Toc28341134"></a><a
+name="_Toc35228665"></a><a name="_Toc35399285"><span style='mso-bookmark:_Toc35228665'><span
+style='mso-bookmark:_Toc28341134'><span style='mso-bookmark:_Toc6371541'><span
+lang=EN-US>Lock Objects</span></span><span lang=EN-US> – ewe.sys.Lock</span></span></span></a></h2>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>A <b>Lock</b>
+object allows only one thread (mThread or normal thread) to own the lock at a
+time. To own a Lock the <b>boolean Lock.lock(TimeOut timeout)</b> method must
+be called on the Lock. If any other thread already owns the lock the current
+Coroutine will wait until either <b>a)</b> the Lock is no longer owned and can
+now be owned by the waiting Coroutine, or <b>b)</b> the <b>timeout</b> object
+has expired.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>If <b>lock()</b>
+returns <b>true</b> then the current thread now owns the Lock, otherwise it
+returns false and the current thread does NOT hold the lock. Once a Lock is
+held it must be released with a <b>release()</b> call on the Lock.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>Note that if an
+mThread needs to wait in order to hold a Lock, it <b>will</b> be suspended via <b>sleep()</b>
+to allow other threads to execute. For this reason <b>only an mThread can call
+the lock() method of a Lock</b>. However there is another method called <b>boolean
+grab()</b> which attempts to hold the Lock, but will always return immediately
+without attempting to wait. Because no attempt is made to wait by the <b>grab()</b>
+method, it <b>can</b> be called by non-mThread threads.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>Sometimes an
+mThread that is in possession of a Lock may wish to wait on some sort of event
+but still allow other threads to own the Lock until it has completed waiting.
+In pure Java, this is normally done through the <b>wait()</b> method for an
+object. Ewe does not support this method for all objects (as it is in Java) but
+it does provide a <b>boolean Lock.waitOn(TimeOut timeout)</b> method. This
+method can only be called by an mThread that is in possession of the Lock. It
+causes the mThread to completely give up possession of the Lock and go into a
+sleep state until the timeout has expired or <b>notifyWaiting()</b> or <b>notifyAllWaiting()</b>
+is called on the Lock. If <b>waitOn()</b> returns true then it has awoken due
+to a <b>notify</b> call, otherwise it has awoken due to the timeout having
+expired. </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>The <b>waitOn()</b>
+method does not return until after the mThread has awoken and has re-acquired
+ownership of the lock. <b>notifyWaiting()</b> will only notify one waiting
+mThread, while <b>notifyAllWaiting()</b> will notify all waiting mThreads.
+These methods may be called by non-mThreads because they do not involve any
+waiting of the calling thread.</span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>Non-mThreads <b>can</b>
+call <b>grab()</b> to hold the Lock, any <b>notifyWaiting()</b> while in
+possession of the Lock, and the <b>release()</b> method to release the Lock.
+Non-mThread <b>cannot</b> call <b>lock() </b>or<b> waitOn()</b> since these
+both involve the thread going into a sleep state, which is only possible for
+mThreads.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc6371542"></a><a name="_Toc28341135"></a><a
+name="_Toc35228666"></a><a name="_Toc35399286"><span style='mso-bookmark:_Toc35228666'><span
+style='mso-bookmark:_Toc28341135'><span style='mso-bookmark:_Toc6371542'><span
+lang=EN-US>Handles</span></span></span></span></a></h2>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>A Handle is an
+object that allows you to monitor the status of an arbitrary asynchronous task.
+A task will set various flags and values on a handle to give an indication as
+to the progress and status of the running task. Any thread can monitor the
+progress and status of the running task by polling the handle or by waiting for
+certain conditions to occur.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc6371543"></a><a name="_Toc35228667"></a><a
+name="_Toc35399287"><span style='mso-bookmark:_Toc35228667'><span
+style='mso-bookmark:_Toc6371543'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Handle State</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>The <b>state</b> of
+a Handle is used to report whether the task the Handle is monitoring is running
+or has stopped, whether it was successful or if it failed, and when the task
+has attained certain critical points along its progress. The state of the
+Handle is really a 32-bit integer with each bit representing a different
+condition. The top six bits are reserved and are defined to be: <b>Changed</b>
+(indicates some kind of change of state), <b>Running</b> (indicates that the
+task has begun and is still running), <b>Stopped</b> (indicates that the task
+has stopped and no further state changes will occur), <b>Success</b> (indicates
+that the task has successfully done what it had set out to do), <b>Failure</b>
+(indicates that the task failed to do what it was supposed to), <b>Aborted</b> (indicates
+that the task was aborted due to an outside – possibly user – intervention).
+All other bits are free to be programmer defined.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>A running task can
+change the state of a Handle by calling <b>set(int newState)</b> or by calling <b>setFlags(int
+bitsToSet, int bitsToClear)</b>. A monitoring thread can call the <b>check()</b>
+method to check the current state of the handle. This is a non-blocking call
+which simply returns the current state of the handle. </span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>An mThread can
+call one of the many <b>waitOn() </b><span style="mso-spacerun:
+yes"> </span>methods to wait until certain bits of the Handle state have been
+set. Check the API for a description of the various waitOn() methods. An
+mThread can also call <b>waitUntilStopped()</b> to wait for the handle to
+report that it has stopped.</span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>All the waitOn()
+methods will cause the calling mThread to go into a sleep() state until the
+appropriate bits are set. This allows other mThreads to run in the meantime.</span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>A non-mThread can
+request a <b>CallBack</b> by calling <b>callBackOnFlags(CallBack callBack, int
+flags, TimeOut waitFor)</b> or <b><span style="mso-spacerun:
+yes"> </span>callBackOnAnyFlag(CallBack callBack, int flags, TimeOut waitFor)</b>.
+These will cause the CallBack object to have its <b>callback()</b> method
+executed once the appropriate state flags have been set, or when the Handle
+state has the <b>Stopped</b> bit set, or when the TimeOut has expired.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc6371544"></a><a name="_Toc35228668"></a><a
+name="_Toc35399288"><span style='mso-bookmark:_Toc35228668'><span
+style='mso-bookmark:_Toc6371544'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Handle Progress</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>The <b>progress</b>
+of a Handle is meant to represent a fractional value that indicates how close
+the task is to completion. A value of 0.0 indicates that the task has now begun
+and a value of 1.0 indicates that the task is complete. This value is only an
+indication of the task progress and should not be used to determine the
+running/stopped state of the task. During the execution of a Task the progress
+may be reset to zero several times due to the execution of sub-tasks within the
+main task. <span style="mso-spacerun: yes"> </span>The progress of a Handle is
+accessed via the <b>progress</b> variable.<span style="mso-spacerun: yes"> 
+</span>Use of this variable is completely optional.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>An additional
+variable – <b>doing</b> is also accessible. This is a String that can be used
+to give an indication as to what the task is doing at any point in time. Use of
+this variable is completely optional.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc35228669"></a><a name="_Toc35399289"><span
+style='mso-bookmark:_Toc35228669'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Other Handle methods</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>After changing the
+<b>progress</b> or <b>doing</b> fields you should call the <b>changed()</b>
+method of the Handle. This alerts any threads monitoring the Handle, that some
+change has occurred. You do <b>not</b> have to call this method after using <b>set()</b>
+or <b>setFlags()</b> since this automatically calls changed().</span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>The <b>void
+stop(int reason)</b> method is used to request that the task be stopped.
+However whether or not this works depends on the Handle and the task being
+monitored. You should never assume that as soon as this method is called the
+task will stop. You should always wait until the Stopped bit has been set.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc6371545"></a><a name="_Toc35228670"></a><a
+name="_Toc35399290"><span style='mso-bookmark:_Toc35228670'><span
+style='mso-bookmark:_Toc6371545'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Return Values</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>A Handle can also
+be used to return a value from the asynchronous task. The task can set the <b>returnValue</b>
+variable to be any kind of object. If an error occurs in the processing it can
+set any of three error variables. <b>errorCode</b> is an int variable that can
+be used for a simple integer error code, <b>error</b> is a String variable that
+can be used for a String representation of the error, and <b>errorObject</b> is
+an Object variable that can represent some kind of object representation of the
+error – usually used to pass a <b>Throwable/Exception</b> object which may have
+been thrown during the operation.</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc6371546"></a><a name="_Toc28341136"></a><a
+name="_Toc35228671"></a><a name="_Toc35399291"><span style='mso-bookmark:_Toc35228671'><span
+style='mso-bookmark:_Toc28341136'><span style='mso-bookmark:_Toc6371546'><span
+lang=EN-US>Tasks</span></span></span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc6371547"></a><a name="_Toc35228672"></a><a
+name="_Toc35399292"><span style='mso-bookmark:_Toc35228672'><span
+style='mso-bookmark:_Toc6371547'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>The ewe.sys.Task Interface</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>The <b>ewe.sys.Task</b>
+interface represents an object that performs an arbitrary asynchronous task.
+Usually a Task will be driven by an mThread but this is not necessarily always
+the case. A Task reports its progress via a Handle, which is accessible by
+calling <b>getHandle()</b> on the Task.<span style="mso-spacerun: yes"> 
+</span>You can also start a Task by calling <b>startTask()</b> and request the
+task to stop by calling <b>stopTask(int reason)</b>. Both of these return the
+Handle for the Task. Note that calling stopTask() does not necessarily
+immediately stop the task. The running task may take some time to stop its
+operations. After calling stopTask() you should wait until the Handle status
+has the <b>Stopped</b> flag set before assuming that the task has completely
+halted.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc6371548"></a><a name="_Toc35228673"></a><a
+name="_Toc35399293"><span style='mso-bookmark:_Toc35228673'><span
+style='mso-bookmark:_Toc6371548'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>The ewe.sys.TaskObject Class</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>A <b>ewe.sys.TaskObject</b>
+is an implementation of a Task which you can extend to produce your own task.
+The TaskObject is implemented such that (assuming you want to use an mThread
+for executing the task) the only method you need to override is <b>void doRun()</b>.
+When <b>startTask()</b> is called on a TaskObject it will create a new mThread,
+passing the TaskObject as the Runnable object to be executed. The <b>run()</b>
+method of the TaskObject first sets the <b>Running</b> bit of the TaskObject
+Handle’s flags and then calls <b>doRun()</b>. Once <b>doRun()</b> returns it
+sets the <b>Stopped</b> bit of the TaskObject Handle’s flags. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc6371549"></a><a name="_Toc28341137"></a><a
+name="_Toc35228674"></a><a name="_Toc35399294"><span style='mso-bookmark:_Toc35228674'><span
+style='mso-bookmark:_Toc28341137'><span style='mso-bookmark:_Toc6371549'><span
+lang=EN-US>ProgressBarForm Objects</span></span></span></span></a></h2>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>A <b>ProgressBarForm</b>
+can be used with a Task to visually indicate the progress of the task. It uses
+the <b>progress</b> variable to draw the bar itself as the task executes. You
+can set the ProgressBarForm to display a <b>cancel</b> button and to
+additionally display the text of the <b>doing</b> variable of the Handle of the
+task to be monitored.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US>To display a ProgressBarForm
+do one of the two:</span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+"Book Antiqua"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>Call <b>setTask(Hande taskHandle,
+String processName)</b> on the ProgressBarForm. This tells it what task is to
+be monitored, and will also prompt the form to call <b>startTask()</b> on the
+task. After calling setTask() you must then display the form by calling exec()
+or show() on the ProgressBarForm.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo6;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+"Book Antiqua"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>Call <b>execute(Handle taskHandle,
+String processName)</b> on the ProgressBarForm <b>(this can only be called from
+an mThread)</b>. This has the same effect as <b>setTask()</b> but will
+additionally display the form in a modal frame <b>and</b> cause the current
+Coroutine thread to be suspended until the Handle of the task is reported as
+being stopped.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.2in'><span lang=EN-US style='font-family:
+"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

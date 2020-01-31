@@ -1,0 +1,897 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./PCToMobile_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>2640</o:TotalTime>
+  <o:Created>2002-12-18T22:20:00Z</o:Created>
+  <o:LastSaved>2003-03-14T14:10:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1844</o:Words>
+  <o:Characters>10514</o:Characters>
+  <o:Lines>87</o:Lines>
+  <o:Paragraphs>21</o:Paragraphs>
+  <o:CharactersWithSpaces>12911</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:8;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:102386226;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1679704468 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1
+	{mso-list-id:1696925885;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1209699906 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./PCToMobile_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./PCToMobile_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc28093266"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>14 March 2003</span><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694574">Remote
+Connection<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span><span
+style='mso-field-code:"PAGEREF _Toc33694574 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003500370034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694575">The
+ewe.io.RemoteConnection Object<span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'> </span><span style='mso-field-code:"PAGEREF _Toc33694575 \\h"'>1<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003500370035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694576">1. Reading
+Remote Registry Values<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33694576 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003500370036000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694577">2. Connecting to
+Remote Hosts and Services<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33694577 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003500370037000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694578">3. Running
+Remote Applications<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33694578 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003500370038000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694579">4. Auto-running Applications
+on Connection<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span><span
+style='mso-field-code:"PAGEREF _Toc33694579 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003500370039000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694580">Bringing It All
+Together with makeSyncConnection()<span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span><span style='mso-field-code:"PAGEREF _Toc33694580 \\h"'>2<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003500380030000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc28093267"></a><a name="_Toc33694574"><span
+style='mso-bookmark:_Toc28093267'><span lang=EN-US>Remote Connection</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>Ewe provides a simple mechanism for
+allowing a mobile device to communicate with a PC to which it is attached. A
+connection between the two systems is provided by small server processes that
+run on both devices. These server processes will be OS specific and provide a
+streaming two-way communication link between the devices. These processes also
+open up OS independent local TCP/IP ports and the OS independent <b>ewe.io.RemoteConnection</b>
+object then communicates with the server process through these ports. This
+architecture ensures portability across different mixes of systems. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Under Win32, on the PC side the <b>ewesync.exe</b>
+program is automatically run when ActiveSync is started. This then activates <b>ewesync.dll</b>
+on the WinCE device and the two make a communication link that will last until
+it is stopped or the link is broken. The <b>ewesync.exe</b> program will place
+a standard ewe icon in the task bar as long as the connection is active. You
+can explicitly stop the connection by double-clicking this icon and confirming
+that you want it to stop running.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>To connect to a Linux PDA such as the
+Zaurus, the <b>Zaurus EweSync Server</b> can be started from the Ewe VM
+launcher. This must stay running and will attempt to connect to the EweSync
+process on the Zaurus every 5 seconds. On the Zaurus, the EweSync Server must be
+started and can be left running. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Please note that because of the nature of
+the way the Zaurus EweSync Server must connect to the Zaurus itself, it can
+take up to 30 seconds before a connection is successfully established.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28093269"></a><a name="_Toc33694575"></a><a
+name="_Toc518449202"><span style='mso-bookmark:_Toc33694575'><span
+style='mso-bookmark:_Toc28093269'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>The ewe.io.RemoteConnection Object</span></b></span></span></a><span
+style='mso-bookmark:_Toc518449202'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></span></h4>
+
+<span style='mso-bookmark:_Toc518449202'></span>
+
+<p class=MsoNormal><span lang=EN-US>This is the object that provides the remote
+connection services. To use it you first get an instance of RemoteConnection by
+calling <b>RemoteConnection.getConnection()</b>. This throws an IOException if</span></p>
+
+<p class=MsoNormal><span lang=EN-US>a connection could not be made.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There are three main types of services
+provided by the RemoteConnection object.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28093270"></a><a name="_Toc33694576"></a><a
+name="_Toc518449203"><span style='mso-bookmark:_Toc33694576'><span
+style='mso-bookmark:_Toc28093270'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>1. Reading Remote Registry Values</span></b></span></span></a><span
+style='mso-bookmark:_Toc518449203'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></span></h4>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc518449203'><span lang=EN-US>The
+method <b>String getRegistryValue(String keyAndValueName)</b> can be used to
+look up a value stored in the registry on the remote device. This <b>does</b>
+work, even if the remote device is a Linux device, since Ewe simulates a system
+Registry using a special &quot;Registry.dat&quot; file stored in the same
+location as the Ewe VM.</span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc518449203'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc518449203'><span lang=EN-US>For
+example, if you call:</span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc518449203'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoBodyText><span style='mso-bookmark:_Toc518449203'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt'>String syncValue =
+rc.getRegistryValue(&quot;HKEY_LOCAL_MACHINE\\Software\\EweSoft\\Contact&quot;);<o:p></o:p></span></span></p>
+
+<p class=MsoToc1><span style='mso-bookmark:_Toc518449203'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc518449203'><span lang=EN-US>This
+will return <b>either</b> the value of the data value named &quot;Contact&quot;
+in the key &quot;HKEY_LOCAL_MACHINE\Software\Ewesoft&quot; <b>or</b> the value
+of the default (unnamed) data value of the key
+&quot;HKEY_LOCAL_MACHINE\Software\Ewesoft\Contact&quot; whichever happens to be
+present.</span></span></p>
+
+<h4 style='background:#E6E6E6'><span style='mso-bookmark:_Toc518449203'><a
+name="_Toc28093271"></a><a name="_Toc33694577"><span style='mso-bookmark:_Toc28093271'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>2.
+Connecting to Remote Hosts and Services</span></b></span></a></span><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>You can request a socket connection to a
+port on a host machine which is reachable from the remote device by calling <b>Socket
+connectToHost(String hostname, int port)</b>. This will return a socket that
+can then be used to communicate with the specified host on the specified port.
+On some implementation, this Socket may connect via a proxy within the EweSync
+server, and on some implementations this may be a direct connection to the host.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The problem with this method, however, is
+that the destination host and port must be known at run time. If you are
+connecting to the desktop component of an application it is better if the
+applications do not need to know a precise port number to connect to.<span
+style="mso-spacerun: yes">  </span>Instead a connection to a named
+&quot;service&quot; would be more appropriate. A server process on either side
+of the connection can call: <b>boolean postService(String serviceName,
+ServerSocket server)</b>. Once this is done, an application on the opposite
+side of the connection can call <b>Socket connectToService(String serviceName)</b>.
+The remote connection object will then be able to look up the service in its
+list of posted services and provide a connection if possible. </span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc518449204"></a><a
+name="_Toc28093272"></a><a name="_Toc33694578"><span style='mso-bookmark:_Toc28093272'><span
+style='mso-bookmark:_Toc518449204'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>3. Running Remote Applications</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>You can specify a command line to execute
+on the remote device (works both ways) by calling:</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>void execRemote(String commandLine, int
+execOptions)</span></b><span lang=EN-US>. This will return an IOException only
+on failure to communicate with the remote host. Returning without a thrown
+exception indicates that the request was successfully sent to the remote
+device, but this is no guarantee that the application was actually executed.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The operation of this is modified by the <b>execOptions</b>
+which can be a combination of any of the following values:</span></p>
+
+<p class=MsoHeading7><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoHeading7 style='margin-left:.5in'><span lang=EN-US>MOBILE_GET_COMMAND_FROM_REGISTRY</span><span
+lang=EN-US style='font-weight:normal'> – This indicates that the specified
+command line is actually the name of a registry value that should be looked up
+on the remote (i.e. a call to getRegistryValue(commandLine) should be made
+first). The value returned by that call should then be considered the true
+command line to execute.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>MOBILE_IS_EWE_APPLICATION</span></b><span
+lang=EN-US> – This indicates that the command line (which may have been
+acquired from the registry) is a Ewe application and the Ewe VM on the remote
+device should be invoked with the provided command line. This can be used in
+combination with the previous option.</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc518449205"></a><a
+name="_Toc28093273"></a><a name="_Toc33694579"><span style='mso-bookmark:_Toc28093273'><span
+style='mso-bookmark:_Toc518449205'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>4. Auto-running Applications on Connection</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The EweSync server processes can be
+configured to automatically execute applications when they successfully connect.
+Your application can register itself on the local machine as such an
+auto-executing application by calling: <b>RemoteConnection.registerAutoStart(String
+entryName, String commandLine, int typeAndOptions). </b>The <b>typeAndOptions</b>
+parameter can be:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoHeading8><span lang=EN-US>AUTO_START_IS_EWE_APPLICATION</span><span
+lang=EN-US style='font-weight:normal'> – This indicates that the specified
+command line is a Ewe application and the Ewe VM should be used to run it.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>AUTO_START_EMULATOR</span></b><span
+lang=EN-US> – This indicates that the command should be executed when the
+EweSync emulator is connected instead of when the true EweSync connection is
+made.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>AUTO_START_SERVICE</span></b><span
+lang=EN-US> – This indicates that the command should be executed only when a
+device on the other end of the connection requests a connection to the named
+service (which will be the entryName) and that service is not running. The
+command will be executed and it is expected that the command will set up a
+server socket and then post the service to the RemoteConnection object. Then
+the remote application can connect to the service.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can add entries in manually using the <b>EweSync
+Configuration</b> utility from the Ewe menu in the Ewe launcher.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc28093274"></a><a name="_Toc33694580"><span
+style='mso-bookmark:_Toc28093274'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Bringing It All Together with
+makeSyncConnection()</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>In general, data synchronization between a
+desktop and mobile application requires a process on the desktop side to communicate
+with a process on the mobile side. Once such a connection is made any type of
+data exchange is possible. Making this connection reliably is done as follows:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>The desktop process creates a Server socket to listen to.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>The desktop process posts the socket to the RemoteConnection
+     object as a uniquely named (hard coded) service.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>The desktop process requests the corresponding process on the
+     mobile device to be executed. It will expect that the mobile process will
+     connect to the named service via the RemoteConnection object on its side.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>The mobile process requests a connection to the named service
+     once run.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>Once the connection is made both sides will have a Socket with
+     which they can communicate. The Server socket on the desktop side can be
+     closed and data transfer can begin (usually with the desktop process
+     taking charge and controlling the transfer).</span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>All these steps are done by a single call
+to <b>makeSyncConnection()</b> on both the desktop and mobile side (the method
+operates differently depending on whether the application is running on a
+mobile device or on the desktop).</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>However before this command will work there
+are two things that must be done:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>The mobile application must put in the registry, the correct
+     command line that should be used to run it in synchronization mode.</span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>The desktop application must register itself as an EweSync
+     AutoStart entry so that when a EweSync connection is made, it will be
+     executed.</span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Here is a snippet of code that accomplishes
+that. It is for an example Contact database. The application is to be placed in
+a Ewe file named &quot;Contacts.ewe&quot;, but the install location is not
+known. The method: </span></p>
+
+<p class=MsoNormal><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'>String</span></b><span lang=EN-US style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt'> <b>Registry.getEweCommandLine(String myEweFile, String args, String
+vmArgs, boolean includePathToVM)</b> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>is used to create a command line for the
+installed Ewe file of an application. It retrieves the Program Directory of the
+application (i.e. the location of the application Ewe file) and then prepends
+it to the Ewe file name. The <b>args</b> argument is placed after the Ewe file
+and the <b>vmArgs</b> is placed before the Ewe file in the final command line.
+If the <b>includePathToVM</b> argument is true then the path to the Ewe VM will
+also be placed at the start of the command line.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>In our example below, if the Contacts.ewe
+file is placed in &quot;\Windows\Start Menu\Programs\Contacts&quot; then <b>getEweCommandLine(&quot;Contacts.ewe&quot;,&quot;sync&quot;,null,false)</b>
+would return:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>&quot;\Windows\Start
+Menu\Programs\Contacts\Contacts.ewe&quot; sync</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><span style='color:gray'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>public static void main(String args[])</pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'>ewe.sys.Vm.startEwe(args);</pre><pre
+style='background:#F3F3F3'>//</pre><pre style='background:#F3F3F3'>String <b>syncKey</b> = &quot;HKEY_LOCAL_MACHINE\\Software\\EweSoft\\Contacts\\Sync&quot;;</pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//-------------------------------------------------<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>if (args.length == 0){</pre><pre style='background:
+#F3F3F3'><span style='color:gray'>//-------------------------------------------------<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>// If run with no arguments, register the application info<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>// and then run normally.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//-------------------------------------------------<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>try{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>String applicationEweFile = &quot;Contacts.ewe&quot;;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>String syncCommandOption = &quot;sync&quot;;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='color:gray'>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>//Make the command line to run it in Sync mode.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>String commandLine = <b>Registry.getEweCommandLine(<o:p></o:p></b></pre><pre
+style='background:#F3F3F3'><b><span style='mso-tab-count:2'>               </span></b>applicationEweFile, syncCommandOption, null, false);</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>//On the desktop register as an auto-start entry.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>if (!ewe.sys.Vm.isMobile())</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><b>RemoteConnection.registerAutoStartEweApp</b>(</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:3'>                       </span>&quot;Ewesoft Contacts Synchronizer&quot;,commandLine);</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>//On the mobile register it in the syncKey for access by the desktop.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>else</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:2'>               </span>Registry.getLocalKey(0,<b>syncKey</b>,true,true)</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:3'>                       </span>.setValue(null,commandLine);</pre><pre
+style='background:#F3F3F3'>}catch(Exception e){</pre><pre style='background:
+#F3F3F3'><span style='color:gray'><span style='mso-tab-count:1'>        </span>//Could not register. Maybe report the error.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>//<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// Now run the application normally and exit after.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ewe.sys.Vm.exit(0);</pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//-------------------------------------------------<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>}else if (args[0].equals(syncCommandOption)){</pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//-------------------------------------------------<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>// Here run it in sync mode. <o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>// The same command is used for desktop and mobile version.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//-------------------------------------------------<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>try{</pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>// Make the connection. Use a unique service name<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// and get the command line from the syncKey on the remote device.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ewe.net.Socket s = <b>RemoteConnection.getConnection().makeSyncConnection</b>(</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>&quot;ContactsSyncService&quot;,<b>syncKey</b>,new ewe.sys.TimeOut(30*1000),</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>RemoteConnection.MOBILE_IS_EWE_APPLICATION|</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>RemoteConnection.MOBILE_GET_COMMAND_FROM_REGISTRY);</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+2'>               </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:2'>               </span>// Now use the Socket to do synchronization.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+2'>               </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'>}catch(Exception e){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='color:gray'>//Failed to make the connection.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>new ewe.ui.ReportException(e, &quot;Could not make sync connection.&quot;,null,false);</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ewe.sys.Vm.exit(0);</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>With this code, the only thing you need to
+ensure is that the application is placed in a Ewe file of the correct name. In
+this case the application must be placed in a file called
+&quot;Contacts.ewe&quot;, but that file may be placed anywhere on the desktop
+or the mobile device.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This is <b>all</b> you need to do to make
+an application that can synchronize with its mobile counterpart. However you
+will have to implement the synchronization of the data yourself. You can either
+use remote method calls (using RemoteCall/RemoteCallHandler objects) or, if you
+are synchronizing Ewe databases, you can use the
+ewe.datastore.RemoteSynchronizer object.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

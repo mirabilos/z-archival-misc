@@ -1,0 +1,1287 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Databases_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>16</o:Revision>
+  <o:TotalTime>1520</o:TotalTime>
+  <o:Created>2002-12-14T22:32:00Z</o:Created>
+  <o:LastSaved>2003-03-20T14:10:00Z</o:LastSaved>
+  <o:Pages>8</o:Pages>
+  <o:Words>3521</o:Words>
+  <o:Characters>20074</o:Characters>
+  <o:Lines>167</o:Lines>
+  <o:Paragraphs>40</o:Paragraphs>
+  <o:CharactersWithSpaces>24652</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-indent:.5in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1979719603;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1458546482 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./Databases_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./Databases_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc27828797"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>20 March 2003</span><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-ansi-language:
+EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694882">Using Ewe
+Databases<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33694882 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003800380032000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694883">How to use the
+Package<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33694883 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003800380033000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694884">Specifying
+Database Fields and Sorts<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33694884 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003800380034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694885">Specifying
+Database Fields and Sorts Using a Data Object<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span><span style='mso-field-code:"PAGEREF _Toc33694885 \\h"'>3<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003800380035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694886">Initializing and
+Opening a Database<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33694886 \\h"'>4<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003800380036000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694887">Accessing
+Database Data Using a Data Object<span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span><span style='mso-field-code:"PAGEREF _Toc33694887 \\h"'>4<span
+style='font-weight:normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003800380037000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694888">Searching For
+Database Records<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33694888 \\h"'>5<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003800380038000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc33694889">Older Versions
+of Datastore<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc33694889 \\h"'>8<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003800380039000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span style='mso-ansi-language:
+EN-GB'><span style='mso-element:field-end'></span></span></b><![endif]--><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc27828798"></a><a name="_Toc33694882"><span
+style='mso-bookmark:_Toc27828798'><span lang=EN-US>Using Ewe Databases</span></span></a></h2>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>This chapter deals
+with the storage of application data in a simple database that is portable from
+the desktop to the mobile device.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Please note at this
+point that the databases that we will be dealing with are <b>not</b>
+desktop/server SQL compatible databases. Accessing those types of databases
+will require an external API and implementation. Rather, the databases access provided
+by Ewe is of a proprietary type (which may be different on different platforms)
+that is designed for the storage of simple data with an API that allows for the
+synchronization of desktop and mobile data.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>This chapter deals
+with a <b>platform independent API</b> that will work across platforms that
+support file systems, and those that do not. Specifically, this API uses three
+classes, all of which are in the <b>ewe.datastore</b> package.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>Database</span></b><span
+style='mso-ansi-language:EN-GB'> – An interface that specifies the functions
+provided by a platform specific database.<o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>DatabaseEntry</span></b><span
+style='mso-ansi-language:EN-GB'> – An individual unit of data stored within a
+Database.<o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>FoundEntries</span></b><span
+style='mso-ansi-language:EN-GB'> – A collection of DatabaseEntry references
+that represent some subset of the Database data.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>There are <b>many</b>
+more classes within the<b> ewe.datatore</b> package but the use of these should
+be avoided if you wish to ensure that your application is portable across
+different platforms.<o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc27828799"></a><a name="_Toc33694883"><span
+style='mso-bookmark:_Toc27828799'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>How to use the Package</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>A <b>Database</b> will
+store a list of records, represented by a <b>DatabaseEntry</b> object when
+brought into memory for reading or editing. Each record consists of a set of <b>Fields</b>
+each of which is assigned a unique ID and has a specific type. The <b>Fields</b>
+that are stored in a record are specified when a Database is created (and in
+most implementations) can be altered after the database is already in use (that
+is to say, fields may be added and removed, but fields types cannot be
+changed).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>A Database can have
+multiple <b>Sorting Criteria</b> (referred to as <b>Sorts</b>) associated with
+it. Each Sort is basically a named list of up to four fields that are used to
+sort the records in the Database. For example a contact database may have a
+Sort that sorts by the contact’s last name, and then first names. This Sort
+would only use two fields and could have a name such as “By Name”.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Records stored within
+the Database are <b>not</b> sorted. Sorting is only done when the <b>getEntries()</b>
+method is called on the Database. This returns a <b>FoundEntries</b> object
+that has references to entries in the Database sorted by the selected Sort. The
+FoundEntries object is then used to access the entries in the Database.<o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc27828800"></a><a name="_Toc33694884"><span
+style='mso-bookmark:_Toc27828800'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Specifying Database Fields and Sorts</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Since a Database is an
+interface it cannot be instantiated directly. To open a Database you will use
+one of <b>DataStore.initializeDatabase()</b> or <b>DataStore.openDatabase()</b>
+as described in the next section. For the moment we will not deal with these
+methods, rather we will assume that we have already acquired an open database
+that is ready to have the fields set.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>This section deals
+with specifying fields and sorts explicitly using the bottom level methods.
+However there are some higher level methods, described in the following
+section, that allow you to specify the fields and sorts of a Database by using
+fields within a Java class. This simplifies programming significantly and its
+use is highly encouraged. However before dealing with these high level methods,
+the basic concepts of fields and sorts need to be understood and these are
+explained in this section.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Adding Fields<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The bottom level
+method for adding fields to the Database is the <b>addField(String fieldName,
+int fieldType)</b> method. The <b>fieldType</b> must be one of: <b>BOOLEAN,
+BYTE_ARRAY, DATE_TIME, DOUBLE, INTEGER, LONG</b> and<b> STRING</b>. This method
+returns a <b>FieldID</b> – an integer value unique to this field within this
+Database. All further operations on the added field use the FieldID as the
+field reference. You can always get the FieldID of a named field, or the name
+and type of a FieldID using the following methods:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>int findField(String fieldName)</span></b><span style='mso-ansi-language:
+EN-GB'> – Find the ID of the named field.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>int [] getFields()</span></b><span style='mso-ansi-language:EN-GB'> –
+Get all the fields.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>int getFieldType(int fieldID)</span></b><span style='mso-ansi-language:
+EN-GB'> – Find the type of the field.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>String getFieldName(int fieldID)</span></b><span style='mso-ansi-language:
+EN-GB'> – Find the name of the field.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>void setFieldHeader(int fieldID) </span></b><span style='mso-ansi-language:
+EN-GB'>– Set the header for the field.<o:p></o:p></span></p>
+
+<p class=MsoToc4><b><span style='mso-ansi-language:EN-GB'>String
+getFieldHeader(int fieldID)</span></b><span style='mso-ansi-language:EN-GB'> –
+Find the header for the field.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Field Headers<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>Header</b> for
+a field is a long descriptive name for the field suitable for display as the
+header in a table column or as a prompt in an input form. By default, the
+header for a field is derived from the field name as follows:<o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='mso-ansi-language:EN-GB'>The first letter of the field name is set
+     to upper case.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='mso-ansi-language:EN-GB'>Any ‘_’ characters in the field name are
+     converted to spaces.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='mso-ansi-language:EN-GB'>Any letter after a ‘_’ is converted to a
+     capital letter.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='mso-ansi-language:EN-GB'>If the field name contains a common letter
+     followed by a capital letter, then a space is inserted between them.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo3;tab-stops:list .5in'><span
+     style='mso-ansi-language:EN-GB'>Capital letters in a sequence are not
+     separated.<o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>By these rules, a
+field name of <b>last_name</b> is converted to “Last Name”. A field name of <b>lastName</b>
+will also be converted to “Last Name”. A field like <b>customerDOB</b> is
+converted into “Customer DOB”. However by using <b>setFieldHeader(int fieldID,
+String header)</b> you can always explicitly specify the header for a field.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Special Fields<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>You can add <b>special
+predefined fields</b> using the <b>addSpecialField(int fieldID)</b> method.
+This adds one of the reserved <b>XXXX_FIELD</b> fields, such as the <b>MODIFIED_FIELD</b>
+and <b>OID_FIELD</b>. Some of these fields are used for some forms of
+synchronization and these are described in a later section.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Sorts<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>addSort(String sortName,
+int options, int field1, int field2, int field3, int field4)</b> method is used
+to add a Sort that sorts using up to four fields. If less than four fields are
+used in the sort, then the fields that are not being used should be set as
+zero. For example if you are only sorting using two fields, then field3 and
+field4 should be set to zero. Another method <b>addSort(String sortName, int
+options, int field)</b> can be used to add a sort that sorts by one field only.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>options</b>
+parameter is applied to all fields and consists of any of the following options
+OR’ed together.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>SORT_DESCENDING</span></b><span style='mso-ansi-language:EN-GB'> – Sort
+the entries in descending order.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>SORT_IGNORE_CASE </span></b><span style='mso-ansi-language:EN-GB'>–
+Ignore case when sorting Strings.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>SORT_UNKNOWN_FIRST</span></b><span style='mso-ansi-language:EN-GB'> – If
+the value for a field is not set for a particular entry then place that entry
+before others instead of after (the default).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>SORT_DATE_ONLY</span></b><span style='mso-ansi-language:EN-GB'> – When
+sorting Date/Time values, ignore the time of day section and only compare the
+date.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>SORT_TIME_ONLY</span></b><span style='mso-ansi-language:EN-GB'> – When
+sorting Date/Time values, ignore the date section and only compare the time of
+day.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Again, the <b>addSort()</b>
+methods return a unique ID identifying that Sort. You can use <b>findSort(String
+sortName)</b> to locate the ID of a named Sort and you can use <b>getSortName(int
+id)</b> to get the name of the Sort with the specified ID.<o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc27828801"></a><a name="_Toc33694885"><span
+style='mso-bookmark:_Toc27828801'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Specifying Database Fields and Sorts Using a
+Data Object</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<h5><span style='mso-ansi-language:EN-GB'>Defining Your Data Class<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The Database interface
+allows you to specify the fields in a Database using the fields in a Java
+class. You simply define the class as being public with the fields declared as
+public. For example:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'>public class Contact {</pre><pre style='background:
+#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>public String lastName = &quot;&quot;;</pre><pre
+style='background:#F3F3F3'>public String firstName = &quot;&quot;;</pre><pre
+style='background:#F3F3F3'>public String company = &quot;&quot;;</pre><pre
+style='background:#F3F3F3'>public ewe.sys.Date dob = new ewe.sys.Date();</pre><pre
+style='background:#F3F3F3'>public boolean isColleague = false;</pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>// This next field is not treated as a data field<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>// because it starts with a '_' character.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>public String _sorts = &quot;By Name$i|lastName,firstName|By DOB$t|dob,lastName,firstName&quot;;</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'>//##################################################################</pre>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Adding The Class Fields and Sorts<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Now you can set the
+fields in the database to match the fields in the class by simply doing:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><i><span style='mso-ansi-language:EN-GB'>int [] ids =
+database.setFields(new Contact());<o:p></o:p></span></i></b></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The return value is an
+array of integers representing the unique ID assigned to each field. From this
+point on, fields are referred to using the ID of the field. Again, the <b>header</b>
+for a field is derived from the field name as described above.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>You can also use the
+method <b>setFields(Object data, String fields)</b> to set the fields. This
+will set <b>only</b> the fields specified in the <b>fields</b> parameter,
+which<span style="mso-spacerun: yes">  </span>must be a comma separated list of
+fields. For example we could have done: <b>setFields(new Contact(),
+&quot;lastName,firstName,dob&quot;)</b> to only add the specified three fields.
+<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>We could also use the
+method <b>setFields(Object data, String fields, String headers)</b> which
+allows you to specify a field list and a list of headers to be assigned to the
+fields.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>You can specify the
+sorts of a database using <b>setSorts(Object data, String sorts)</b>. The <b>sorts</b>
+parameter must be formatted as follows:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>“&lt;SortName&gt;|&lt;FieldList&gt;|&lt;SortName&gt;|&lt;FieldList&gt;…”<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Each <b>FieldList</b>
+should be a comma separated list of fields to be included in the sort, in the
+order of priority.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Each <b>SortName</b>
+should be a unique name for the Sort (e.g. “By Name”, “By DOB”). A <b>SortName</b>
+can end with a <b>$</b> followed by any number of the following letters that
+specify sort options:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>i</span></b><span style='mso-ansi-language:EN-GB'> – indicating the <b>SORT_IGNORE_CASE</b>
+option. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>d</span></b><span style='mso-ansi-language:EN-GB'> – indicating the <b>SORT_DESCENDING</b>
+option.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>t</span></b><span style='mso-ansi-language:EN-GB'> – indicating the <b>SORT_DATE_ONLY</b>
+option.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>m</span></b><span style='mso-ansi-language:EN-GB'> – indicating the <b>SORT_TIME_ONLY</b>
+option.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>u</span></b><span style='mso-ansi-language:EN-GB'> – indicating the <b>SORT_UNKNOWN_FIRST</b>
+option.<o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>An example of a
+formatted Sort specifier is:<o:p></o:p></span></p>
+
+<p class=MsoHeading7>&quot;By Name$i|lastName,firstName|By
+DOB$t|dob,lastName,firstName&quot;<span style='font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>You can also specify
+the sort order within the Object itself by declaring a public String variable
+called <b>&quot;_sorts&quot;</b>. Because this variable begins with an ‘_’
+character it is not treated as a data field and is not added in with the other
+fields when setFields() is called. If you have the _sorts variable defined then
+you can use the <b>setSorts(Object data)</b> method to set the sorts for the
+database.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>In our <b>Contact </b>class
+defined above we could set up the fields and sorts for the database using just
+four lines:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>Contact c = new Contact();</pre><pre
+style='background:#F3F3F3'>database.setFields(c);</pre><pre style='background:
+#F3F3F3'>database.setSorts(c);</pre><pre style='background:#F3F3F3'>database.save();</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc27828802"></a><a name="_Toc33694886"><span
+style='mso-bookmark:_Toc27828802'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Initializing and Opening a Database</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<h5><span style='mso-ansi-language:EN-GB'>Initializing a New Database<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The method <b>DataStore.initializeDatabase(String
+name, Object initializer)</b> should be used whenever your application first
+accesses the database when it is run. If the named database already exists this
+method returns null. This lets you know that the database had been created and
+initialized on a previous execution.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>If <b>initializeDatabase()</b>
+returns a Database object, this will be an uninitialized Database and you
+should initialize it as necessary, <b>save it</b> and then <b>close it</b>. If
+the <b>initializer </b>parameter is not null, then the fields and sorts of the
+database will be taken from the initializer object as described in the previous
+section before the database object is returned. If it is null then the database
+will have no fields and no sorts set when it is returned.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Opening a Database<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Following database
+initialization you should then call <b>DataStore.openDatabase(String name, String
+mode)</b> to open the database for read-only (“r”)<span style="mso-spacerun:
+yes">  </span>or read-write (“rw”) mode.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>An example is given
+below – it is a method used to open a database that is used to store contact
+information based on the Contact object given in the previous examples.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public Database openMyDatabase(String name) throws ewe.io.IOException</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>Database db = DataStore.initializeDatabase(name,new Contact());</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (db != null){</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+2'>               </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:2'>               </span>// Do your extra initialization here.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+2'>               </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:2'>               </span>db.save();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>db.close();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return DataStore.openDatabase(name,&quot;rw&quot;);</pre><pre
+style='background:#F3F3F3'>}</pre>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc27828803"></a><a name="_Toc33694887"><span
+style='mso-bookmark:_Toc27828803'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Accessing Database Data Using a Data Object</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<h5><span style='mso-ansi-language:EN-GB'>The FoundEntries Object<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>As mentioned before
+you retrieve the data within a database using the <b>FoundEntries</b> object.
+In fact you should also use this object to add, edit and delete records in the
+database.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>A FoundEntries object
+does <b>not</b> contain the data stored in the database. Rather, it contains a
+sorted list of references (32-bit integers) to the records in the database. The
+record data is not brought into memory until one of the <b>get()</b> or <b>getData()</b>
+methods are called, or until some sort of search is done.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>To get a FoundEntries
+object you call one of the <b>Database.getEntries()</b> method, the simplest of
+which is <b>getEntries(int sortID)</b>. This returns a FoundEntries object that
+refers to <b>all</b> the records in the database, sorted by the specified
+sortID (or unsorted if sortID is 0).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>If you want to add
+records to the database and are not interested in reading the records that are
+already stored, then you can call <b>Database.getEmptyEntries()</b>. This
+returns a FoundEntries object for the database that contains no references.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The number of entries
+in a FoundEntries is retrieved using the <b>size()</b> method. The entries within
+the FoundEntries are then accessed using indexes from 0 to size()-1. <o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Retrieving Record Data<o:p></o:p></span></h5>
+
+<p class=MsoToc1><span style='mso-ansi-language:EN-GB'>The <b>getData(int
+index)</b> method can be used to retrieve the data in the record at the
+specified index. Remember that the index specifies its order within the FoundEntries,
+not its order within the database. This method also relies on a default
+constructor being available for the data object sot that a new one can be
+created and returned. You can also call the <b>getData(int index, Object data)</b>
+method. This retrieves the data into the specified data object – which must be
+of the same type as that used when the database was set up.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Deleting a Record<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>delete(int
+index)</b> method is used to delete a record in the database. This method will
+also remove the reference to the record from the FoundEntries object thereby
+reducing its size by one.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Adding a new Record<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>addData(Object
+data)</b> method is used to add a record to the database. The record is added
+to the database and then a reference to the record is added to the FoundEntries
+in the appropriate location as determined by the Sort used by the FoundEntries
+– thereby preserving its sorted state. The index of the newly added record is
+returned by this method.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>You can append a
+record to the end of the FoundEntries list by calling <b>appendData(Object
+data)</b> but this leaves the FoundEntries object in an unsorted state, and
+searches are therefore not possible on the records in the FoundEntries. You
+must call <b>reSort()</b> on the FoundEntries to bring it back to a sorted
+state.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Modifying a Record<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>You can modify the
+data for a record by calling <b>setData(int index, Object data)</b>. This sets
+the record at the specified index to contain the data in the <b>data</b>
+object. This method will also move the reference to the record to a new
+location in order to keep the FoundEntries object sorted. The new index of the
+data is returned by this method.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>setDataInPlace(int
+index, Object data)</b> method is used to modify the data in a record <b>without</b>
+preserving the sort order of the FoundEntries. You must call <b>reSort()</b> on
+the FoundEntries to bring it back to a sorted state.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>The DatabaseEntry Object<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>If you are using a
+data object to represent your database records (a practice that is highly
+encouraged) then the methods described above are all you need to access and
+modify the records in a database for the majority of database usage, even if
+you intend to synchronize your database across a remote connection. However for
+certain advanced database operations – such as implementing a more advanced
+synchronization system – you may have to deal with DatabaseEntry objects
+directly. This will be discussed in another chapter on Advanced Database
+Techniques.<o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc27828804"></a><a name="_Toc33694888"><span
+style='mso-bookmark:_Toc27828804'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Searching For Database Records</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Searching is done on a
+FoundEntries object using a binary chop search. This requires that the
+FoundEntries be in a fully sorted state. That is a non-zero Sort must have been
+used when it was created and a reSort() was done if appendData() or
+setDataInPlace() was used.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>This also means that
+you can only search for records using fields that are in the Sort order and in
+a manner consistent with the sorting. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>Filtering</span></b><span
+style='mso-ansi-language:EN-GB'>, on the other hand, does not require that the
+FoundEntries be sorted, since it involves checking each record in the
+FoundEntries one at a time. That will be described later.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>The findAll() Methods<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>findAll()</b>
+methods are used to retrieve a <b>ewe.util.IntArray</b> object that contains
+within it, a list of all the indexes of the FoundEntries that are considered to
+match the search data. The first method that you can use is:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>IntArray findAll(Object
+dataMask, IntArray dest)</span></b><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>This method will
+search the <b>primary</b> (i.e. first) sort field of the FoundEntries for
+records that match the data in the <b>dataMask </b>parameter. For example, if the
+FoundEntries is sorted by name, as in our Contact example above, then we could
+do something like: <b>findAll(&quot;C*&quot;, null)</b> to find all the records
+in the FoundEntries for which the last name starts with “C”. A <b>findAll(&quot;Brereton&quot;,null)</b>
+will find all the names that match &quot;Brereton&quot; exactly. Or if the
+FoundEntries was sorted by DOB, then we could do <b>findAll(new
+TimeMask().setDateOnly(0,8,1968),null)</b> to find all entries where the DOB
+was in the month of August in 1968.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>dest</b>
+parameter is an optional parameter that can be used as a destination IntArray
+to hold the found record indexes. If it is null then a new one will be created
+and returned.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Another method you can
+use is:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>IntArray
+findAll(Object searchData, ewe.util.Comparer comparer, IntArray dest)</span></b><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>When this method is
+used, during the search operation the comparer will have its <b>compare(Object
+one, Object two)</b> method called with the <b>searchData</b> provided as
+parameter one and a <b>DatabaseEntry</b> object representing a particular
+record as parameter two. The comparer should return a value less than zero if
+the searchData is considered less than the record data, a value greater than
+zero if the searchData is considered greater than the record data and a value
+of zero if the record matches the searchData.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>A <b>DatabaseDataComparer</b>
+is a useful comparer that will convert the DatabaseEntry data provided into a
+data object as is being used by the database. The converted object is then
+passed to a <b>compareData()</b> method which you should override.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>For example, say we
+wanted to find a set of contacts with a DOB between two dates – we could do
+something like this: (we assume that the FoundEntries object is sorted by DOB).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'>class DateRangeComparer extends DatabaseDataComparer{</pre><pre
+style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public DateRangeComparer(FoundEntries fe) {super(fe);}</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>//-------------------------------------------------------------------</pre><pre
+style='background:#F3F3F3'>protected int compareData(Object searchData, Object recordData)</pre><pre
+style='background:#F3F3F3'>//-------------------------------------------------------------------</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>Time [] range = (Time [])searchData;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>Contact c = (Contact)recordData;</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>// If the lower range is greater than the DOB<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// then the range is too high.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>if (range[0].compareTo(c.dob) &gt; 0) return 1;</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>// If the upper range is lower than the DOB<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// then the range is too low.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// <o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>if (range[1].compareTo(c.dob) &lt; 0) return -1;</pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>// If it is in range then we consider it to match.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>return 0;</pre><pre style='background:
+#F3F3F3'>}</pre><pre style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>...</pre><pre style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>FoundEntries fe = db.getEntries(db.findSort(&quot;By DOB&quot;));</pre><pre
+style='background:#F3F3F3'>IntArray ia = fe.findAll(</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>new Time[]{new Time(1,6,1967),new Time(31,5,1969)},</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>new DateRangeComparer(fe),null);</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>If you only need a
+one-time use Comparer with a fixed search data object, then you can use a
+variation of findAll() that does not use a searchData object (i.e. it
+indirectly uses a null searchData object).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>IntArray
+findAll(Comparer c)</span></b><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Again, you can inherit
+from DatabaseDataComparer, and this time override the method <b>compareData(Object
+recordData)</b>. This method gets called by the DatabaseDataComparer if you do
+not override the other compareData() method and if the search data is null.
+This is very useful when searching using anonymous inner classes. For example we
+could do:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>FoundEntries fe = db.getEntries(db.findSort(&quot;By DOB&quot;));</pre><pre
+style='background:#F3F3F3'>IntArray ia = fe.findAll(new DatabaseDataComparer(fe){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>Time lower = new Time(1,6,1967), upper = new Time(31,5,1969);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>protected int compareData(Object recordData){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>Contact c = (Contact)recordData;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>if (lower.compareTo(c.dob) &gt; 0) return 1;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>if (upper.compareTo(c.dob) &lt; 0) return -1;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>return 0;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>});</pre>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>Using The Found Entries<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Once you have the
+found data indexes in the returned IntArray, you can create a new FoundEntries
+which refer to these records only by calling <b>FoundEntries</b> <b>getSubSet(IntArray
+subset)</b>. The returned FoundEntries behaves like any other FoundEntries and
+can even be resorted by a different Sort if desired.<o:p></o:p></span></p>
+
+<h5><span style='mso-ansi-language:EN-GB'>The filterAll() Methods<o:p></o:p></span></h5>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>Filtering</span></b><span
+style='mso-ansi-language:EN-GB'> does not require that the FoundEntries be
+sorted but will take a considerably longer time to do since a binary chop
+algorithm cannot be used, and each record in the FoundEntries must be checked.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The main filterAll()
+method is:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>IntArray
+filterAll(ewe.util.ObjectFinder finder, IntArray dest)<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoToc1><span style='mso-ansi-language:EN-GB'>or<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>IntArray
+filterAll(ewe.util.ObjectFinder finder)</span></b><span style='mso-ansi-language:
+EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The <b>finder</b>
+object will have its <b>lookingFor(Object data)</b> method called and if this
+method returns true then the reference to this record will be placed in the
+destination IntArray.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Another method is:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span style='mso-ansi-language:EN-GB'>IntArray
+filterAll(Object searchData, ewe.util.Comparer, IntArray dest)</span></b><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>This works similarly
+to the findAll() method that takes the same parameters. In this case, if the
+comparer’s <b>compare(Object searchData, Object recordData)</b> returns 0, then
+the record reference is placed in the destination, otherwise it is not.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>A <b>DatabaseDataComparer</b>
+object can be used as an ObjectFinder. In this case the <b>lookingFor()</b>
+method calls the <b>compareData(Object data)</b> method and returns true if the
+compareData() method returns 0. An example use of this is:<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>FoundEntries fe = db.getEntries(0); <span
+style='color:gray'>//Does not need to be sorted.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>IntArray ia = fe.filterAll(new DatabaseDataComparer(fe){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>protected int compareData(Object recordData){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>Contact c = (Contact)recordData;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>if (c.dob.month == 6) return 0;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>else return 1;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'>});</pre><pre style='background:#F3F3F3'>FoundEntries june = fe.getSubSet(ia);</pre><pre
+style='background:#F3F3F3'>june.reSort(db.findSort(&quot;By Name&quot;));</pre>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>This example uses a
+DatabaseDataComparer to find all records in which the Contact’s DOB is in the
+month of June regardless of the year. This would not be possible to find using
+a normal find since dates are sorted by year before being sorted by month.<o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc27828805"></a><a name="_Toc33694889"><span
+style='mso-bookmark:_Toc27828805'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Older Versions of Datastore</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>Previous versions of
+the ewe.datastore package required the use of a DataTable object, which itself
+used a DataStorage object to save its data. The problem with using these
+classes directly is that they are bound to a random access file implementation
+to work. There may be platforms that do not support the concept of a file
+system, but support their own implementation of a database system (e.g. Palm
+OS).<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>The new API <b>still
+uses</b> DataTable and DataStorage objects as the implementation of Database on
+Win32 and Linux but the new API avoids the explicit creation of such objects. This
+allows for future implementations to provide the same Database functionality
+but using different implementation objects.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

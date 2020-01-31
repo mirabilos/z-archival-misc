@@ -1,0 +1,2246 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./GuiIssues_files/filelist.xml">
+<link rel=Edit-Time-Data href="./GuiIssues_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>14</o:Revision>
+  <o:TotalTime>154</o:TotalTime>
+  <o:Created>2003-03-17T15:47:00Z</o:Created>
+  <o:LastSaved>2003-03-18T20:45:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1027</o:Words>
+  <o:Characters>5856</o:Characters>
+  <o:Lines>48</o:Lines>
+  <o:Paragraphs>11</o:Paragraphs>
+  <o:CharactersWithSpaces>7191</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:.5in;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1382900103;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2098926314 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:1705327926;
+	mso-list-type:hybrid;
+	mso-list-template-ids:266900322 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1078"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./GuiIssues_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1076" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./GuiIssues_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><span style='mso-ansi-language:EN-GB'>Ewe
+Application Development<o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoToc1><!--[if supportFields]><span lang=EN-US><span
+style='mso-element:field-begin'></span><span style="mso-spacerun:
+yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; <span
+style='mso-element:field-separator'></span></span><![endif]--><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc35672086">Important GUI
+Issues<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1'>  </span><span
+style='mso-field-code:"PAGEREF _Toc35672086 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600370032003000380036000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35672087">Determining Screen Characteristics<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35672087 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600370032003000380037000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35672088">Images in the Ewe Library<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35672088 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600370032003000380038000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35672089">Some Important Constants<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35672089 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600370032003000380039000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35672090">Some Important Methods<span style='color:black;display:
+none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35672090 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003600370032003000390030000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span lang=EN-US><span
+style='mso-element:field-end'></span></span></b><![endif]--><b><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35672086"><span lang=EN-US>Important
+GUI Issues</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>This chapter deals with a number of issues
+having to do with the Ewe GUI library.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35317121"></a><a name="_Toc35672087"><span
+style='mso-bookmark:_Toc35317121'><span lang=EN-US>Determining Screen
+Characteristics</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>How you decide to layout your controls at
+run-time may well be determined by the screen dimensions or the type of system
+the application is being run on. You can determine a number of parameters about
+the running system using the following methods.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>public static boolean ewe.ui.Gui.screenIs(int
+flags)<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This method returns true if the Gui system
+considers the screen to have the characteristic as specified by the <b>flags</b>
+parameter. This parameter can have one of the following values:</span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>BIG_SCREEN – screen width &gt;= 600 and height &gt;= 300.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>WIDE_SCREEN – screen width &gt;= 600 and width &gt; height.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>LONG_SCREEN – screen height &gt;= 290 and height &gt; width.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>DESKTOP_SCREEN – screen width &gt;= 640 and height &gt;= 480.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>DESKTOP_WIDTH – screen width &gt;= 640.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>DESKTOP_HEIGHT – screen height &gt;= 480.</span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>PDA_SCREEN – screen width &lt;= 350 and screen height &lt;=
+     350.</span></li>
+</ul>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>If you need to determine the actual size of
+the screen then you can use the line:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US>Rect screenSize =
+(Rect)Window.getGuiInfo(Window.INFO_SCREEN_RECT,null,new Rect(),0);</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can also determine particular characteristics
+of the GUI system by using the method:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US>public static int
+ewe.ui.Gui.getGuiFlags();</span></p>
+
+<p class=MsoBodyText><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US style='font-weight:normal'>This returns
+an integer value containing a set of flags. These flags will be the bitwise OR
+of the following:<o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US style='font-weight:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo5;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Symbol;font-weight:normal'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>Window.GUI_FLAG_HAS_TASKBAR</span><span
+lang=EN-US style='font-weight:normal'> – which indicates that the OS has a
+Taskbar in which icons can be placed (e.g. Windows).<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo5;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Symbol;font-weight:normal'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>Window.GUI_FLAG_REVERSE_OK_CANCEL</span><span
+lang=EN-US style='font-weight:normal'> – which indicates for this particular
+device you should place Cancel buttons before OK (normally it is the other way
+around) because that is how it is laid out on the device (e.g. on the Sharp
+Zaurus).<o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US style='font-weight:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US style='font-weight:normal'>You can also
+determine if the application is running on a system that is considered to be
+mobile by using <o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US style='font-weight:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText><span lang=EN-US>public static boolean
+ewe.sys.Vm.isMobile();</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35672088"><span lang=EN-US>Images
+in the Ewe Library</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>There are a number of images in the Ewe
+library that you can use for your applications. They are generally used to
+create an <b>mImage</b> object with a transparent mask or transparent color.
+For example:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>mImage mi = new mImage(</span></b><b><span
+style='mso-ansi-language:EN-GB'>&quot;ewe/bottomarrowsmall.bmp&quot;,
+Color.White);<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>or<o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>mImage mi = new mImage(</span></b><b><span
+style='mso-ansi-language:EN-GB'>&quot;ewe/imagesmall.bmp&quot;, new Color.(0,
+255, 0));<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'>or<o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>mImage mi = new mImage(</span></b><b><span
+style='mso-ansi-language:EN-GB'>&quot;ewe/Page.bmp&quot;,
+&quot;ewe/PageMask.bmp&quot;);</span></b><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>These can then be used as icons for a
+variety of controls.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The table below lists the images and the
+mask/color you should use. Note that the image and mask names <b>are
+case-sensitive</b>.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoHeading7><span lang=EN-US>Image</span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  lang=EN-US>Name<o:p></o:p></span></b></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  lang=EN-US>Mask/Color<o:p></o:p></span></b></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoHeading7><span lang=EN-US>Size</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shapetype
+   id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+   path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:12pt;
+   height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image003.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image003.jpg" v:shapes="_x0000_i1025"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/bottomarrowsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1026" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image004.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image004.jpg" v:shapes="_x0000_i1026"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/toparrowsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1027" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image005.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image005.jpg" v:shapes="_x0000_i1027"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/downarrowsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1028" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image006.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image006.jpg" v:shapes="_x0000_i1028"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/uparrowsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1029" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image007.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image007.jpg" v:shapes="_x0000_i1029"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/leftarrowsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1030" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image008.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image008.jpg" v:shapes="_x0000_i1030"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/rightarrowsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=709 colspan=4 valign=top style='width:531.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1031" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image009.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image009.jpg" v:shapes="_x0000_i1031"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/ChooseFile.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1032" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image010.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image010.jpg" v:shapes="_x0000_i1032"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/ClosedFolder.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1033" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image011.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image011.jpg" v:shapes="_x0000_i1033"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/OpenFolder.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1034" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image012.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image012.jpg" v:shapes="_x0000_i1034"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/Drive.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1035" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image013.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image013.jpg" v:shapes="_x0000_i1035"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/NewFolder.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1036" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image014.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image014.jpg" v:shapes="_x0000_i1036"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/FolderUp.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1037" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image015.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image015.jpg" v:shapes="_x0000_i1037"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/Page.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/PageMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=709 colspan=4 valign=top style='width:531.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1038" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image016.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image016.jpg" v:shapes="_x0000_i1038"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/programsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>(None)</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1039" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image017.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image017.jpg" v:shapes="_x0000_i1039"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/zipsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1040" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image018.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image018.jpg" v:shapes="_x0000_i1040"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/imagesmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color(0,255,0)</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1041" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image019.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image019.jpg" v:shapes="_x0000_i1041"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/textsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color(0,255,0)</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1042" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image020.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image020.jpg" v:shapes="_x0000_i1042"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/ewesmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/ewesmallmask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=709 colspan=4 valign=top style='width:531.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1043" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image021.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image021.jpg" v:shapes="_x0000_i1043"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/Computer.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1044" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image022.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image022.jpg" v:shapes="_x0000_i1044"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/HandHeld.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color(0,255,0)</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1045" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image023.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image023.jpg" v:shapes="_x0000_i1045"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/Palm.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color(0,255,0)</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=709 colspan=4 valign=top style='width:531.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1046" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image024.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image024.jpg" v:shapes="_x0000_i1046"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/copysmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1047" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image025.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image025.jpg" v:shapes="_x0000_i1047"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/cutsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1048" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image026.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image026.jpg" v:shapes="_x0000_i1048"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/deletesmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1049" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image027.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image027.jpg" v:shapes="_x0000_i1049"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/pastesmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=709 colspan=4 valign=top style='width:531.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1050" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image028.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image028.jpg" v:shapes="_x0000_i1050"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/newsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1051" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image029.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image029.jpg" v:shapes="_x0000_i1051"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/editsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1052" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image030.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image030.jpg" v:shapes="_x0000_i1052"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/exitsmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1053" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image031.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image031.jpg" v:shapes="_x0000_i1053"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/opensmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1054" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image032.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image032.jpg" v:shapes="_x0000_i1054"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/savesmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1055" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image033.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image033.jpg" v:shapes="_x0000_i1055"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/saveassmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1056" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image034.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image034.jpg" v:shapes="_x0000_i1056"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/optionssmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=709 colspan=4 valign=top style='width:531.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1057" type="#_x0000_t75" style='width:9pt;height:9pt'>
+   <v:imagedata src="./GuiIssues_files/image035.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=12 height=12
+  src="./GuiIssues_files/image036.jpg" v:shapes="_x0000_i1057"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/SmallConfig.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/SmallConfigMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1058" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image037.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image037.jpg" v:shapes="_x0000_i1058"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/Stop.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1059" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image038.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image038.jpg" v:shapes="_x0000_i1059"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/WaitSmall.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=709 colspan=4 valign=top style='width:531.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1060" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image039.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image039.jpg" v:shapes="_x0000_i1060"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/detailview.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color(255,0,0)</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1061" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image040.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image040.jpg" v:shapes="_x0000_i1061"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/wideview.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color(255,0,0)</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1062" type="#_x0000_t75" style='width:12pt;height:12pt'>
+   <v:imagedata src="./GuiIssues_files/image041.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=16 height=16
+  src="./GuiIssues_files/image041.jpg" v:shapes="_x0000_i1062"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/listview.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color(255,0,0)</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=709 colspan=4 valign=top style='width:531.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1063" type="#_x0000_t75" style='width:12.75pt;height:6.75pt'>
+   <v:imagedata src="./GuiIssues_files/image042.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=17 height=9
+  src="./GuiIssues_files/image042.jpg" v:shapes="_x0000_i1063"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/UpDown.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1064" type="#_x0000_t75" style='width:6.75pt;height:12.75pt'>
+   <v:imagedata src="./GuiIssues_files/image043.jpg" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=9 height=17
+  src="./GuiIssues_files/image043.jpg" v:shapes="_x0000_i1064"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/LeftRight.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>16x16</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1065" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image044.png" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image045.jpg" v:shapes="_x0000_i1065"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/ewebig.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Color.White</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=709 colspan=4 valign=top style='width:531.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><![if !supportEmptyParas]>&nbsp;<![endif]><span
+  lang=EN-US><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1066" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image046.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image046.gif" v:shapes="_x0000_i1066"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/BusyCursor.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/BusyCursorMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1067" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image047.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image047.gif" v:shapes="_x0000_i1067"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/CopyMultipleCursor.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/CopyMultipleCursorMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1068" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image048.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image048.gif" v:shapes="_x0000_i1068"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/CopySingleCursor.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/CopySingleCursorMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1069" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image049.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image049.gif" v:shapes="_x0000_i1069"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/DontDropCursor.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/DontDropCursorMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1070" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image050.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image050.gif" v:shapes="_x0000_i1070"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/DragMultipleCursor.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/DragMultipleCursorMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1071" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image051.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image051.gif" v:shapes="_x0000_i1071"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/DragSingleCursor.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/DragSingleCursorMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1072" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image052.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image052.gif" v:shapes="_x0000_i1072"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/HandCursor.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/HandCursorMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1073" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image053.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image053.gif" v:shapes="_x0000_i1073"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/LeftRightCursor.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/LeftRightCursorMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='width:71.6pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><!--[if gte vml 1]><v:shape
+   id="_x0000_i1074" type="#_x0000_t75" style='width:24pt;height:24pt'>
+   <v:imagedata src="./GuiIssues_files/image054.gif" o:title=""/>
+  </v:shape><![endif]--><![if !vml]><img border=0 width=32 height=32
+  src="./GuiIssues_files/image054.gif" v:shapes="_x0000_i1074"><![endif]></span></p>
+  </td>
+  <td width=284 valign=top style='width:212.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/UpDownCursor.bmp</span></p>
+  </td>
+  <td width=257 valign=top style='width:193.05pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>ewe/UpDownCursorMask.bmp</span></p>
+  </td>
+  <td width=72 valign=top style='width:.75in;border-top:none;border-left:none;
+  border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US>32x32</span></p>
+  </td>
+ </tr>
+</table>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35672089"><span lang=EN-US>Some
+Important Constants</span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>These are values that are returned by
+standard Forms such as MessageBox:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  lang=EN-US>Name<o:p></o:p></span></b></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  lang=EN-US>Returned when…<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>IDCANCEL</span></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Cancel or Window 'x' button pressed.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>IDOK</span></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>OK button pressed.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>IDYES</span></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>YES button pressed.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>IDNO</span></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>NO button pressed</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>IDBACK</span></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>BACK button pressed.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>These are values that can be passed as a
+type of MessageBox:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<table border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;
+ border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  lang=EN-US>Name<o:p></o:p></span></b></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  lang=EN-US>Displays<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>MBOK</span></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>A single OK button.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>MBOKCANCEL</span></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>OK and Cancel buttons.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>MBYESNO</span></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Yes and No buttons.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=348 valign=top style='width:261.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>MBYESNOCANCEL</span></p>
+  </td>
+  <td width=348 valign=top style='width:261.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span lang=EN-US>Yes, No and Cancel buttons.</span></p>
+  </td>
+ </tr>
+</table>
+
+<h2 style='background:#CCFFFF'><a name="_Toc35672090"><span lang=EN-US>Some
+Important Methods</span></a></h2>
+
+<p class=MsoToc1><span lang=EN-US>static void Gui.takeFocus(Control c, int
+how);</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>Switch focus to a particular
+control. See the API to see the possible values of <b>how</b>.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>static void Gui.setOKCancel(Form f);</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>Puts the OK and
+Cancel buttons in the appropriate place in a Form (either at the bottom or in
+the title).</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>static void Gui.setStyle(int style);</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span lang=EN-US>Sets the style to
+be STYLE_ETCHED or STYLE_3D or STYLE_SOFT (STYLE_SOFT is not recommended for
+mobile devices due to slower display times).</span></p>
+
+<h2 style='background:#CCFFFF'><span lang=EN-US>Some Important Classes</span></h2>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>ewe.fx.TextAndIcon<o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This is used to display an icon and text
+together as a single image. This is useful since most controls can either
+display a line of text <b>or</b> an icon. Most of the times this will be done
+automatically for you and so you do not need to create one explicitly, but it
+may be useful in certain circumstances.</span></p>
+
+<h4 style='background:#E6E6E6'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>ewe.fx.ImageCache<o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This is used to fetch images that you may
+use more than once. Rather than have multiple copies of the image this will get
+the image once, and any requests for the same image will return the previously
+fetched image. To get an image use:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:.5in'><span lang=EN-US>IImage get(String
+imageName, Object maskOrColor);</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The static cache <b>ImageCache.cache</b>
+can be used.</span></p>
+
+<h4 style='background:#E6E6E6'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>ewe.fx.DrawnIcon<o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This class is an image that is <b>drawn</b>
+rather than being a bitmapped image. There are two DrawnIcon types defined: <b>TICK</b>
+and <b>CROSS</b>. They pen that is used to draw these images can be specified
+in the constructor.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

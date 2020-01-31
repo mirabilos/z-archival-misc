@@ -1,0 +1,856 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./ZipFiles_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>843</o:TotalTime>
+  <o:Created>2003-03-13T19:00:00Z</o:Created>
+  <o:LastSaved>2003-03-19T10:45:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>904</o:Words>
+  <o:Characters>5156</o:Characters>
+  <o:Lines>42</o:Lines>
+  <o:Paragraphs>10</o:Paragraphs>
+  <o:CharactersWithSpaces>6331</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1175455146;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-569871410 67698701 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0FC;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./ZipFiles_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./ZipFiles_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></a><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-begin'></span></span><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>DATE \@
+&quot;dd MMMM yyyy&quot; \* MERGEFORMAT </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span><!--[if supportFields]><span
+lang=EN-US><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><a
+href="http://www.ewesoft.com/">http://www.ewesoft.com/</a></span><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><!--[if supportFields]><b><span
+lang=EN-US><span style='mso-element:field-begin'></span></span></b><b><span
+style='mso-ansi-language:EN-GB'><span style="mso-spacerun: yes"> </span>TOC \h
+\z \t &quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; </span><span lang=EN-US><span
+style='mso-element:field-separator'></span></span></b><![endif]--><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35331524">Using The Zip
+Library<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc35331524 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330031003500320034000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35331525">Writing Data to
+a Zip File<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc35331525 \\h"'>1<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330031003500320035000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35331526">Reading Data
+from a Zip File<span style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span><span
+style='mso-field-code:"PAGEREF _Toc35331526 \\h"'>2<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330031003500320036000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span
+class=MsoHyperlink><b><span lang=EN-US><a href="#_Toc35331527">Using the
+ZipFile Object<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span><span
+style='mso-field-code:"PAGEREF _Toc35331527 \\h"'>3<span style='font-weight:
+normal'><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300330031003500320037000000</w:data>
+</xml><![endif]--></span></span></span></a></span></b></span><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span lang=EN-US><span
+style='mso-element:field-end'></span></span></b><![endif]--><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc518690074"></a><a
+name="_Toc35331524"><span style='mso-bookmark:_Toc518690074'><span lang=EN-US>Using
+The Zip Library</span></span></a></h2>
+
+<p class=MsoNormal><b><span lang=EN-US>Ewe</span></b><span lang=EN-US> provides
+a Zip file implementation with an API similar to the Java API. These are in the
+ewe.zip package and the main classes that you would use are:</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>DeflaterOutputStream – This is used to
+compress a data stream.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>InflaterInputStream – This is used to
+uncompress a deflated stream.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>ZipInputStream – This is used to read
+individually compressed files within a single ZIP file.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>ZipOutputStream – This is used to
+write individually compressed files to a single ZIP file.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>ZipFile – This is used to randomly
+access compressed files within a single ZIP file.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span lang=EN-US style='font-family:
+Wingdings'>ü<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span lang=EN-US>ZipEntry – Every file within a ZIP
+file has one of these associated with it.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The DeflaterOutputStream and InflaterInputStream
+objects are only used for storing compressed data inside non-ZIP files (e.g.
+within a PNG image). Please consult the APIs for each of these to see how to
+use them.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Another API is provided in <b>ewe.util.zip</b>.
+This provides different ZipFile, ZipEntry, ZipInputStream and ZipOutputStream
+implementations that are almost identical to the <b>java.util.zip</b> package.
+This is based on the functionality of ewe.zip but makes it easier to port Java
+code to and from Ewe.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The example code below uses the <b>ewe.util.zip</b>
+package.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc518690075"></a><a
+name="_Toc35331525"><span style='mso-bookmark:_Toc518690075'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Writing
+Data to a Zip File</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Use a <b>ZipOutputStream</b> to create a
+new ZIP archive. You must give it a destination output stream to write to when
+you construct it. Then for each compressed file you want to store you must
+first create and store a zip entry for the file, and then write the individual
+bytes for the file into the zip stream. If you are writing a STORED entry, you
+must set the size of the ZipEntry (using setSize()) and the CRC of the entry
+(using setCRC()) before you write the bytes.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Here is an example of creating a new zip file:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>package
+samples.zip;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>import
+ewe.util.zip.*;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>import
+ewe.io.*;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//##################################################################<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public
+class CreateZip{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//##################################################################<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//===================================================================<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public
+static void addEntry(String name,int method,File f,ZipOutputStream zos) throws
+IOException<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//===================================================================<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ewe.sys.Vm.debug(&quot;Adding: &quot;+f);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ZipEntry ze = new ZipEntry(name);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ze.setMethod(method);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>if (method == ZipEntry.STORED){ //Must set
+these for STORED entries.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>CRC32 crc = new CRC32();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>crc.reset();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>byte [] buff = new byte[1024];<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>Stream is = f.toReadableStream();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>while(true){<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:3'>                </span>int got =
+is.read(buff,0,buff.length);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:3'>                </span>if (got &lt;= 0) break;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:3'>                </span>crc.update(buff,0,got);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>is.close();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>ze.setCrc(crc.getValue());<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>ze.setSize(f.getLength());<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>zos.putNextEntry(ze);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>Stream is = f.toReadableStream();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>new IOTransfer().transfer(is,new
+StreamAdapter(zos));<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>is.close();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//===================================================================<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public
+static void main(String args[]) throws IOException<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//===================================================================<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ewe.sys.Vm.startEwe(args);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ZipOutputStream zos = new
+ZipOutputStream(new File(&quot;Sample.zip&quot;).toWritableStream(false));<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>addEntry(&quot;First.java&quot;,ZipEntry.DEFLATED,new
+File(&quot;samples/ui/ShowExec.java&quot;),zos);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>addEntry(&quot;Second.java&quot;,ZipEntry.STORED,new
+File(&quot;samples/ui/Events.java&quot;),zos);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>addEntry(&quot;Third.java&quot;,ZipEntry.DEFLATED,new
+File(&quot;samples/ui/TestPanel.java&quot;),zos);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>zos.finish();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>zos.close();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ewe.sys.Vm.debug(&quot;Done.&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ewe.sys.mThread.nap(1000);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ewe.sys.Vm.exit(0);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//##################################################################<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//##################################################################<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc518690076"></a><a
+name="_Toc35331526"><span style='mso-bookmark:_Toc518690076'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Reading
+Data from a Zip File</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>Use a <b>ZipInputStream</b> to read the
+entries from a ZIP archive. You must give it a source input stream to read from
+(e.g. a FileInputStream). Once the stream is open, you use <b>getNextEntry()</b>
+to get the individual zip entries. You would then read each byte from the ZipInputStream
+until it reports that it is at the end of the stream. </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Here is an example which read data from a
+Zip file.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>package
+samples.zip;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>import
+ewe.util.zip.*;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>import
+ewe.io.*;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//##################################################################<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public
+class ReadZip{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//##################################################################<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//===================================================================<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>public
+static void main(String args[]) throws IOException<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//===================================================================<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>{<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ewe.sys.Vm.startEwe(args);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ZipInputStream zis = new ZipInputStream(new
+File(&quot;Sample.zip&quot;).toReadableStream());<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>while(true){<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>ZipEntry ze = zis.getNextEntry();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>if (ze == null) break;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>byte [] buff = new byte[512];<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>int total = 0;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>while(true){<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:3'>                </span>int got =
+zis.read(buff,0,buff.length);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:3'>                </span>if (got &lt;= 0) break;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:3'>                </span>total += got;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>ewe.sys.Vm.debug(ze.getName()+&quot;
+= &quot;+total+&quot; bytes.&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>zis.close();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>//<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>// Use a ZipFile to do the same.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>//<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ZipFile zf = new
+ZipFile(&quot;Sample.zip&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ewe.util.Enumeration it = zf.entries();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>while(it.hasMoreElements()){<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>ZipEntry ze =
+(ZipEntry)it.nextElement();<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:2'>           </span>ewe.sys.Vm.debug(ze.getName()+&quot;
+Uncompressed:&quot;+ze.getSize()+&quot;
+Compressed:&quot;+ze.getCompressedSize());<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ewe.sys.mThread.nap(3000);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><span
+style='mso-tab-count:1'>     </span>ewe.sys.Vm.exit(0);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//##################################################################<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'>//##################################################################<o:p></o:p></span></p>
+
+<p class=MsoNormal style='background:#E6E6E6'><span lang=EN-US
+style='font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua";
+mso-bidi-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc518690077"></a><a
+name="_Toc35331527"><span style='mso-bookmark:_Toc518690077'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'>Using
+the ZipFile Object</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>A <b>ZipFile</b> object will automatically
+parse an entire ZIP file and build up a table of entries. You can then access entries
+individually.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You would open the ZIP using one of the
+constructors e.g.:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:.5in'><span lang=EN-US>ZipFile zf = new
+ZipFile(new File(&quot;Sample.zip&quot;));</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Calling <b>getEntries()</b> will give you
+an <b>Iterator</b> object which you can use to step through each ZipEntry in
+the file. You can also call <b>getEntry(String name)</b> to get an entry which
+matches the specified name.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Once you have a ZipEntry you can read the
+data associated with it by calling <b>getInputStream(ZipEntry entry)</b>. This
+returns a stream from which the original data can be read.</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,478 @@
+<html>
+<!-- $MirOS: contrib/hosted/ewe/devel/SetupSDK.htm,v 1.1 2008/04/10 17:29:51 tg Exp $ -->
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Setting up the Ewe SDK</title>
+</head>
+
+<body bgcolor="#FFFFCC">
+
+<h1 align="center">Configuring and Using the Ewe SDK</h1>
+<p align="center">January 20, 2005<br>
+Michael L Brereton<br>
+<a href="http://www.ewesoft.com">www.ewesoft.com</a></p>
+<h3 style="background-color: #C4FFC4"><font color="#000080">Contents</font></h3>
+<blockquote>
+  <ul>
+    <li>
+      <p align="left"><a href="#Introduction">Introduction</a></li>
+    <li>
+      <p align="left"><a href="#Compiling and Running Ewe Applications - Expert">Compiling
+      and Running Ewe Applications - Experts</a></li>
+    <li>
+      <p align="left"><a href="#CompilingRunning">Compiling and Running Ewe
+      Applications - Part 1, Quick Start</a></li>
+    <li>
+      <p align="left"><a href="#Compiling and Running Ewe Applications - Part 2, Advanced Topics">Compiling
+      and Running Ewe Applications - Part 2, Advanced Topics</a></li>
+    <li>
+      <p align="left"><a href="#Configuring Eclipse for Ewe Development">Configuring
+      Eclipse for Ewe Development</a></li>
+  </ul>
+</blockquote>
+<h3 style="background-color: #C4FFC4"><font color="#000080"><a name="Introduction">Introduction</a></font></h3>
+<p align="left"><font face="Arial" size="2">Thank you for downloading and
+installing the Ewe SDK. This document will help you set up your standard Java
+SDK tools and IDE to be able to easily write, compile, execute and debug Ewe
+applications.</font></p>
+<p align="left"><font face="Arial" size="2">By this time you would have already
+read about Ewe, its capabilities and its differences from a standard Java VM.
+However at this point it is best to briefly mention some important aspects of
+the Ewe platform.</font></p>
+<ul>
+  <li>
+    <p align="left"><font face="Arial" size="2">A <b>Native Ewe VM</b> is one
+    that has been written specifically for a particular platform. Native Ewe VMs
+    are available for Microsoft PocketPC, Microsoft Smartphone, Microsoft
+    Windows, Linux Desktop and some Linux Mobile systems (e.g. the Zaurus
+    SL-5000). On Microsoft platforms the VM usually consists of a small launcher
+    executable <b>ewe.exe</b> and the VM within a DLL, <b>ewe.dll</b> along with
+    a few other support DLLs (e.g. <b>ewex_registry.dll</b>).<br>
+    </font></li>
+  <li>
+    <p align="left"><font face="Arial" size="2">A <b>Native Ewe VM</b> contains
+    within it all classes in the Ewe library (the <b>ewe.xxx</b> packages) as
+    well as <b>some</b> classes in <b>java.lang</b> and most in <b>java.lang.reflect</b>.
+    A Native Ewe VM is therefore <b>not</b> a fully functional, standard Java VM.
+    It can be thought of a VM that implements some Java classes, plus an
+    external library (the ewe.xxx packages).&nbsp;<br>
+    </font></li>
+  <li>
+    <p align="left"><font face="Arial" size="2">A <b>Ewe Application </b>or <b>Ewe
+    Compatible Library</b> is one that targets the Ewe VM. That is, it only uses
+    classes which are in the Ewe library, or which are selected <b>java.lang</b>
+    classes or <b>java.lang.reflect</b> classes, or classes from another <b>Ewe
+    Compatible Library</b>. For instance, a Ewe Application or Compatible
+    Library would <b>not</b> use any class in <b>java.util</b> (e.g.
+    java.util.Vector)&nbsp; but would instead use the Ewe Library equivalent <b>ewe.util.Vector</b>.&nbsp;<br>
+    </font></li>
+  <li>
+    <p align="left"><font face="Arial" size="2">A <b>Ewe Application</b> can
+    therefore be run on any native Ewe VM, since the classes required by the
+    application will be within the native Ewe VM.<br>
+    </font></li>
+  <li>
+    <p align="left"><font face="Arial" size="2">A <b>Ewe Application</b> can <b>also</b>
+    be run on any Java VM with the use of an external JAR or ZIP file which
+    contains the Ewe library specially written for a true Java VM. There are two
+    such external library files provided by Ewesoft - <b>ewe.jar</b> and <b>JavaEwe.zip</b>.
+    The use of these two files and the differences between them are discussed in
+    later sections.</font></li>
+</ul>
+<p align="left"><font face="Arial" size="2">It is important to also note that a
+Ewe Application <b>is</b> a <b>Pure Java</b> application. All classes and
+methods used by a Ewe Application and which are contained within the external
+Ewe library JAR/ZIP files are Pure Java classes. This is why a Ewe Application
+can be run on any system with a Java VM and can also be converted easily into an
+Applet without any additional programming.</font></p>
+<p><font color="#000080" face="Arial" size="2"><i><b>What's in the SDK</b></i></font></p>
+<p align="left"><font face="Arial" size="2">The SDK contains within it several
+directories. These are:</font></p>
+<ul>
+  <li>
+    <p align="left"><font face="Arial" size="2"><b>classes</b> - which contains
+    sample Ewe classes as well as the JAR/ZIP libraries need to compile and run
+    Ewe Applications on the desktop.</font></li>
+  <li>
+    <p align="left"><font face="Arial" size="2"><b>programs</b> - which contains
+    the Jewel program builder along with its associated support files. This is
+    used to create <b>.ewe</b> files from your applications and other
+    distributable file types for your application.</font></li>
+  <li>
+    <p align="left"><font face="Arial" size="2"><b>eni</b> - which contains the <b>eni.h</b>
+    file used for writing DLLs to interface to both Native Ewe VMs and Java VMs
+    to implement native Java methods.</font></li>
+</ul>
+<p><font color="#000080" face="Arial" size="2"><i><b>What's not in the SDK</b></i></font></p>
+<p align="left"><font face="Arial" size="2">In addition to the SDK you should
+also download the <b>Ewe API</b> and the <b>Ewe Development Guide</b> both of
+which are available for download from the same location as the SDK.</font></p>
+<h3 style="background-color: #C4FFC4"><font color="#000080"><a name="Compiling and Running Ewe Applications - Expert">Compiling and
+Running Ewe Applications - Expert</a></font></h3>
+<p><font face="Arial" size="2" color="#008000">This <b>Expert </b>section is
+intended for developers who are experienced in Java development and in
+configuring their Integrated Development Environment (IDE), or who have had
+prior experience using Ewe. Other users may wish to go to the <a href="#CompilingRunning">following
+sections</a> for more detailed explanations on compiling and running Ewe
+applications.</font></p>
+<p><font color="#000080" face="Arial" size="2"><i><b>Compiling Ewe Applications
+- </b><b>CompileEwe.zip</b></i></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">The file <b>CompileEwe.zip </b>is within the <b>classes</b>
+  directory of the SDK and it is used as the library for <b>compiling</b> Ewe
+  applications. When compiling Ewe applications, you must instruct your
+  compiler/IDE to:</font></p>
+  <ol>
+    <li><font face="Arial" size="2"><b>Disregard standard Java libraries</b> -
+      i.e. tell the compiler <b>not</b> to use the standard Java SDK libraries
+      since they will contain common Java classes which are not supported by the
+      Ewe VM.<br>
+      </font></li>
+    <li><font face="Arial" size="2"><b>Include the file CompileEwe.zip as a
+      class library</b> - i.e. tell the compiler to look within this file for
+      all classes. Of course you would add the project class directory and any
+      other Ewe compatible libraries that you may have.</font></li>
+  </ol>
+  <p><font face="Arial" size="2">Under IDEs like <b>Eclipse</b> this would mean <b>removing</b>
+  the reference to <b><i>JRE System Library</i></b> in the <b>Libraries </b>tab
+  of the <b>Java Build Path </b>of the <b>Project Properties</b>, and adding
+  instead the file<i> <b>CompileEwe.zip</b></i> as an <b>External Jar</b>.</font></p>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><i><b>Running/Debugging Ewe
+Applications with a Java VM - JavaEwe.zip</b></i></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">The file <b>JavaEwe.zip</b> is also in the <b>classes</b>
+  directory of the SDK and it is used when you wish to <b>run</b> a Ewe
+  application using a standard Java VM (version 1.2 or better). The <b>JavaEwe.zip</b>
+  file contains:</font></p>
+  <ol>
+    <li><font face="Arial" size="2">Debug builds of the Ewe class library for
+      Java VMs. This allows a Java VM to execute a Ewe application.<br>
+      </font></li>
+    <li><font face="Arial" size="2">Full source code to all the classes in the
+      zip file. This allows you to <b>trace into</b> the Ewe library itself when
+      debugging your Ewe applications.</font></li>
+  </ol>
+  <p><font face="Arial" size="2">So, in order to use a Java VM to run a Ewe
+  application, you must provide JavaEwe.zip as an external library (i.e. you
+  must include it in the <i>classpath</i> for the VM). You <b>must note</b>
+  however that you never execute your main runnable Ewe class directly - you
+  must always run the class <b>Ewe</b> (which is within the JavaEwe.zip library)
+  and then provide your main Ewe class as an <b>argument</b>. For example, if
+  you wished to run the class <b>tests.HelloWorld</b> you would have to run:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font>java
+    -cp JavaEwe.zip;./ <font color="#000080"> Ewe</font> tests.HelloWorld</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">Note the Java VM will actually execute the
+  class <b>Ewe</b> (contained in JavaEwe.zip). The <b>Ewe</b> class will setup
+  the Ewe library, then load the class specified as the argument to Ewe (tests.HelloWorld)
+  and then pass execution on to that class, including any further arguments
+  provided.</font></p>
+  <p><font face="Arial" size="2">Any special <b>Ewe VM Command Line Switches</b>
+  (e.g. &quot;/p&quot; to simulate a PocketPC, or &quot;/s&quot; to simulate a
+  Smartphone) must be placed between <b>Ewe</b> and the target class name. e.g.:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font>java
+    -cp JavaEwe.zip;./ <font color="#000080"> Ewe /s</font> tests.HelloWorld</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">Therefore to configure your IDE to
+  execute/debug a Ewe Application you must:</font></p>
+  <ol>
+    <li><font face="Arial" size="2">Include the file <b>JavaEwe.zip</b> in the <b>classpath</b>
+      of the Java VM you are using. Under <b>Eclipse</b> this means adding it in
+      as an <b>External Jar</b>.<br>
+      </font></li>
+    <li><font face="Arial" size="2"><b>Always</b> specify the target class as <b>Ewe</b>
+      (no package specifiers).<br>
+      </font></li>
+    <li><font face="Arial" size="2">Provide the actual target class you wish to
+      execute as an <b>argument</b> to <b>Ewe</b> using full dot notation.</font></li>
+  </ol>
+</blockquote>
+<h3 style="background-color: #C4FFC4"><font color="#000080"><a name="CompilingRunning">Compiling and
+Running Ewe Applications - Part 1, Quick Start</a></font></h3>
+<blockquote>
+  <p><font face="Arial" size="2">The <b>classes</b> directory within the SDK is
+  the location for the important SDK library files and for the example Java
+  packages. Within this directory you will find two ZIP files <b>JavaEwe.zip</b>
+  and <b>CompileEwe.zip</b>, and two subdirectories containing sample Ewe
+  classes, <b>solitaire</b> and <b>tests</b>. We will now try to compile and run
+  the <b>HelloWorld.java</b> file located in the <b>tests</b> directory. The
+  examples given show how to do this from the command line, but doing this from
+  an IDE is discussed later.</font></p>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><b><i>Java Class Organizations</i></b></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">Remember that, under Java, classes are
+  organized into <b>packages</b> and <b>sub-packages </b>and that these packages
+  are represented on the file system as directories (folders). The full class
+  name is written in dot notation like: <b>ewe.net.Socket</b>. So the Java
+  source file for this class would be expected to be a file called <b>Socket.java</b>
+  in a directory called <b>net</b> which itself would be in a directory called <b>ewe</b>.</font></p>
+  <p><font face="Arial" size="2">The file <b>HelloWorld.java</b> is in a
+  directory called <b>tests</b> because the HelloWorld class has been placed in
+  the <b>tests</b> package. This is indicated by the first line of code in
+  HelloWorld.java:</font></p>
+  <p style="background-color: #F3F3F3; border-style: solid; border-width: 1"><font face="Courier New" size="2"><br>
+  package tests;<br>
+  </font></p>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><b><i>The JavaEwe.zip Library</i></b></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">The zip file <b>JavaEwe.zip</b> contains all
+  the class files needed to both <b> compile</b> <b> and</b> <b> run</b> a Ewe application on a Java VM
+  that is at least 1.2 compliant (this is now called <i>Java 2</i> by Sun). It
+  contains all the classes in the Ewe library as documented in the Ewe API, plus
+  some classes and packages that support the Ewe library when running on a Java
+  VM. <i>These additional classes exist in the library but they are not part of
+  the public Ewe API and so you should not use them in your applications.</i></font></p>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><b><i>Compiling using JavaEwe.zip</i></b></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">We will now attempt to compile the <b>tests/HelloWorld.java</b>
+  file using the JDK installed on your system. To do so the current working
+  directory for the command line should be the <b>classes </b>directory of the
+  SDK. Then you use the command:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font></b></font><font face="Courier New" size="2"><b>&lt;path_to_javac&gt;/javac
+    -classpath JavaEwe.zip;./ tests/HelloWorld.java</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">The part that reads: <b><i>-classpath
+  JavaEwe.zip;./</i></b> tells the compiler to look both in JavaEwe.zip and in
+  the current directory to find classes during compilation. On my system the
+  command would be:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font></b></font><font face="Courier New" size="2"><b>F:/programs/jdk14/bin/javac
+    -classpath JavaEwe.zip;./ tests/HelloWorld.java</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">If this compilation was successful there will
+  be no messages generated by the compiler and a file called <b>HelloWorld.class</b>
+  will be created within the <b>tests</b> directory. Try compiling <b>solitaire/Solitaire.java</b>
+  as well.</font></p>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><b><i>Running using a Ewe VM</i></b></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">If there is a native Ewe VM available for your
+  platform you can run the class files like this:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font></b></font><font face="Courier New" size="2"><b>&lt;path_to_ewe&gt;/ewe
+    tests.HelloWorld</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">Note the notation for the class - <b>tests.HelloWorld</b>.
+  When we were <b>compiling</b> we specified a <b>file name</b> for the compiler
+  to work on. Here we are specifying a <b>class name</b> - so we provide the
+  full package name and the class name, but we do <b>not</b> put a <b>.class</b>
+  at the end. Note that we do not need to specify a class path, since the Ewe VM
+  will look in the current directory by default for classes. Since the class
+  name is <b>tests.HelloWorld</b> the VM will look automatically for a
+  HelloWorld.class file within a tests directory in the current directory.</font></p>
+  <p><font face="Arial" size="2">On my system the command line would be:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font></b></font><font face="Courier New" size="2"><b>c:\&quot;program
+    files&quot;\ewe\ewe tests.HelloWorld</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">and for solitaire it would be:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font></b></font><font face="Courier New" size="2"><b>c:\&quot;program
+    files&quot;\ewe\ewe solitaire.Solitaire</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">If you get a <b>java/lang/NoClassDefFoundError</b>
+  this indicates that you are probably within the wrong directory - ensure that
+  you are in the <b>classes</b> directory of the SDK.</font></p>
+  <p><font face="Arial" size="2">Note that there are some special Ewe VM Command
+  Line Switches that can be used to alter the runtime behavior of the VM. These
+  include:</font></p>
+  <ul>
+    <li><font face="Arial" size="2">/p - to simulate a PocketPC (all windows
+      will appear at the top left of the desktop in this mode - do not move them
+      from there.)</font></li>
+    <li><font face="Arial" size="2">/s - to simulate a Microsoft Smartphone.</font></li>
+    <li><font face="Arial" size="2">/w &lt;width&gt; - to specify a specific
+      device screen width in pixels.</font></li>
+    <li><font face="Arial" size="2">/h &lt;height&gt; - to specify a specific
+      device screen height in pixels.</font></li>
+  </ul>
+  <p><font face="Arial" size="2">These switches must be placed immediately
+  before the name of the class to execute. For example try this:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font>c:\&quot;program
+    files&quot;\ewe\ewe /s solitaire.Solitaire</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">Try it again using the /p option instead.</font></p>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><b><i>Running using a Java VM</i></b></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">To run a Ewe application with the <b>Java VM </b>you
+  run the command line:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font></b></font><font face="Courier New" size="2"><b>java
+    -cp JavaEwe.zip;&lt;extra_class_paths&gt; Ewe &lt;package_and_class&gt;</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">Please note the <b>Ewe </b> that is <b>before </b>
+  the full class name that you wish to run. So we would run HelloWorld by doing
+  this:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font>java
+    -cp JavaEwe.zip;./ Ewe tests.HelloWorld</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">or for solitaire:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font>java
+    -cp JavaEwe.zip;./ Ewe solitaire.Solitaire</b></font></p>
+  </blockquote>
+  <p><font face="Arial" size="2">Please not that the Java VM does not run the
+  class you specified directly. In fact the Java VM is directed to run the class
+  called <b>Ewe</b> (which is within the JavaEwe.zip file). This class then
+  starts up the Ewe library and then locates, loads and runs the target class
+  file (e.g. tests.HelloWorld).</font></p>
+  <p><font face="Arial" size="2">Note that the Ewe VM command line switches
+  described above also work here. You specify the switches between the <b>Ewe</b>
+  and the target class name. e.g.:</font></p>
+  <blockquote>
+    <p><font face="Courier New" size="2"><b><font color="#808080">EweSDK\classes&gt;</font>java
+    -cp JavaEwe.zip;./ Ewe /s solitaire.Solitaire</b></font></p>
+  </blockquote>
+</blockquote>
+<p><font face="Arial" size="2"><font color="#000080"><b><i>Why would you want to
+run your application using a Java VM when you intend to run on a Ewe VM? </i></b></font></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">The most important reason to do this during
+  application development is to take advantage of the debugging features
+  afforded by a true Java VM. A true Java VM allows you to step through your
+  code line by line if needed and also allows you to view the values of fields
+  and variables as you step through the application. These features are
+  currently <b>not</b> provided by a Ewe VM.</font></p>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><i><b>What is the Ewe.jar file?</b></i></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">In the classes directory you will also find the
+  file: <b>Ewe.jar. </b>Ewe.jar can <b>also</b> be used to compile and run Ewe
+  programs, however unlike <b>JavaEwe.zip</b> the Ewe.jar file does <b>not</b>
+  contain any source code and the class files may not have debugging information
+  in them. Therefore when you are debugging your Ewe application you will not be
+  able to trace into the classes in the Ewe library. However Ewe.jar is much
+  smaller than JavaEwe.zip and so when you are distributing your application,
+  you may wish to include Ewe.jar instead of JavaEwe.zip.</font></p>
+</blockquote>
+<h3 style="background-color: #C4FFC4"><font color="#000080"><a name="Compiling and Running Ewe Applications - Part 2, Advanced Topics">Compiling and
+Running Ewe Applications - Part 2, Advanced Topics</a></font></h3>
+<p><font color="#000080" face="Arial" size="2"><b><i>Problems compiling with
+JavaEwe.zip</i></b></font></p>
+<blockquote>
+<p><font face="Arial" size="2">When you tell your compiler to use JavaEwe.zip
+during the compiling of your applications, it will look for classes that are in
+JavaEwe.zip <b>and</b>, by default, classes which are in the standard JDK. This
+is necessary because JavaEwe.zip does not contain the <b>java.lang</b> and <b>java.lang.reflect</b>
+classes which are part of the Ewe library. When the compiler comes across
+java.lang classes it will use the classes from the standard JDK library.</font> <font face="Arial" size="2">While
+this is normally OK to do, there are two potential problems with doing this.</font></p>
+  <ol>
+    <li><font face="Arial" size="2">The standard JDK library will contain a
+      number of other class files which are <b>not </b>supported by a native Ewe
+      VM. So it will be possible for you to refer to classes like <b>java.awt.Color</b>
+      in your Ewe application, which will <b>compile</b> correctly but which
+      will generate a class not found run-time error when run on a native Ewe VM.<br>
+      </font></li>
+    <li><font face="Arial" size="2"><b>Not all</b> of the methods in the
+      java.lang classes are implemented by the Ewe VM and not all of the
+      implemented classes are complete. For example, although there <b>is</b> a <b>java.lang.System</b>
+      class in a native Ewe VM, there is no <b>out</b> field in the System class
+      on the native VM. Therefore a method call like: <i>System.out.println(&quot;Hello&quot;);</i>
+      will compile correctly but will generate a method not found run-time error
+      when run on a native Ewe VM.</font></li>
+  </ol>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><b><i>Compiling using
+CompileEwe.zip</i></b></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">To ensure that the compiler <b>only</b> allows
+  the compiling of classes and methods which actually <b>are</b> supported by
+  the native Ewe VMs, you should tell the compiler to look in the file <b>CompileEwe.zip</b>
+  which also exists in the <b>classes</b> directory along with JavaEwe.zip. This
+  zip file contains only the classes that are actually supported by a native Ewe
+  VM.</font></p>
+  <p><font face="Arial" size="2">When running your applications under Java, you
+  should continue to use JavaEwe.zip so that you can use the debug features of
+  your IDE.</font></p>
+</blockquote>
+<h3 style="background-color: #C4FFC4"><font color="#000080"><a name="Configuring Eclipse for Ewe Development">Configuring
+Eclipse for Ewe Development</a></font></h3>
+<blockquote>
+  <p><font face="Arial" size="2"><b><a href="http://www.eclipse.org">Eclipse</a></b>
+  is the recommended IDE for Ewe developers. It is extremely powerful and has an
+  unbelievable number of tools for Java developers. Ewesoft will be introducing
+  a number of Ewe developer tools which will be available as plug-ins for Jewel
+  in the near future.</font></p>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><b><i>Configuring Compiling
+(Build) using CompileEwe.zip</i></b></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">The image below shows the modification of an
+  Eclipse Project telling the compiler to use <b>CompileEwe.zip</b> as the
+  source for classes during build. Note that originally the <b>Libraries</b> tab
+  contained an entry for <i><b>JRE System Library</b> </i> which was <b>removed</b>
+  before the <b>Add External JARs</b> button was pressed to add in <b>CompileEwe.zip</b>.</font></p>
+</blockquote>
+<p align="center"><img border="0" src="Setup1.jpg" width="649" height="539"></p>
+<p><font color="#000080" face="Arial" size="2"><b><i>Configuring
+Running/Debugging using a Java VM and JavaEwe.zip</i></b></font></p>
+<blockquote>
+  <p><font face="Arial" size="2">The image below shows the creation of a Run
+  entry for a Ewe application. Note that the <b>Main Class</b> is set to be <b>Ewe</b>.</font></p>
+  <p align="center"><img border="0" src="Setup2.jpg" width="627" height="384"></p>
+  <p align="left"><font face="Arial" size="2">Next we set the actual target
+  class we wish to run in the <b>Arguments</b> tab. For this example the target
+  class is <b>ewesoft.apps.jewel.Jewel</b> and I have specified the <b>/p</b>
+  Ewe command line switch which tells the Ewe Library to simulate a PocketPC.</font></p>
+  <p align="center"><img border="0" src="Setup3.jpg" width="626" height="344"></p>
+  <p align="left"><font face="Arial" size="2">Last in the <b>Classpath</b> tab
+  we have to include the <b>JavaEwe.zip</b> file and exclude the <b>CompileEwe.zip</b>
+  file. The image below shows how the <b>Classpath</b> tab should look when
+  correctly configured.</font></p>
+</blockquote>
+<p align="center"><img border="0" src="Setup4.jpg" width="626" height="434"></p>
+<blockquote>
+  <p align="left"><font face="Arial" size="2" color="#000080">Note that when
+  this Run entry was first created for this project, the <b>CompileEwe.zip</b>
+  file was included in the classpath - as a dependancy of the <b>Jewel</b>
+  project under the <b>UserEntries</b> section. The IDE automatically includes
+  all libraries used for compiling into the classpath used for running - under
+  most Java circumstances this is the right thing to do, but for our purposes,
+  we need to remove CompileEwe.zip. However there was no way to remove the
+  CompileEwe.zip entry alone - the entire Jewel project under <b>User Entries</b>
+  had to be removed and then the <b>Add Projects</b> button was used to add the
+  Jewel project back into the User Entries. This time, when the Jewel project
+  was added, CompileEwe.zip was <b>not</b> included, and this is what we want.</font></p>
+  <p align="left"><font face="Arial" size="2">After that the <b>Add External
+  JARs</b> button was used to add <b>JavaEwe.zip</b> under <b>User Entries.</b></font></p>
+  <p align="left"><font face="Arial" size="2">Once this was done, the <b>Run</b>
+  or <b>Debug </b>button could be used to execute the application using the Java
+  VM.</font></p>
+</blockquote>
+<p><font color="#000080" face="Arial" size="2"><b><i>Configuring Running using
+the native Ewe VM.</i></b></font></p>
+<blockquote>
+  <p align="left"><font face="Arial" size="2">To run a Ewe application in
+  Eclipse using the native Ewe VM, you must configure an <b>External Tool</b>.
+  To do this you select <b>Run &gt;External Tools &gt;External Tools...</b> from
+  the main menu. Then select <b>Program</b> in the <b>Configurations</b> section
+  and press <b>New</b>. You must give the entry a unique name and then locate
+  the Ewe VM by pressing <b>Browse File System</b> in the <b>Location</b>
+  directory. The <b>Working Directory</b> should be set to be the directory
+  where the application classes will be found. This may be set correctly by
+  default, but if not use <b>Browse Workspace</b> or <b>Browse File System</b>
+  to select the correct directory. The <b>Arguments</b> section should be set to
+  the target class, with any VM command line switches placed before it as
+  normal.</font></p>
+  <p align="center"><img border="0" src="Setup5.jpg" width="627" height="575"></p>
+  <p align="left"><font face="Arial" size="2">Once this has been configured then
+  the external tool will execute the native Ewe VM and it should run the target
+  application.</font></p>
+</blockquote>
+<hr>
+
+</body>
+
+</html>

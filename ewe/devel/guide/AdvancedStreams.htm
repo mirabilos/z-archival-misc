@@ -1,0 +1,759 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./AdvancedStreams_files/filelist.xml">
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>761</o:TotalTime>
+  <o:Created>2003-09-26T17:20:00Z</o:Created>
+  <o:LastSaved>2003-09-26T17:20:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1074</o:Words>
+  <o:Characters>6122</o:Characters>
+  <o:Lines>51</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>7518</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:329527024;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1172246540 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:57.0pt;
+	mso-level-number-position:left;
+	margin-left:57.0pt;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:439419593;
+	mso-list-type:hybrid;
+	mso-list-template-ids:748092138 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:861864022;
+	mso-list-type:hybrid;
+	mso-list-template-ids:864579270 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:1034967365;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-754422000 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:1085567073;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-29868088 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./AdvancedStreams_files/image001.gif"
+lang=EN-GB link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./AdvancedStreams_files/image001.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"></a><a
+name="_Toc6219390"><span style='mso-bookmark:_Toc33663851'><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></span></a><span
+style='mso-bookmark:_Toc6219390'><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'>26 September 2003</span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'><span style='mso-ansi-language:EN-GB'>Michael
+L Brereton<o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc6219390'></span><a href="http://www.ewesoft.com/"><span
+style='mso-bookmark:_Toc6219390'><span lang=EN-US>http://www.ewesoft.com/</span></span><span
+style='mso-bookmark:_Toc6219390'></span></a><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc6219390'><span
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><!--[if supportFields]><span style='mso-bookmark:_Toc6219390'></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='mso-ansi-language:EN-GB'><span style="mso-spacerun:
+yes"> </span></span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+style='mso-ansi-language:EN-GB'>TOC \h \z \t &quot;Heading 2,1,Heading
+3,2,Heading 4,3&quot; </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-bookmark:_Toc6219390'></span><a
+href="#_Toc52345769"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Implementing a new Stream Class</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52345769 \h </span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003300340035003700360039000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span></a><span style='mso-bookmark:_Toc6219390'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52345770"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Creating a Stream from StreamObject</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52345770 \h </span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003300340035003700370030000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span></a><span style='mso-bookmark:_Toc6219390'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52345771"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Creating a RandomAccessStream from RandomStreamObject</span></b></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52345771 \h </span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003300340035003700370031000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span></a><span style='mso-bookmark:_Toc6219390'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc6219390'></span><a href="#_Toc52345772"><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US>Creating a BasicStream</span></b></span><span style='mso-bookmark:
+_Toc6219390'><b><span lang=EN-US style='color:black;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>... </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc52345772 \h </span></b></span><span style='mso-bookmark:_Toc6219390'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300350032003300340035003700370032000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span></a><span style='mso-bookmark:_Toc6219390'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc6219390'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc6219390'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc6219390'></span><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc52345769"><span lang=EN-US>Implementing
+a new Stream Class</span></a></h2>
+
+<p class=MsoToc1><span lang=EN-US>The Stream and RandomAccessStream interfaces
+actually contain much more than is described above, but these methods are the
+ones that are most used. However if you wish to create your own Stream class
+you need to know and override some of them.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>Even if you wish to create an
+InputStream or OutputStream you should still actually create a new Stream and
+then an InputStream/OutputStream can be created automatically from it.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52345770"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Creating a Stream from StreamObject</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoToc1><span lang=EN-US>The <b>StreamObject</b> class is used to
+create a new, fully implemented Stream with you only needing to implement a few
+methods. </span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Reading Implementation<o:p></o:p></span></b></h5>
+
+<p class=MsoToc1><span lang=EN-US>For reading override <b>one of the two
+methods below</b>, both of which should be non-blocking. That is, if there is
+no data to be read immediately the method should return a value that indicates
+that fact.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>int
+readByte();<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>int
+nonBlockingRead(byte [] array, int start, int length);<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The <b>readByte()</b>
+method should return:</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>A value of READWRITE_CLOSED indicating that the Stream is closed or
+the end has been reached.</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>A value of READWRITE_ERROR indicating that an error has occurred. In
+this case you can also set the <b>error</b> field of StreamObject to be a
+description of the error.</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>A value of READWRITE_WOULDBLOCK indicating that no bytes are
+available to read now.</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l4 level1 lfo2;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>If a byte has been read, it should be returned in the lower 8 bits
+of the return value.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The <b>nonBlockingRead()</b>
+method should return:</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>If data has been read it should return the number of bytes read.</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>A value of READWRITE_CLOSED indicating that the Stream is closed or
+the end has been reached.</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>A value of READWRITE_ERROR indicating that an error has occurred. In
+this case you can also set the <b>error</b> field of StreamObject to be a description
+of the error.</span></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .75in'><![if !supportLists]><span lang=EN-US>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+lang=EN-US>A value of <b>0</b> indicating that no bytes are available to read
+now.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Writing Implementation<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>For writing
+override <b>one of the two methods below</b>, both of which should be
+non-blocking.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>int
+writeByte(byte value);<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>int
+nonBlockingWrite(byte [] array, int start, int length);</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The <b>writeByte()</b>
+method should return the same values as the <b>readByte()</b> method except
+that on success it should return the byte that was written in the low 8 bits of
+the return value. Similarly the <b>nonBlockingWrite()</b> method should return
+the same values as <b>nonBlockingRead()</b>.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Flush Implementation<o:p></o:p></span></b></h5>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>For flushing the
+stream you should override the method:</span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>boolean
+flushStream();</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This method
+should flush any buffered data to the Stream output. If the flush operation
+completes immediately the method should return <b>true</b> to indicate that it
+is done. If the flush operation takes time to complete the method should return
+<b>false</b> and should start the process running in the background. The
+StreamObject will call the method again repeatedly until it returns true. If
+there is an error during the flush operation an <b>IOException</b> should be
+thrown.</span></p>
+
+<h5><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Close Implementation<o:p></o:p></span></b></h5>
+
+<p class=MsoBodyTextIndent><span lang=EN-US>For closing the stream you should
+override the method:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>boolean
+closeStream();<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This method operates
+similarly to flushStream(), in that if the operation is immediately successful
+it should return <b>true</b>, otherwise it should return <b>false</b> while the
+operation progresses. If an error occurs during the operation an IOException
+should be thrown.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52345771"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Creating a RandomAccessStream from
+RandomStreamObject</span></b></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoToc1><span lang=EN-US>This is similar to creating a Stream from a
+StreamObject. You must implement all the methods mentioned in the previous
+section plus three more:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>long
+tellPosition();</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This method must
+report the current read/write position in the stream. If the position is not
+immediately available, but may take some time to report, it should start the
+operation running in the background and return <b>-1</b>. Once the position is
+available it should be returned. An IOException should be thrown on error.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>boolean
+seekPosition(long location);</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This method must
+move the current read/write position to the correct location in the stream. If
+the seek cannot be done immediately, but may take some time, it should start the
+operation running in the background and return <b>false</b>. Otherwise it
+should return <b>true</b>.<b> </b>An IOException should be thrown on error or
+if the position is past the end of the Stream.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>long
+getStreamLength();</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>This method must
+report the current size of the stream. If the size is not immediately
+available, but may take some time to report, it should start the operation
+running in the background and return <b>-1</b>. Once the size is available it
+should be returned. An IOException should be thrown on error.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>boolean setStreamLength(long
+length);</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>Overriding this
+method is optional. If you not overridden it will throw an IOException to
+indicate that this function cannot be performed. This method should attempt to
+set the length of the Stream. If the length cannot immediately be changed, this
+method should return false. Once the length has been changed, it should return
+true. If the length can never be changed because that functionality is not
+possible, it should throw an IOException.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc52345772"><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US style='color:green'>Creating a BasicStream</span></b></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The <b>BasicStream</b>
+interface provides some basic streaming I/O and is the parent of the Stream
+interface. A <b>StreamAdapter</b> can be used to provide a fully implemented <b>Stream</b>
+object using a BasicStream object as the underlying I/O channel. If you are
+unable to override a StreamObjectyou’re your object that provides streaming
+I/O, then you can add BasicStream functionality to the class and then use a
+StreamAdapter at run-time to provide full Stream functionality.</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The BasicStream
+methods are simply:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>int
+nonBlockingRead(byte [] array, int start, int length);<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>int
+nonBlockingWrite(byte [] array, int start, int length);</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>boolean
+closeStream();<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>boolean
+flushStream();</span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>boolean
+isOpen();<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><b><span lang=EN-US>boolean
+close();<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US>The only new
+methods to you here are <b>close()</b> and <b>isOpen()</b>. <b>isOpen()</b>
+simply returns true if the Stream is considered open and false if not. The <b>close()</b>
+method is a blocking close that returns true on success and false on failure.
+You can implement close() like this:</span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='margin-left:31.5pt;background:#F3F3F3'>public boolean close()</pre><pre
+style='margin-left:31.5pt;background:#F3F3F3'>{</pre><pre style='margin-left:
+31.5pt;background:#F3F3F3'><span style='mso-tab-count:1'>  </span>while(true){</pre><pre
+style='margin-left:31.5pt;background:#F3F3F3'><span style='mso-tab-count:2'>          </span>try{</pre><pre
+style='margin-left:31.5pt;background:#F3F3F3'><span style='mso-tab-count:3'>                  </span>if (closeStream()) return true;</pre><pre
+style='margin-left:31.5pt;background:#F3F3F3'><span style='mso-tab-count:3'>                  </span>mThread.nap(100); //Wait a tenth of a second.</pre><pre
+style='margin-left:31.5pt;background:#F3F3F3'><span style='mso-tab-count:2'>          </span>}catch(IOException e){</pre><pre
+style='margin-left:31.5pt;background:#F3F3F3'><span style='mso-tab-count:3'>                  </span>return false;</pre><pre
+style='margin-left:31.5pt;background:#F3F3F3'><span style='mso-tab-count:2'>          </span>}</pre><pre
+style='margin-left:31.5pt;background:#F3F3F3'><span style='mso-tab-count:1'>  </span>}</pre><pre
+style='margin-left:31.5pt;background:#F3F3F3'>}</pre>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

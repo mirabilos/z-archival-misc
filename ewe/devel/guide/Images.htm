@@ -1,0 +1,1614 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Images_files/filelist.xml">
+<title>The IImage Interface</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>11</o:Revision>
+  <o:TotalTime>1649</o:TotalTime>
+  <o:Created>2003-01-14T15:35:00Z</o:Created>
+  <o:LastSaved>2003-03-18T16:09:00Z</o:LastSaved>
+  <o:Pages>8</o:Pages>
+  <o:Words>3488</o:Words>
+  <o:Characters>19886</o:Characters>
+  <o:Lines>165</o:Lines>
+  <o:Paragraphs>39</o:Paragraphs>
+  <o:CharactersWithSpaces>24421</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+code
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:815417567;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1364568586 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1
+	{mso-list-id:936593236;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1173379156 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:1245382965;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1436274148 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:1474133562;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1465730672 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4
+	{mso-list-id:1881822054;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1865572128 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./Images_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./Images_files/image001.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33663851"></a><a
+name="_Toc530041994"><span style='mso-bookmark:_Toc33663851'><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></span></a><span
+style='mso-bookmark:_Toc530041994'><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc530041994'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc530041994'><span style='mso-ansi-language:EN-GB'>Michael
+L Brereton<o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc530041994'></span><a href="http://www.ewesoft.com/"><span
+style='mso-bookmark:_Toc530041994'><span lang=EN-US>http://www.ewesoft.com/</span></span><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><!--[if supportFields]><span style='mso-bookmark:_Toc530041994'></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US><span style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading
+2,1,Heading 3,2,Heading 4,3&quot; <span style='mso-element:field-separator'></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'></span><a
+href="#_Toc35752701"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>The IImage Interface</span></b></span><span style='mso-bookmark:
+_Toc530041994'><b><span lang=EN-US style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752701 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700300031000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752702"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>IImage Methods</span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752702 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700300032000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752703"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>The Image Class</span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752703 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700300033000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752704"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Formatted Bitmaps (Pictures)</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752704 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700300034000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752705"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Loading Image Resources</span></b></span><span style='mso-bookmark:
+_Toc530041994'><b><span lang=EN-US style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752705 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700300035000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752706"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Loading from a Named Resource</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752706 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700300036000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752707"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Loading from a ByteArray or Stream</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>... </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752707 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700300037000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752708"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Decoding an Image at a Different Size</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752708 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700300038000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752709"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Decoding a Portion of an Image</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752709 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700300039000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752710"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Checking the Image Before Decoding</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752710 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700310030000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752711"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Creating Images for Drawing</span></b></span><span style='mso-bookmark:
+_Toc530041994'><b><span lang=EN-US style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752711 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>5<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700310031000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752712"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Copying Images</span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752712 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>5<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700310032000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752713"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Manipulating Image Pixels</span></b></span><span style='mso-bookmark:
+_Toc530041994'><b><span lang=EN-US style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752713 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>5<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700310033000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752714"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>The Grahics.drawImage() Method</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752714 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>6<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700310034000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752715"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>The mImage Class</span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752715 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>6<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700310035000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752716"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Transparent Images using A Mask Image or Transparent Color</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752716 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>6<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700310036000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752717"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Transparent Images using an Alpha Channel</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752717 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>7<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700310037000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc35752718"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Displaying Images – the ImageControl Control</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc35752718 \h </span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span></b></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'>7<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003700350032003700310038000000</w:data>
+</xml><![endif]--></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><b><span
+style='font-family:"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041994'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<h2 style='background:#CCFFFF'><span style='mso-bookmark:_Toc530041994'><a
+name="_Toc33663852"></a><a name="_Toc35752701"><span style='mso-bookmark:_Toc33663852'><span
+lang=EN-US>The IImage Interface</span></span></a></span></h2>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The <b>ewe.fx.IImage</b> interface
+represents some entity that can draw itself into a <b>Graphics</b> context,
+using the various routines available in the Graphics class. This can be a
+bitmap, combinations of bitmaps and text, and other composite images. Some
+examples of classes that implement IImage are:</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span
+     lang=EN-US>Image</span></b><span lang=EN-US> – this is a (usually)
+     hardware dependant bitmapped image.</span><span lang=EN-US
+     style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span
+     lang=EN-US>mImage</span></b><span lang=EN-US> – this is a bitmapped image
+     along with an associated transparency mask or transparent color selector.</span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span
+     lang=EN-US>IconAndText</span></b><span lang=EN-US> – this is a combination
+     of IImage and text objects laid out horizontally.</span><span lang=EN-US
+     style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'><b><span
+     lang=EN-US>DrawnIcon</span></b><span lang=EN-US> – this is an icon that is
+     “drawn” rather than displayed as a bit map. For example a “tick” or
+     “cross” image.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>Image</span></b><span lang=EN-US> and <b>mImage</b>
+objects are of particular importance and will be discussed in detail. </span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33663853"></a><a name="_Toc35752702"><span
+style='mso-bookmark:_Toc33663853'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>IImage Methods</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>IImage objects are drawn using their <b>draw()</b>
+method:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN-US style='color:navy'>void
+<b>draw</b>(Graphics&nbsp;g, int&nbsp;x, int&nbsp;y, int&nbsp;options)<o:p></o:p></span></p>
+
+<p class=MsoNormal><code><b><span lang=EN-US style='mso-ansi-font-size:12.0pt;
+font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></code></p>
+
+<p class=MsoNormal><span lang=EN-US>The only options defined for this method
+are <b>DISABLED</b> (indicating that the IImage should be drawn in a
+&quot;gray&quot; state) and <b>OUTLINED</b>. However, an IImage is free to
+ignore these options if it is unable to implement them.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can get the dimensions of the Image
+using:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span>int <b>getHeight</b>()<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span>int <b>getWidth</b>()<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Graphics objects, and especially images,
+tend to use a lot of system resources (which is distinct from pure memory).
+Although these resources will be freed when these objects are garbage
+collected, you may wish to release the resources earlier to avoid the
+possibility of running out of these resources before the next garbage
+collection. The </span><b><span lang=EN-US style='color:navy'>void free()</span></b><span
+lang=EN-US> method is used to tell the IImage to do this. You should not
+attempt to use an IImage after calling free() on it.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Some IImage objects allow you to access
+their pixel data directly. You can get the pixel data for a specified
+rectangular area within the image using:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN-US style='color:navy'>int
+[]<b> getPixels</b>(int [] destination, int offset, int x, int y, int width,
+int height, int options)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The parameters x, y, width and height
+specify the bounds of the rectangle within the IImage of the pixel data you are
+interested in. Each pixel is represented by a 32-bit integer value with the <b>Alpha-Red-Green-Blue
+(ARGB)</b> format. That is: the topmost 8-bits represents an Alpha value
+between 0 (completely transparent) and 255 (completely opaque). The next 8-bits
+represent a Red value between 0 and 255 and so on. If an IImage does not
+support direct access to its pixels, this method will return null.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The values are placed in the destination
+array sequentially going from left to right and top to bottom within the
+specified rectangle. The size of the destination array should therefore be <b>width*height+offset</b>
+integers (or larger).</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The method </span><b><span lang=EN-US
+style='color:navy'>boolean hasAlpha()</span></b><span lang=EN-US> returns
+whether or not the alpha channel is used by this IImage. If it is not used then
+the alpha values in the image pixel data should be ignored (or taken to be 255
+– completely opaque).</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Some images have a background color
+associated with them. The method <b>Color getBackground()</b> can be used to
+get this color, if it is specified. Note that when you draw an IImage, it will <b>not</b>
+fill in its background color – the background color is merely a suggestion for
+display.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc530041995"></a><a
+name="_Toc33663854"></a><a name="_Toc35752703"><span style='mso-bookmark:_Toc33663854'><span
+style='mso-bookmark:_Toc530041995'><span lang=EN-US>The </span></span></span></a><span
+style='mso-bookmark:_Toc35752703'><span style='mso-bookmark:_Toc33663854'><span
+style='mso-bookmark:_Toc530041995'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US>Image</span></b><span lang=EN-US> Class</span></span></span></span></h2>
+
+<p class=MsoNormal><span lang=EN-US>An <b>Image</b> object represents a
+bitmapped image loaded into memory, or a bitmapped area that can be drawn to.
+You can either use an Image as drawing surface or you can load a predefined
+bitmapped image from the local file system or a sequence of formatted bits. You
+should not draw onto an Image that has been decoded from a formatted file –
+this will fail on most systems.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h3><a name="_Toc530041996"></a><a name="_Toc33663855"></a><a
+name="_Toc35752704"><span style='mso-bookmark:_Toc33663855'><span
+style='mso-bookmark:_Toc530041996'><span lang=EN-US>Formatted Bitmaps
+(Pictures)</span></span></span></a></h3>
+
+<p class=MsoNormal><span lang=EN-US>Ewe natively recognizes three image formats<b>:
+Windows Bitmap</b> (BMP) images, <b>Portable Network Graphics</b> (PNG) images
+and <b>JPEG</b> images. For BMP images Ewe is able to decode <b>uncompressed </b>2,
+16 and 256 indexed color images as well as 24-bit true color images. For PNG
+images, Ewe is able to decode all PNG image formats, compressed or not,
+interlaced or non-interlaced. Ewe is able to decode JPEG RGB and grayscale
+images.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h3><a name="_Toc530041997"></a><a name="_Toc33663856"></a><a
+name="_Toc35752705"><span style='mso-bookmark:_Toc33663856'><span
+style='mso-bookmark:_Toc530041997'><span lang=EN-US>Loading Image Resources</span></span></span></a></h3>
+
+<p class=MsoBodyText><span lang=EN-US style='font-weight:normal'>There are
+three methods for decoding formatted images, implemented by several constructor
+methods described below.</span><span lang=EN-US> If an error occurs during the
+creation of an Image, or if the format is not decodable for any reason, these
+constructors will throw an IllegalArgumentException.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33663857"></a><a name="_Toc35752706"><span
+style='mso-bookmark:_Toc33663857'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Loading from a Named Resource</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>You can create an Image using the
+constructors:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-US
+style='color:navy'>Image</span></b><span lang=EN-US style='color:navy'>(String
+path)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-US
+style='color:navy'>Image</span></b><span lang=EN-US style='color:navy'>(String
+path, int options)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'>The first constructor
+simply calls the second with <b>options</b> set to 0. The image creation
+options are discussed later.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:windowtext'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Both these constructors first attempt to
+read all the bytes as specified by the path via the <b>ewe.sys.Vm.loadResourceOrFile(String
+path)</b> method. This method loads the bytes of a resource completely into a
+ByteArray object. The named resource may be in a file on the local file system,
+or stored in one of the Ewe files associated with the application, or from the
+source server if the program is running as an applet. Once the bytes have been
+read into the ByteArray the image is decoded if it is of an acceptable format.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that when loading images this way you
+should <b>not</b> use absolute path names, but rather a path that is relative
+to the current working directory. For example: Image(“myImages/Smile.bmp”) is
+good, but Image(“C:/ewe/myImages/Smile.bmp”) is bad. Also note that when an
+image is loaded from a Win32/WinCE file system it is <b>not</b> case sensitive,
+but when being loaded from a <b>Ewe</b> file or from some web servers and some
+file systems, it <b>is</b> case sensitive – so ensure that you have the case
+correct to begin with.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33663858"></a><a name="_Toc35752707"><span
+style='mso-bookmark:_Toc33663858'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Loading from a ByteArray or Stream</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>You can also create an image from an array
+of bytes (which must contain a complete formatted BMP, PNG or JPEG image) via
+the <b>ewe.util.ByteArray</b> object and the constructors: </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-US
+style='color:navy'>Image</span></b><span lang=EN-US style='color:navy'>(ByteArray
+bytes, int options)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-US
+style='color:navy'>Image</span></b><span lang=EN-US style='color:navy'>(ByteArray
+bytes, int options, int requestedWidth, int requestedHeight)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-US
+style='color:navy'>Image</span></b><span lang=EN-US style='color:navy'>(ByteArray
+bytes, int options, Rect sourceArea, int requestedWidth, int requestedHeight)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can also create an image from an input
+stream (<b>ewe.io.Stream</b>) using the constructors:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='color:navy'><span
+style='mso-tab-count:1'>            </span>Image</span></b><span lang=EN-US
+style='color:navy'>(Stream bytes, int options) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-US
+style='color:navy'>Image</span></b><span lang=EN-US style='color:navy'>(Stream
+bytes, int options, int requestedWidth, int requestedHeight)<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><b><span lang=EN-US
+style='color:navy'>Image</span></b><span lang=EN-US style='color:navy'>(Stream
+bytes, int options, Rect sourceArea, int requestedWidth, int requestedHeight)<b><o:p></o:p></b></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33663859"></a><a name="_Toc35752708"><span
+style='mso-bookmark:_Toc33663859'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Decoding an Image at a Different Size</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The <b>requestedWidth</b> and <b>requestedHeight</b>
+parameters in the constructors above are used to request that the Image be
+created at a particular size (usually smaller than the image's actual size).
+The purpose of this is generally to allow a smaller version of an image to be
+created (i.e. a thumbnail) from the full sized image. This is useful if the
+original image is very large when decoded and would take up a large amount of
+memory (e.g. a 1600x1200 JPEG image will take up nearly 8MB of memory when
+decoded at full size).</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>When specifying requestedWidth and
+requestedHeight, by default the image will be scaled so as to fit in the
+specified width and height, but scaled equally horizontally and vertically so
+as to maintain its aspect ratio. Therefore the actual width and height of the
+decoded image may differ from the requestedWidth and requestedHeight specified.
+However if the Image.<b>SCALE_IMAGE</b> option is used with the options
+parameter, then the image width and height will be scaled independently to fit
+exactly into the requestedWidth and requestedHeight.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>However <b>not all versions of the VMs
+support scaling during decoding and some only support scaling for selected image
+formats</b>. In fact, scaling during decoding is only currently available for
+JPEG images running on a native VM on Win32, WinCE and Linux (but not on the
+Java Ewe VM). <b>However you should never make this assumption at run-time.</b>
+You should always code for the fact that the scaling may not be supported. The
+section on <b>&quot;Checking the Image Before Decoding&quot;</b> will tell you
+how to determine if this scaling is possible before decoding the image and how
+to decide how to handle situations when scaling during decoding is not
+possible.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>If scaling during decoding is not supported
+then an IllegalArgumentException will be thrown. In this case you should decode
+the Image at full size and then use a <b>ewe.fx.PixelBuffer</b> object to scale
+the image up or down to the size that you want (see the next chapter for
+details on this).</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33663860"></a><a name="_Toc35752709"><span
+style='mso-bookmark:_Toc33663860'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Decoding a Portion of an Image</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The <b>sourceArea</b> parameter in the
+constructors above are used to request that only a portion of the Image be
+decoded, and that it should be decoded to the size specified by <b>requestedWidth</b>
+and <b>requestedHeight</b>. Again, this is very useful when you need to display
+a portion of a very large image on a low memory device.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The same rules applies as when decoding the
+full image at a different size. Specifically: it is only supported for certain
+image types on certain platforms and an IllegalArgumentException will be thrown
+if this constructor is called and the VM does not support scaled decoding.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that the sourceArea must represent a
+rectangle that is completely within the image otherwise an
+IllegalArgumentException will be thrown.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33663861"></a><a name="_Toc35752710"><span
+style='mso-bookmark:_Toc33663861'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Checking the Image Before Decoding</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>If you need to determine the image size, or
+determine whether it can be scaled during decoding (and thereby reduce its
+memory usage), then you can call one of the two static <b>getImageInfo()</b>
+methods.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN-US style='color:navy'>static
+ImageInfo <b>getImageInfo</b>(ByteArray imageBytes, ImageInfo destination) <o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN-US style='color:navy'>static
+ImageInfo <b>getImageInfo</b>(Stream imageBytes, ImageInfo destination)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>These methods decode just the amount of
+bytes required to determine the image format and its size. This information is
+returned in an <b>ImageInfo</b> object which currently gives the following
+information:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>int width </span></b><span
+lang=EN-US>– the width of the image.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>int height</span></b><span
+lang=EN-US> – the height of the image.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>int size</span></b><span
+lang=EN-US> – the <b><i>approximate</i></b> number of bytes required for the
+image when decoded.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>boolean
+canScale</span></b><span lang=EN-US> – whether the image can be scaled during
+decoding.</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US>int format</span></b><span
+lang=EN-US> – the format type of the Image (one of: FORMAT_PNG, FORMAT_JPEG,
+FORMAT_BMP).</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Based on this information you can determine
+how to decode the image – or whether to decode it at all given the system's
+memory constraints.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>However using this method can present a
+problem when used with an encoded image in a Stream that is not a
+RandomAccessStream. This is because the <b>getImageInfo()</b> method will read a
+number of bytes from the stream, but the constructor that will decode the image
+from the Stream will also need to read these same bytes during decoding. If the
+Stream provided cannot <b>seek()</b> back to the beginning (if it is not a
+RandomAccessStream) then the bytes already read in by getImageInfo() will not
+available to the constructor for image decoding.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This is solved by using the <b>ewe.io.RewindableStream</b>
+class. A RewindableStream adapts a standard input Stream and makes it
+&quot;rewindable&quot; by buffering and storing all data read until a <b>rewind()</b>
+method is called. The rewind() method tells the stream to provide data from the
+start of the stream (actually read from the buffer) until all the buffered data
+(i.e. the data read before rewind() was called) has been re-read. After that
+point it will provide data directly from the source Stream.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Since this is not necessary for a
+RandomAccessStream the RewindableStream provides a static utility function <b>toRewindableStream(Stream
+input)</b> which will either return a new RewindableStream <b>or</b> it will
+return the <b>provided</b> input Stream <b>if</b> the input Stream is already a
+RandomAccessStream. Another static utility function <b>rewind(RandomAccessStream
+input)</b> is used to rewind the input stream if it is a RewindableStream,
+otherwise it will simply call <b>seek(0)</b> if the provided Stream is a true
+RandomAccessStream.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Some code may help to demonstrate this:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>package tests;</pre><pre style='background:
+#F3F3F3'>import ewe.ui.*;</pre><pre style='background:#F3F3F3'>import ewe.io.*;</pre><pre
+style='background:#F3F3F3'>import ewe.fx.*;</pre><pre style='background:#F3F3F3'>import ewe.filechooser.*;</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//##################################################################<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>public class TestImage{</pre><pre style='background:
+#F3F3F3'><span style='color:gray'>//##################################################################<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>public static boolean <b>displayImage</b>(Stream image) throws IOException</pre><pre
+style='background:#F3F3F3'><span style='color:gray'>//===================================================================<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>// If the &quot;image&quot; stream is a RandomAccessStream <o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// (but not itself a RewindableStream) then &quot;stream&quot; will<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// be set to the &quot;image&quot; stream itself. Otherwise a new RewindableStream<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// is created for the &quot;image&quot; stream and assigned to &quot;stream&quot;.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><b><span
+style='mso-tab-count:1'>        </span>RandomAccessStream stream = RewindableStream.toRewindableStream(image);<o:p></o:p></b></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ImageInfo ii = Image.getImageInfo(stream,null);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>if (ii.size &gt; 500000 &amp;&amp; !ii.canScale){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>new MessageBox(&quot;Image too large&quot;,&quot;That image is too large to display!&quot;,0)</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>.execute();</pre><pre style='background:
+#F3F3F3'><span style='mso-tab-count:1'>        </span><span style='mso-tab-count:
+1'>        </span>return false;</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>}</pre><pre style='background:#F3F3F3'><span
+style='color:gray'><span style='mso-tab-count:1'>        </span>// If &quot;stream&quot; is a true RandomAccessStream, this method will simply<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// call seek(0) on it. Otherwise it will invoke the &quot;rewind()&quot; method<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>// on the stream.<o:p></o:p></span></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><b><span
+style='mso-tab-count:1'>        </span>RewindableStream.rewind(stream);<o:p></o:p></b></pre><pre
+style='background:#F3F3F3'><span style='color:gray'><span style='mso-tab-count:
+1'>        </span>//<o:p></o:p></span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>Image i = ii.canScale ? new Image(stream,0,200,200) : new Image(stream,0);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>Form f = new Form();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>f.addLast(new ImageControl(i));</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>f.title = &quot;Image&quot;;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>f.execute();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>return true;</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public static void <b>main</b>(String args[])</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ewe.sys.Vm.startEwe(args);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>while(true){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>ImageFileChooser fc = new ImageFileChooser();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>if (fc.execute() == fc.IDCANCEL) break;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>File got = fc.getChosenFile();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span><span
+style='mso-tab-count:1'>        </span>Stream in = null;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>try{</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>in = got.toReadableStream();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>displayImage(in);<span style='mso-tab-count:
+3'>               </span></pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span><span style='mso-tab-count:1'>        </span>}catch(Exception e){</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span><span
+style='mso-tab-count:1'>        </span>new ReportException(e,&quot;There was an error creating the image.&quot;,null,false)</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:3'>                    </span><span
+style='mso-tab-count:1'>        </span>.execute();</pre><pre style='background:
+#F3F3F3'><span style='mso-tab-count:1'>        </span><span style='mso-tab-count:
+1'>        </span>}finally{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:2'>               </span><span style='mso-tab-count:1'>        </span>if (in != null) </pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:3'>                    </span><span
+style='mso-tab-count:1'>        </span>in.close();</pre><pre style='background:
+#F3F3F3'><span style='mso-tab-count:2'>               </span>}</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>}</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>ewe.sys.Vm.exit(0);</pre><pre
+style='background:#F3F3F3'>}</pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc530041998"></a><a
+name="_Toc33663862"></a><a name="_Toc35752711"><span style='mso-bookmark:_Toc33663862'><span
+style='mso-bookmark:_Toc530041998'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Creating Images for Drawing</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>You can create an image for use as an
+off-screen drawing surface by simply calling the constructor with the specified
+width and height: <b>Image(int width, int height, int options)</b>.<span
+style="mso-spacerun: yes">  </span>You can then create a <b>Graphics</b> object
+for the image by using the Graphics constructor <b>Graphics(ISurface surface)</b>
+since Image implements the ISurface interface.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Note that an image created in this way is
+not necessarily “blank” – you should clear the image using Graphics.fillRect()
+if you need to before drawing on it.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>If you intend to perform graphics
+operations where the Alpha channel is used, you should call the </span><b><span
+lang=EN-US style='color:navy'>enableAlpha()</span></b><span lang=EN-US
+style='color:windowtext'> method immediately after creating the image. Note that
+<b>alpha values cannot be written using Graphics drawing primitives</b>. If you
+are going to be composing images that contain pixels with different alpha
+values, you must use the <b>PixelBuffer</b> class. This is explained in the
+following chapter.</span><span lang=EN-US style='font-family:"Book Antiqua";
+color:windowtext'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc530041999"></a><a
+name="_Toc33663863"></a><a name="_Toc35752712"><span style='mso-bookmark:_Toc33663863'><span
+style='mso-bookmark:_Toc530041999'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Copying Images</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>The correct way to create a copy of an
+Image is to use the constructor: <b>Image(Image other, int options)</b>. This
+ensures that the image pixel manipulation routines outlined below will work on
+all platforms (e.g. Java 1.1).</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc530042000"></a><a
+name="_Toc33663864"></a><a name="_Toc35752713"><span style='mso-bookmark:_Toc33663864'><span
+style='mso-bookmark:_Toc530042000'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Manipulating Image Pixels</span></b></span></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>You can access the individual color values
+of the pixels of an Image using the </span><b><span lang=EN-US
+style='color:navy'>getPixels()</span></b><span lang=EN-US> and </span><b><span
+lang=EN-US style='color:navy'>setPixels()</span></b><span lang=EN-US> methods.
+However for this to work you <b>may</b> have to create the image with the <b>TRUE_COLOR</b>
+option. The signature for the two methods are similar: </span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'>int [] <b>getPixels</b>(int[]&nbsp;dest,
+int&nbsp;offset, int&nbsp;x, int&nbsp;y, int&nbsp;width, int&nbsp;height,
+int&nbsp;options);</span><span lang=EN-US style='font-family:"Book Antiqua";
+color:navy'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'>int [] <b>setPixels</b>(int[]&nbsp;source,
+int&nbsp;offset, int&nbsp;x, int&nbsp;y, int&nbsp;width, int&nbsp;height,
+int&nbsp;options</span><span lang=EN-US>);</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33663865"></a><a name="_Toc35752714"><span
+style='mso-bookmark:_Toc33663865'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>The Grahics.drawImage() Method</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This method is used to draw an Image into a
+Graphics context. However this method<b> will not correctly draw Images with
+alpha channels.</b> You must set the drawing op of the Graphics object to be
+DRAW_ALPHA first before calling the drawImage method, and then reset it to its
+original value. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>To avoid going through this, always use an <b>mImage</b>
+(explained below) created from an Image with an alpha channel when drawing
+images. This will always draw the Image correctly regardless of what method it
+employs to implement transparent areas.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Wherever possible, use PNG images for your
+application images. They are smaller than BMP images and can contain
+transparency information within them. If you are creating icons for your
+application you can easily convert them to PNG images with transparent areas by
+doing the following:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Create your icon as a BMP image, filling the transparent areas
+     with a color that is not used in any of the opaque areas of the icon.</span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Use Ewe to run the <b>ewe.graphics.PngIconMaker</b> class.</span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Use this application to load your icons, specify the
+     transparent color in the icon, and then save the icon as a PNG image.</span></li>
+</ol>
+
+<h2 style='background:#CCFFFF'><a name="_Toc33663866"></a><a name="_Toc35752715"><span
+style='mso-bookmark:_Toc33663866'><span lang=EN-US>The </span></span></a><span
+style='mso-bookmark:_Toc35752715'><span style='mso-bookmark:_Toc33663866'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US>mImage</span></b><span
+lang=EN-US> Class</span></span></span></h2>
+
+<p class=MsoNormal><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US>mImage</span></b><span lang=EN-US> can
+be thought of as an advanced read-only image class. It is used for three
+purposes:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo7;tab-stops:list .5in'><span
+     lang=EN-US>To allow Images to be drawn with transparent pixels either
+     using an Image's own alpha channel <b>or</b> using a transparency mask
+     (which is a monochrome Image) <b>or</b> using a selected transparent
+     color.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo7;tab-stops:list .5in'><span
+     lang=EN-US>To allow images to be placed in some sort of organized context
+     where its position is variable (e.g. in a Mosaic object). The <b>location</b>
+     field is a Rect object that specifies the images x and y co-ordinates as
+     well as its width and height.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l3 level1 lfo7;tab-stops:list .5in'><span
+     lang=EN-US>To produce an IImage implementation by extending mImage and
+     simply overriding the <b>doDraw()</b> method in addition to setting the <b>width</b>
+     and <b>height</b> fields in the <b>location</b> field.</span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>An mImage usually contains an Image object
+sometimes coupled with a transparent color or mask image to specify transparent
+areas of the Image. If the Image object was decoded from a PNG formatted image,
+then the transparent color or mask is not necessary, since transparency
+information can be included in the PNG data. </span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33663867"></a><a name="_Toc35752716"><span
+style='mso-bookmark:_Toc33663867'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Transparent Images using A Mask Image or
+Transparent Color</span></b></span></a><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>These were the original methods that Ewe
+used to display images with transparent areas, before PNG and alpha-blending
+support was added. Specifying a Transparent Color for an Image simply specifies
+that all pixels with that particular color should be considered completely
+transparent.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>A Mask for an Image should be a monochrome
+bitmap of exactly the same size as the original image, with all opaque pixels
+being black, and all transparent pixels being white. <b>Additionally, the
+pixels in the original image that are to be transparent should also be white</b>,
+the opaque pixels can be any color. Again, this method will only specify
+completely opaque or completely transparent.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Creating an mImage specifying a Mask or
+transparent color can be done using the constructors below:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US
+style='color:navy'>mImage</span></b><span lang=EN-US style='color:navy'>(String
+imagePath, String maskPath);</span><span lang=EN-US style='font-family:"Book Antiqua";
+color:navy'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span lang=EN-US
+style='color:navy'>mImage</span></b><span lang=EN-US style='color:navy'>(String
+imagePath, Color transparentColor);<o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US>You can also create an mImage from an Image
+(in fact any IImage) directly, and then set the Image mask or transparent color
+afterwards using the constructor:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>            </span></span><b><span
+lang=EN-US style='color:navy'>mImage</span></b><span lang=EN-US
+style='color:navy'>(IImage drawable);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>So for example you could do this:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>Image bitmap = new Image(bytesInByteArray,0);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>Image mask = new Image(maskBytesInByteArray,0);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mImage mi = new mImage(bitmap);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mi.mask = mask;</pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>or this:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>Image bitmap = new Image(bytesInByteArray,0);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mImage mi = new mImage(bitmap);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mi.transparentColor = new Color(255,0,0);</pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33663868"></a><a name="_Toc35752717"><span
+style='mso-bookmark:_Toc33663868'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Transparent Images using an Alpha Channel</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>If an Image has an alpha channel, then you
+can create an mImage from it directly using the constructor mentioned before:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>            </span></span><b><span
+lang=EN-US style='color:navy'>mImage</span></b><span lang=EN-US
+style='color:navy'>(IImage drawable);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>            </span></span><b><span
+lang=EN-US style='color:navy'>mImage</span></b><span lang=EN-US
+style='color:navy'>(IImage drawable, int drawMode);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There is no need to set a Mask or Transparent
+Color in this case. However when this method is used with an Image object that
+contains an alpha channel <b>and </b>the drawMode is not explicitly
+Graphics.DRAW_ALPHA, the following is done:</span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo9;tab-stops:list .5in'><span
+     lang=EN-US>The individual Image pixels are checked – if there are pixels
+     that have an alpha value between 1 and 254 (i.e. not fully opaque and not
+     fully transparent) then an alpha blending draw mode will be used for
+     drawing the image.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo9;tab-stops:list .5in'><span
+     lang=EN-US>If <b>all</b> the pixels are either completely opaque (255) <b>or</b>
+     completely transparent (0) then a monchrome bitmapped mask is created for
+     the image and a modified version of the image is used.</span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>Why is this done? Although DRAW_ALPHA works
+with fully opaque or fully transparent images, it is considerably slower on
+some platforms than the Image and Mask combination. Therefore, whenever it can,
+mImage will resort to this method for drawing images that have either fully
+opaque or fully transparent pixels.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This operation is transparent to you but
+there is one effect of this. Since the original image is not used after the
+mImage has been set up, its resources are not needed. You should therefore free
+the original image by calling <b>freeSource()</b> on the mImage to tell it to
+free the original Image <b>if</b> it is not being used directly by the mImage.
+So if you create an mImage from an Image using one of the two constructors
+above <b>and</b> you are not going to use the Image for any other purpose in
+your program, then you should call <b>freeSource()</b> to tell the mImage that
+it can free the source image if it is not using it.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>Image bitmap = new Image(&quot;MyImage.png&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mImage mi = new mImage(bitmap);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mi.freeSource(); // Do this if you do not use &quot;bitmap&quot; anywhere else.</pre>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc530042003"></a><a
+name="_Toc33663869"></a><a name="_Toc35752718"><span style='mso-bookmark:_Toc33663869'><span
+style='mso-bookmark:_Toc530042003'><span lang=EN-US>Displaying Images – the
+ImageControl Control</span></span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>Drawing an image on a drawing surface is
+simply a case of using its <b>draw()</b> method. However if you want to display
+an image on a user interface screen it is easier to use an <b>ImageControl</b>
+object.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>An ImageControl is used to display a single
+IImage although the image that is being displayed <b>can</b> be changed
+dynamically using the <b>setImage()</b> method. The image is always centered in
+the control but there are options available to determine how an image that is
+of a different size to the control is handled. You do this by setting the <b>options</b>
+variable to be a combination of the following:</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo12;tab-stops:list .5in'><b><span
+     lang=EN-US>SHRINK</span></b><span lang=EN-US> – this tells the control to
+     shrink an image to fit within it if the image is too large.</span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo12;tab-stops:list .5in'><b><span
+     lang=EN-US>STRETCH</span></b><span lang=EN-US> – this tells the control to
+     stretch an image to fit within it if the image is too large.</span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo12;tab-stops:list .5in'><b><span
+     lang=EN-US>FIT </span></b><span lang=EN-US>– Used in combination with either
+     or both of the two above, this tells the control not to change the aspect
+     ratio of the image. The image is either shrunk or stretched such that one
+     dimension fits exactly into the control and the other dimension is smaller
+     than or equal to that of the control. This results in the entire image
+     being visible with its aspect ratio preserved, although there may be empty
+     space along one of the dimensions.</span><span lang=EN-US
+     style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ul>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>By default, the options is set to <b>SHRINK|STRETCH|FIT.</b></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

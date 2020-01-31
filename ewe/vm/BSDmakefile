@@ -1,0 +1,17 @@
+# $MirOS: contrib/hosted/ewe/vm/BSDmakefile,v 1.7 2008/05/03 23:16:56 tg Exp $
+
+.if (${OStype} != "Darwin")
+# These require GNU as
+  SUBDIR+= cli
+  SUBDIR+= gtk12
+  SUBDIR+= gtk2
+# Qt2 support is not ready yet
+.endif
+  SUBDIR+= makepool
+  SUBDIR+= noembed_cli
+  SUBDIR+= noembed_dev
+  SUBDIR+= noembed_gtk12
+  SUBDIR+= noembed_gtk2
+# Qt2 support is not ready yet
+
+.include <bsd.subdir.mk>

@@ -1,0 +1,841 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./AdvancedImages_files/filelist.xml">
+<title>The IImage Interface</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>3206</o:TotalTime>
+  <o:Created>2003-01-31T00:00:00Z</o:Created>
+  <o:LastSaved>2003-02-22T15:40:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1393</o:Words>
+  <o:Characters>7943</o:Characters>
+  <o:Lines>66</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>9754</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>0</w:Zoom>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+code
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:918833595;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2050813602 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1
+	{mso-list-id:1040859317;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1277300096 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./AdvancedImages_files/image001.gif"
+lang=EN-GB link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1025" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./AdvancedImages_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc33673844"></a><a
+name="_Toc530041994"><span style='mso-bookmark:_Toc33673844'><span
+style='mso-ansi-language:EN-GB'>Ewe Application Development</span></span></a><span
+style='mso-bookmark:_Toc530041994'><span style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc530041994'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT </span><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><span
+style='mso-ansi-language:EN-GB'>14 March 2003</span></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc530041994'><span style='mso-ansi-language:EN-GB'>Michael
+L Brereton<o:p></o:p></span></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-bookmark:_Toc530041994'></span><a href="http://www.ewesoft.com/"><span
+style='mso-bookmark:_Toc530041994'><span lang=EN-US>http://www.ewesoft.com/</span></span><span
+style='mso-bookmark:_Toc530041994'></span></a><span style='mso-bookmark:_Toc530041994'><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><!--[if supportFields]><span style='mso-bookmark:_Toc530041994'></span><span
+style='mso-element:field-begin'></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US><span style="mso-spacerun: yes"> </span>TOC \h \z \t &quot;Heading
+2,1,Heading 3,2,Heading 4,3&quot; </span></b><span lang=EN-US><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><a href="#_Toc33694473"><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US>Advanced Image Handling</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc33694473 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003400370033000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'></span></a><span
+style='mso-bookmark:_Toc530041994'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc33694474"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>The ewe.fx.Mask Class</span></b></span><span style='mso-bookmark:
+_Toc530041994'><b><span lang=EN-US style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc33694474 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>1</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003400370034000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'></span></a><span
+style='mso-bookmark:_Toc530041994'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc33694475"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>The ewe.fx.PixelBuffer Class</span></b></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc33694475 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003400370035000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'></span></a><span
+style='mso-bookmark:_Toc530041994'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc33694476"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Image Manipulation</span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc33694476 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003400370036000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'></span></a><span
+style='mso-bookmark:_Toc530041994'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc33694477"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Converting back to an Image</span></b></span><span style='mso-bookmark:
+_Toc530041994'><b><span lang=EN-US style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc33694477 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003400370037000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'></span></a><span
+style='mso-bookmark:_Toc530041994'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 510.7pt'><span style='mso-bookmark:
+_Toc530041994'></span><a href="#_Toc33694478"><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US>Image Composition</span></b></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span></b></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-begin'></span><span
+style='mso-bookmark:_Toc530041994'><b><span lang=EN-US style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'> PAGEREF
+_Toc33694478 \h </span></b><span lang=EN-US><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'><b><span
+lang=EN-US style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'>2</span></b><span lang=EN-US><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330033003600390034003400370038000000</w:data>
+</xml><![endif]--></span></span><!--[if supportFields]><span style='mso-bookmark:
+_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-bookmark:_Toc530041994'></span></a><span
+style='mso-bookmark:_Toc530041994'><b><span style='font-family:"Times New Roman";
+color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc530041994'></span><!--[if supportFields]><span
+style='mso-bookmark:_Toc530041994'></span><span style='mso-element:field-end'></span><![endif]--><span
+style='mso-bookmark:_Toc530041994'><span lang=EN-US><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></span></span></p>
+
+<span style='mso-bookmark:_Toc530041994'></span>
+
+<h2 style='background:#CCFFFF'><a name="_Toc33673845"></a><a name="_Toc33694473"><span
+style='mso-bookmark:_Toc33673845'><span lang=EN-US>Advanced Image Handling</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>This chapter explains how you can compose
+images that can contain areas with any degree of transparency using standard
+Graphics methods and the <b>PixelBuffer</b> and <b>Mask</b> object. These
+methods are necessary because it is not possible to &quot;draw&quot; alpha
+values on to an Image using any Graphics methods – this can only be done by
+calling setPixels(). </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>However supposing you wanted to compose an
+image that was an ellipse of a particular color and an alpha value of say 50%
+(0.5). In order to use setPixels() you would have to know exactly which pixels
+are within the ellipse and which are not. This would be the case no matter what
+shape you wanted to draw.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The PixelBuffer class lets you create
+portions of an image that have a particular alpha value and then add them into
+a composite image. This can be done as many times as needed to compose complex
+images.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The PixelBuffer class also lets you
+manipulate images in other ways, such as cropping, scaling and rotating images.
+These are all explained below.</span></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc33673846"></a><a name="_Toc33694474"><span
+style='mso-bookmark:_Toc33673846'><span lang=EN-US>The ewe.fx.Mask Class</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>A <b>Mask</b> is a very simple class – it contains
+a (non-image) bitmap (which is simply an array of bytes) wherein each bit in
+the map corresponds to a pixel in an Image. It is used in various pixel
+manipulation routines to indicate whether any particular pixel should be
+included in the manipulation or not. A bit value of 1 indicates the pixel is
+included, a value of 0 indicates it should be excluded.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The bit values are stored in an array of
+bytes accessible via the </span><b><span lang=EN-US style='color:navy'>getBits()</span></b><span
+lang=EN-US> method. Each byte in the bitmap represents 8 pixels in an Image.
+Going from the most significant bit to the least significant bit (left to
+right) represents adjacent pixels going from left to right. The number of bytes
+in a line of pixels is represented by the number of pixels in the line divided
+by eight, and rounded up to a full byte. Therefore, each new pixel line in the
+image always starts on a new byte as the leftmost bit. The number of bytes in a
+Mask is given by: <b>height*(width+7)/8 </b>and each line has <b>(width+7)/8</b>
+bytes.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can create a &quot;blank&quot; mask by
+specifying its width and height in a constructor. More useful though is the
+creation of a Mask using a monochrome Image where white bits represent excluded
+pixels and black bits represent included pixels. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='color:navy'><span
+style='mso-tab-count:1'>            </span>Mask(Image imageMask);<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This is a very useful constructor as it allows
+you to use all the Graphics draw operations to create arbitrarily shaped Masks.
+Simply create an Image, fill it with all white pixels, and then draw in black
+any shape you wish. Then use this constructor to produce a Mask that matches
+the image you have drawn.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can also create a Mask given an Image
+and a transparent color. All pixels in the Image that are of the transparent
+color are considered to be excluded, while the other pixels are considered
+included.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='color:navy'><span
+style='mso-tab-count:1'>            </span>Mask(Image image, Color transparentColor);<o:p></o:p></span></b></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc33673847"></a><a name="_Toc33694475"><span
+style='mso-bookmark:_Toc33673847'><span lang=EN-US>The ewe.fx.PixelBuffer Class</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>A <b>PixelBuffer</b> class is used to
+represent the individual pixel values for some sort of Image. It basically
+consists of an array of integers, with each integer representing the
+Alpha-Red-Green-Blue value of each pixel. Therefore the memory used by a
+PixelBuffer is always its <b>width*height*4</b> bytes and these values are
+always independent of any hardware platform. This is important because the same
+Image may generate different pixel RGB values on different platforms because of
+&quot;dithering&quot; and other color optimization processes that may be
+applied.</span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33673848"></a><a name="_Toc33694476"><span
+style='mso-bookmark:_Toc33673848'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Image Manipulation</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>PixelBuffer objects provide methods for
+scaling, rotating and cropping an Image. To use them construct a PixelBuffer
+with the original IImage as a parameter. There are a number of constructors you
+can use for this:</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span><b>PixelBuffer</b>(IImage image);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span><b>PixelBuffer</b>(IImage image, Rect sourceArea);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span><b>PixelBuffer</b>(IImage image, Rect sourceArea,
+Dimension newSize, Object useBuffer);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>The first constructor creates a PixelBuffer
+that matches the original IImage exactly. The second constructor creates a
+PixelBuffer that represents the pixels in a particular area of the IImage. The
+third constructor is used to produce a PixelBuffer that is a scaled version of
+a section (or complete) of the original IImage. The <b>useBuffer</b> parameter
+is an optional <b>ewe.util.ByteArray</b> or <b>byte []</b> object to be used in
+the creation of the PixelBuffer (this can be set to null).</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Once you have created a PixelBuffer from an
+Image you can manipulate it in a number of ways. </span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>You can modify the alpha values of the pixels using one of the <b>setAlpha()</b>
+     methods or the <b>scaleAlpha()</b> methods.<br style='mso-special-character:
+     line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>You can scale the PixelBuffer or a (portion of it) using one of
+     the <b>scale()</b> methods.<br style='mso-special-character:line-break'>
+     <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+     <![endif]></span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>You can transform the PixelBuffer using <b>transform()</b> and
+     one of the following operations:<br>
+     TRANSFORM_ROTATE_90, TRANSFORM_ROTATE_180, TRANSFORM_ROTATE_270,
+     TRANSFORM_MIRROR_HORIZONTAL, TRANSFORM_MIRROR_VERTICAL.</span></li>
+</ul>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33673849"></a><a name="_Toc33694477"><span
+style='mso-bookmark:_Toc33673849'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Converting back to an Image</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>You can convert a PixelBuffer to a
+displayable Image or mImage using:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span>Image <b>toImage()</b>;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span>mImage <b>toMImage()</b>;<o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>You can convert it to an Image that can be
+drawn on using:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>            </span></span><span
+lang=EN-US style='color:navy'>Image <b>toDrawableImage();</b><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc33673850"></a><a name="_Toc33694478"><span
+style='mso-bookmark:_Toc33673850'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Image Composition</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>This can be done on a &quot;blank&quot;
+PixelBuffer or on one created from an existing image. As mentioned before it is
+normally used to compose images containing pixels with any alpha channel value
+you wish. You would normally do this using the following sequence:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Call <b>Graphics getDrawingBuffer()</b> to get a drawing area
+     for you to draw a portion of your composite image.</span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Draw on the Graphics provided the areas that will be of a
+     particular alpha value.</span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Call one of the <b>putDrawingBuffer()</b> methods to merge the
+     new drawing with the image already in the PixelBuffer.</span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo5;tab-stops:list .5in'><span
+     lang=EN-US>Repeat steps 1 to 3 for as many times as necessary to build
+     your composite image.</span></li>
+</ol>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>Lets look at this in more detail. First we
+will look at the <b>getDrawingBuffer()</b> method.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN-US style='color:navy'>Graphics
+<b>getDrawingBuffer</b> (Rect area,Color transparent,double alphaValue)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>This method creates a temporary Image that
+is of the size specified by the <b>area</b> parameter. This parameter must be
+either null (specifying the entire PixelBuffer) or should fit completely within
+the dimensions of the PixelBuffer. A <b>Graphics</b> object is created for the
+Image and this is returned.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The <b>transparent</b> Color parameter is
+used to fill the created drawing area image. If this is null then a default
+value is used. This color is used to indicate an &quot;undrawn&quot; area of
+the image; that is an area which has not been drawn on since getDrawingBuffer()
+was called. When <b>putDrawingBuffer(int option)</b> is called to place the
+Image you have drawn into the PixelBuffer, any pixels that are of this
+transparent color will be ignored and not placed in the PixelBuffer. However if
+the <b>putDrawingBuffer(int option, Mask mask)</b> method is used instead, then
+the color of the pixel is not used – so in that case the actual color used is
+not important.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The <b>alphaValue</b> value is used to
+specify the alpha value that will be assigned to the newly drawn pixels when they
+are placed in the PixelBuffer with putDrawingBuffer(). Only one alpha value is
+specified so areas of your image that have different alpha values will have to
+be composed using different calls to getDrawingBuffer() and putDrawingBuffer().
+The alpha value should be between 0.0 (fully transparent) and 1.0 (fully
+opaque).</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>There are two methods that you can use to
+put the image you have drawn into the PixelBuffer. If you specified an area in
+getDrawingBuffer() the image will be put back in that area.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span>void <b>putDrawingBuffer</b>(int options);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span>void <b>putDrawingBuffer</b>(int options, Mask mask);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US>The first method will place all pixels that
+are not of the transparent Color into the PixelBuffer in one of two modes
+depending on the value of options. If options is <b>PUT_SET</b> then the pixels
+in the image overwrite the pixels in the PixelBuffer. If options is <b>PUT_BLEND</b>
+then the pixels in the image are alpha-blended with any pixels already in the
+PixelBuffer.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The second method does the same as the
+first but this time the pixels which are included in the specified Mask are
+put/blended into the PixelBuffer while those which are excluded from the Mask
+are not. This method is more useful if you are composing a complex image which
+may have unpredictable color values and you cannot know for sure which color is
+safe to be used as a transparent color.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The getDrawingBuffer()/putDrawingBuffer()
+method is the most convenient way of composing an image from scratch. However
+there are other methods that allow you to blend an existing PixelBuffer with
+another.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span>void <b>put</b>(PixelBuffer other,int x,int y,int
+operation);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='color:navy'><span style='mso-tab-count:
+1'>            </span>void <b>put</b>(PixelBuffer other,int x,int y,int
+operation,Mask mask);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>            </span></span></p>
+
+<p class=MsoToc1><span lang=EN-US>These methods will put/blend another
+PixelBuffer with this PixelBuffer. If you use the <b>PUT_SET</b> option you can
+also OR it with the <b>PUT_NONTRANSPARENT_ONLY</b> option. This tells the put()
+methods to ignore any pixels in the <b>other</b> PixelBuffer which are fully
+transparent.</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

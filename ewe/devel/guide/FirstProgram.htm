@@ -1,0 +1,925 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name="Microsoft Theme 2.00" content="blank 001">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./FirstProgram_files/filelist.xml">
+<link rel=Edit-Time-Data href="./FirstProgram_files/editdata.mso">
+<link rel=OLE-Object-Data href="./FirstProgram_files/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Ewe Application Development</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael Brereton</o:Author>
+  <o:LastAuthor>Michael Brereton</o:LastAuthor>
+  <o:Revision>16</o:Revision>
+  <o:TotalTime>77</o:TotalTime>
+  <o:Created>2003-03-14T12:52:00Z</o:Created>
+  <o:LastSaved>2003-03-18T14:46:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1239</o:Words>
+  <o:Characters>7067</o:Characters>
+  <o:Lines>58</o:Lines>
+  <o:Paragraphs>14</o:Paragraphs>
+  <o:CharactersWithSpaces>8678</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>4.5 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>12.25 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:16792199 0 0 0 65791 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:Arial;
+	color:black;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+h5
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:10.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;
+	mso-bidi-font-style:italic;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:normal;
+	mso-bidi-font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:.5in;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:#993366;
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#999999;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990000;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;
+	mso-ansi-language:EN-US;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.7in .7in .7in .7in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:698703068;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-8213856 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1
+	{mso-list-id:1117216382;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2071178370 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1033"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white background="./FirstProgram_files/image001.gif" lang=EN-GB
+link="#999999" vlink="#990000" style='tab-interval:.5in'>
+<!--[if gte mso 9]><xml>
+ <v:background id="_x0000_s1031" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="./FirstProgram_files/image002.gif" o:title="blbkgnd" type="frame"/>
+ </v:background></xml><![endif]-->
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><span style='mso-ansi-language:EN-GB'>Ewe
+Application Development<o:p></o:p></span></h1>
+
+<p class=MsoNormal align=center style='text-align:center'><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-begin'></span><span
+style="mso-spacerun: yes"> </span>DATE \@ &quot;dd MMMM yyyy&quot; \*
+MERGEFORMAT <span style='mso-element:field-separator'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'>18 March 2003</span><!--[if supportFields]><span
+style='mso-ansi-language:EN-GB'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'>Michael L Brereton<o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-ansi-language:EN-GB'><a href="http://www.ewesoft.com/"><span
+lang=EN-US style='mso-ansi-language:EN-US'>http://www.ewesoft.com/</span></a><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 510.7pt'><b><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoToc1><!--[if supportFields]><span lang=EN-US><span
+style='mso-element:field-begin'></span><span style="mso-spacerun:
+yes"> </span>TOC \h \z \t &quot;Heading 2,1,Heading 3,2,Heading 4,3&quot; <span
+style='mso-element:field-separator'></span></span><![endif]--><span
+class=MsoHyperlink><span lang=EN-US><a href="#_Toc35397602">Writing your First
+Ewe Program<span style='color:black;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1'>    </span><span
+style='mso-field-code:"PAGEREF _Toc35397602 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003600300032000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35397603"><b style='mso-bidi-font-weight:normal'>Step
+1 – Create the Java File</b><span style='color:black;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1'>  </span><span style='mso-field-code:"PAGEREF _Toc35397603 \\h"'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003600300033000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35397604"><b style='mso-bidi-font-weight:normal'>Step
+2 – Add an Icon to MessageBox</b><span style='color:black;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35397604 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003600300034000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35397605"><b style='mso-bidi-font-weight:normal'>Important
+notes on using Bitmaps and other Program Resources</b><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35397605 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003600300035000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right 510.7pt'><span class=MsoHyperlink><span
+lang=EN-US><a href="#_Toc35397606"><b style='mso-bidi-font-weight:normal'>Step
+3 – Adding Your Program to the VM Launcher</b><span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35397606 \\h"'>2<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003600300036000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35397607">Accessing Program Arguments<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35397607 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003600300037000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc35397608">Ewe VM Command Line Options<span style='color:black;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1'>  </span><span style='mso-field-code:"PAGEREF _Toc35397608 \\h"'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300330035003300390037003600300038000000</w:data>
+</xml><![endif]--></span></span></a></span></span><span style='font-family:
+"Times New Roman";color:windowtext;mso-ansi-language:EN-GB;font-weight:normal'><o:p></o:p></span></p>
+
+<p class=MsoNormal><!--[if supportFields]><b><span lang=EN-US><span
+style='mso-element:field-end'></span></span></b><![endif]--><b><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h2 style='background:#CCFFFF'><a name="_Toc496732"></a><a name="_Toc35397602"><span
+style='mso-bookmark:_Toc496732'><span lang=EN-US>Writing your First Ewe Program</span></span></a></h2>
+
+<p class=MsoNormal><span lang=EN-US>Now let’s try to write your own Ewe program.
+This will simply bring up a welcome MessageBox window. Then we will try to add
+and display a simple bitmap within the MessageBox.</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<h4 style='background:#E6E6E6'><a name="_Toc496733"></a><a name="_Toc35397603"><span
+style='mso-bookmark:_Toc496733'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Step 1 – Create the Java File</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal><span lang=EN-US>For this example we’ll create a <b>tests.Welcome</b>
+class (i.e. a <b>Welcome</b> class in a <b>tests</b> package). First create a <b>tests</b>
+directory in the <b>classes</b> directory. Then create the following
+Welcome.java file:</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'>package tests;</pre><pre style='background:
+#F3F3F3'>import ewe.ui.*;</pre><pre style='background:#F3F3F3'>import ewe.fx.*;</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'>public class Welcome{</pre><pre style='background:
+#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>public static void main(String args[])</pre><pre
+style='background:#F3F3F3'>//===================================================================</pre><pre
+style='background:#F3F3F3'>{</pre><pre style='background:#F3F3F3'><span
+style='mso-tab-count:1'>        </span>ewe.sys.Vm.startEwe(args);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>MessageBox mb = new MessageBox(</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>&quot;Welcome&quot;,</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>&quot;Welcome to my first Program!\nI hope it works well.&quot;</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:2'>               </span>,MessageBox.MBOK);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mb.execute();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>ewe.sys.Vm.exit(0);</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'>//##################################################################</pre><pre
+style='background:#F3F3F3'>}</pre><pre style='background:#F3F3F3'>//##################################################################</pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Compile this program and then run it on the command line by
+entering: <b>ewe tests.Welcome</b> or <b>jwe tests.Welcome<o:p></o:p></b></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>You should get something looking like this:</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua";mso-bidi-font-family:"Times New Roman"'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:138.75pt;
+ height:69pt'>
+ <v:imagedata src="./FirstProgram_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=185 height=92
+src="./FirstProgram_files/image004.jpg" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoToc1><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+background:#E6E6E6'><a name="_Toc496735"></a><a name="_Toc35397604"><span
+style='mso-bookmark:_Toc496735'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Step 2 – Add an Icon to MessageBox</span></b></span></a><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Modify the code to look like this:</span><span lang=EN-US
+style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>…</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mb.icon = new mImage(&quot;ewe/SmallConfig.bmp&quot;,&quot;ewe/SmallConfigMask.bmp&quot;);</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mb.execute();</pre><pre
+style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>…</pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua";mso-bidi-font-family:"Times New Roman"'><!--[if gte vml 1]><v:shape
+ id="_x0000_i1026" type="#_x0000_t75" style='width:151.5pt;height:69pt'>
+ <v:imagedata src="./FirstProgram_files/image005.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=202 height=92
+src="./FirstProgram_files/image006.jpg" v:shapes="_x0000_i1026"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>This has added an icon to the left of the MessageBox text.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The <b>mImage</b> class is a general-purpose graphical image rendering
+class that can be used to display bitmaps (represented by <b>Image</b> classes)
+with transparent images. Since a BMP file does not support a transparent color
+selector, images with transparent areas must be implemented using two images –
+the <b>main image</b> and a <b>mask</b>. The <b>mask</b> <b>image</b> should be
+a mono bitmap of the same size as the main image with the areas that are to be
+transparent in <b>white</b> and non-transparent images in <b>black</b>. The <b>main
+image</b> should have the areas that are to be transparent also in <b>white</b>
+(you <b>can</b> have non-transparent white areas as well). For example, the
+bitmaps displayed above are:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75"
+ style='width:45pt;height:45pt' o:ole="">
+ <v:imagedata src="./FirstProgram_files/image007.gif" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=60 height=60
+src="./FirstProgram_files/image007.gif" v:shapes="_x0000_i1027"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1027"
+  DrawAspect="Content" ObjectID="_1109489552">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun: yes"> </span>ewe/SmallConfig.bmp <!--[if gte vml 1]><v:shape
+ id="_x0000_i1028" type="#_x0000_t75" style='width:45pt;height:45pt' o:ole="">
+ <v:imagedata src="./FirstProgram_files/image008.gif" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=60 height=60
+src="./FirstProgram_files/image008.gif" v:shapes="_x0000_i1028"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PBrush" ShapeID="_x0000_i1028"
+  DrawAspect="Content" ObjectID="_1109489553">
+ </o:OLEObject>
+</xml><![endif]--><span style="mso-spacerun:
+yes"> </span>ewe/SmallConfigMask.bmp</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>There is another constructor for <b>mImage</b> which takes a second
+argument of a <b>Color</b> value. This value specifies that all pixels in the
+source image that is of the specified color should be considered transparent.
+So, in this case we could have done:</span><span lang=EN-US style='font-family:
+"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<pre style='background:#F3F3F3'><span style='mso-tab-count:1'>        </span>mb.icon = new mImage(&quot;ewe/ewebig.bmp&quot;,ewe.fx.Color.White);</pre>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua";mso-bidi-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Now all pixels in the bitmap which are white will be rendered as
+transparent.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua"'><!--[if gte vml 1]><v:shape id="_x0000_i1029"
+ type="#_x0000_t75" style='width:164.25pt;height:69pt'>
+ <v:imagedata src="./FirstProgram_files/image009.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=219 height=92
+src="./FirstProgram_files/image010.jpg" v:shapes="_x0000_i1029"><![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The bitmaps used here are all in the Ewe library, bound in with the
+VM. The chapter on <b><a href="GuiIssues.htm">Important GUI Issues</a></b> lists
+all the available bitmaps in the Library and how they should be used.</span></p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><a
+name="_Toc496736"></a><a name="_Toc35397605"><span style='mso-bookmark:_Toc496736'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US>Important notes on using
+Bitmaps and other Program Resources</span></b></span></a><b style='mso-bidi-font-weight:
+normal'><span lang=EN-US><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>In this example we accessed a few bitmaps by using their path names.
+When running under Java or Ewe on the PC, program resources are searched for
+starting in the current directory. Also, under these execution environments,
+file names are <b>not</b> case sensitive. However when running under WinCE or
+PocketPC all resources must be bound in a <b>Ewe</b> file and only such
+resources will be found. Additionally, </span><b><span lang=EN-US
+style='color:purple'>resource names in a Ewe file are case sensitive and should
+use the ‘/’ slash as a directory separator. You should never start a resource
+with ‘/’ unless you are sure that it resides on a File system and not in a Ewe
+file.</span></b><b><span lang=EN-US style='font-family:"Book Antiqua";
+color:purple'><o:p></o:p></span></b></p>
+
+<h4 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+background:#E6E6E6'><a name="_Toc496737"></a><a name="_Toc35397606"><span
+style='mso-bookmark:_Toc496737'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Step 3 – </span></b></span></a><span
+style='mso-bookmark:_Toc35397606'><b style='mso-bidi-font-weight:normal'><span
+lang=EN-US style='color:green'>Adding Your Program to the VM Launcher</span></b></span><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='color:green'><o:p></o:p></span></b></h4>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>So far you have been running your program using a command line
+prompt. However on a WindowsCE device or other PDA this is not an option. To
+run a Ewe application on a mobile device you have two options:</span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>Create a <b>.ewe</b> file for the application and place it on
+     the device. </span></li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo3;tab-stops:list .5in'><span
+     lang=EN-US>Place the application class files on the mobile device and add
+     a <b>Launch Item</b> to the VM.</span></li>
+</ol>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The first option is what you would use when you are ready for full
+deployment of your application. It is somewhat tedious to use while you are
+developing the application since you have to use Jewel to update the
+application each time, before transferring it across to the device.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The second option is simpler for testing purposes. It allows you to
+leave your application as separate class files and resource files in the same
+directory structure as exists on your desktop hard drive and you simply copy
+across updated class files to the mobile device as you make changes on the
+desktop. You then use the VM Launcher (which you can leave running all the
+time) to execute the application.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>To start the VM Launcher you simply run the Ewe executable without
+any program arguments. Then, under the Ewe menu, you select the <b>Add Launch
+Item</b> option. Then use the FileChooser to select your class file. Ensure
+that you specify the correct package and name for the class (<b>tests.Welcome</b>
+in this case) and you can change the title of the application. Once you do this
+all you need to do is click the new launch item and the application will begin
+running.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>When you are doing this procedure on your mobile device, try to
+place your package under a directory called <b>classes</b>. This makes it
+easier for the Launcher to correctly guess what is the correct package and
+class name for your class.</span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>Note that the VM Launcher has an option (under the <b>Options</b>
+tab) called <b>Exit After Launch </b>that determines whether the Launcher
+should exit after launching another Ewe application. This by default is true on
+mobile devices, but you may wish to turn this off to speed things up during
+testing.</span></p>
+
+<h2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+background:#CCFFFF'><a name="_Toc496738"></a><a name="_Toc35397607"><span
+style='mso-bookmark:_Toc496738'><span lang=EN-US>Accessing Program Arguments</span></span></a></h2>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The <b>programArguments</b> member in <b>ewe.ui.mApp</b> is an array
+of strings representing command line arguments passed to the ewe VM. The
+command line for ewe is:</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText2 style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='mso-ansi-language:EN-US'>ewe [/&lt;opt&gt;
+[&lt;opt_value&gt;]] [StartClassName] [&lt;ewefile.ewe&gt;] [programArgument1]
+[programArgument2]…<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US style='font-family:"Book Antiqua"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
+lang=EN-US>The VM parses the command line in the following way:</span><span
+lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>It starts looking for a start class name. This will be any
+     string which does not end in “.ewe”. </span><span lang=EN-US
+     style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>If it discovers any argument starting with a ‘/’ it assumes it
+     to be a special option and will then assume that the following string is
+     the value for that special option. You should therefore place all of these
+     arguments <b>before</b> the class name OR any .ewe files.</span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>If it finds a string that does not end in .ewe it assumes it to
+     be the starting class name and then proceeds to look for .ewe files to
+     load.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>If it finds a .ewe file before finding a starting class name,
+     it will look for a command line stored in the first (and only the first)
+     ewe file that it finds.</span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>Once all the ewe files have been parsed and loaded it will then
+     pass the rest of the arguments to the executing program as its program
+     arguments. </span><span lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo6;tab-stops:list .5in'><span
+     lang=EN-US>An option of &quot;/-&quot; tells the VM to stop processing VM
+     options and pass all further arguments to the application.</span><span
+     lang=EN-US style='font-family:"Book Antiqua"'><o:p></o:p></span></li>
+</ol>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US>The command line options are:</span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/w &lt;screen_width_in_pixels&gt; <span style="mso-spacerun:
+yes"> </span></span></b><span style='mso-ansi-language:EN-GB'>= Limit the
+screen width.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/h &lt;screen_height_in_pixels&gt; </span></b><span style='mso-ansi-language:
+EN-GB'>= Limit the screen height.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/r </span></b><span style='mso-ansi-language:EN-GB'><span
+style="mso-spacerun: yes"> </span>= Simulate a mobile device.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/p</span></b><span style='mso-ansi-language:EN-GB'> = Simulate a
+pen-based device (e.g. a PDA).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/z</span></b><span style='mso-ansi-language:EN-GB'> = Simulate a
+monochrome (black &amp; white) system.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/n</span></b><span style='mso-ansi-language:EN-GB'> = Simulate a system
+that does not support multiple native windows.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/m</span></b><span style='mso-ansi-language:EN-GB'> = Simulate a low
+memory device.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/o </span></b><span style='mso-ansi-language:EN-GB'>= Rotate the screen
+by 90 degrees clockwise.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/O</span></b><span style='mso-ansi-language:EN-GB'> = Rotate the screen
+by 90 degrees anti-clockwise.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/l &lt;locale&gt;</span></b><span style='mso-ansi-language:EN-GB'> = Set
+the default Locale.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/d &lt;directory&gt;</span></b><span style='mso-ansi-language:EN-GB'> =
+Specify a specific “program directory”.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/cp &lt;directories&gt;</span></b><span style='mso-ansi-language:EN-GB'>
+= Specify a ClassPath.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b><span style='mso-ansi-language:
+EN-GB'>/-</span></b><span style='mso-ansi-language:EN-GB'> = Force the end of
+VM arguments, all following arguments to be passed to the application.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>
