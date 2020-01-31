@@ -1,0 +1,9 @@
+palettes
+
+dynamics
+short detour to the inspector
+à propos inspector: tempo & ritardando
+crescendo & diminuendo
+ambitus <3
+trills, arpeggio, glissando, …
+clef, key, time, text, breaks, …

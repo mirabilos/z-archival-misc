@@ -1,0 +1,15 @@
+Workspace 1: should be free for using
+	uxterm -class RXTerm -geom 113x35+1+1 & exit
+Workspace 2: slides
+	cd Misc/Vendor/mscore-workshop
+	make run
+Workspace 3: MuseScore
+	export QT_QPA_PLATFORMTHEME=qt5ct
+	cd Misc/Vendor/mscore-workshop/samples
+	musescore La\ Réjoussance.mscx
+	mv ~/.config/MuseScore{,~}
+	mv ~/.local/share/data/MuseScore{,~}
+	musescore #-R
+	# Edit → Preferences… │ I/O, Language
+Workspace 4: extra resources
+	iceweasel -P Eiswiesel https://edugit.org/mirabilos/mscore-workshop & sleep 3; mupdf ~/Misc/Vendor/mscore-workshop/samples/D*.pdf

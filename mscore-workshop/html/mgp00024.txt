@@ -1,0 +1,11 @@
+plugins…
+
+tuning plugin
+various creator plugins
+auto accompaniment; create notes from chords
+visual plugins
+colouring; fingerings
+conversion plugins
+non-western notation; converters, more im-/export
+check plugins
+SATB harmony rules; parallel fifths and octaves

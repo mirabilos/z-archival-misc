@@ -1,0 +1,233 @@
+# Title:          Canon in D
+# Subtitle:       for flute^Wfloppy quartet
+# Composer:       Johann Pachelbel (1653–1706)
+# Year:           1680
+# Arranger:       Steven David Tung, 2013
+# Encoder:        Dominik George <nik@naturalnet.de>, 2013; mirabilos, 2016
+# Copyright:      © 2013 Steven David Tung ↄ⃝ CC-BY-SA 4.0; MML scores © 2013 Dominik George; © 2016 mirabilos
+# Instruments:    Flute
+# MML Tracks:     4
+# Verses:         1
+# Tempo:          ♪ = 84
+# Time Signature: 4/4
+# Key Signature:  D Major
+# Pickup Measure: none
+# Measures:       57
+# Floppi-Music:   sped up (from r42) and played 8vb (from o3)
+# Now Playing:    Pachelbel Canon in D, for flute quartet, 2003,  by Steven David Tung (CC-BY-SA)
+
+# 1
+o2t54 p1     | p1   | f#edc#  | <bab>c# | dc#<ba  | gf#ge   |
+o2t54 d<abf# | gdga | >d<abf# | gdp2    | >f#edc# | <bab>c# |
+o2t54 d<abf# | gdga | >d<abf# | gdga    | >d<abf# | gdp2    |
+o2t54 d<abf# | gdga | >d<abf# | gdga    | >d<abf# | gdga    |
+
+# 7
+>d<abf#       | gdga       | >d<abf#       | gdga           |
+dc#<ba        | gf#ge      | l8df#agf#df#e | d<b>dagbag     |
+>f#edc#       | <bab>c#    | dc#<ba        | gf#ge          |
+l8df#agf#df#e | d<b>dagbag | f#de>c#df#a<a | bgaf#d>dd.c#16 |
+
+# 11
+l16>dc#d<dc#aef#d>dc#<b>c#f#ab | gf#egf#edc#<bagf#egf#e |
+f#de>c#df#a<a                  | bgaf#d>dd.c#16         |
+l8df#agf#df#e                  | d<b>dagbag             |
+l4d<abf#                       | gdga                   |
+
+# 13
+def#gaeagf#bagagf#e           | d<b>b>c#dc#<bagf#ebabag |
+l16dc#d<dc#aef#d>dc#<b>c#f#ab | gf#egf#edc#<bagf#egf#e  |
+f#de>c#df#a<a                 | bgaf#d>dd.c#16          |
+>d<abf#                       | gdga                    |
+
+# 15
+l8f#>f#e4pdf#4                | b4a4b4>c#4              |
+def#gaeagf#bagagf#e           | d<b>b>c#dc#<bagf#ebabag |
+l16dc#d<dc#aef#d>dc#<b>c#f#ab | gf#egf#edc#<bagf#egf#e  |
+>d<abf#                       | gdga                    |
+
+# 17
+d<dc#4p<b>d4        | d4.ddgea                |
+l8f#>f#e4pdf#4      | b4a4b4>c#4              |
+def#gaeagf#bagagf#e | d<b>b>c#dc#<bagf#ebabag |
+>d<abf#             | gdga                    |
+
+# 19
+l32a16mlf#gmna16mlf#gmnaml<ab>c#def#gmnf#16mldemnf#16ml<f#gabagaf#ga |
+d<dc#4p<b>d4                                                         |
+l8f#>f#e4pdf#4                                                       |
+>d<abf#                                                              |
+
+# 20
+mng16mlbag16f#ef#edef#gabmng16mlbamnb16>mlc#d<ab>c#def#ga |
+d4.ddgea                                                  |
+b4a4b4>c#4                                                |
+gdga                                                      |
+
+# 21
+mnf#16mldemnf#16mledec#def#edc#mnd16ml<b>c#mnd16<mldef#gf#emnf#>mldc#d |
+l32a16mlf#gmna16mlf#gmna<mlab>c#def#gmnf#16mldemnf#16<mlf#gabagaf#ga   |
+d<dc#4p<b>d4                                                           |
+>d<abf#                                                                |
+
+# 22
+mn<b16>mldc#<mnb16mlagagf#gab>c#dmn<b16>mldc#mnd16mlc#<b>c#dedc#d<b>c# |
+mng16mlbamng16mlf#ef#edef#gabmng16mlbamnb16ml>c#d<mnamlb>c#def#ga      |
+d4.ddgea                                                               |
+gdga                                                                   |
+
+# 23
+l8mndpc#p<b>pdp                                                        |
+mnf#16mldemnf#16mledec#def#edc#mnd16ml<b>c#mnd16<mldef#gf#emnf#>mldc#d |
+l32a16mlf#gmna16mlf#gmna<mlab>c#def#gmnf#16mldemnf#16<mlf#gabagaf#ga   |
+>d<abf#                                                                |
+
+# 24
+<dpdpdpep                                                              |
+mn<b16>mldc#mn<b16mlagagf#gab>c#dmn<b16>mldc#mnd16mlc#<b>c#dedc#d<b>c# |
+mng16mlbamng16mlf#ef#edef#gabmng16mlbamnb16ml>c#d<mnamlb>c#def#ga      |
+gdga                                                                   |
+
+# 25
+l4>d<abf#                                                              |
+l8mndpc#p<b>pdp                                                        |
+mnf#16mldemnf#16mledec#def#edc#mnd16ml<b>c#mnd16<mldef#gf#emnf#>mldc#d |
+l8papapf#pa                                                            |
+
+# 26
+gdga                                                                   |
+<dpdpdpep                                                              |
+mn<b16>mldc#mn<b16mlagagf#gab>c#dmn<b16>mldc#mnd16mlc#<b>c#dedc#d<b>c# |
+pgpf#pgp>e                                                             |
+
+# 27
+>d<abf#                     | gdga                      |
+papapf#pa                   | pgpf#pgp>e                |
+l8mndpc#p<b>pdp             | <dpdpdpep                 |
+l16f#<f#gf#e>ef#ed<f#dbaaga | bb>c#<baagabbab>c#c#<b>c# |
+
+# 29
+>d<abf#                     | gdga                      |
+l16f#<f#gf#e>ef#ed<f#dbaaga | bb>c#<baagabbab>c#c#<b>c# |
+papapf#pa                   | pgpf#pgp>e                |
+ddedc#c#dc#<bbab>c#<c#f#e   | d>degf#<f#a>f#dgf#ge<aga  |
+
+# 31
+l16f#aaaaaaaf#f#f#f#f#f#aa  | ggg>ddddddd<bbaa>ec#      |
+ddedc#c#dc#<bbab>c#<c#f#e   | d>degf#<f#a>f#dgf#ge<aga  |
+l16f#<f#gf#e>ef#ed<f#dbaaga | bb>c#<baagabbab>c#c#<b>c# |
+l4>d<abf#                   | gdga                      |
+
+# 33
+<a>f#f#f#eeeeddddaaaa       | bbbbaaaabbbb>c#<c#c#c#    |
+f#aaaaaaaf#f#f#f#f#f#aa     | ggg>ddddddd<bbaa>ec#      |
+ddedc#c#dc#<bbab>c#<c#f#e   | d>degf#<f#a>f#dgf#ge<aga  |
+>d<abf#                     | gdga                      |
+
+# 35
+d<mld32e32mnf#dc#>mlc#32d32mnec#<bmlb32>c#32mnd<b>c#ml<a32g32mnf#e |
+<a>f#f#f#eeeeddddaaaa                                              |
+f#aaaaaaaf#f#f#f#f#f#aa                                            |
+>d<abf#                                                            |
+
+# 36
+dmlg32f#32mnegf#mld32e32mnf#agmlb32a32mngf#emla32g32mnf#e |
+bbbbaaaabbbb>c#<c#c#c#                                    |
+ggg>ddddddd<bbaa>ec#                                      |
+gdga                                                      |
+
+# 37
+l4>d<abf#                                                          |
+d<mld32e32mnf#dc#>mlc#32d32mnec#<bmlb32>c#32mnd<b>c#ml<a32g32mnf#e |
+<a>f#f#f#eeeeddddaaaa                                              |
+l16d>mld32c#32mnd<f#amla32b32mnc#af#ml>d32e32mnf#df#mlf#32e32mndc# |
+
+# 38
+gdga                                                      |
+dmlg32f#32mnegf#mld32e32mnf#agmlb32a32mngf#emla32g32mnf#e |
+bbbbaaaabbbb>c#<c#c#c#                                    |
+<bmlb32a32mnb>c#dmlf#32e32mndf#gmld32c#32mn<bbaeaa        |
+
+# 39
+>d<abf#                                                            |
+l16d>mld32c#32mnd<f#amla32b32mnc#af#ml>d32e32mnf#df#mlf#32e32mndc# |
+d<mld32e32mnf#dc#>mlc#32d32mnec#<bmlb32>c#32mnd<b>c#ml<a32g32mnf#e |
+l4a.a8d.a8                                                         |
+
+# 40
+gdga                                                      |
+<bmlb32a32mnb>c#dmlf#32e32mndf#gmld32c#32mn<bbaeaa        |
+dmlg32f#32mnegf#mld32e32mnf#agmlb32a32mngf#emla32g32mnf#e |
+gal8gdd.c#16                                              |
+
+# 41
+>d<abf#                                                            |
+l4a.a8d.a8                                                         |
+l16d>mld32c#32mnd<f#amla32b32mnc#af#ml>d32e32mnf#df#mlf#32e32mndc# |
+d>dl4c#<ba                                                         |
+
+# 42
+gdga                                               |
+gal8gdd.c#16                                       |
+<bmlb32a32mnb>c#dmlf#32e32mndf#gmld32c#32mn<bbaeaa |
+mld8.mse16mnf#bmle8.mse16mn                        |
+
+# 43
+l16f#8.>f#mlf#mngmlf#mned8.dmldmnemldmnc# |
+d>dl4c#<ba                                |
+l4a.a8d.a8                                |
+l4>d<abf#                                 |
+
+# 44
+<b4>d4mldmncml<b>mnc<mla8.msamn |
+l8mld.mse16mnf#4b4mle.mse16mn   |
+gal8gdd.c#16                    |
+gdga                            |
+
+# 45
+a8.>amlamnbmlamngf#8.f#mlf#mngmlf#mne     |
+l16f#8.>f#mlf#mngmlf#mned8.dmldmnemldmnc# |
+d>dl4c#<ba                                |
+>d<abf#                                   |
+
+# 46
+mldmncml<b>mnc<l8a.a16g>dc#.c#16 |
+<b4>d4mldmncml<b>mnc<mla8.msamn  |
+l8mld.mse16mnf#4b4mle.mse16mn    |
+gdga                             |
+
+# 47
+dl4dc#<bl8mla                             |
+a8.>amlamnbmlamngf#8.f#mlf#mngmlf#mne     |
+l16f#8.>f#mlf#mngmlf#mned8.dmldmnemldmnc# |
+>d<abf#                                   |
+
+# 48
+mnag4mlf#f#.mne16e4              |
+mldmncml<b>mnc<l8a.a16g>dc#.c#16 |
+<b4>d4mldmncml<b>mnc<mla8.msamn  |
+gdga                             |
+
+# 49
+f#>f#4ed>d4c                          | l4<b>mld8<mna8ba                 |
+dl4dc#<bl8mla                         | mnag4mlf#f#.mne16e4              |
+a8.>amlamnbmlamngf#8.f#mlf#mngmlf#mne | mldmncml<b>mnc<l8a.a16g>dc#.c#16 |
+>d<abf#                               | gdga                             |
+
+# 51
+al8<mla.mng16f#4>mlf#.mne16 | l4d.d8dc#                       |
+f#>f#4ed>d4c                | l4<b>mld8<mna8ba                |
+dl4dc#<bl8mla               | mnag4mlf#f#.mne16e4             |
+>d<abf#                     | gdga                            |
+
+# 53
+d<abf#                      | gdga             |
+al8<mla.mng16f#4>mlf#.mne16 | l4d.d8dc#<       |
+f#>f#4ed>d4c                | l4<b>mld8<mna8ba |
+l8>d<dc#>c#<bbaa            | g>gf#<f#ebe>e    |
+
+# 55
+>d<abf#                     | gdga             | >d4p4p2 ||
+l8>d<dc#>c#<bbaa            | g>gf#<f#ebe>e    | f#4p4p2 ||
+al8<mla.mng16f#4>mlf#.mne16 | l4d.d8dc#        |  d4p4p2 ||
+f#<f#e>ed<dc#>c#            | <b>ba<ag.>e16<aa |  a4p4p2 ||

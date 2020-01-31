@@ -1,0 +1,18 @@
+{
+  "image": "registry.edugit.org/teckids/docker-images/pubmat-builder:master",
+  "pages": {
+    "artifacts": {
+      "paths": [
+        "public"
+      ]
+    },
+    "only": [
+      "master"
+    ],
+    "script": [
+      "make clean",
+      "make pages"
+    ],
+    "stage": "deploy"
+  }
+}

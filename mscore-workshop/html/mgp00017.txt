@@ -1,0 +1,9 @@
+Import and Export (4)
+
+lossless audio formats
+WAV, FLAC
+lossy audio formats
+MP3, OGG Vorbis
+sheet music
+PDF, PostScript, SVG, PNG
+MML import  (via MusicXML by mmllib)

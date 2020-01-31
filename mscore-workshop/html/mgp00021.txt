@@ -1,0 +1,10 @@
+influencing playback
+
+playback panel
+speed, global volume
+metronome, count-in
+mixer panel
+per-track volume / mute / solo
+select instrument from soundfonts
+some effects
+… but these have a chapter of their own

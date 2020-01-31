@@ -1,0 +1,9 @@
+advanced score editing
+
+transposing instruments
+concert pitch
+transposition
+tablature & linked staves
+inspector
+visibility, colour, sizing, positioning
+types, playback parameters (later)

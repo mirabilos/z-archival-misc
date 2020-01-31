@@ -1,0 +1,82 @@
+This repository contains material (slides, samples, resources)
+for holding a MuseScore workshop.
+
+The workshop itself is Copyright © 2018 mirabilos
+and published under the same licence as MuseScore itself, namely:
+
+║ MuseScore, free and open source music notation software
+║ Copyright (C) 2002-2018 Werner Schweer and others
+║
+║ This program is free software; you can redistribute it and/or modify it
+║ under the terms of the GNU General Public License version 2 as published
+║ by the Free Software Foundation and reproduce below with the following
+║ exception:
+║
+║ - If you create a document which uses fonts included in MuseScore, and
+║ embed this font or unaltered portions of this font into the document,
+║ then this font does not by itself cause the resulting document to be
+║ covered by the GNU General Public License. This exception does not
+║ however invalidate any other reasons why the document might be covered
+║ by the GNU General Public License. If you modify this font, you may
+║ extend this exception to your version of the font, but you are not
+║ obligated to do so. If you do not wish to do so, delete this exception
+║ statement from your version.
+║
+║ This program is distributed in the hope that it will be useful, but
+║ WITHOUT ANY WARRANTY; without even the implied warranty of
+║ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+║ See the GNU General Public License for more details.
+
+The complete text of the GNU General Public License, version 2, is in
+the file doc/GPLv2 in this repository.
+
+Sonoj Convention has the permission to reproduce a video recording of my
+workshop under the terms of the CC-BY 4.0 — doc/CC-BY_4.0.txt — or later,
+notwithstanding others’ rights to individual exhibits.
+
+Individual examples are published under their own licence terms,
+which are listed below:
+
+• Intro: La Réjoussance, arr. by tlw (MuseScore.com user) under CC-BY
+
+• MIDI import: Ode to Joy, Public Domain
+
+• Frère Jacques: PD, trivial example made for this workshop
+
+• Die Himmel erzählen: notation and excerpt, Ⓕ The MirOS Licence
+
+The fonts used for the slides are all covered by licences with font
+embedding exceptions:
+
+• Gentium, Gentium Italic, Inconsolatazi4varl_qu Regular (SIL OFLv1.1)
+  from http://www.mirbsd.org/music/free/resources/
+
+• NotoSansSymbols Regular, UnifrakturMaguntia (SIL OFLv1.1) a.a.O.
+  for example scores
+
+• Bravura, BravuraText, Gootville, GootvilleText, MScoreBC,
+  MScoreTabulature, MScoreText, MuseJazz Book and Medium (SIL OFLv1.1),
+  MScore (GPL with font embedding exception), FreeSans, FreeSerif
+  optionally bold and/or italic (GPLv3 with font embedding exception)
+  from MuseScore (embedded), for example scores and screenshots
+
+• Fira Sans (SIL OFLv1.1) may occur as screenshot UI font
+
+The images (except for the Shilouette Dæmon) are covered by the
+MuseScore licence unless listed below:
+
+• Cats at the piano: Public Domain
+
+• NEW!: from CC0 source
+
+• “mirabilos”: from Gentium, font embedded, Ⓕ The MirOS Licence
+  (‘m’ design by smultron)
+
+The subdirectory html/ contains a browsable export of the slides
+from the MagicPoint format sources, embedding the aforementioned
+fonts and the source images.
+
+The Tₑχ/LᴬTᴇΧ-generated PDF document is also set in a Gentium body
+with Fira Sans highlights. It uses styles and classes, other than
+those in texlive-full stock, by Thorsten Glaser and Dominik George,
+Teckids e.V. and/or tarent solutions GmbH, David Carlisle aiding.

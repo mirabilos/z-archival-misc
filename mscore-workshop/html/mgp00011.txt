@@ -1,0 +1,10 @@
+First we need the software
+
+Everybody installed MuseScore, right?
+First start: preferences and settings
+language
+important: I/O
+JACK or ALSA, then restart
+shortcuts
+UI styles, start centre
+autosave, workspaces

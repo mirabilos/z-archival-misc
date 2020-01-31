@@ -1,0 +1,189 @@
+.Nm &en Link list
+.Ss List of auxillary links for MuseScore
+.Bl MuseScore
+.It
+.a https://musescore.org/en Homepage
+.Pq ao https://musescore.org/de
+German /
+.No &de-DE-1901 deutsch
+.ac
+.It
+.a https://musescore.com/ musescore.com community site
+(allows score sharing, group discussion, etc.), a freemium add-on service
+.It
+.a https://musescore.org/en/download Downloads
+(MuseScore itself is Free Software under the GNU GPL)
+.It
+.a https://launchpad.net/~mscore-ubuntu/+archive/ubuntu/mscore-stable \
+ Official PPA for stable MuseScore releases
+for Ubuntu and derivatives (Linux Mint, KXStudio, …) users
+.It
+.a https://packages.debian.org/source/sid/musescore MuseScore in Debian
+(with newer versions in official backports)
+.It
+.a https://musescore.com/apps MuseScore Apps for mobile ,
+freemium add-ons allowing playback, with (limited) options for per-track
+volume control, metronome, transposing, sizing, rendering, for iPhone
+and Android/Kindle (Play Store version also works with MicroG)
+.It
+.a https://musescore.org/en/faq FAQ
+.It
+.a https://musescore.org/en/plugins Plugins
+.Pq a https://musescore.org/en/handbook/plugins documentation
+.It
+.a https://openscore.cc/ OpenScore — Liberating Sheet Music ,
+project to publish digital editions of Public Domain classics under
+.a https://creativecommons.org/publicdomain/zero/1.0/legalcode CC0
+(mostly using
+.a https://imslp.org/ IMSLP
+as source), in MuseScore format, but also exported as MusicXML,
+Braille musical notation, …
+.It
+.a https://musescore.com/openscore The OpenScore collection
+of liberated music, on the
+.Li musescore.com
+community site
+.El
+.Bl Handbook
+.It
+.a https://musescore.org/en/handbook MuseScore online manual (English)
+.It
+.ao https://musescore.org/de/handbuch
+MuseScore online manual (German) /
+.No &de-DE-1901 Musescore Online-Benutzerhandbuch (deutsch)
+.ac
+.It
+.a https://www.goodreads.com/book/show/25781106-mastering-musescore \
+ Mastering MuseScore
+is an actual, published (paper and Kindle) book covering the material
+from the official handbook and some day-to-day help, written by
+.a https://masteringmusescore.com/go/books/ Marc Sabatella ,
+MuseScore contributor and educator
+.El
+.Bl Forum
+.It
+.a https://musescore.org/en/forum English MuseScore Forums ,
+official discussion and support on the main platform
+.It &de-DE-1901
+.a https://musescore.org/de/forum deutsches MuseScore-Forum ,
+offizieller Ort für Diskussionen und Hilfegesuche
+.Pq No &en German
+.It &de-DE-1901
+MuseScore-Unterforum im
+.a https://www.notensatzforum.net/f2-MuseScore.html Notensatz-Forum
+(deutsch /
+.No &en German )
+.It &de-DE-1901
+Notations-Unterforum im
+.a https://www.musiker-board.de/forum/notation-notationssoftware.202/ Musiker-Board
+(deutsch /
+.No &en German )
+.El
+.Bl Educational and other resources
+.It
+.a https://musescore.org/en/tutorials MuseScore tutorials
+(mostly videos) on the official site
+.It
+.a https://musescore.org/en/howto MuseScore HOWTO
+(text with pictures) on the official site
+.Pq ao https://musescore.org/de/howto
+German /
+.No &de-DE-1901 deutsch
+.ac
+.It
+.a https://www.youtube.com/user/MuseScoreHowTo \
+ MuseScore HOWTO video tutorials
+on YouTube, by the MuseScore team
+.It
+.a https://masteringmusescore.com/go/cafe/ MuseScore Café ,
+weekly
+.Em live
+interactive chat session, by Marc Sabatella, on YouTube
+.It
+.a https://masteringmusescore.com/go/quick-answers/ \
+ Quick step-by-step answers
+to common questions, with videos, also by Marc Sabatella, on his
+.a https://masteringmusescore.com/ Mastering MuseScore Online
+site (which also offers paid-for and free
+.a https://school.masteringmusescore.com/ courses ,
+which, in addition to the Mastering MuseScore book, are explained
+.a https://school.masteringmusescore.com/p/get/ here
+further)
+.It
+.a https://school.masteringmusescore.com/p/educational-partnership \
+ MuseScore Educational Partnership :
+Making MuseScore an integral part of music
+education; partnership for both educators and students
+.It
+.a https://musescore.org/en/node/17242 \
+ Resources for music notation/engraving standards and conventions
+in the official Forum
+.It
+.a https://de.wikipedia.org/wiki/Free_Sheet_Music#Weblinks \
+ links to Free Sheet Music
+.El
+.Bl Foreign (language) resources
+.It &fr
+.a https://linuxmao.org/MuseScore \
+ MuseScore, éditeur de partitions très complet
+en français
+.Pq No &en French
+.El
+.Bl Extra projects, Integration, Beyond
+.It
+.a https://help.musescore.com/hc/en-us/articles/210260605-Send-to-YouTube \
+ Send scores to YouTube
+from the musescore.com community site, or even
+.a https://musescore.org/en/node/11436 \
+ synchronise a score video with a real performance audio/video
+.It
+.a https://musescore.org/en/node/270844 \
+ How to use MuseScore with Hauptwerk and Grand Orgue Virtual Pipe Organs
+details MIDI and score-level changes to properly support organ registration
+as well as setting up those applications to work directly together
+.It
+The
+.a https://musescore.com/groups/3642106 \
+ Hauptwerk or GrandOrgue users
+group on the musescore.com community site contains tons more hints
+in discussions and training scores for proper organ typesetting
+(the “Pipe/Church Organ” instrument isn’t suitable, it has a fixed
+.No &de-DE-1901 Mixtur
+registration — “Reed Organ” is supposedly better poison for using
+unregistrated sounds)
+.It
+.a https://create.arduino.cc/projecthub/tcucinotta/arduino-leds-midi-keyboard-musescore-piano-tutor-9080fe \
+ Arduino + LEDs + MIDI keyboard + MuseScore = Piano Tutor
+hacking project
+.Po a https://twitter.com/tomcucinotta/status/955470292213628928 tweet ,
+.a https://www.youtube.com/watch?v=2_i3mNE-hhI demo video ,
+.a https://www.youtube.com/watch?v=qSFTzFyzGeY hack video ,
+.a https://www.youtube.com/watch?v=5C0BWGxvRzE tutor video ,
+.a https://www.instructables.com/id/MuseScoreArduinoLEDsMIDI-Piano-Tutor/ \
+ Instructables ,
+.a https://github.com/tomcucinotta/MuseScore/tree/piano-tutor \
+ MuseScore software patch
+with Arduino code in
+.Li miditools/PianoTutor/ )
+.It
+In the MuseScore Developers’ Handbook, the section documenting
+.ao https://musescore.org/en/developers-handbook/references/instruments.xml-documentation
+the
+.Li instruments.xml
+format
+.ac
+contains some information on setting one or more MidiAction elements
+that can be triggered from a score to send arbitrary MIDI CCs (here is an
+.a https://musescore.org/en/node/98501#comment-843294 example )
+.It
+.a https://mirabilos.edugit.org/mscore-workshop/html/index.html \
+ My slides
+from this workshop
+.El
+.RH <hr />
+.RH <address>• <a
+.RH  href="https://mirabilos.edugit.org/mscore-workshop/notes/linklist.htm">latest web
+.RH  version</a> • <a
+.RH  href="https://edugit.org/mirabilos/mscore-workshop/blob/master/notes/linklist.dat">Source
+.RH  code</a> • <a
+.RH  href="https://validator.w3.org/check/referer">HTML check</a> •</address>

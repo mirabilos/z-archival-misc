@@ -1,0 +1,9 @@
+MuseScore (software)
+
+2002: Fork of MusE
+sequencer with notation capabilities
+both developed by Werner Schweer
+GPLv2  with font embedding exception
+C++, Qt5  (manual only online, website)
+Library and front-end
+Mobile äpps available (freemium)

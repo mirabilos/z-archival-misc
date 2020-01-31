@@ -1,0 +1,470 @@
+% Lokaler Stil für Workshopmaterial
+%
+% Copyright © 2019
+%	Thorsten Glaser <t.glaser@tarent.de>
+%
+% Basiert auf:
+% Teckids e.V. — Allgemeine Vorlage, Version 2
+%-
+% Copyright © 2013, 2015
+%	Dominik George <dominik.george@teckids.org>
+% Copyright © 2014, 2015, 2017, 2018
+%	Thorsten “mirabilos” Glaser <thorsten.glaser@teckids.org>
+% Copyright © 2015, 2016, 2017, 2019
+%	Thorsten Glaser <t.glaser@tarent.de>
+%
+% Provided that these terms and disclaimer and all copyright notices
+% are retained or reproduced in an accompanying document, permission
+% is granted to deal in this work without restriction, including un‐
+% limited rights to use, publicly perform, distribute, sell, modify,
+% merge, give away, or sublicence.
+%
+% This work is provided "AS IS" and WITHOUT WARRANTY of any kind, to
+% the utmost extent permitted by applicable law, neither express nor
+% implied; without malicious intent or gross negligence. In no event
+% may a licensor, author or contributor be held liable for indirect,
+% direct, other damage, loss, or other issues arising in any way out
+% of dealing in the work, even if advised of the possibility of such
+% damage or existence of a defect, except proven that it results out
+% of said person's immediate fault when using the work as intended.
+
+% Characters requiring escaping:
+% • { } # & _ % $ ⇒ quote by prepending a backslash \
+% • \ → \textbackslash
+% • ^ → \textasciicircum
+% • ~ → \textasciitilde
+% • (nbsp) → ~
+% • (em dash) → \dash
+
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{mystyle}[2019/07/29 1.1 Workshopmaterial Hausstil]% für Tₑχ/LᴬTᴇΧ
+
+\RequirePackage{accsupp}%
+\RequirePackage[utf8]{inputenc}%
+\RequirePackage[british,french,ngerman,german,shorthands=off,safe=none,math=normal,main=german,headfoot=german,hyphenmap=other*]{babel}%
+\RequirePackage[usenames,dvipsnames,table]{xcolor}%
+\RequirePackage[LY1,TS1,T1]{fontenc}%
+\RequirePackage{pdf14}%
+\RequirePackage[paperwidth=21truecm,paperheight=29.7truecm,includehead,hmargin=1.75cm,top=0.3cm,bottom=2.2cm,headheight=1cm,headsep=0.5cm,footskip=0.8cm,marginparsep=2.5mm]{geometry}%
+\RequirePackage{fancybox}%
+\linespread{1.15}%
+\RequirePackage[varqu,varl]{inconsolata}%
+\RequirePackage{longtable}%
+\RequirePackage{tabu}%
+\RequirePackage{multirow}%
+\renewcommand{\multirowsetup}{}%
+\RequirePackage{wrapfig}%
+\setlength{\intextsep}{0pt}% see also \mygeometry below
+\RequirePackage{intcalc}%
+\RequirePackage[writefile]{listings}%
+\RequirePackage{float}%
+\RequirePackage[totpages,user]{zref}%
+\RequirePackage{calc}%
+\RequirePackage{ifthen}%
+\RequirePackage[noadjust]{marginnote}%
+\RequirePackage{unicodedomino}%
+\RequirePackage{unicodepoints}%
+\RequirePackage{framed}%
+\RequirePackage[export]{adjustbox}%
+\RequirePackage[section]{placeins}%
+\RequirePackage[pdftex,unicode]{hyperref}%
+
+% Debian stretch compatibility glue
+\ifx\f@nch@setoffs\@undefined%
+ \let\f@nch@setoffs\fancy@setoffs%
+\fi%
+
+\definecolor{mySTYlstbackground}{HTML}{E6E6E6}%
+\definecolor{mySTYlstlineno}{HTML}{444444}%
+\definecolor{mySTYlstmargin}{HTML}{707070}%
+
+\newcommand{\mylogoImagename}{the_m_irabilos}%
+\newcommand{\mylogoImagewidth}{4cm}%
+
+\newcolumntype{Y}{>{\strut\hspace{0pt}}X<{\nolinebreak\hspace{0pt}\strut}}%
+\newcolumntype{Z}[1]{>{\strut\hspace{0pt}}X[#1]<{\nolinebreak\hspace{0pt}\strut}}%
+\tabucolumn Y%
+\tabucolumn Z%
+
+\hypersetup{
+	colorlinks = true,
+	linkcolor = blue,
+	urlcolor = blue,
+	citecolor = blue,
+}%
+
+% Set default page style
+\pagestyle{fancy}%
+\addtokomafont{pageheadfoot}{\upshape}%
+\addtokomafont{pagenumber}{\itshape}%
+% Bitte gerne neudefinieren, zum Beispiel…
+\newcommand{\dokumentLizenzlogo}{}%
+\newcommand{\dokumentLizenztext}{%
+ Freies Material unter einer Freien Lizenz\linebreak%
+ Für Details kontaktieren Sie bitte den Autor.%
+}%
+% … hiermit:
+\newcommand{\dokumentLizenzCCBYSAthreeDE}{%
+ \renewcommand{\dokumentLizenzlogo}{%
+  % see https://creativecommons.org/licenses/by-sa/3.0/de/
+  \includegraphics[width=3cm,valign=t]{cc-by-sa}%
+ }%
+ \renewcommand{\dokumentLizenztext}{%
+  Veröffentlicht unter der \textit{Creative Commons Namensnennung \dash\linebreak%
+  Weitergabe unter gleichen Bedingungen 3.0 Deutschland} Lizenz.%
+ }%
+}%
+\newcommand{\dokumentLizenzCCBYSAfour}{%
+ \renewcommand{\dokumentLizenzlogo}{%
+  % see https://creativecommons.org/licenses/by-sa/4.0/
+  \includegraphics[width=3cm,valign=t]{cc-by-sa}%
+ }%
+ \renewcommand{\dokumentLizenztext}{%
+  Veröffentlicht unter der \textit{Creative Commons Namensnennung \dash\linebreak%
+  Weitergabe unter gleichen Bedingungen 4.0 International} Lizenz.%
+ }%
+}%
+\newcommand{\dokumentLizenzLGPLorCCBYSAfour}{%
+ \dokumentLizenzCCBYSAfour{}%
+ \renewcommand{\dokumentLizenztext}{%
+  Duallizensiert unter GNU LGPL 2.0 (oder neuer) und CC-BY-SA 4.0.%
+ }%
+}%
+\newcommand{\dokumentLizenzMirOS}{%
+ \renewcommand{\dokumentLizenzlogo}{%
+  \mbox{%
+   \makebox(0,0){\hspace{1em}\LARGE ✓}\hspace{2em}\makebox[0pt]{%
+    \raisebox{-1.5\height}{\hspace{-0.75em}\textsc{copy}}%
+   }\raisebox{-0.2\height}{\tiny\hspace{-2em}OK to}%
+  }%
+ }%
+ \renewcommand{\dokumentLizenztext}{%
+  Veröffentlicht unter der MirOS-Lizenz.%
+ }%
+}%
+\newcommand{\dokumentLizenzMirOSorCCBYfour}{%
+ \dokumentLizenzMirOS{}%
+ \renewcommand{\dokumentLizenztext}{%
+  Duallizensiert unter der MirOS-Lizenz und CC-BY 4.0.%
+ }%
+}%
+\newcommand{\dokumentLizenzCCBYfour}{%
+ \renewcommand{\dokumentLizenzlogo}{%
+  % see https://creativecommons.org/licenses/by/4.0/
+  \includegraphics[width=3cm,valign=t]{cc-by}%
+ }%
+ \renewcommand{\dokumentLizenztext}{%
+  Veröffentlicht unter der \textit{Creative Commons \dash
+  Namensnennung 4.0} Lizenz.\hspace{1cm}% (hspace is a hack)
+ }%
+}%
+% Syntax: \myhdr[2017 Name, Affiliation]{Dokumenttitel}
+\newcommand{\myhdr}[2][]{%
+ \fancyhf{}%
+ \renewcommand{\headrulewidth}{0pt}%
+ \renewcommand{\footrulewidth}{1pt}%
+ \renewcommand*\pagemark{\leavevmode\usekomafont{pagenumber}\ifnum\ztotpages=1\else\thepage/\ztotpages\fi}%
+ \fancyhead[L]{\leavevmode\usekomafont{pageheadfoot}\itshape\Large #2}%
+ \fancyhead[R]{\leavevmode\usekomafont{pageheadfoot}\pagemark}%
+ \fancyfoot[L]{\leavevmode\usekomafont{pageheadfoot}\dokumentLizenzlogo}%
+ \fancyfoot[C]{\leavevmode\usekomafont{pageheadfoot}{\footnotesize%
+  \textcopyright{} #1\linebreak%
+  \dokumentLizenztext%
+ }}%
+ \fancyfoot[R]{\leavevmode\usekomafont{pageheadfoot}%
+  \includegraphics[width=\mylogoImagewidth,valign=t]{\mylogoImagename}%
+ }%
+}%
+\myhdr{\headmark}%
+
+% Stuff to do at geometry changes
+\def\mygeometry{\@ifnextchar[\mygeometry@BT\mygeometry@BF}%
+\def\mygeometry@BT[#1]{%
+ \geometry{#1}%
+ \mygeometry@BF%
+}%
+\def\mygeometry@BF{%
+ % restore lengths damaged during geometry change
+ \setlength{\intextsep}{0pt}%
+ % tell fancyhdr to redo its geometry calculations
+ \f@nch@setoffs%
+}%
+% run it initially
+\mygeometry%
+
+% Hurenkinder und Schusterjungen
+\clubpenalty10000%
+\widowpenalty10000%
+\displaywidowpenalty=10000%
+% Zu lange Zeilen
+\emergencystretch 5em%
+
+% Allgemeine Einstellungen
+
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg}%
+
+\unitlength=1mm%
+
+\setlength{\parskip}{0.3cm plus 5mm minus 1mm}%
+\setlength{\parindent}{0cm}%
+
+% Inhaltsverzeichnis
+\addtocontents{toc}{\protect\thispagestyle{fancy}}%
+\RedeclareSectionCommand[tocbeforeskip=10pt plus 4pt minus 2pt]{section}
+\RedeclareSectionCommand[tocnumwidth=2.8em]{subsection}
+\RedeclareSectionCommand[tocindent=4.3em]{subsubsection}
+% when calling, ensure blank line before and after!
+\newcommand{\inhaltsverzeichnis}{%
+ \hypersetup{linkcolor = black}%
+ % deliberately no % at end of line!
+ \tableofcontents
+ \hypersetup{linkcolor = blue}%
+ % deliberately no % at end of line!
+ \newpage
+}%
+
+% Listings
+
+\newcounter{lstdumps}%
+\setcounter{lstdumps}{0}%
+\newcommand{\lstdumpname}{}%
+\xdef\lstdumpsection{\@empty}%
+\lstnewenvironment{lstdump}[3][]%
+	{\lst@TestEOLChar{#3}%
+	 \lstset{#1}%
+	 \csname\@lst @SetFirstNumber\endcsname%
+	 \stepcounter{lstdumps}%
+	 \marginnote{{\LARGE\color{mySTYlstmargin}\thelstdumps}}[4pt]%
+	 \renewcommand{\lstdumpname}{ (#2)}%
+	 \lst@BeginAlsoWriteFile{\jobname.lst}%
+	 \ifx\lstdumpsection\@currentlabel\else%
+	  \ifx\lstdumpsection\@empty%
+	   \immediate\write\lst@WF{Listing dump for \jobname.tex}%
+	   \immediate\write\lst@WF{}%
+	  \fi%
+	  \immediate\write\lst@WF{>>> (\@currentlabel) \@currentlabelname}%
+	  \immediate\write\lst@WF{}%
+	 \fi%
+	 \immediate\write\lst@WF{-----BEGIN LISTING \thelstdumps\lstdumpname-----}%
+	}%
+	{%
+	 \immediate\write\lst@WF{-----END LISTING \thelstdumps\lstdumpname-----}%
+	 \immediate\write\lst@WF{}%
+	 \endgroup%
+	 \csname\@lst @SaveFirstNumber\endcsname%
+	 \xdef\lstdumpsection{\@currentlabel}%
+	}%
+\lstnewenvironment{lstdump*}[3][]%
+	{\lst@TestEOLChar{#3}%
+	 \lstset{#1}%
+	 \csname\@lst @SetFirstNumber\endcsname%
+	 \renewcommand{\lstdumpname}{"#2"}%
+	 \lst@BeginAlsoWriteFile{\jobname.lst}%
+	 \ifx\lstdumpsection\@currentlabel\else%
+	  \ifx\lstdumpsection\@empty%
+	   \immediate\write\lst@WF{Listing dump for \jobname.tex}%
+	   \immediate\write\lst@WF{}%
+	  \fi%
+	  \immediate\write\lst@WF{>>> (\@currentlabel) \@currentlabelname}%
+	  \immediate\write\lst@WF{}%
+	 \fi%
+	 \immediate\write\lst@WF{-----BEGIN LISTING \lstdumpname-----}%
+	}%
+	{%
+	 \immediate\write\lst@WF{-----END LISTING \lstdumpname-----}%
+	 \immediate\write\lst@WF{}%
+	 \endgroup%
+	 \csname\@lst @SaveFirstNumber\endcsname%
+	 \xdef\lstdumpsection{\@currentlabel}%
+	}%
+\lstnewenvironment{lstdumpx}[2][]%
+	{\lst@TestEOLChar{#2}%
+	 \lstset{#1}%
+	 \csname\@lst @SetFirstNumber\endcsname%
+	 \stepcounter{lstdumps}%
+	 \marginnote{{\LARGE\color{mySTYlstmargin}\thelstdumps}}[4pt]%
+	 \renewcommand{\lstdumpname}{ [unnamed]}%
+	 \lst@BeginAlsoWriteFile{\jobname.lst}%
+	 \ifx\lstdumpsection\@currentlabel\else%
+	  \ifx\lstdumpsection\@empty%
+	   \immediate\write\lst@WF{Listing dump for \jobname.tex}%
+	   \immediate\write\lst@WF{}%
+	  \fi%
+	  \immediate\write\lst@WF{>>> (\@currentlabel) \@currentlabelname}%
+	  \immediate\write\lst@WF{}%
+	 \fi%
+	 \immediate\write\lst@WF{-----BEGIN LISTING \thelstdumps\lstdumpname-----}%
+	}%
+	{%
+	 \immediate\write\lst@WF{-----END LISTING \thelstdumps\lstdumpname-----}%
+	 \immediate\write\lst@WF{}%
+	 \endgroup%
+	 \csname\@lst @SaveFirstNumber\endcsname%
+	 \xdef\lstdumpsection{\@currentlabel}%
+	}%
+% usage: \lstdumpesc[file]{pdf} or \lstdumpesc{bothfileandpdf}
+\def\lstdumpesc{\@ifnextchar[{\lstdumpesc@two}{\lstdumpesc@one}}%
+\def\lstdumpesc@one#1{\lst@WFAppend{#1}#1}%
+\def\lstdumpesc@two[#1]#2{\lst@WFAppend{#1}#2}%
+
+\lstset{
+	backgroundcolor=\color{mySTYlstbackground},
+	breakatwhitespace=true,
+	rulecolor=\color{black},
+	basicstyle=\ttfamily,
+	upquote=true,
+	keepspaces,
+	literate=
+		{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+		{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+		{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+		{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+		{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+		{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+		{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+		{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+		{æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1 {œ}{{\oe}}1 {Œ}{{\OE}}1
+		{ő}{{\H{o}}}1 {Ő}{{\H{O}}}1 {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1
+		{å}{{\r a}}1 {Å}{{\r A}}1 {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1
+		{©}{{\textcopyright}}1 {™}{\texttrademark}1 {§}{\S}1
+		{£}{{\pounds}}1 {°}{\textdegree{}}1 {„}{{\quotedblbase}}1
+		{“}{{\textquotedblleft}}1 {”}{{\textquotedblright}}1
+		{‘}{{\textquoteleft}}1 {’}{{\textquoteright}}1
+		{«}{\guillemotleft}1 {»}{\guillemotright}1
+		{€}{{\fontencoding{LY1}\selectfont\symbol{'001}}}1
+		{‐}{-}1 {‑}{-}1 {‒}{-}1 {–}{-}1 {—}{-}1 {―}{-}1
+		{…}{{\fontencoding{LY1}\selectfont\symbol{'205}}}1,
+	columns=flexible,
+	showstringspaces=false,
+	extendedchars=true,
+	breaklines=true,
+	prebreak=\unicodepoints@flipsym{\color{red}\ding{229}},
+	frame=single,
+	showtabs=false,
+	showspaces=false,
+	showstringspaces=false,
+	escapeinside={〈}{〉},
+	keywordstyle=\color{blue},
+	commentstyle=\color{ForestGreen},
+	stringstyle=\color{RedOrange},
+	% für 〔Paßwörter〕 und 「variable Texte」 in Listings
+	% (wird bei Benutzung der language-Option in einem Listing entfernt)
+	moredelim={[is][\color{ForestGreen}]{〔}{〕}},
+	moredelim={*[is][\color{RedOrange}]{「}{」}},
+	% Zeilennummern
+	numbers=left,
+	numberstyle=\ttfamily\color{mySTYlstlineno},
+	xleftmargin=24pt,
+	numbersep=12pt,
+}%
+
+% default font is Gentium (serif), headings font is Fira Sans
+\renewcommand{\rmdefault}{gentium}%
+\renewcommand{\sfdefault}{FiraSans-OsF}%
+\renewcommand*{\familydefault}{\rmdefault}%
+
+% em dash
+\def\dash{\unskip\kern.16667em\textemdash\penalty\exhyphenpenalty\hskip.16667em\relax}%
+% for footnotes
+\newcommand{\Hair}{\unskip\kern.16667em}%
+
+% for lead paragraph before IT-Mieze
+\newcommand{\keinumbruch}{\par\nobreak\@afterheading}%
+
+% fbox and ovalbox line will be inside the box
+\setlength{\fboxsep}{-2\fboxrule}%
+% to calculate horizontal padding inside the frame
+\newdimen{\inlinebildsep}%
+% to store dimensions of box without padding
+\newsavebox{\inlinebildbox}%
+% for nice inline pictures in boxen with rounded corners
+\newcommand{\inlinebild}[2][\@empty]{%
+ % first, generate a box with square content and w/o padding
+ \savebox{\inlinebildbox}{\ovalbox{\strut\hspace{1.25ex}}}%
+ % get its real height (Teχ height + depth)
+ \inlinebildsep=\ht\inlinebildbox%
+ \advance\inlinebildsep by \dp\inlinebildbox%
+ % subtract its real width
+ \advance\inlinebildsep by -\wd\inlinebildbox%
+ % we want half of it on either side
+ \divide\inlinebildsep by 2%
+ % now render the actual box
+ \ovalbox{%
+  % left padding
+  \hspace{\inlinebildsep}%
+  % ensure standard height
+  \strut%
+  % the graphic
+  \resizebox{!}{1.25ex}{\includegraphics{#2}}%
+  % the text, if any
+  \ifx#1\@empty\else{ #1}\fi%
+  % right padding
+  \hspace{\inlinebildsep}%
+}}%
+
+% for nice inline boxen with square corners
+\newcommand{\inlinekasten}[1]{%
+ % first, generate a box with square content and w/o padding
+ \savebox{\inlinebildbox}{\fbox{\strut\hspace{1.25ex}}}%
+ % get its real height (Teχ height + depth)
+ \inlinebildsep=\ht\inlinebildbox%
+ \advance\inlinebildsep by \dp\inlinebildbox%
+ % subtract its real width
+ \advance\inlinebildsep by -\wd\inlinebildbox%
+ % we want half of it on either side
+ \divide\inlinebildsep by 2%
+ % now render the actual box
+ \fbox{%
+  % left padding
+  \hspace{\inlinebildsep}%
+  % ensure standard height
+  \strut%
+  % the text
+  #1%
+  % right padding
+  \hspace{\inlinebildsep}%
+}}%
+
+% \hyperfootnotetext is what \footnotetext is supposed to be:
+% like \footnote except not rendering anything (it will not
+% generate a paragraph if you append % to all lines)
+\newcommand\hyperfootnotetext[1]{%
+ % new local scope
+ {%
+  % temporarily redefine this macro to empty
+  \renewcommand{\@makefnmark}{}%
+  % temporarily prevent leaving vmode
+  \renewcommand{\leavevmode}{}%
+  % this also means we cannot create a(n empty) hyperlink
+  \renewcommand{\hyper@linkstart}[2]{}%
+  \renewcommand{\hyper@linkend}{}%
+  % call the original \footnote macro
+  \footnote{#1}%
+  % exit the local scope with the redefined macro
+ }%
+ % end of command
+}%
+
+% use \begin{autosizedbibliography}
+% to auto-detect the widest reference label
+\gdef\bibitem@longest{1}%
+\AtEndDocument{\immediate\write\@auxout{\gdef\noexpand\bibitem@longest{\bibitem@longest}}}%
+\newenvironment{autosizedbibliography}{%
+ \begin{thebibliography}{\bibitem@longest}%
+}{%
+ \end{thebibliography}%
+}%
+\let\bibitem@stock\bibitem%
+\newcommand{\bibitem@sizer}[2][]{%
+ \settowidth\@tempdimb{\@biblabel{#1}}%
+ \settowidth\@tempdima{\@biblabel{\bibitem@longest}}%
+ \ifdim\@tempdima<\@tempdimb%
+  \gdef\bibitem@longest{\unexpanded{#1}}%
+ \fi%
+ \bibitem@stock[#1]{#2}%
+}%
+% now \bibitem{foo} = \bibitem[foo]{foo} except if foo must be escaped
+\renewcommand{\bibitem}{\@dblarg\bibitem@sizer}%
+
+% uncomment to figure out overfull hbox
+%\overfullrule=2cm

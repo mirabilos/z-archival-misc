@@ -1,0 +1,8 @@
+Practice: Note input
+
+(sorry for not showing MIDI controllers)
+pitch fix: ^↑ and ^↓
+accidentals: ↑/↓, proper, palette
+ties and slurs
+chords and voices
+lyrics

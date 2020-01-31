@@ -1,0 +1,8 @@
+Import and Export (3)
+
+Bagpipe Music Writer: *.bww
+Band-in-a-Box: *.mgu *.sgu
+Capella 2000 (3.0)+: *.cap *.capx
+Guitar Pro: *.gtp/gp{3,4,5}/gpx
+Overture: *.ove
+ABC: *.abc  (via plugin, using a webservice)

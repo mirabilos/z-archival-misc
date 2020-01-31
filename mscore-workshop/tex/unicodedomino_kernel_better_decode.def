@@ -1,0 +1,47 @@
+% -*- mode: tex -*-
+%-
+% See unicodedomino.sty for copyright and licence terms. Furthermore
+% this file is dual-licenced under the LPPL version 1.3c or later.
+%-
+% Improved Unicode decoding using the fixed-up checkseq code.
+
+%: https://github.com/latex3/latex2e/pull/83
+% override stock function, calling safer decode below
+\gdef\decode@UTFviii#1\relax{%
+ \the\numexpr(\UTFviii@decode0:#1\relax)%
+}%
+
+%: https://github.com/latex3/latex2e/pull/83
+% safer decode, returns 0x1FFFFF for illegal sequences
+\gdef\UTFviii@decode#1\relax{%
+ \if\relax\expandafter\UTFviii@checkseq\string#1\empty\relax%
+  \UTFviii@dec@lead#1\relax%
+ \else%
+  2097151%
+ \fi%
+}%
+
+%: https://github.com/latex3/latex2e/pull/83
+\gdef\UTFviii@dec@lead#1:#2#3\relax{%
+ % we know #2 is in 00..7F, C2..F4
+ \ifnum`#2<"80 %
+  `#2%
+ \else%
+  \ifnum`#2<"E0 %
+   (`#2-"C0%
+  \else%
+   \ifnum`#2<"F0 %
+    ((`#2-"E0%
+   \else%
+    (((`#2-"F0%
+   \fi%
+  \fi%
+  \UTFviii@dec@trail#3\relax%
+ \fi%
+}%
+
+%: https://github.com/latex3/latex2e/pull/83
+\gdef\UTFviii@dec@trail#1#2\relax{%
+ )*64+(`#1-"80)%
+ \ifx\relax#2\else\UTFviii@dec@trail#2\relax\fi%
+}%

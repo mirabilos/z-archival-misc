@@ -1,0 +1,71 @@
+# neato -Tpng mindmap.dot >mindmap.png && okular mindmap.png
+
+strict graph "mindmap" {
+	node [fontname="FreeSans" fontsize=12 shape=box];
+	edge [fontname="FreeSans" fontsize=8];
+	overlap=false;
+	#splines=polyline;
+	splines=true;
+	esep="+10";
+
+	"MuseScore" -- "Handbook";
+	"MuseScore" -- "score" -- { "parts" "metadata" };
+	"score" -- "Noteneingabe";
+	"Noteneingabe" -- "Import";
+	"Import" -- "Export";
+	"Export" -- "PDF-Export";
+	"Export" -- "Sound-Export";
+	"Export" -- "save online";
+	"Sound-Export" -- "MP3-Export";
+	"Sound-Export" -- "WAV-Export";
+	"Sound-Export" -- "OGG Vorbis-Export";
+	"Sound-Export" -- "Youtube-Export";
+	"Export" -- "MIDI-Export";
+	"Sound-Export" -- "Abspielen";
+	# https://musescore.org/en/node/270844
+	"MIDI-Export" -- "Hauptwerk";
+	"Abspielen" -- "playback panel" -- "Mixer" -- "Klang beeinflussen";
+	"Klang beeinflussen" -- "pitch bend" -- "Inspector";
+	"Klang beeinflussen" -- "pianoroll editor" -- "breath/fermata";
+	"step-time" -- "per Tastatur";
+	"step-time" -- "per Maus";
+	"Import" -- "MIDI-Import" -- "Layouting";
+	"Import" -- "MusicXML";
+	"Import" -- "andere Formate";
+	"Export" -- "MusicXML";
+	"Export" -- "andere Formate";
+	"Noteneingabe" -- { "voices" "beams" };
+	"Noteneingabe" -- "step-time";
+	"step-time" -- "virtual piano";
+	"step-time" -- "MIDI keyboard";
+	"Noteneingabe" -- "re-pitch";
+	"re-pitch" -- "rhythm";
+	"Noteneingabe" -- "real-time";
+	"real-time" -- "virtual piano";
+	"real-time" -- "MIDI keyboard";
+	"real-time" -- "real-time manual";
+	"real-time" -- "metronome";
+	"metronome" -- "Anzählen" -- "playback panel";
+	"Noteneingabe" -- "Akkorde";
+	"Noteneingabe" -- "accidentals";
+	"Noteneingabe" -- "Paletten";
+	"Noteneingabe" -- "ties and slurs";
+	"Paletten" -- "dynamics" -- "Inspector" -- "visibility" -- "ritardando";
+	"Layouting" -- "Klang beeinflussen";
+	"Layouting" -- "Styles";
+	"Layouting" -- "Transposition";
+	"Layouting" -- "Takte";
+	"Layouting" -- "Boxen";
+	"Layouting" -- "Lyrics";
+	"Layouting" -- "Inspector";
+	"Navigator" -- "concert pitch" -- "playback panel";
+	"score" -- "tablature";
+	"Mixer" -- "Synthesiser" -- "Klang beeinflussen";
+	# https://musescore.org/en/developers-handbook/references/instruments.xml-documentation#midi-action
+	"Klang beeinflussen" -- "Instrumentwechsel" -- "voice-channel switch" -- "staff text" -- "MIDI action" -- "instruments.xml";
+	"pitch bend" -- "tuning plugins" -- "Plugins" -- { "check plugins" "creator plugins" "conversion plugins" "visual enhancement" };
+	"check plugins" -- { "Check for parallel fifths and octaves" "Check SATB Harmony Rules" };
+	"creator plugins" -- { "create notes from chords" "Auto Accompaniment" };
+	"conversion plugins" -- { "converters" "non-western notations" };
+	"visual enhancement" -- { "fingerings (recorder, brass, …)" "colouring" };
+}

@@ -1,0 +1,5 @@
+?
+(Ask me for details.) If you run into this…
+
+… configure fontconfig-config correctly:
+

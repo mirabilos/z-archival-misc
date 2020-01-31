@@ -1,0 +1,10 @@
+more than just software
+p
+musescore.com  (freemium)
+score sharing “community website”
+Youtube uploads, synchronisation
+OpenScore (crowd-sourced)
+Goldberg Variations, Well-Tempered Clavier
+Bach, Mozart, Tschaikowsky, Debussy, …
+Braille (Music21), Modified Stave Notation
+Visualisations, analysis, …

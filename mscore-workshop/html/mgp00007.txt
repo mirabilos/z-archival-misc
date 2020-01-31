@@ -1,0 +1,10 @@
+People
+pppp
+Werner Schweer
+MuseScore BVBA: lasconic, thomasbonte
+Ultimate Guitar  (anatoly_os, Daniel Ray)
+soundfont  (ChurchOrganist, S.ChrisCollins)
+users  (Jojo-Schmitz, ABL, BSG, mgavioli, …)
+Bärenreiter BA 11820, Bach/Leonhardt, 135p
+Deutscher Musikeditionspreis, Best Edition of 2018
+maintainers: shoogle, me ;-)

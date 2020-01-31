@@ -1,0 +1,9 @@
+sound and effects
+
+fermata, breaths (still in the palette)
+pianoroll editor
+synthesiser panel
+soundfonts, Fluid vs. Zerberus
+effects
+pitch standard
+pitch bending (inspector) and…

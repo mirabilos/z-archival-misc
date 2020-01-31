@@ -1,0 +1,9 @@
+basic score editing
+
+beams
+bars / measures
+add multiple instruments
+copy & paste
+selection filters
+implode and explode
+parts

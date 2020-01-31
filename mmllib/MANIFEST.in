@@ -1,0 +1,6 @@
+include README.rst
+include CHANGELOG.rst
+include LICENCE
+include MMLFILE.rst
+recursive-include examples *
+recursive-include test *

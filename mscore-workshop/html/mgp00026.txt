@@ -1,0 +1,8 @@
+Beyond MuseScore
+p
+video upload & synchronisation
+Virtual Pipe Organ integration (e.g. Hauptwerk)
+DIY piano tutor with Arduino + MuseScore
+MuseScore Education  (Marc Sabatella)
+… see  https://mirabilos.edugit.org/mscore-workshop/notes/linklist.htm
+You?

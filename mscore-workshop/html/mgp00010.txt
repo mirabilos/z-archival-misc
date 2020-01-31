@@ -1,0 +1,9 @@
+How do we input? (2)
+ppp
+using a MIDI controller  (e.g. MIDI keyboard)
+together with the PC keyboard
+step-time
+or some other button or pedal
+real-time manual    in 2.1
+or… against the metronome
+real-time automatic    in 2.1

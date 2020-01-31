@@ -1,0 +1,9 @@
+… and other cool stuff
+p
+MDL extension    in 2.3.2
+navigator, ^F
+change instrument (staff text)
+demo
+voice/channel switch
+MIDI action, via instruments.xml
+cue notes & invisible staves

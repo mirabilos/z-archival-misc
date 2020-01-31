@@ -1,0 +1,9 @@
+Import and Export (2)
+
+save online: *.mscz  (or self-host *.mscx)
+MuseData: *.md  (legacy)
+MusicXML: *.musicxml *.mxl
+Sibelius, Finale, (limited) Dorico
+MIDI: *.mid *.midi *.kar
+Synthesia, TiMidity, …
+(time for a MIDI import demo)

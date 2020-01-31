@@ -1,0 +1,4 @@
+include Doxyfile
+include README.md
+include LICENCE
+include WIRING.txt

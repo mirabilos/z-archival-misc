@@ -1,0 +1,9 @@
+Import and Export (1)
+
+various formats supported-ish
+some import or export, some both
+
+Special mentions:
+GNU LilyPond (limited export)
+YouTube export & synchronisation
+PDF import

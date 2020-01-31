@@ -1,0 +1,416 @@
+%deffont "standard" xfont "Gentium:style=Italic", xfont "Gentium:style=Italic" "jisx0208.1983"
+%deffont "thick" xfont "UnifrakturMaguntia", xfont "UnifrakturMaguntia" "jisx0208.1983"
+%deffont "typewriter" xfont "Inconsolatazi4varl_qu", xfont "Inconsolatazi4varl_qu" "jisx0208.1983"
+%default 1 area 90 96, fore "#FFBF00", back "black", size 12, leftfill, hgap 0, vgap 42, font "standard", prefix 2
+%default 2 fore "red", size 2, bar "#4EFF49", prefix 0
+%default 3 fore "white", size 9, font "standard", prefix 2
+%tab 1 size 9, prefix -2, icon arc "OrangeRed" 33
+%tab 2 size 7, prefix 4, icon delta3 "MediumOrchid" 40
+%tab 3 size 6, prefix 8, icon dia "DeepSkyBlue" 50
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%pcache 1 1 0 1
+%ccolor "#FFBF00"
+%area 90 96, fore "#FFEF00", back "black", size 12, leftfill, hgap 0, font "standard", prefix 2
+MuseScore workshop
+%fore "#FFBF00"
+%bar "#4EFF49"
+@ Sonoj Convention 2018
+%fore "#1F74BD", font "typewriter", size 5
+https://www.sonoj.org/archive/2018.html
+%fore "#FFBF00"
+%size 2
+
+%font "standard", size 6, vgap 0
+%newimage -xscrzoom 33 "MirBSD.jpg"
+Slides and other resources:
+%cont, size 4
+   (contributions welcome)
+%fore "#1F74BD", font "typewriter", size 5, vgap 66
+https://edugit.org/mirabilos/mscore-workshop
+%fore "#FFBF00", area 40 96 40 50, font "standard", size 9, vgap 42
+Speaker:
+%fore "#FFEF00", size 12
+mirabilos
+%area 30 30 41 62, prefix 0, newimage "the_m_irabilos.png"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%pcache 1 1 0 1
+%ccolor "#FFBF00"
+%area 100 81, prefix 0
+%newimage "splash.jpg"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%pcache 1 1 0 1
+%ccolor "#FFBF00"
+%bimage "meow.jpg"
+%area 96 96, fore "#1F74BD", size 12, right, font "thick"
+Time for some music!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%pcache 1 1 0 1
+%ccolor "#FFBF00"
+%area 100 81, prefix 0
+%newimage "splash.jpg"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+MuseScore (software)
+
+	2002: Fork of MusE
+		sequencer with notation capabilities
+		both developed by Werner Schweer
+	GPLv2
+%cont, size 6
+  with font embedding exception
+	C++, Qt5
+%cont, size 6
+  (manual only online, website)
+	Library and front-end
+		Mobile äpps available (freemium)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+more than just software
+p
+%font "typewriter", size 8
+	musescore.com
+%cont, font "standard", size 9
+  (freemium)
+		score sharing $B!H-Acommunity website$B!I-A
+		Youtube uploads, synchronisation
+%pause, size 9
+	OpenScore (crowd-sourced)
+			Goldberg Variations, Well-Tempered Clavier
+			Bach, Mozart, Tschaikowsky, Debussy, $B!D-A
+		Braille (Music21), Modified Stave Notation
+		Visualisations, analysis, $B!D-A
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+People
+pppp
+	Werner Schweer
+%pause, size 9
+	MuseScore BVBA
+%cont, size 6
+: lasconic, thomasbonte
+%pause, size 9
+	Ultimate Guitar
+%cont, size 6
+  (anatoly_os, Daniel Ray)
+%pause, size 9
+	soundfont
+%cont, size 6
+  (ChurchOrganist, S.ChrisCollins)
+	users
+%cont, size 6
+  (Jojo-Schmitz, ABL, BSG, mgavioli, $B!D-A)
+		Bärenreiter BA 11820, Bach/Leonhardt, 135p
+			Deutscher Musikeditionspreis, Best Edition of 2018
+
+%pause, size 9, prefix -2, icon arc "OrangeRed" 33
+%cont, size 7
+maintainers: shoogle, me ;-)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+Workshop scope
+ppppp
+	entering notes
+%pause, size 9
+	import and export
+%pause, size 9
+	layout and formatting
+%pause, size 9
+	influencing playback
+%pause, size 9
+	sound and effects
+%pause, size 9
+	plugins and other cool stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+How do we input? (1)
+pppp
+%pause, size 9
+On the computer itself
+		GUI & mouse
+%pause, size 7
+		PC keyboard
+			apologies if you$B!G-Are used to solmisation
+%pause, size 7
+		OSC piano
+%pause, size 9
+Input styles
+		step-time
+		rhythm then repitch  \x20
+%cont, newimage -raise -55 "NEW.png"
+ in 2.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+How do we input? (2)
+ppp
+%pause, size 9
+using a MIDI controller
+%cont, size 6
+  (e.g. MIDI keyboard)
+	together with the PC keyboard
+		step-time
+%pause, size 9
+	or some other button or pedal
+		real-time manual  \x20
+%cont, newimage -raise -55 "NEW.png"
+ in 2.1
+%pause, size 9
+	or$B!D-A against the metronome
+		real-time automatic  \x20
+%cont, newimage -raise -55 "NEW.png"
+ in 2.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+First we need the software
+
+Everybody installed MuseScore,
+%cont, size 7
+ right?
+%size 9
+First start: preferences and settings
+		language
+		important: I/O
+			JACK or ALSA, then restart
+		shortcuts
+		UI styles, start centre
+		autosave, workspaces
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+Let$B!G-As enter a song!
+p
+Does anyone know this song?
+%size 5
+
+%newimage "FrereJacques.png"
+
+%pause, size 9
+That$B!G-As $B!H-AFrère Jacques$B!I-A, indeed!
+%size 6
+
+(I$B!G-All spare you the pain of my non-existent French.)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+Practice: Note input
+
+%size 6, vgap 88
+			(sorry for not showing MIDI controllers)
+%size 9, vgap 42
+	pitch fix:\x20
+%cont, font "typewriter"
+^$B",-A
+%cont, font "standard"
+ and\x20
+%cont, font "typewriter"
+^$B"--A
+%font "standard"
+	accidentals:\x20
+%cont, font "typewriter"
+$B",-A/$B"--A
+%cont, font "standard"
+, proper, palette
+	ties and slurs
+	chords and voices
+	lyrics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+Import and Export (1)
+
+	various formats supported-ish
+	some import or export, some both
+%size 4
+
+%size 9
+Special mentions:
+%size 8
+	GNU LilyPond (limited export)
+%size 8
+	YouTube export & synchronisation
+%size 8
+	PDF import
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+Import and Export (2)
+
+	save online: *.mscz
+%cont, size 6
+  (or self-host *.mscx)
+	MuseData: *.md
+%cont, size 6
+  (legacy)
+	MusicXML: *.musicxml *.mxl
+		Sibelius, Finale, (limited) Dorico
+	MIDI: *.mid *.midi *.kar
+		Synthesia, TiMidity, $B!D-A
+(time for a MIDI import demo)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+Import and Export (3)
+
+	Bagpipe Music Writer: *.bww
+	Band-in-a-Box: *.mgu *.sgu
+	Capella 2000 (3.0)+: *.cap *.capx
+	Guitar Pro: *.gtp/gp{3,4,5}/gpx
+	Overture: *.ove
+	ABC: *.abc
+%cont, size 6
+  (via plugin, using a webservice)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+Import and Export (4)
+
+	lossless audio formats
+		WAV, FLAC
+	lossy audio formats
+		MP3, OGG Vorbis
+	sheet music
+		PDF, PostScript, SVG, PNG
+	MML import
+%cont, size 6
+  (via MusicXML by
+%cont, fore "#FFBF00"
+ mmllib
+%cont, fore "white"
+)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+basic score presentation
+p
+Back to our score!
+		and one demonstrating a lot of features
+			(load *.mscx and show *.pdf as well)
+%pause, size 9
+	metadata
+	styles (page, general, text, *.mss)
+	boxes (standard, H/V, text)
+	invisible elements (proof in PDF)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+basic score editing
+
+	beams
+	bars / measures
+	add multiple instruments
+		copy & paste
+		selection filters
+		implode and explode
+	parts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+advanced score editing
+
+	transposing instruments
+			concert pitch
+	transposition
+	tablature & linked staves
+	inspector
+			visibility, colour, sizing, positioning
+			types, playback parameters (later)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+influencing playback
+
+	playback panel
+		speed, global volume
+		metronome, count-in
+	mixer panel
+		per-track volume / mute / solo
+		select instrument from soundfonts
+		some effects
+			$B!D-A but these have a chapter of their own
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+palettes
+
+	dynamics
+			short detour to the inspector
+
+%size 9, prefix -2, icon arc "OrangeRed" 33
+%cont, size 6
+à propos inspector:
+%cont, size 9
+ tempo & ritardando
+	crescendo & diminuendo
+	ambitus <3
+	trills, arpeggio, glissando, $B!D-A
+	clef, key, time, text, breaks, $B!D-A
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+sound and effects
+
+	fermata, breaths
+%cont, size 6
+ (still in the palette)
+	pianoroll editor
+	synthesiser panel
+		soundfonts, Fluid vs. Zerberus
+		effects
+		pitch standard
+	pitch bending
+%cont, size 6
+ (inspector) and$B!D-A
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+plugins$B!D-A
+
+%size 6
+			tuning plugin
+		various creator plugins
+			auto accompaniment; create notes from chords
+		visual plugins
+			colouring; fingerings
+		conversion plugins
+			non-western notation; converters, more im-/export
+		check plugins
+			SATB harmony rules; parallel fifths and octaves
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+$B!D-A and other cool stuff
+p
+	MDL extension  \x20
+%cont, newimage -raise -66 "NEW.png"
+ in 2.3.2
+	navigator,\x20
+%cont, font "typewriter"
+^F
+%font "standard"
+	change instrument (staff text)
+		demo
+%pause, size 7
+		voice/channel switch
+		MIDI action, via instruments.xml
+	cue notes & invisible staves
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+Beyond MuseScore
+p
+	video upload & synchronisation
+	Virtual Pipe Organ integration (e.g. Hauptwerk)
+	DIY piano tutor
+%cont, size 6
+ with Arduino + MuseScore
+	MuseScore Education
+%cont, size 6
+  (Marc Sabatella)
+%size 7
+$B!D-A see
+%cont, fore "#1F74BD", font "typewriter", size 3
+  https://mirabilos.edugit.org/mscore-workshop/notes/linklist.htm
+%pause, fore "green", font "standard"
+	You?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%area 90 96, fore "#FFBF00", back "black", size 1, leftfill, hgap 0, vgap 42, font "standard", prefix 2
+?
+%size 7
+(Ask me for details.) If you run into this$B!D-A
+%newimage "kerning-bug.png"
+$B!D-A configure fontconfig-config correctly:
+%newimage "kerning-fix.png"
