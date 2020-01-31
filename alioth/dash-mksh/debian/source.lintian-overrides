@@ -1,0 +1,8 @@
+# never! no way!
+dash-mksh source: no-dep5-copyright
+
+# none exists
+dash-mksh source: testsuite-autopkgtest-missing
+
+# built in jessie
+dash-mksh source: package-uses-old-debhelper-compat-version 9

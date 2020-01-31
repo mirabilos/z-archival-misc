@@ -1,0 +1,65 @@
+dash-mksh (9) UNRELEASED; urgency=low
+
+  * https deprecation for mirbsd.org URIs, caused by Debian’s
+    OpenSSL maintainer; XXX figure out a better Homepage URL
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 09 Feb 2018 19:02:11 +0100
+
+dash-mksh (8) wtf; urgency=low
+
+  * Policy 4.1.3 (no changes)
+  * Debhelper 11, prompted by lintian…
+  * Update VCS-* to new repository caused by Alioth deprecation
+  * Move from extra to optional
+  * Update lintian overrides
+  * Make commands to take over as system shell into helper script
+  * Revert to debhelper 9, this is built in jessie
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 05 Jan 2018 22:29:43 +0100
+
+dash-mksh (7) wtf; urgency=high
+
+  * Modernise packaging a bit further
+  * Include apt_preferences(5) file pinning down dash to avoid a
+    clash with APT in sid; works around #806422
+  * Add uninstallation instructions as the pinning prevents dash
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 28 Nov 2015 14:48:28 +0000
+
+dash-mksh (6) wtf; urgency=medium
+
+  * We need to set this Essential, because otherwise, a dist-upgrade
+    will prefer dash again and remove dash-mksh
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 30 Sep 2014 14:09:22 +0200
+
+dash-mksh (5) wtf; urgency=medium
+
+  * Ensure at least the jessie version of bash, since we use
+    versioned Provides, which are not in wheezy, and mksh
+  * Update pre- and post-installation instructions
+  * Move to collab-maint
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 30 Sep 2014 13:59:35 +0200
+
+dash-mksh (4) wtf; urgency=medium
+
+  * Try again with Conflicts
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 30 Sep 2014 13:36:44 +0200
+
+dash-mksh (3) wtf; urgency=medium
+
+  * Next round: neither Breaks nor Conflicts with dash
+  * New Policy
+  * Update lintian overrides
+  * Use Breaks to prevent use of old versions of bash
+  * Version Provides: dash
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 30 Sep 2014 13:31:08 +0200
+
+dash-mksh (1) wtf; urgency=medium
+
+  * Initial packaging
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 16 Jan 2014 14:34:37 +0100

@@ -1,0 +1,21 @@
+#!/bin/lksh
+
+set -ex
+
+: Of course, you can also just set the symlink, but upgrade or
+: reinstallation of the “bash” package will trash them.
+
+case $(/usr/bin/id -u) in
+(0) SUDO= ;;
+(*) SUDO=sudo ;;
+esac
+
+exec $SUDO /bin/lksh -exc '
+	dpkg-divert --package bash --rename --remove /bin/sh
+	dpkg-divert --local --divert /bin/sh.distrib --add /bin/sh
+	ln -sf lksh /bin/sh
+	dpkg-divert --package bash --rename --remove /usr/share/man/man1/sh.1.gz
+	dpkg-divert --local --divert /usr/share/man/man1/sh.distrib.1.gz /usr/share/man/man1/sh.1.gz
+	ln -sf lksh.1.gz /usr/share/man/man1/sh.1.gz
+	echo ::: All OK
+'

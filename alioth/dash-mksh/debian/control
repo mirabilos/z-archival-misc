@@ -1,0 +1,40 @@
+Source: dash-mksh
+# remove these two lines before uploading to Debian proper
+Origin: WTF
+Bugs: mailto:wtf@mirbsd.org
+Section: shells
+Priority: optional
+Homepage: http://www.mirbsd.org/mksh.htm
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 4.1.3
+VCS-git: https://evolvis.org/anonscm/git/alioth/wtf-mksh.git -b dash-mksh
+VCS-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/wtf-mksh.git;a=shortlog;h=refs/heads/dash-mksh
+
+Package: dash-mksh
+Architecture: all
+Multi-Arch: foreign
+Essential: yes
+Pre-Depends: ${misc:Depends}, mksh (>= 50b)
+Provides: dash (= 2147483647:1)
+Conflicts: dash
+Replaces: dash
+Breaks: bash (<< 4.3-9.2)
+Description: fake dash using mksh
+ This package installs enough to replace the “dash” package
+ from a Debian system, implementing a fake “dash” command by
+ using mksh’s “lksh” executable, which is also normally used
+ as /bin/sh on decent systems.
+ .
+ Before installing this package, you may have to run “sudo
+ dpkg-reconfigure -plow dash” and say “no” to using dash as
+ /bin/sh because otherwise, the dash package fails to remove.
+ .
+ This package Provides, Conflicts, and Replaces dash, which
+ will be removed, with a warning. It does not, however, take
+ up the /bin/sh diversion, which means that the system shell
+ will end up being GNU bash by default. After installation,
+ running /usr/share/dash-mksh/make-system-shell is strongly
+ recommended. Before uninstalling this package, you will need
+ to revert the diversions created by that script then remove
+ the /etc/apt/preferences.d/dash-mksh.pref file manually.

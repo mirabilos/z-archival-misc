@@ -1,0 +1,3 @@
+#!/bin/lksh
+
+exec /bin/lksh -o posix -o sh "$@"

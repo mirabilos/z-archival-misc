@@ -1,0 +1,3 @@
+Package: dash
+Pin: version *
+Pin-Priority: -1

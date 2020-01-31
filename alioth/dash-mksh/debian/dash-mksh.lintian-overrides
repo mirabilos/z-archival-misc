@@ -1,0 +1,19 @@
+# this replaces dash
+dash-mksh: new-essential-package
+
+# sure, by design
+dash-mksh: unusual-interpreter bin/dash #!/bin/lksh
+dash-mksh: unusual-interpreter usr/share/dash-mksh/make-system-shell #!/bin/lksh
+
+# false positive
+dash-mksh: package-contains-broken-symlink usr/share/man/man1/dash.1.gz lksh.1.gz
+
+# permitted by dpkg and apt in jessie
+dash-mksh: versioned-provides dash (= 2147483647:1)
+
+# necessary to work around a bug in APT
+# suggested and ok'd by APT maintainer
+dash-mksh: package-installs-apt-preferences etc/apt/preferences.d/dash-mksh.pref
+
+# deliberate
+dash-mksh: bugs-field-does-not-refer-to-debian-infrastructure
