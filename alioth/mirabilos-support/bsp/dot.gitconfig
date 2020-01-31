@@ -1,0 +1,37 @@
+[user]
+	name = mirabilos
+	email = m@mirbsd.org
+	signingkey = 0xE99007E0
+[gc]
+	auto = 0
+	autopacklimit = 0
+[push]
+	default = simple
+[alias]
+	check-emptylines = "!git find -gitfiles -print0 | xargs -0r mksh -c 'pcregrep -l -M $'\\''\\n\\n\\n'\\'' \"$@\"; test $? -eq 1' git-check-emptylines-helper"
+	check-whitespace = "!git diff --check $(git hash-object -t tree /dev/null) --; git find -gitfiles | grep -Evi '\\.(png|jpe?g|gif|deb|rpm|vpp|rtf)$' | while IFS= read -r name; do test -z \"$(tail -c -1 \"$name\")\" || printf '%s: no newline at EOF\\n' \"$name\"; done"
+	fetch-stash = "!r=${1:-origin}; git fetch --verbose \"$r\" +refs/stash:refs/remotes/\"$r\"/stash && echo \" ‣ git stash apply '$r/stash'\" #"
+	lg = log --decorate=short --pretty='%Cred%h%Creset - %Cgreen%cd%Creset %C(bold blue)<%an>%Creset %s%C(yellow)%d%Creset' --date=format-local:'%a %F %T' --graph --color=auto
+	ls = "!cd \"${GIT_PREFIX:-.}\" && git find -- \"$@\" -ls #"
+	pr = "!r=$1 pr=$2; test -n \"$pr\" || r=origin pr=$1; git fetch \"$r\" \"pull/$pr/head:refs/pr/$pr\" && echo \" ‣ git log refs/pr/$pr\" #"
+	wdiff = diff --word-diff=color
+	wdiffc = diff --word-diff=color --word-diff-regex=.
+[color]
+	ui = auto
+[core]
+	quotePath = false
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+	insteadOf = http://github.com/
+	insteadOf = git://github.com/
+	insteadOf = git://git@github.com:
+	pushInsteadOf = https://github.com/
+	pushInsteadOf = http://github.com/
+	pushInsteadOf = git://github.com/
+	pushInsteadOf = git://git@github.com:
+[url "gitlab@edugit.org:"]
+	insteadOf = https://edugit.org/
+	pushInsteadOf = https://edugit.org/
+[url "git@salsa.debian.org:"]
+	insteadOf = https://salsa.debian.org/
+	pushInsteadOf = https://salsa.debian.org/

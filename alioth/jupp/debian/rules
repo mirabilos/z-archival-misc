@@ -1,0 +1,441 @@
+#!/usr/bin/make -f
+#-
+# Possible flavourisation in DEB_BUILD_OPTIONS (in addition
+# to stock Debian rules):
+# - static (use with system libc; default for all others)
+# - shared (use with klibc or musl)
+# - diet, klibc, musl
+# - debug (adds -g3)
+# - nopwnam (aids static linkage)
+# - nofpu (default with klibc)
+# - nommu
+# - nolibs (use with system libc; default for all others)
+# - noautotools (on systems lacking autotools-dev)
+# - noselinux
+# The 'nostrip' and 'parallel=n' options are supported as well.
+#
+# Using a non-system libc disables -O0/-O2 and -g and, if unset,
+# sets CC. Cross-compiling also sets CC if unset.
+#
+# Statically linking violates the Policy requirement of having a
+# Built-Using header, but since that is only used in local rebuilds
+# and not in the Debian archive, it constitutes no Policy violation.
+
+shellescape='$(subst ','\'',$(1))'
+shellexport=$(1)=$(call shellescape,${$(1)})
+
+ifeq (,$(findstring terse,${DEB_BUILD_OPTIONS}))
+export DH_VERBOSE=1
+export V=1
+export VERBOSE=1
+endif
+
+USE_LIBC:=
+ifneq (,$(findstring diet,${DEB_BUILD_OPTIONS}))
+USE_LIBC+=	dietlibc
+endif
+ifneq (,$(findstring klibc,${DEB_BUILD_OPTIONS}))
+USE_LIBC+=	klibc
+endif
+ifneq (,$(findstring musl,${DEB_BUILD_OPTIONS}))
+USE_LIBC+=	musl
+endif
+ifeq (,$(findstring diet,${DEB_BUILD_OPTIONS})$(findstring klibc,${DEB_BUILD_OPTIONS})$(findstring musl,${DEB_BUILD_OPTIONS}))
+USE_LIBC+=	system
+endif
+ifneq ($(strip ${USE_LIBC}),$(firstword ${USE_LIBC}))
+$(error multiple libcs (${USE_LIBC}) found in (${DEB_BUILD_OPTIONS}))
+endif
+USE_LIBC:=$(strip ${USE_LIBC})
+
+ifeq (${USE_LIBC},system)
+USE_SHARED:=1
+USE_LIBS:=1
+else
+USE_SHARED:=0
+USE_LIBS:=0
+endif
+
+ifneq (,$(findstring shared,${DEB_BUILD_OPTIONS}))
+USE_SHARED:=1
+endif
+ifneq (,$(findstring static,${DEB_BUILD_OPTIONS}))
+USE_SHARED:=0
+endif
+
+USE_PWNAM:=1
+ifneq (,$(findstring nopwnam,${DEB_BUILD_OPTIONS}))
+USE_PWNAM:=0
+endif
+
+USE_FPU:=1
+ifneq (,$(findstring nofpu,${DEB_BUILD_OPTIONS}))
+USE_FPU:=0
+endif
+
+USE_MMU:=1
+ifneq (,$(findstring nommu,${DEB_BUILD_OPTIONS}))
+USE_MMU:=0
+endif
+
+ifneq (,$(findstring nolibs,${DEB_BUILD_OPTIONS}))
+USE_LIBS:=0
+endif
+
+USE_SELINUX:=1
+ifneq (,$(findstring noselinux,${DEB_BUILD_OPTIONS}))
+USE_SELINUX:=0
+endif
+ifeq (0,${USE_LIBS})
+USE_SELINUX:=0
+endif
+
+DEB_BUILD_ARCH?=$(shell dpkg-architecture -qDEB_BUILD_ARCH)
+DEB_BUILD_GNU_TYPE?=$(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+DEB_HOST_ARCH?=$(shell dpkg-architecture -qDEB_HOST_ARCH)
+DEB_HOST_GNU_TYPE?=$(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+
+# is ${CC} defined anywhere (other than implicit rules?)
+ifneq (,$(findstring $(origin CC),default undefined))
+# no - then default to gcc (or cross-gcc)
+ifneq (${DEB_BUILD_ARCH},${DEB_HOST_ARCH})
+CC=			${DEB_HOST_GNU_TYPE}-gcc
+else
+ifeq (${USE_LIBC},dietlibc)
+CC=			diet -Os gcc
+endif
+ifeq (${USE_LIBC},klibc)
+CC=			klcc
+endif
+ifeq (${USE_LIBC},musl)
+CC=			musl-gcc
+endif
+CC?=			gcc
+endif
+endif
+
+EXTRA_CFLAGS+=		-Wall -Wformat
+EXTRA_CFLAGS+=		-fno-omit-frame-pointer -fno-strict-aliasing
+ifeq (,$(findstring sarge,${DEB_BUILD_OPTIONS}))
+EXTRA_CFLAGS+=		-fwrapv
+EXTRA_CFLAGS+=		-Wextra -Wno-pointer-sign
+else
+EXTRA_CFLAGS+=		-W
+endif
+EXTRA_CFLAGS+=		-Wno-unused-parameter -Wno-cast-qual
+EXTRA_CFLAGS+=		-Wno-strict-prototypes
+EXTRA_LDFLAGS=		-Wl,--as-needed
+
+DSF:=			3.0 (quilt)
+SUBST_EP:=		-e '/@PRIO@EXTRA@/d'
+HOMEPAGE:=		http://www.mirbsd.org/jupp.htm
+SUBST_HP:=		-e '/@HP@DOT@/d' -e '/@HP@OLD@/d' -e 's@HP@MODERN@${HOMEPAGE}'
+SELINUX_DEP:=		libselinux1-dev [linux-any]
+MENU_SUBST:=		cat
+USE_MENU:=		0
+
+BREAKS:=		Breaks
+SUBST_VARS+=		BREAKS
+
+# buster, sid
+DEBHELPER_VERSION:=	11
+# stretch
+ifneq (,$(findstring stretch,${DEB_BUILD_OPTIONS}))
+DEBHELPER_VERSION:=	10
+endif
+# wheezy, jessie
+ifneq (,$(findstring wheezy,${DEB_BUILD_OPTIONS}))
+DEBHELPER_VERSION:=	9
+USE_MENU:=		1
+endif
+# lenny, squeeze
+ifneq (,$(findstring lenny,${DEB_BUILD_OPTIONS}))
+DEBHELPER_VERSION:=	5
+USE_MENU:=		1
+SELINUX_DEP:=		libselinux1-dev [!kfreebsd-i386 !kfreebsd-amd64 !hurd-i386]
+endif
+ifneq (,$(findstring lenny,${DEB_BUILD_OPTIONS})$(findstring sarge,${DEB_BUILD_OPTIONS}))
+DSF:=			1.0
+SUBST_EP:=		-e 's/@PRIO@EXTRA@/Priority: extra/'
+BREAKS:=		Conflicts
+endif
+# sarge, etch (although etch has debhelper 5)
+ifneq (,$(findstring sarge,${DEB_BUILD_OPTIONS}))
+DEBHELPER_VERSION:=	4
+USE_MENU:=		1
+SELINUX_DEP:=		libselinux1-dev
+SUBST_HP:=		-e '/@HP@MODERN@/d' -e '/^VCS-[gB][ir][to][:w]/d' \
+			-e 's/@HP@DOT@//' -e 's@HP@OLD@${HOMEPAGE}'
+MENU_SUBST:=		sed 's!"Applications/!"Apps/!'
+endif
+
+DSC_DEPS:=		debhelper (>= ${DEBHELPER_VERSION})
+SUBST_VARS+=		DSC_DEPS
+
+ifeq (${USE_LIBC},dietlibc)
+DSC_DEPS:=		${DSC_DEPS}, dietlibc-dev
+USE_SHARED:=0
+EXTRA_CFLAGS+=		-fno-stack-protector
+endif
+
+ifeq (${USE_LIBC},klibc)
+DSC_DEPS:=		${DSC_DEPS}, libklibc-dev
+USE_FPU:=0
+EXTRA_CFLAGS+=		-fno-stack-protector
+ifeq (1,${USE_SHARED})
+CC+=			-shared
+endif
+endif
+
+ifeq (${USE_LIBC},musl)
+DSC_DEPS:=		${DSC_DEPS}, musl-tools
+EXTRA_CFLAGS+=		-Os
+ifeq (0,${USE_SHARED})
+EXTRA_LDFLAGS+=		-static
+endif
+CONFIGURE_ENV+=		ac_cv_header_sys_termios_h=no
+endif
+
+ifeq (${USE_LIBC},system)
+ifeq (0,${USE_SHARED})
+EXTRA_LDFLAGS+=		-static
+endif
+endif
+
+ifneq (,$(findstring debug,${DEB_BUILD_OPTIONS}))
+EXTRA_CFLAGS+=		-g3
+endif
+
+ifneq (,$(wildcard /usr/share/dpkg/buildflags.mk))
+# dpkg-dev (>= 1.16.1~)
+DEB_CFLAGS_MAINT_APPEND=${EXTRA_CFLAGS}
+DEB_LDFLAGS_MAINT_APPEND=${EXTRA_LDFLAGS}
+ifneq (${USE_LIBC},system)
+DEB_CFLAGS_MAINT_STRIP=-O -O0 -O1 -O2 -O3 -Os -Ofast -Og -g -g1 -g2 -g3 -ggdb -gdwarf -gstabs
+DEB_CFLAGS_MAINT_STRIP+=-specs=/usr/share/dpkg/no-pie-compile.specs
+DEB_LDFLAGS_MAINT_STRIP+=-specs=/usr/share/dpkg/no-pie-link.specs
+# do not use PIE with strange libcs
+DEB_BUILD_MAINT_OPTIONS=hardening=+all,-pie
+else
+ifneq (,$(findstring static,${DEB_BUILD_OPTIONS}))
+# cannot mix PIE with static linkage
+DEB_BUILD_MAINT_OPTIONS=hardening=+all,-pie
+else
+DEB_BUILD_MAINT_OPTIONS=hardening=+all
+endif
+endif
+include /usr/share/dpkg/buildflags.mk
+else
+# old-fashioned way to determine build flags
+ifneq (${USE_LIBC},system)
+CFLAGS=
+else
+CFLAGS=			-O$(if $(findstring noopt,${DEB_BUILD_OPTIONS}),0,2) -g
+endif
+CFLAGS+=		${EXTRA_CFLAGS}
+LDFLAGS+=		${EXTRA_LDFLAGS}
+endif
+
+ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+NUMJOBS=		$(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+MAKEFLAGS+=		-j${NUMJOBS}
+endif
+
+CONFIGURE_ARGS=		--build=${DEB_BUILD_GNU_TYPE} \
+			--host=${DEB_HOST_GNU_TYPE} \
+			--prefix=/usr \
+			--sysconfdir=/etc \
+			--mandir=/usr/share/man \
+			--disable-dependency-tracking
+
+ifeq (0,${USE_PWNAM})
+CONFIGURE_ARGS+=	--disable-getpwnam
+endif
+
+ifeq (0,${USE_FPU})
+CONFIGURE_ARGS+=	--disable-fpu
+endif
+
+ifeq (0,${USE_MMU})
+CONFIGURE_ARGS+=	--disable-fork
+endif
+
+ifeq (0,${USE_LIBS})
+CONFIGURE_ARGS+=	--disable-search-libs \
+			--disable-terminfo
+else
+ifneq (11,${DEBHELPER_VERSION})
+DSC_DEPS:=		${DSC_DEPS}, libtinfo-dev | libncurses-dev
+else
+DSC_DEPS:=		${DSC_DEPS}, libncurses-dev
+endif
+endif
+
+ifeq (1,${USE_SELINUX})
+DSC_DEPS:=		${DSC_DEPS}, $(strip ${SELINUX_DEP})
+endif
+
+ifeq (,$(findstring noautotools,${DEB_BUILD_OPTIONS}))
+ifneq (11,${DEBHELPER_VERSION})
+DSC_DEPS:=		${DSC_DEPS}, autotools-dev
+endif
+endif
+
+CONFIGURE_ARGS+=	--disable-termidx \
+			--enable-sysconfjoesubdir=/jupp
+
+debian/.configure_stamp: debian/.control_stamp
+	dh_testdir
+	-rm -f debian/.*_stamp
+	:>debian/.control_stamp # to avoid building twice
+	-rm -rf builddir
+	# apply autotools-dev if it exists
+	for x in config.guess config.sub; do \
+		test -e /usr/share/misc/$$x || continue; \
+		rm -f $$x; \
+		cp /usr/share/misc/$$x .; \
+	done
+	mkdir builddir
+	cd builddir && exec env ${CONFIGURE_ENV} \
+	    $(foreach i,CC CFLAGS CPPFLAGS LDFLAGS,$(call shellexport,$i)) \
+	    sh ../configure ${CONFIGURE_ARGS}
+	@:>$@
+
+debian/.build_stamp: debian/.configure_stamp
+	dh_testdir
+	cd builddir && exec ${MAKE}
+	ln -f builddir/joe builddir/jupp
+	ln -f builddir/joe.1 builddir/jupp.1
+	@:>$@
+
+debian/.control_stamp:
+	@(if test -e debian/control.in; then exit 0; else \
+		echo 'dh_testdir: "debian/control.in" not found.' \
+		    Are you sure you are in the correct directory\?; \
+		exit 1; \
+	fi)
+	@mkdir -p debian/source
+	echo '${DSF}' >debian/source/format
+	echo ${DEBHELPER_VERSION} >debian/compat
+	-rm -f debian/source.lintian-overrides
+ifneq (11,${DEBHELPER_VERSION})
+	sed --posix \
+	    -e 's! debian-watch-does-not-check-gpg-signature! debian-watch-may-check-gpg-signature!g' \
+	    <debian/source/lintian-overrides >debian/source.lintian-overrides
+endif
+ifneq (,$(findstring 1,${USE_MENU}))
+	${MENU_SUBST} <debian/joe-jupp.menu.in >debian/joe-jupp.menu
+	${MENU_SUBST} <debian/jupp.menu.in >debian/jupp.menu
+endif
+	sed ${SUBST_EP} ${SUBST_HP} \
+	    $(foreach v,${SUBST_VARS},-e 's@@'$(call shellescape,$v)'@@'$(call shellescape,$(strip ${$v}))'') \
+	    <debian/control.in >debian/.gencontrol_stamp
+	: bail out if these differ: in those cases,
+	: retry the build, after regenerating debian/control
+	: with cp debian/.gencontrol_stamp debian/control
+	diff -Nu debian/control debian/.gencontrol_stamp
+	: you made it, no worries
+	@:>$@
+
+debian/control:
+	-debian/rules debian/.control_stamp
+	cp debian/.gencontrol_stamp debian/control
+	-rm -f debian/.control_stamp debian/.gencontrol_stamp
+
+remove/control:
+	-rm -f debian/.control_stamp debian/.gencontrol_stamp \
+	    debian/source/format debian/compat debian/control \
+	    debian/source.lintian-overrides \
+	    debian/joe-jupp.menu debian/jupp.menu
+
+build: build-arch build-indep
+build-arch: debian/.build_stamp
+
+build-indep: debian/.configure_stamp
+	cd builddir && exec ${MAKE} jmacsrc joerc jpicorc jstarrc rjoerc
+
+clean: debian/.control_stamp
+	dh_testdir
+	-rm -f debian/.*_stamp
+	-rm -rf builddir
+	# unapply autotools-dev if it exists
+	for x in config.guess config.sub; do \
+		test -e /usr/share/misc/$$x || continue; \
+		rm -f $$x; \
+	done
+	dh_clean
+
+binary-indep: build-indep
+	dh_testdir
+	dh_testroot
+	if command -v dh_prep >/dev/null 2>&1; then dh_prep -i; else dh_clean -i -k; fi
+	dh_installchangelogs -i
+	dh_install -i
+ifneq (,$(findstring 1,${USE_MENU}))
+	dh_installmenu -i
+else
+	dh_install -pjoe-jupp \
+	    debian/menu/org.mirbsd.Jupp.jmacs.desktop \
+	    debian/menu/org.mirbsd.Jupp.joe.desktop \
+	    debian/menu/org.mirbsd.Jupp.jpico.desktop \
+	    debian/menu/org.mirbsd.Jupp.jstar.desktop \
+	    usr/share/applications/
+endif
+	# will be replaced by links to jupp
+	rm -rf debian/joe-jupp/usr/share/doc/joe-jupp
+	dh_link -i
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+# no -Njupp because that's the only arch:any package
+binary-arch: build-arch
+	dh_testdir
+	dh_testroot
+	if command -v dh_prep >/dev/null 2>&1; then dh_prep -a; else dh_clean -a -k; fi
+	dh_installchangelogs -a
+	dh_installdocs -a
+	dh_install -a
+ifneq (,$(findstring 1,${USE_MENU}))
+	dh_installmenu -a
+else
+	dh_install -pjupp \
+	    debian/menu/org.mirbsd.Jupp.jupp.desktop \
+	    usr/share/applications/
+endif
+	dh_installman -a
+	dh_link -a
+	dh_strip -a
+	dh_compress -a
+	dh_fixperms -a
+	dh_installdeb -a
+	dh_shlibdeps -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+binary: binary-arch binary-indep
+
+.PHONY: binary binary-arch binary-indep build build-arch build-indep clean
+
+ifneq (,$(strip ${___DISPLAY_MAKEVARS}))
+$(foreach var,${___DISPLAY_MAKEVARS},$(info $(strip ${var})=${$(strip ${var})}))
+$(error ___DISPLAY_MAKEVARS finished for ${___DISPLAY_MAKEVARS})
+endif
+
+# useful combinations to test:
+# DEB_BUILD_OPTIONS= debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='diet' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='klibc' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='musl' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='static nopwnam' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='static nopwnam nolibs' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='nommu nolibs' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='nofpu nommu nolibs' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='stretch' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='wheezy' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='lenny' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='lenny diet' debian/rules debian/.control_stamp
+# DEB_BUILD_OPTIONS='sarge' debian/rules debian/.control_stamp

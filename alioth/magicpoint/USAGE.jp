@@ -1,0 +1,333 @@
+This file is no longer updated as I sadly don’t speak Japanese.  --mirabilos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		   .mgp ファイルのいい加減な書き方
+
+			       山本和彦
+
+			    2001年3月14日
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+.mgp ファイルのコマンド(directive) は "%" で始まります。とりあえず、
+/usr/X11R6/lib/X11/mgp/default.mgp があることを確認したら、.mgp ファイ
+ルの最初に以下の行を入れて下さい。
+
+	%include default.mgp
+
+これで各ページのデフォルトのスタイルが設定されます。各ページは、%page
+ではじめます。
+
+	%page
+
+	ここがタイトル
+
+	ここから本文
+
+MagicPoint は行指向です。デフォルトのスタイルでは、1 行目を画面上の余
+白に使いますので、何も書かないで下さい。2 行目がタイトルです。3 行目は、
+横棒に化けます。4 行目から本文です。
+
+行頭に % を書くと、以降がコマンドになります。コマンドは "," 区切って列
+挙できます。大きさを画面の 7 ％、色を黄色にするには以下のようにします。
+
+	%size 7, fore "yellow"
+	この行は大きくて黄色です。
+
+行頭にが % の行は、当然表示されませんし、行としてカウントされません。
+色や大きさなどの行の属性は、以下のものが用意されています。
+
+	文字の色		%fore
+	背景の色		%back
+	文字の大きさ		%size
+	文字の位置		%center, %leftfill, %rightfill
+	文字間			%hgap
+	行間			%vgap
+	フォント		%font
+
+まだ他にもありますが、とりあえずこのくらいでいいでしょう。ちなみに、
+default.mgp では以下のように定義されています。
+
+	%default 1 leftfill, size 2, fore "white", back "black", font "thick"
+	%default 2 size 7, vgap 10, prefix " "
+	%default 3 size 2, bar "gray70", vgap 10
+	%default 4 size 5, fore "white", vgap 30, prefix " ", font "standard"
+
+%default は第 1 引数で指定された行の属性に、第 2 引数以降の値をセット
+します。1 行目は、サイズが 2％、2 行目は 7 ％ですね。次の行で明示的に
+上書きしない限り前の行の設定は有効です。ですから、2 行目の文字の色は白
+になります。
+
+MagicPoint はある行を表示する際に、まずその行の %default の設定を反映
+します。次に本文中で指定された設定を反映します。ただし、明示的に指定さ
+れない属性は、前の行の値を引き継ぎます。
+
+例を見てみましょう
+
+	%page
+						(大きさ 2 ％ の余白)
+	大きさ 7 ％で白色で太字のタイトル
+						(横棒)
+	大きさ 5 ％ で白色で太字の文字
+	%fore yellow, size 4
+	大きさ 4 ％ で黄色で太字の文字
+	%font standard
+	大きさ 4 ％ で黄色で標準の文字
+
+あと、行と直行する命令に %tab があります。default.mgp では以下のように
+定義されています。
+
+	%tab 1 size 5, vgap 40, prefix "  ", icon box green 50
+	%tab 2 size 4, vgap 40, prefix "      ", icon arc yellow 50
+	%tab 3 size 3, vgap 40, prefix "            ", icon delta3 white 40
+
+行頭に 1 つタブがあると %tab 1 の設定が有効になります。2 つあると %tab
+2、3 つあると %tab 2 が、現在の属性に上書きされます。
+
+つまり、
+	タブ 1 つで大きさが 5 ％、頭に空白と緑箱アイコン
+	タブ 2 つで大きさが 4 ％、頭に空白と黄丸アイコン
+	タブ 3 つで大きさが 3 ％、頭に空白と白三角アイコン
+となります。
+
+この機能を使うと、itemize を簡単に書かけます。例を見てみましょう。
+
+	%page
+
+	Emacs のなかまたち
+
+		Emacs
+			現在は 20.7 が主流
+			でも 21 がもうすぐリリースされる
+		Mule
+			2.3 がよく使われている
+			Emacs と XEmacs に統合された
+		XEmacs
+			21.1 がよく使われている
+			でも 21.2 がもうすぐリリースされる
+
+他のコマンドに付いては、SYNTAX を見たり、sample/*.mgp を見たりして下さ
+い。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+			    tgif との生活
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+MagicPoint は tgif の .obj ファイルを直接表示できないけれど、幸せにな
+れる方法はあります。
+
+(1) 画面表示に ghostscript を利用しないなら
+    - 画面表示には tgif が吐いた GIF を使う
+    - 印刷には tgif が吐いた EPS を使う
+
+(2) 画面表示に ghostscript を利用するなら
+    - 画面表示/印刷共に tgif が吐いた EPS を使う
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(1) GIF and EPS
+
+tgif で表示されたイメージがそのまま、mgp の画面に表示されます。だから、
+フォントが tgif できれいに表示されていないと悲しいです。とりあえず、14、
+16、24、26 ドットのフォントは、明朝かゴシックどちらかがあります。そこ
+で、以下のようなファイルを xrdb に食わせて、tgif を上げ、GIF を吐かせ
+るといいでしょう。
+
+
+%%%%
+Tgif*Background: black
+Tgif*Foreground: white
+Tgif.WhereToPrint:             GIF
+Tgif.XpmToGif: xpmtoppm %s | ppmtogif -transparent black
+Tgif.FontSizes:			8 10 12 14 16 18 20 24 26 32 40 48 64
+!Tgif.DoubleByteInputMethod:	xim
+Tgif.PreeditType:		overthespot
+Tgif.SquareDoubleByteFonts:	\n\
+  -*-fixed-medium-r-*--%d-*-*-*-*-*-jisx0208.1983-*,H,Ryumin-Light-EUC-H \n\
+  -*-fixed-medium-r-*--%d-*-*-*-*-*-jisx0208.1983-*,H,Ryumin-Light-EUC-H \n\
+  -*-fixed-medium-r-*--%d-*-*-*-*-*-jisx0208.1983-*,H,Ryumin-Light-EUC-H \n\
+  -*-fixed-medium-r-*--%d-*-*-*-*-*-jisx0208.1983-*,H,Ryumin-Light-EUC-H \n\
+  \n\
+  -*-fixed-medium-r-*--%d-*-*-*-*-*-jisx0208.1983-*,V,Ryumin-Light-EUC-V \n\
+  -*-fixed-medium-r-*--%d-*-*-*-*-*-jisx0208.1983-*,V,Ryumin-Light-EUC-V \n\
+  -*-fixed-medium-r-*--%d-*-*-*-*-*-jisx0208.1983-*,V,Ryumin-Light-EUC-V \n\
+  -*-fixed-medium-r-*--%d-*-*-*-*-*-jisx0208.1983-*,V,Ryumin-Light-EUC-V \n\
+  \n\
+  -*-fixed-bold-r-*--%d-*-*-*-*-*-jisx0208.1983-*,H,GothicBBB-Medium-EUC-H \n\
+  -*-fixed-bold-r-*--%d-*-*-*-*-*-jisx0208.1983-*,H,GothicBBB-Medium-EUC-H \n\
+  -*-fixed-bold-r-*--%d-*-*-*-*-*-jisx0208.1983-*,H,GothicBBB-Medium-EUC-H \n\
+  -*-fixed-bold-r-*--%d-*-*-*-*-*-jisx0208.1983-*,H,GothicBBB-Medium-EUC-H \n\
+  \n\
+  -*-fixed-bold-r-*--%d-*-*-*-*-*-jisx0208.1983-*,V,GothicBBB-Medium-EUC-V \n\
+  -*-fixed-bold-r-*--%d-*-*-*-*-*-jisx0208.1983-*,V,GothicBBB-Medium-EUC-V \n\
+  -*-fixed-bold-r-*--%d-*-*-*-*-*-jisx0208.1983-*,V,GothicBBB-Medium-EUC-V \n\
+  -*-fixed-bold-r-*--%d-*-*-*-*-*-jisx0208.1983-*,V,GothicBBB-Medium-EUC-V
+Tgif.RyuminShowFontChar:	\314\300
+Tgif.GothicBBBShowFontChar:	\245\264
+Tgif.InitialPrintInColor:      false
+%%%%
+
+EPS は、
+	tgif -print -eps *.obj
+とやれば作れます。ファイルがたくさんあるときに便利。
+
+ただし、この方法だと色を間違う可能性があるので、間違ったファイルは、
+tgif を上げてマニュアル操作で EPS を吐かせましょう。
+
+mgp2ps は、filename.{gif,jpg,...} に対し、filename.eps があればそちら
+を読み込んで PS を作ります。ああ、なんて便利。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(2) EPS only
+
+EPS をつくります。繰り返しになりますが、
+	tgif -print -eps *.obj
+とやれば作れます。
+
+.mgp ファイルの中で、
+	%image "foo.eps"
+とすれば、プレゼンの際には mgp の中から ghostscript が呼び出され、EPS
+ファイルの中身が画面上に描画されます。
+
+印刷する場合は、(1) と同様に mgp2ps を利用して下さい。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(3) 資料の配布
+
+2 つのページを 1 つにまとめるには、
+	pstops '2:0R@.6(1.5cm,28cm)+1R@.6(1.5cm,13.85cm)' input.ps > output.ps
+6 つのページを 1 つにまとめるには、
+	pstops '6:0R@.33(0.5cm,26cm)+1R@.33(10.5cm,26cm)+2R@.33(0.5cm,18cm)+3R@.33(10.5cm,18cm)+4R@.33(0.5cm,10cm)+5R@.33(10.5cm,10cm)' input.ps > output.ps
+と呪文を唱えればいいでしょう。\^^/
+
+pstops は psutils (ftp://ftp.dcs.ed.ac.uk/pub/ajcd) に入っています。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+			上手なプレゼンのために
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(1) "vfont"、"xfont"、"tfont"を本文中で直接使うのは避けましょう。宣言
+    領域で"deffont"して、本文中では"font"を使いましょう。こうすると、
+    MagicPointのフォント展開エンジンに依存しない .mgp ファイルを作成で
+    きます。
+
+(2) ベクトル画像には極力 EPS ファイルを使いましょう。
+
+(3) グレイスケール画像を出力できる ghostscript をインストールしましょ
+    う。
+
+(4) 本番のプレゼン前に、一度本番と同じ設定でプレゼンを表示しておくと、
+    EPS ファイルが展開されてキャッシュされますので本番での画像表示が速
+    くなります。MagicPoint に -F を指定すると、次のページを先読みしま
+    すので、表示が速くなります。
+
+(5) VGAプロジェクタとの接続をちゃんと確かめましょう。また、早めにうま
+    く継るか確認しておきましょう。
+
+(6) ちゃんと発表練習しましょう :-)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+				 数式
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+.mgp ファイルに数式を埋め込む方法には大きく分けて、
+	1) 事前になんらかの方法で図形ファイルに変換しておく
+	2) フィルタコマンドを利用して、動的に作成する
+の2つがあります。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[静的な方法]
+  (1) TeX
+  - TeX で数式を書いて .dvi ファイルを生成します。
+  - dvips を使って、.dvi ファイルを .eps ファイルに変換します。
+  - .eps ファイルを以下のように読み込みます。
+
+	%image "foo.eps"
+
+  (2) eqn/troff
+  - eqn/troff で数式を書いて .ps ファイルを得ます。
+  - .ps ファイルを .eps ファイルに変換します。(e.g. pstoepsi)
+  - .eps ファイルを以下のように読み込みます。
+
+	%image "foo.eps"
+
+  (3) ビットマップ (お勧めできません)
+  - TeX か eqn/troff を使って数式を書き、.ps ファイルを得ます。
+  - .ps ファイルを .pnm ファイルに変換します。(e.g. pstopnm)
+  - .pnm ファイルを .pbm ファイルに変換します。(e.g. pnmcrop)
+  - .pbm ファイルを以下のように読み込みます。
+
+	%image "foo.pbm"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[動的な方法]
+  (1) TeX
+  - mgpファイル中にTeX形式で書いた数式を埋め込めます
+  - 数式を
+	%filter "tex2eps.sh eqn1"
+	My \TeX\ is nicer with $Magic$ Point  <=ここにTeX形式で書く
+	%endfilter
+	%image "eqn1.eps" 250x200
+    のような形で記述します。
+
+  (注意)  tex2epsコマンドが実行できるようになっている必要があります。
+	  magicpoint配布キットのcontribにあるtex2eps.shをパスが通る
+	  場所に実行ビットをたてて置いてください。
+
+	  それに加えて、texおよびdvipsコマンドが必要です。
+
+  (2) eqn/troff
+  - mgpファイル中にeqn形式で書いた数式を埋め込めます
+  - 数式を
+	%filter "eqn2eps.sh eqn1"
+	1 over sqrt {ax sup 2+bx+c}	<=ここにeqn形式で書く
+	%endfilter
+	%center, image "eqn1.eps" 0 400 400 1
+    のような形で記述します。
+
+   (注意)  eqn2epsコマンドが実行できるようになっている必要があります。
+	   magicpoint配布キットのcontribにあるtex2eps.shをパスが通る
+	   場所に実行ビットをたてて置いてください。
+
+	  それに加えて、groffおよびghostscript/ps2epsiコマンドが必
+	  要です。
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		   プレゼンファイルを Web に貼ろう
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+MagicPoint のプレゼンテーションファイルを Web に貼る場合、3つの方法が
+あります。
+
+(1) クライアント側に MagicPoint があると仮定できる場合には、mgpembed
+    で作成したファイルをそのまま Web サーバで提供すれば OK です。
+
+	No, send them a tarball instead or let them read your repo!
+	mgpembed is gone!
+
+(2) 任意のクライアントで見たい場合、各画面のダンプを GIF に落し、それ
+    ぞれの GIF ファイルを HTML から "IMG" で参照します。MagicPoint は
+    このようなテンプレートを簡単に作成してくれます。mgp -D を利用して
+    下さい。
+
+(3) プレゼンファイルを PS ファイルに変換してから貼るのもいいかもしれま
+    せん。この場合 mgp2ps で作成した PS ファイルを Web サーバに置くこ
+    とになります。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

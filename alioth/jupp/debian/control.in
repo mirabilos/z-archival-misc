@@ -1,0 +1,68 @@
+Source: jupp
+Section: editors
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Homepage: @HP@MODERN@
+Build-Depends: @@DSC_DEPS@@
+Standards-Version: 4.2.1
+VCS-git: https://evolvis.org/anonscm/git/alioth/jupp.git -b master
+VCS-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/jupp.git;a=shortlog;h=refs/heads/master
+
+Package: jupp
+Architecture: any
+Multi-Arch: foreign
+Depends: ${shlibs:Depends}, ${misc:Depends}
+@@BREAKS@@: joe (<< 3.7-2.3~)
+Provides: editor
+Enhances: nbc
+Description: user friendly full screen text editor
+ Joe, the Joe's Own Editor, has the feel of most PC text editors: the key
+ sequences are reminiscent of WordStar and Turbo C editors, but the feature
+ set is much larger than of those.  Joe has all of the features a Unix
+ user should expect: full use of termcap/terminfo, complete VI-style Unix
+ integration, a powerful configuration file, and regular expression search
+ system.  It also has eight help reference cards which are always available,
+ and an intuitive, simple, and well thought-out user interface.
+ .
+ Joe has a great screen update optimisation algorithm, multiple windows
+ (through/between which you can scroll) and lacks the confusing notion of
+ named buffers.  It has command history, TAB expansion in file selection
+ menus, undo and redo functions, (un)indenting and paragraph formatting,
+ filtering highlighted blocks through any external Unix command, editing
+ a pipe into or out of a command, block move, copy, delete or filter, a
+ bracketed paste mode automatically enabled on xterm-xfree86 and decimal
+ and hexadecimal gotos for lines, columns, and file offsets.
+ .
+ Through simple QEdit-style configuration files, Joe can be set up to
+ emulate editors such as Pico and Emacs, along with a complete imitation
+ of WordStar in non-document mode, and a restricted mode version (lets you
+ edit only the files specified on the command line). Joe also has a deferred
+ screen update to handle typeahead, and it ensures that deferral is not
+ bypassed by tty buffering. It's usable even at 2400 baud, and it will work
+ on any kind of sane terminal. Furthermore, it supports SELinux context
+ copying on Debian systems with the Linux kernel.
+ .
+ This version of JOE only comes with the Jupp flavour, to not conflict
+ with the Debian joe package, activated. The resource files and executable
+ links and menu entries for the other flavours are still available, though,
+ in the joe-jupp package.
+ .@HP@DOT@
+  Homepage: @HP@OLD@
+
+Package: joe-jupp
+@PRIO@EXTRA@
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, jupp (>= 3.1.37)
+Conflicts: joe
+Provides: joe
+Replaces: joe
+Description: reimplement the joe Debian package using jupp
+ This package contains symbolic links to replace the Debian joe package
+ using the jupp package and implementation (both binaries and manpages).
+ It also contains the appropriate conffiles and, in contrast to Debian's
+ joe flavour, supports SELinux context copying (on Debian systems with
+ the Linux kernel), and has many bugs fixed and makes some of jupps new
+ features available to the joe, jstar, jmacs, jpico and rjoe flavours.
+ .@HP@DOT@
+  Homepage: @HP@OLD@

@@ -1,0 +1,32 @@
+# small script for the maintainer to scan all build logs
+
+test $# -ge 1 || set -- /var/cache/pbuilder/result-*/mksh_*.build
+for fn in "$@"; do
+echo "[1;34;40m= ${fn}[0m"
+llc=$(sed --posix -n '/^D:loglibc:final(\([^)]*\)) \(.*\) finishing$/{s//\1)\2/p;q;}' "$fn")
+vsn=${llc%%')'*}
+eval "$(sed --posix \
+    -e 's/RTCHK/rtchk/g' -e 's/MTEST/mtest/g' \
+    -e 's/testsuite-failed/ts-fail/g' \
+    -e 's/passed-but-notty/no-ctty/g' \
+    -e 's/succeeded-tested/success/g' \
+    <<EOF
+${llc#*')'}
+EOF
+)"
+(column -ts')' | sed --posix \
+    -e 's/✓[^ ]*/[1;30;40m&/g' \
+    -e 's/？[^ ]*/[33;40m&/g' \
+    -e 's/⁇[^ ]*/[35,40m&/g' \
+    -e 's/✘[^ ]*/[1;31;40m&/g' \
+    -e 's/✗[^ ]*/[31;40m&/g' \
+    -e 's/☒[^ ]*/[1;35;40m&/g' \
+    -e 's/✔[^ ]*/[1;32;40m&/g' \
+    -e 's/\( ↑[^(]*\)(\([^ ]*\) /[1;30;40m\1 [0;1m\2 /' \
+    -e '1s/^/[0;4m/' -e '1s/  */&| /g' -e '1s/$/   /' \
+    -e '2,$s/  */[0m&| /g' -e 's/$/[0m/') <<EOF
+sh\libc)system)klibc)musl)dietlibc)glibc
+mksh)$system)$mksh_klibc)$mksh_musl)$mksh_dietlibc)$mksh_glibc
+lksh) ↑ version($vsn)$lksh_klibc)$lksh_musl)$lksh_dietlibc)$lksh_glibc
+EOF
+done

@@ -1,0 +1,67 @@
+Description: Fix single-note dynamics on rendering scores via a command line
+Origin: vendor, commit:2b1377813e61cc5b8d7bf8574e38f45f1f59526d
+Author: Dmitri Ovodok <dmitrio95@yandex.ru>
+Forwarded: inquiry via IRC
+
+--- a/mscore/exportaudio.cpp
++++ b/mscore/exportaudio.cpp
+@@ -52,11 +52,6 @@ bool MuseScore::saveAudio(Score* score,
+         return false;
+     }
+ 
+-    EventMap events;
+-    score->renderMidi(&events, synthesizerState());
+-    if(events.size() == 0)
+-          return false;
+-
+     MasterSynthesizer* synth = synthesizerFactory();
+     synth->init();
+     int sampleRate = preferences.getInt(PREF_EXPORT_AUDIO_SAMPLERATE);
+@@ -72,6 +67,16 @@ bool MuseScore::saveAudio(Score* score,
+                 synth->init();
+           }
+ 
++    EventMap events;
++
++    score->masterScore()->rebuildAndUpdateExpressive(synth->synthesizer("Fluid"));
++    score->renderMidi(&events, score->synthesizerState());
++    if (synti)
++          score->masterScore()->rebuildAndUpdateExpressive(synti->synthesizer("Fluid"));
++
++    if (events.empty())
++          return false;
++
+     int oldSampleRate  = MScore::sampleRate;
+     MScore::sampleRate = sampleRate;
+ 
+--- a/mscore/musescore.cpp
++++ b/mscore/musescore.cpp
+@@ -6823,11 +6823,6 @@ bool MuseScore::saveMp3(Score* score, QI
+       Q_UNUSED(wasCanceled);
+       return false;
+ #else
+-      EventMap events;
+-      score->renderMidi(&events, synthesizerState());
+-      if(events.size() == 0)
+-            return false;
+-
+       MP3Exporter exporter;
+       if (!exporter.loadLibrary(MP3Exporter::AskUser::MAYBE)) {
+             QSettings set;
+@@ -6898,6 +6893,16 @@ bool MuseScore::saveMp3(Score* score, QI
+ 
+       MScore::sampleRate = sampleRate;
+ 
++      EventMap events;
++
++      score->masterScore()->rebuildAndUpdateExpressive(synth->synthesizer("Fluid"));
++      score->renderMidi(&events, score->synthesizerState());
++      if (synti)
++            score->masterScore()->rebuildAndUpdateExpressive(synti->synthesizer("Fluid"));
++
++      if (events.empty())
++            return false;
++
+       QProgressDialog progress(this);
+       progress.setWindowFlags(Qt::WindowFlags(Qt::Dialog | Qt::FramelessWindowHint | Qt::WindowTitleHint));
+       progress.setWindowModality(Qt::ApplicationModal);

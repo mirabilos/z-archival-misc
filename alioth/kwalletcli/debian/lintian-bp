@@ -1,0 +1,5 @@
+# there is none
+kwalletcli: no-upstream-changelog
+
+# this is built as PIC with Qt5
+kwalletcli: hardening-no-pie usr/bin/kwalletcli

@@ -1,0 +1,5 @@
+# indeed
+prevent-packagekit: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-packagekit: unknown-field-in-control important

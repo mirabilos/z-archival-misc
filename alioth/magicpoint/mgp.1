@@ -1,0 +1,406 @@
+.\" Copyright (C) 1997 and 1998 WIDE Project.  All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above copyright
+.\"    notice, this list of conditions and the following disclaimer in the
+.\"    documentation and/or other materials provided with the distribution.
+.\" 3. Neither the name of the project nor the names of its contributors
+.\"    may be used to endorse or promote products derived from this software
+.\"    without specific prior written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS ``AS IS'' AND
+.\" ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+.\" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+.\" ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE
+.\" FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+.\" DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+.\" OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+.\" HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+.\" LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+.\" OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+.\" SUCH DAMAGE.
+.\"
+.Dd July 20, 2019
+.Dt MGP 1
+.Os MagicPoint
+.Sh NAME
+.Nm mgp
+.Nd MagicPoint, an X11-based presentation tool
+.Sh SYNOPSIS
+.Nm mgp
+.Op Fl BCeGhnOoPqRSUVv
+.Op Fl b Ar bgcolour
+.Op Fl D Ar htmldir
+.Op Fl d Op Ar interval
+.Op Fl E Ar htmlimage
+.Oo
+.Fl F
+.Ar mode Ns Oo
+.Ar ,effect Ns Op Ar ,value
+.Oc
+.Oc
+.Op Fl g Ar geometry
+.Op Fl p Ar page
+.Op Fl Q Ar quality
+.Op Fl T Ar timestampfile
+.Op Fl t Ar timeslot
+.Op Fl X Ar gsdevice
+.Op Fl x Ar engine
+.Ar file
+.Sh DESCRIPTION
+.Nm
+.Pq MagicPoint
+is an X11-based presentation tool.
+It is designed to make
+simple presentations easy while to make complicated presentations
+possible.
+Its presentation file
+.Pq whose suffix is typically Li .mgp
+is just text so that you can create presentation files quickly with
+your favorite editor (such as jupp or Emacs).
+.Pp
+The
+.Li .mgp
+file consists of text and
+control commands (such as pagebreak, centering, and/or inline image).
+Control commands are specified on the beginning of lines started with
+one percent sign
+.Pq Sq Li % .
+You can include numerous kinds of image format files
+onto the presentation file.
+.Pp
+.Nm
+uses X11 scalable fonts.
+.Pp
+The following options are available:
+.Bl -tag -width indent
+.It Fl B
+Omit background image.
+.It Fl b Ar bgcolour
+Set background colour to
+.Ar bgcolour .
+(The default value is black)
+.It Fl C
+Use private colourmap.
+.It Fl D Ar htmldir
+Generate html pages of the presentation into
+.Ar htmldir .
+You will need
+.Xr xwintoppm 1
+(included in mgp kit),
+and
+.Xr pnmscale 1 ,
+.Xr cjpeg 1 ,
+and
+.Xr djpeg 1
+.Po
+included in
+.Li netpbm
+and
+Independent Jpeg Group
+.Li jpeg
+package
+.Pc .
+.It Fl d [ Ar interval ]
+Demonstration mode.
+Browse all page automatically, spending
+.Ar interval
+secounds on each page and terminate. If
+.Ar interval
+is not specified, it will be set to 0.
+.It Fl E Ar htmlimage
+Specifies html image type. Now
+.Dq Li jpg
+and
+.Dq Li png
+are supported, default value is
+.Dq Li jpg .
+It works when the
+.Fl D
+option is set.
+.It Xo
+.Fl F Ar mode Ns Oo
+.Ar ,effect Ns Op Ar ,value
+.Oc
+.Xc
+Specifies forward page cache options.
+.Ar Mode ,
+.Ar effect
+and
+.Ar value
+are numbers.
+.Ar Mode
+specifies caching mode.
+.Ar Mode
+0 means caching is executed after 2 seconds idle.
+.Ar Mode
+1 means caching is executed immediately.
+.Ar Effect
+specifies a
+.Sq special effect
+for the forward page cache.
+Currently, two special effects are supported.
+.Ar Effect
+1 means that the next page will come in from the left side.
+.Ar Effect
+2 means that the current page will go out to the left side.
+.Ar Effect
+0 means no special effect.
+.Ar Value
+specifies speed of special effect.
+.Ar Value
+1 means the highest speed. A higher value for
+.Ar value
+decreases effect speed.
+.It Fl G
+Specifies to turn on page guide function.
+At the bottom of the screen, the titles of next page and previous page are
+displayed to assist the presentation.
+Page guide can be turned on and off by keyboard too.
+.It Fl g Ar geometry
+Set the size and location of the window.
+Please note that
+.Fl g
+implies
+.Fl o.
+.Nm
+will not override the window manager if you specify the geometry.
+.It Fl h
+Display the usage and exit without performing a presentation.
+.It Fl n
+.Nm
+accepts any key inputs from invoked terminal as
+KEY OPERATION described below.
+.Fl n
+disables this feature.
+(This option may be removed in the future release)
+.It Fl O
+Obey to the window manager, but with less decoration around the window.
+The behavior of this option is affected by how the window manager
+is implemented; this option may have no effect on some of the window managers.
+.It Fl o
+Do not override window manager.
+(By default,
+.Nm
+overrides window manager and occupies the whole display)
+.It Fl p Ar page
+Start presentation from
+.Ar page ,
+rather than the first page.
+.It Fl Q Ar quality
+Set background image quality (0 to 100) in percent.
+.It Fl q
+Do not beep on errors.
+.It Fl R
+.Nm
+will usually reload the presentation file if it gets updated,
+based on the file modification time taken by
+.Xr stat 2 .
+.Fl R
+disables this auto-reloading feature.
+.It Fl S
+Be secure.
+Skip directives that fork/exec the child process.
+It is suggested to use this option if you got some presentation file
+from others.
+This is enabled by default.
+.It Fl T Ar timestampfile
+If the option is specified,
+.Nm
+will modify the content of
+.Ar timestampfile
+every time it updates the presentation window.
+This option is useful for external process to understand when
+.Nm
+modifies the window.
+.It Fl t Ar timeslot
+Specify the timeslot assigned to the presentation in minute.
+The timer is invoked when the second page is displayed and the remaining
+presentation time is indicated by the length of bar shown at the bottom of
+the display.
+The timebar is updated when some X11 event is raised,
+for instance some keypress.
+Timebar will be green if you have more than 50% of the timeslot,
+yellow while you have more than 30% of the timeslot,
+and red for the other cases.
+When the assigned timeslot is expired, exceeding time is also shown as
+a timebar growing from left to right.
+Current page is indicated by the position of a small vertical bar; the vertical
+bar is drawn at the leftend when the first page is displayed while the
+bar is drawn at the rightend when the last page is displayed.
+.It Fl Fl title Ar name
+Set the title of the window to
+.Ar name .
+.It Fl U
+Be unsecure.
+Enable directives that fork/exec the child process.
+Allows using non-ASCII filenames.
+.It Fl V
+Display the MagicPoint version and exit without performing a presentation.
+.It Fl v
+Be verbose.
+Generate debugging output to standard output.
+.It Fl X Ar gsdevice
+.Nm
+sometimes invokes
+.Xr ghostscript 1
+to render postscript images.
+.Fl X
+enables you to specify the device to be used by
+.Xr ghostscript 1 .
+.\"If your
+.\".Xr ghostscript 1
+.\"is capable of using
+.\".Li x11alpha
+.\"device, you should try using that.
+If you specify
+.Ar gsdevice
+with a trailing
+.Sq + ,
+.Xr pnmscale 1
+and
+.Xr pnmdepth 1
+will be invoked for anti-aliasing.
+The default
+.Ar gsdevice
+is
+.Dq pnmraw+ .
+.It Fl x Ar engine
+Do not use rendering engine, specified by
+.Ar engine .
+.Ar engine
+can be
+.Li xft .
+.El
+.Sh KEY OPERATION
+The keyboard/mouse commands are:
+.Bl -tag -width XX
+.It mouse button 1 (leftmost button)
+Go forward a page.
+Space key, downward cursor key, scroll down key,
+.Dq f
+key,
+.Dq j
+key and
+.Dq n
+key have the same effect.
+If <number> is specified, go forward <number> pages.
+.It mouse button 3 (rightmost button)
+Go to the previous page.
+.Dq b
+key,
+.Dq k
+key,
+.Dq p
+key, backspace key, scroll up key and upward cursor key
+have the same effect.
+If <number> is specified, go back <number> pages.
+.It 0 - 9 (number buttons)
+Set prefix number in decimal.
+i.e. <number> = <number> * 10 + <keyN> - <key0>.
+For example, by typing in
+.Dq 10g
+you can jump to page 10.
+.It g
+Go to the <number> page.
+If number is 0, go to the last page.
+.It Control key
+Display the page listing menu while held.
+See below for details.
+.It G
+Enable/disable page guide.
+See description for option
+.Fl G
+for details.
+.It x
+Enable/disable rakugaki (jotting) mode.
+You can make an annotation (by mouse) on the presentation.
+Mouse button 2 (middle) has the same effect.
+.It X
+Change the pen colour for rakugaki (jotting) mode.
+.It t
+Enable/disable the timebar if
+.Fl t
+timeslot option is specified.
+.It c
+Enable/disable forward page cache.
+.It w
+Toggle full screen mode with EWMH.
+(You need a EWMH-aware window manager and need to run mgp with
+.Fl o
+or
+.Fl g
+option)
+.It ^L
+Repaint the current page.
+Use this if you messed up the page by jotting too much.
+.It ^R
+Reload the current presentation file.
+If the current page becomes unavailable, page pointer will be moved back to 1.
+.It Escape key
+Quit the currently running
+.Nm mgp .
+.Dq q
+key also has the same effect.
+.El
+.Pp
+During the presentation, you can see the page list at the bottom of the
+window when you press a Control key.
+Choosing a page with the mouse and clicking it with the leftmost mouse button,
+you can go to corresponding page directly.
+Releasing the Control key, the page list disappears and you can continue
+with the current page.
+This function is useful during the Q-and-A period after your presentation
+completes.
+.Sh CONFIGURATION FILES
+.Nm
+imports various image draw functions from
+.Xr xloadimage 1 .
+This means that the location of image files can be specified
+by
+.Pa ~/.xloadimagerc
+file.
+If you specify the presentation file with its directory, that directory
+is searched first and then the path specified in the
+.Pa ~/.xloadimagerc
+is searched.
+.Sh SECURITY ISSUES
+The presentation file can include directives to call the external process,
+just like shell process.
+Therefore, the presentation file should be treated just like shell script
+or perl script.
+This is STRONGLY recommended to review the content
+of the presentation file before invoking
+.Nm mgp ,
+if you got the file from others.
+By adding the
+.Fl S
+option to the command line argument, directives that call external processes
+will be skipped.
+.Sh SEE ALSO
+.Xr mgp2ps 1 ,
+.Xr mgpnet 1 ,
+.Xr xloadimage 1
+.Sh AUTHOR CONTACT
+Yoshifumi Nishida <nishida@csl.sony.co.jp>
+.Sh CONTRIBUTION
+Jun-ichiro Hagino <itojun@itojun.org>, Akira Kato <kato@wide.ad.jp>,
+Atsushi Onoe <onoe@sm.sony.co.jp>, Kazu Yamamoto <Kazu@Mew.org>,
+Youjiro Uo <yuo@nui.org>, and Masaki Minami <Masaki@Minami.org>
+extensively contributed improvements, bug fixes, and documents.
+Special thanks to Chaki Kusakari <chaki@sfc.wide.ad.jp>.
+.Sh HISTORY
+.Nm
+was created shortly after the autumn camp of WIDE Project in 1997,
+which was originally called
+.Nm tp
+.Pq TinyPoint .
+.Pp
+This version of
+.Nm
+is a contemporary fork by mirabilos, started in 2019, focussing on
+UTF-8 support.

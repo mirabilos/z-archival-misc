@@ -1,0 +1,10 @@
+# somewhat by design: while klibc allows for dynamic linking,
+# and we would perfectly use it happily as its interpreter/library
+# is already installed into generated initramfs images anyway,
+# lack of a shlibs file makes it impossible to generate a suitable
+# dependency on libklibc, so we prefer to build statically and
+# generate the Built-Using tag (for now) instead
+early-rng-init-tools: statically-linked-binary
+
+# this should be run during shutdown only, indeed
+early-rng-init-tools: systemd-service-file-refers-to-unusual-wantedby-target lib/systemd/system/early-rng-init-tools.service shutdown.target

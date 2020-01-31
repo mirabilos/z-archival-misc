@@ -1,0 +1,207 @@
+%include "default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%fore "red", size 7, font "standard", back "darkblue"
+
+
+
+%center, fore "yellow", font "thick"
+MagicPoint
+%font "standard"
+
+
+%size 4, fore "red"
+Keio University
+Yoshifumi Nishida
+%size 3
+nishida@sfc.wide.ad.jp
+
+%size 4, fore "yellow"
+Appuyer sur la barre d'espace!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 16 0 0 "red" "black"
+
+Comment l'utiliser
+
+	Page suivante -> appuyer sur le premier bouton de la souris
+	Page précedente -> appuyer sur le troisieme bouton de la souris
+	Quitter -> Appuer sur q
+%center
+%lcutin
+test message
+%center
+%rcutin
+test message
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 16 0 0 "red" "black"
+
+Les options de la ligne de commande.
+
+%prefix "    -h:"
+affiche l'aide .
+%prefix "    -g:"
+geometry. Positionne la taille et l'emplacement de la fenetre.
+%prefix "    -o:"
+Do not override window manager.
+%prefix "    -b:"
+bgcolor. Positionne la couleur de fond. (defaut: noir)
+%prefix ""
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Placez le texte ou vous voulez!
+
+%area 40 80 5 20
+%fore "red", size 6
+%center
+centre
+
+
+%left
+gauche
+
+%right
+droite
+%area 40 80 50 20, leftfill, fore "white"
+	You can make a 2 column page by specifying drawing area.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+Utilisez la fonte que vous voulez!
+
+%CENTER
+%SIZE 10,FORE "orange"
+Bonjour monde
+%SIZE 7,FORE "gray"
+Bonjour monde
+%SIZE 5,FORE "blue"
+Bonjour monde
+%SIZE 4,FORE "yellow"
+Bonjour monde
+%SIZE 3,FORE "green"
+Bonjour monde
+%SIZE 2,FORE "red"
+Bonjour monde
+%SIZE 1,FORE "pink"
+Bonjour monde
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Choisissez la fonte de votre choix
+
+
+%size 4, fore "red", center
+
+%font "standard"
+Times
+
+%font "thick"
+Arial
+
+%font "typewriter"
+Courier
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+On peut mélanger les fontes
+
+Control can be mixed
+
+%fore "green", font "standard", size 4
+Ceci est un
+%cont, fore "orange", font "thick", size 6
+Message
+%cont, fore "red", font "typewriter", size 5
+de test.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Automatic folding of long line!
+
+	Hello, this is MagicPoint. I can properly handle the folding opeation of very long line, of course english word-wise.  The source code of this line is made up by a single line.
+		This is the next line. Even if the indentation changes, I can handle this!  Yey!
+	You can also connect the line using backslash.  \
+Yes, UNIX tradition.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+%bgrad 0 0 16 0 0 "red" "black"
+
+Mettez une image
+
+%CENTER
+%IMAGE "cloud.jpg"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+Effets spécial!
+
+
+%fore "red", size 6, center
+%shrink
+Message de test
+
+%lcutin
+Message de test
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+Pause
+
+	Appuyez sur la barre d'espace pour la suite
+
+%center, fore "red"
+Happy hacking!
+%pause, fore "blue"
+Happy hacking!
+%pause, fore "green"
+Happy hacking!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+Grab command output into foils
+
+	ls -l /kernel /bsd
+
+%size 3, prefix "     "
+%filter "ls -l /kernel /bsd"
+%endfilter
+
+	echo "this is test" | rev
+
+%filter "rev"
+this is test
+%endfilter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+Subprocess (multimedia!)
+
+%system "xeyes -geometry %50x20+25+60"
+
+	Invoke xanim/mpegplay for multimedia presentation! :-)
+
+	No duplicated subprocess for one declaration.
+	Geometry can be presentation-screen relative.
+	xeyes will vanish if you switch the page.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+Bonne journée.
+
+    Allez voir
+%font "typewriter"
+        http://www.mew.org/mgp/
+%font "standard"
+    pour de nouvelles aventures.

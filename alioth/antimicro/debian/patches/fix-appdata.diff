@@ -1,0 +1,54 @@
+Description: Fix AppData and install to correct name and location
+Author: mirabilos <tg@debian.org>
+Forwarded: https://github.com/AntiMicro/antimicro/pull/273
+
+--- a/other/appdata/CMakeLists.txt
++++ b/other/appdata/CMakeLists.txt
+@@ -8,9 +8,9 @@ if(APPDATA)
+         # Add an entry per language
+         COMMAND msgfmt "${PROJECT_SOURCE_DIR}/other/appdata/PO_files/en.po" -o "${CMAKE_CURRENT_BINARY_DIR}/PO_files/en.mo"
+ 
+-        COMMAND itstool -i "${PROJECT_SOURCE_DIR}/other/appdata/appdata.its" -j "${PROJECT_SOURCE_DIR}/other/appdata/antimicro.appdata.xml.in" -o "antimicro.appdata.xml" "${CMAKE_CURRENT_BINARY_DIR}/PO_files/*.mo"
++        COMMAND itstool -i "${PROJECT_SOURCE_DIR}/other/appdata/appdata.its" -j "${PROJECT_SOURCE_DIR}/other/appdata/antimicro.appdata.xml.in" -o "com.github.AntiMicro.antimicro.appdata.xml" "${CMAKE_CURRENT_BINARY_DIR}/PO_files/*.mo"
+     )
+ 
+     # Only install an appdata file if the user requested to have one built.
+-    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/antimicro.appdata.xml" DESTINATION "share/appdata")
++    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/com.github.AntiMicro.antimicro.appdata.xml" DESTINATION "share/metainfo")
+ endif(APPDATA)
+--- a/other/appdata/antimicro.appdata.xml.in
++++ b/other/appdata/antimicro.appdata.xml.in
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!-- Copyright 2014 Jeff Backus <jeff.backus@gmail.com> -->
+ <component type="desktop">
+- <id>antimicro.desktop</id>
++ <id>com.github.AntiMicro.antimicro</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>AntiMicro</name>
+@@ -18,20 +18,20 @@
+  </description>
+  <screenshots>
+   <screenshot type="default">
+-   <image>https://raw.githubusercontent.com/AntiMicro/antimicro/appdata/other/appdata/screenshots/controller_configure01.png</image>
++   <image>https://raw.githubusercontent.com/AntiMicro/antimicro/master/other/appdata/screenshots/controller_configure01.png</image>
+    <caption>Profile Configuration Dialog</caption>
+   </screenshot>
+   <screenshot>
+-   <image>https://raw.githubusercontent.com/AntiMicro/antimicro/appdata/other/appdata/screenshots/controller_configure02.png</image>
++   <image>https://raw.githubusercontent.com/AntiMicro/antimicro/master/other/appdata/screenshots/controller_configure02.png</image>
+    <caption>Key Assignment Dialog</caption>
+   </screenshot>
+   <screenshot>
+-   <image>https://raw.githubusercontent.com/AntiMicro/antimicro/appdata/other/appdata/screenshots/controller_mapping01.png</image>
++   <image>https://raw.githubusercontent.com/AntiMicro/antimicro/master/other/appdata/screenshots/controller_mapping01.png</image>
+    <caption>Controller Mapping Dialog</caption>
+   </screenshot>
+  </screenshots>
+  <url type="homepage">https://github.com/AntiMicro/antimicro</url>
+- <updatecontact>jeff.backus_at_gmail.com</updatecontact>
++ <update_contact>jeff.backus_at_gmail.com</update_contact>
+  <kudos>
+    <kudo>ModernToolkit</kudo>
+  </kudos>

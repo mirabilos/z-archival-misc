@@ -1,0 +1,89 @@
+.\" Copyright (C) 1997 and 1998 WIDE Project.  All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above copyright
+.\"    notice, this list of conditions and the following disclaimer in the
+.\"    documentation and/or other materials provided with the distribution.
+.\" 3. Neither the name of the project nor the names of its contributors
+.\"    may be used to endorse or promote products derived from this software
+.\"    without specific prior written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS ``AS IS'' AND
+.\" ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+.\" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+.\" ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE
+.\" FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+.\" DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+.\" OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+.\" HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+.\" LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+.\" OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+.\" SUCH DAMAGE.
+.\"
+.Dd December 30, 1997
+.Dt MGPNET 1
+.Os MagicPoint
+.Sh NAME
+.Nm mgpnet
+.Nd MagicPoint Netserver (provide a presentation over the net)
+.Sh SYNOPSIS
+.Nm mgpnet
+.Op arguments to mgp
+.Sh DESCRIPTION
+.Nm mgpnet
+is a small HTTP server to be executed on the presenter's notebook computer.
+It lets audience read MagicPoint presentation foils on their notebook
+computers, over the net.
+.Pp
+When a presenter performs a presentation, invoking
+.Nm mgpnet
+instead of
+.Nm mgp ,
+with the same argument, will cause
+.Nm mgpnet
+to become an HTTP server running on TCP port 9999 (by default) and invoke
+.Nm mgp
+as a child process.
+By accessing URL
+.Pa http://hostname:9999/ ,
+audience will be able to read the MagicPoint window currently displayed
+on the presenter's notebook.
+The webpage provided by
+.Nm mgpnet
+is designed in
+.Dq client pull
+manner; the audience's notebook will reload the page several times a minute.
+.Pp
+If no option is specified,
+.Nm mgpnet
+will print the URL to be accessed by the audience to the standard output.
+This is useful for indicating the URL to be accessed on the presentation,
+like:
+.Bd -literal
+%filter "mgpnet"
+%endfilter
+.Ed
+.Sh ENVIRONMENT
+.Bl -tag
+.It Ev CC
+C compiler to use
+.Pq default: Nm cc
+.It Ev CPP
+C praeprocessor to use
+.Pq defaults: Ev $CC Fl E
+.El
+.Sh TODO
+Be network conscious.
+Current implementation is too naive about CPU/network usage.
+Presenter's notebook may be overloaded if there's too many audiences.
+.Sh SEE ALSO
+.Xr mgp 1 ,
+.Xr xwintoppm 1 .
+.Sh HISTORY
+.Nm mgpnet
+was created by Jun-ichiro itojun Itoh <itojun@itojun.org>,
+on the day before the newyear's eve, 1997.

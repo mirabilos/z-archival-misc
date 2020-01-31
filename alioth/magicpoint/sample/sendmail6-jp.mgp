@@ -1,0 +1,80 @@
+%include "default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 7, font "standard", fore "white", center
+
+
+
+IPv4/v6 環境での SMTP
+
+%size 4
+山本和彦
+WIDE プロジェクト
+v6@wide.ad.jp
+
+%font "typewriter"
+http://www.v6.wide.ad.jp/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+IPv4/v6 環境の SMTP に向けて
+
+	IPv4/v6 MTAs -- パッチはすでにある
+	IPv4/v6 MUAs -- だいたい OK (pop6)
+
+DNS データベースの
+%cont, font "typewriter"
+"IN AAAA"
+%cont, font "standard"
+レコードは、古き良き MTAs/DNS サーバにどのような影響を与えるか？
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+実験
+
+	以下のアドレスにテスト・メールを送ってもらうよう呼びかけた。
+
+%size 3
+To: test@a.v6.wide.ad.jp
+To: test@b.v6.wide.ad.jp
+
+%font "typewriter", size 3
+a.v6.wide.ad.jp. IN A 203.178.137.73
+a.v6.wide.ad.jp. IN AAAA 3ffe:0501:1000::1
+
+b.v6.wide.ad.jp. IN MX 10 c.v6.wide.ad.jp.
+b.v6.wide.ad.jp. IN MX 20 a.v4.wide.ad.jp.
+
+c.v6.wide.ad.jp. IN AAAA 3ffe:0501:1000::1
+c.v4.wide.ad.jp. IN A 203.178.137.73
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+結果
+
+	1256 のサブドメインから 1380 のメールが送られてきた。
+		33 通は正しくない From: フィールドを持っていた。
+
+	"MX loopback to myself" エラーが 2 通
+		(送り主の設定ミス？)
+	"no route to host" エラーが 1 通
+		(古いネームサーバ - 4.8.3 - のせい)
+
+	AAAA がうまく取り扱えないソフトウェア
+		x.x.x 以前の Sendmail
+		x.x.x 以前の bind
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+これからなにをすべきか？
+
+	問題の周知徹底
+		古いソフトウェアをバージョンアップしてもらう
+		ドニュメントを書く
+
+	安全のために、v6 用のドメインを分ける
+		v6.wide.ad.jp

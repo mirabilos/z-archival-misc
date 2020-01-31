@@ -1,0 +1,5 @@
+# indeed
+ncurses-term-considered-harmful: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+ncurses-term-considered-harmful: unknown-field-in-control important

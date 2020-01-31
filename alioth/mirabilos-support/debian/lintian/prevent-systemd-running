@@ -1,0 +1,5 @@
+# indeed
+prevent-systemd-running: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-systemd-running: unknown-field-in-control important

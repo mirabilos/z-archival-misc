@@ -1,0 +1,11 @@
+# there is none, only a gzsig(1) signature
+kwalletcli source: debian-watch-does-not-check-gpg-signature
+
+# no, thanks.
+kwalletcli source: no-dep5-copyright
+
+# none exist
+kwalletcli source: testsuite-autopkgtest-missing
+
+# cannot use https due to OpenSSL maintainer disabling TLSv1.0
+kwalletcli source: debian-watch-uses-insecure-uri http://www.mirbsd.org/MirOS/dist/hosted/kwalletcli/

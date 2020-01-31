@@ -1,0 +1,34 @@
+Description: fix #291941: Changing spacer length with a mouse is not undoable
+Author: Matt McClinch <mattmcclinch@gmail.com>
+Origin: vendor, commit:1ba9e83aa1959e8aa8e895bec616174b8615a832
+Applied-Upstream: master, commit:822c7e6be
+
+--- a/libmscore/spacer.cpp
++++ b/libmscore/spacer.cpp
+@@ -128,6 +128,16 @@ void Spacer::startEdit(EditData& ed)
+       }
+ 
+ //---------------------------------------------------------
++//   startEditDrag
++//---------------------------------------------------------
++
++void Spacer::startEditDrag(EditData& ed)
++      {
++      ElementEditData* eed = ed.getData(this);
++      eed->pushProperty(Pid::SPACE);
++      }
++
++//---------------------------------------------------------
+ //   editDrag
+ //---------------------------------------------------------
+ 
+--- a/libmscore/spacer.h
++++ b/libmscore/spacer.h
+@@ -51,6 +51,7 @@ class Spacer final : public Element {
+       virtual void draw(QPainter*) const;
+       virtual bool isEditable() const { return true; }
+       virtual void startEdit(EditData&) override;
++      virtual void startEditDrag(EditData&) override;
+       virtual void editDrag(EditData&) override;
+       virtual void updateGrips(EditData&) const override;
+       virtual void spatiumChanged(qreal, qreal);

@@ -1,0 +1,8 @@
+# [sid] to stay as close to the packaging of the other issue as possible
+ca-bundle source: package-uses-deprecated-debhelper-compat-version 5
+
+# no, thanks!
+ca-bundle source: no-dep5-copyright
+
+# [sid] nothing to test here
+ca-bundle source: testsuite-autopkgtest-missing

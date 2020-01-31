@@ -1,0 +1,107 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+			    MagicPoint FAQ
+
+			    Aug 23, 2005
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: When I incorporate postscript in MagicPoint presentation,
+   "ghostscript" dies with "WARN: cannot generate pnmraw+ file from
+   test.eps".
+
+A: Install more recent version of "ghostscript", which supports
+   "pnmraw" output driver.
+
+A: Give the -X option to "mgp", with name of "ghostscript" output
+   driver which is configured into your "ghostscript".
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: Background image will not be reflected to postscript output from
+   "mgp2ps".
+
+A: This is a feature (or known bug).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: I'm using European language for presentations and line-breaks are
+   not correct.
+
+Q: I'm using European language for presentations and accented
+   characters will not be generated on postscript output.
+
+A: See README.lang for detail.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: I would like to try a more-recent snapshot version of MagicPoint.
+
+A: ftp://sh.wide.ad.jp/WIDE/free-ware/mgp-snap/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: I'm trouble finding scalable fonts.
+
+Q: Presentations using X11 font looks awful.
+
+A: See README.fonts for detail.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: I have special Adobe type 1 font installed to my X11 configuration,
+   and I cannot use that font with postscript output.
+
+A: (1) Modify print.c to include the font into fontname mapping table,
+   (2) Regenerate postscript file,
+   (3) Download your font to your printer,
+   (4) Try printing the file.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: %system or %xsystem does not work.
+
+Q: If i use %system or %xsystem, X server (or window manager) dies.
+
+A: The behavior of %system/xsystem command heavily depends on the
+   behavior of your window manager, and they may not work right for
+   some of those.  as there are so many window managers, we have
+   trouble supporting them.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: Can I write Magicpoint presentation with an XML based language?
+
+A: The sdoc2mgp.xsl can convert an XML based language into mgp syntax.
+   See
+
+   http://xml.da-cha.org/ for more information.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: My projector cuts the edge of my computer's output. How can I
+   enlarge the margins?
+
+A: Execute MagicPoint with the "-o" option specifying a smaller window
+   size then that of the root window.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: What is Xft?
+
+A: Xft is a library designed to interface the FreeType rasterizer
+   with the X Rendering Extension. Please see
+
+	http://keithp.com/~keithp/render/Xft.tutorial for more information.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: Does mgp support freetype2?
+
+A: Since mgp supports xft, you can use freetype2 functions with Xft.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Q: I would like to use non-ASCII characters for filenames in mgp slides
+
+A: please run mgp with -U option

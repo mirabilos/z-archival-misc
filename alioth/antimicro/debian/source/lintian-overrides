@@ -1,0 +1,8 @@
+# github doesn’t expose those
+antimicro source: debian-watch-does-not-check-gpg-signature
+
+# no, thanks
+antimicro source: no-dep5-copyright
+
+# there are no tests
+antimicro source: testsuite-autopkgtest-missing

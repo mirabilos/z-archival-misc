@@ -1,0 +1,8 @@
+# supposed to be used as /sbin/MAKEDEV
+rng-tools-debian: command-with-path-in-maintainer-script
+
+# send patches
+rng-tools-debian: missing-systemd-service-for-init.d-script
+
+# deliberate, it is in Debian now and used so I'm going to continue it
+rng-tools-debian: latest-debian-changelog-entry-changed-to-native

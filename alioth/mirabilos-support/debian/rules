@@ -1,0 +1,62 @@
+#!/usr/bin/make -f
+
+LC_ALL:=C
+export LC_ALL
+
+VSN:=$(shell dpkg-parsechangelog | sed -n '/^Version: /s///p')
+BBN:=mirabilos-support-${VSN}
+BSK:=debian/tarball-root/${BBN}
+BEX:=debian/tarball-root/${BBN}/examples
+BTZ:=mirabilos-support_${VSN}_all.tar.gz
+
+build-arch:
+build-indep:
+build: build-arch build-indep
+
+clean:
+	dh_testdir
+	rm -rf debian/tarball-root
+	dh_clean
+
+binary-arch:
+
+binary-indep:
+	dh_testdir
+	dh_testroot
+	if test -x "$$(which dh_prep)"; then dh_prep; else dh_clean -k; fi
+	dh_installchangelogs
+	dh_installdocs
+	dh_installexamples bsp/*
+	dh_install
+	cd debian/lintian; for x in *; do \
+		install -D -m0644 $$x ../$$x/usr/share/lintian/overrides/$$x; \
+	done
+	dh_installman
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	# Multi-Arch in a sarge compatible way
+	for x in debian/*/DEBIAN/control; do \
+		printf '/^Architecture: /a\n%s\n.\nw\nq\n' \
+		    'Multi-Arch: foreign' | ed -s "$$x"; \
+	done
+	dh_md5sums
+	dh_builddeb -- -Zgzip -z9
+	rm -rf debian/tarball-root
+	mkdir -p ${BEX}
+	ln src/etc/network/interfaces.examples ${BEX}/
+	cd src/etc/skel && find . -type f | paxcpio -pdlu ../../../${BSK}/
+	ln src/usr/bin/* man/* bsp/* ${BEX}/
+	rm -f ${BEX}/UTF-8*
+	gzip -n9 <bsp/UTF-8 >${BEX}/UTF-8.gz
+	ln debian/changelog debian/control debian/copyright ${BEX}/
+	ln debian/mirabilos-support.p* ${BEX}/
+	ln debian/mirabilos-support.README.Debian ${BEX}/README.Debian
+	(cd debian/tarball-root && find ${BBN} -type f | sort | \
+	    paxcpio -oC512 -Hustar -Mdist) | gzip -n9 >../${BTZ}
+	dpkg-distaddfile ${BTZ} raw -
+
+binary: binary-indep binary-arch
+.PHONY: binary binary-arch binary-indep build build-arch build-indep clean

@@ -1,0 +1,116 @@
+#!/bin/sh
+# © 2020 mirabilos Ⓕ The MirOS Licence (MirBSD)
+
+set -e
+LC_ALL=C.UTF-8
+export LC_ALL
+unset LANGUAGE
+cd "$(dirname "$0")/.."
+
+p=--posix
+sed $p -e q </dev/null >/dev/null 2>&1 || p=
+
+v=$1
+if test -z "$v"; then
+	v=$(sed $p -n '/^#define MKSH_VERSION "\(.*\)"$/s//\1/p' sh.h)
+fi
+
+cat >debian/faq2html.1~ <<\EOF
+
+----
+EOF
+sed $p \
+    -e '/^\#/d' \
+    -e '/^RCSID: \$/d' \
+    -e 's!@@RELPATH@@!http://www.mirbsd.org/!g' \
+    -e 's^	<span style="display:none;">	</span>' \
+    <mksh.faq >>debian/faq2html.1~
+
+tr '\n' '' <debian/faq2html.1~ | sed $p \
+    -e 'sg' \
+    -e 's----g' \
+    -e 's\([^]*\)\1g' \
+    -e 's\([^]*\)\1g' \
+    -e 's\([^]*\)*ToC: \([^]*\)Title: \([^]*\)\([^]*\)\{0,1\}</div><h2 id="\2"><a href="#\2">\3</a></h2><div>g' \
+    -e 's[^]*</div><div>g' \
+    -e 's^</div>*' \
+    -e 's$</div>' \
+    -e 's<><error><>g' \
+    -e 'sg' | tr '' '\n' >debian/faq2html.2~
+
+sed $p -n \
+    '/^<h2 id="\([^"]*"\)><a[^>]*\(>.*<\/a><\/\)h2>$/s//<li><a href="#\1\2li>/p' \
+    <debian/faq2html.2~ >debian/faq2html.3~
+
+cat >debian/faq2html.4~ <<EOF
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <title>mksh $v FAQ (local copy)</title>
+ <style type="text/css"><!--/*--><![CDATA[/*><!--*/
+ .boxhead {
+	margin-bottom:0px;
+ }
+
+ .boxtext {
+	border:4px ridge green;
+	margin:0px 24px 0px 18px;
+	padding:2px 3px 2px 3px;
+ }
+
+ .boxfoot {
+	margin-top:0px;
+ }
+
+ h2:before {
+	content:"🔗 ";
+ }
+
+ a[href^="ftp://"]:after,
+ a[href^="http://"]:after,
+ a[href^="https://"]:after,
+ a[href^="irc://"]:after,
+ a[href^="mailto:"]:after,
+ a[href^="news:"]:after,
+ a[href^="nntp://"]:after {
+	content:"⏍";
+	color:#FF0000;
+	vertical-align:super;
+	margin:0 0 0 1px;
+ }
+
+ pre {
+	/*      ↑   →   ↓    ←   */
+	margin:0px 9px 0px 15px;
+ }
+
+ tt {
+	white-space:nowrap;
+ }
+ /*]]>*/--></style>
+</head><body>
+<p>Note: Links marked like <a href="irc://chat.freenode.net/!/bin/mksh">this
+ one to the mksh IRC channel</a> connect to external resources.</p>
+<p>⚠ <b>Notice:</b> the website will have <a
+ href="http://www.mirbsd.org/mksh-faq.htm">the latest version of the
+ mksh FAQ</a> online.</p>
+<h1>Table of Contents</h1>
+<ul>
+EOF
+cat debian/faq2html.3~ >>debian/faq2html.4~
+cat >>debian/faq2html.4~ <<EOF
+</ul>
+
+<h1>Frequently Asked Questions</h1>
+EOF
+cat debian/faq2html.2~ >>debian/faq2html.4~
+cat >>debian/faq2html.4~ <<EOF
+<h1>Imprint</h1>
+<p>This offline HTML page was automatically generated from
+ the sources for mksh $v as shipped.</p>
+</body></html>
+EOF
+mv debian/faq2html.4~ debian/FAQ.htm
+rm -f debian/faq2html*~
+exit 0

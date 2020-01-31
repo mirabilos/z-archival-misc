@@ -1,0 +1,5 @@
+#!/bin/lksh
+# ${SHELL} wrapper to fix the umask
+
+umask 022
+eval "$2"

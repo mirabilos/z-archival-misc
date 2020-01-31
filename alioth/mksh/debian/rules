@@ -1,0 +1,70 @@
+#!/usr/bin/make -f
+
+ifeq (,$(filter terse,${DEB_BUILD_OPTIONS}))
+export DH_VERBOSE=1
+export V=1
+export VERBOSE=1
+endif
+
+LC_ALL:=C
+export LC_ALL
+
+DEB_HOST_GNU_CPU ?= $(shell dpkg-architecture -qDEB_HOST_GNU_CPU)
+DEB_HOST_ARCH_CPU ?= $(shell dpkg-architecture -qDEB_HOST_GNU_CPU)
+DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+
+MUSL=$(DEB_HOST_GNU_CPU)-linux-musl
+ifneq (,$(filter armel,$(DEB_HOST_ARCH)))
+MUSL=arm-linux-musleabi
+endif
+ifneq (,$(filter armhf,$(DEB_HOST_ARCH)))
+MUSL=arm-linux-musleabihf
+endif
+ifeq ($(DEB_HOST_ARCH_CPU),i386)
+MUSL=i386-linux-musl
+endif
+
+%:
+	dh $@ -Snone
+
+execute_before_dh_auto_clean:
+	-rm -rf builddir
+	-rm -f debian/*~ debian/FAQ.htm
+
+override_dh_auto_build:
+	exec sh debian/meat
+
+execute_before_dh_install:
+	cat builddir/substvars >>debian/mksh.substvars
+
+execute_after_dh_install:
+	if test -e builddir/static-klibc/mksh; then \
+		mkdir -p debian/mksh/usr/lib/klibc/bin && \
+		cp builddir/static-klibc/mksh debian/mksh/usr/lib/klibc/bin/; \
+	fi
+	if test -e builddir/static-dietlibc/mksh; then \
+		mkdir -p debian/mksh/usr/lib/diet/bin && \
+		cp builddir/static-dietlibc/mksh debian/mksh/usr/lib/diet/bin/; \
+	fi
+	if test -e builddir/static-musl/mksh; then \
+		mkdir -p debian/mksh/usr/lib/${MUSL}/bin && \
+		cp builddir/static-musl/mksh debian/mksh/usr/lib/${MUSL}/bin/; \
+	fi
+	case $$(cat builddir/which_static) in \
+	(klibc) ln -sf /usr/lib/klibc/bin/mksh debian/mksh/bin/mksh-static ;; \
+	(diet*) ln -sf /usr/lib/diet/bin/mksh debian/mksh/bin/mksh-static ;; \
+	(musl) ln -sf /usr/lib/${MUSL}/bin/mksh debian/mksh/bin/mksh-static ;; \
+	(glibc) cp builddir/static-glibc/mksh debian/mksh/bin/mksh-static ;; \
+	(*) echo cannot happen; exit 1 ;; \
+	esac
+	cp -a dot.mkshrc debian/mksh/etc/mkshrc
+
+execute_after_dh_installdocs-arch:
+	# we install this already, except with more information
+	rm -f debian/mksh/usr/share/doc/mksh/README.Debian
+	cp builddir/README.Debian.gz debian/mksh/usr/share/doc/mksh/
+
+execute_after_dh_builddeb-arch:
+	#-
+	gzip -d <builddir/README.Debian.gz | sed --posix \
+	    -e '1,/^Details/d' -e '/^Actual/d' -e '/^]/d'

@@ -1,0 +1,4 @@
+?package(jupp):needs="text" \
+  section="Applications/Editors" \
+  title="jupp" longtitle="Jupp Editor" \
+  command="/usr/bin/jupp"

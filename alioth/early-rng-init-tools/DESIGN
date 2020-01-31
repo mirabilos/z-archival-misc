@@ -1,0 +1,110 @@
+┌────────────────────────────────────┐
+│ The early-rng-init-tools v1 design │
+└────────────────────────────────────┘
+
+This utility does N̲O̲T̲ aid in the c̲o̲l̲l̲e̲c̲t̲i̲o̲n̲ of entropy.
+Its purpose is only to provide some of the previous sy‐
+stem boot to the next one, very early (as to initialise
+the (Linux) kernel CSPRNG quickly). Additionally, a de‐
+ficiency (random seed is only written at system startup
+and during shutdown) is mended by updating it via cron.
+
+This is intended as a stopgap until bootloaders provide
+random bytes from e.g. /boot as part of the boot proto‐
+col, the distro initscripts update that, a cronjob does
+it regularily. (The BSDs have this.)
+
+• package postinst
+  ‣ creates an 128-byte seed file from /dev/urandom
+
+• initramfs hook
+  ‣ copies rnd_shuf, (x86) rnd_jytter to initramfs
+  ‣ creates additional 3-byte extra “seed” in the initramfs
+    from /dev/urandom
+
+• daily cronjob
+  ‣ runs rnd_shuf, optionally verbosely or in debugging mode
+
+• init script and systemd unit
+  ‣ run only on shutdown
+  ‣ call “shuffle” to update the seed
+• shuffle
+  ‣ updates the first 64 bytes of seed file from /dev/urandom
+  ‣ checks the seed file’s size is still 128
+
+• initramfs top
+  ‣ makes the mounting code mount / read-write later
+  ‣ on x86: starts rnd_jytter in the background, -b 8 -d 0.34 -r 5,
+    output to /dev/urandom
+
+⚠ NOTE while others may consider jitter output entropy, we’re using
+  it to increase uncertainty / shuffle bytes around o̲n̲l̲y̲, it is n̲o̲t̲
+  credited (and x86-only anyway); our mission is not gathering ran‐
+  domness but making it usable earlier than without
+
+• initramfs bottom (after rw mount of / either local or NFS)
+  ‣ collects extraseed (see above), md5sum of dmesg
+  ‣ calls rnd_shuf in “Early” mode adding these extra bytes
+
+• rnd_jytter (x86), only called from initramfs top
+  ‣ uses Russell Leidich’s jitter RNG (in userspace, where it belongs)
+    to collect, 5 (-r) times, 8 (-b) bytes of uncertainty writing them
+    after collection to stdout (/dev/urandom), sleeping 0.34 s (-d)
+    between rounds
+
+• rnd_shuf in Early mode
+  ‣ adds extraseed to the buffer
+  ‣ opens /dev/urandom and the seedfile, checking it to be min. 128 bytes
+  ‣ collects 4 jytter bytes (x86)
+  ≏ (BSD) reads 4 bytes from the kernel via sysctl; success: need=0
+  ≏ (Linux) reads the auxvec AT_RANDOM (16 bytes), if present;
+    success: need=0; failure: need=4
+  ‣ adds the current time (gettimeofday) to the buffer
+  ‣ collects 4 jytter bytes (x86)
+  ≏ reads $need bytes from /dev/urandom into the buffer (0/4)
+  ‣ (x86) adds the TSC to the buffer
+  ‣ collects 4 jytter bytes (x86), total of 12
+  ‣ adds up to 128 bytes off seed file to buffer, to a total of 256
+  ‣ initialises internal arc4random from the buffer
+  ‣ writes 32‥256 bytes of arc4random output to /dev/urandom
+  ‣ writes 128 bytes of arc4random output to seed file
+  ‣ on seed file write error: terminates if <16 bytes were written
+  ‣ on urandom write error: terminates if no bytes were written
+  ‣ accredits ¾ of the bytes written to /dev/urandom, at most
+    ⅞ of 128 bytes, into entropy counter (BSD/Linux kernel)
+
+• rnd_shuf in shuffle mode
+  ‣ opens /dev/urandom and the seedfile, checking it to be min. 128 bytes
+  ‣ collects 4 jytter bytes (x86)
+  ≏ (BSD) reads 16 bytes from the kernel via sysctl; success: need=0
+  ≏ (Linux) reads the auxvec AT_RANDOM (16 bytes), if present;
+    success: need=8; failure: need=16
+  ‣ adds the current time (klibc: gettimeofday; others: CLOCK_REALTIME
+    and CLOCK_MONOTONIC) to the buffer
+  ‣ collects 4 jytter bytes (x86)
+  ≏ reads $need bytes from /dev/urandom into the buffer (8/16)
+  ‣ (x86) adds the TSC to the buffer
+  ‣ collects 4 jytter bytes (x86), total of 12
+  ‣ adds up to 128 bytes off seed file to buffer, to a total of 256
+  ‣ initialises internal arc4random from the buffer
+  ‣ writes 32‥256 bytes of arc4random output to /dev/urandom
+  ‣ writes 128 bytes of arc4random output to seed file
+  ‣ fsync()s and closes seed file
+  ‣ on seed file write error: terminates if <16 bytes were written
+  ‣ on urandom write error: terminates if no bytes were written
+  ‣ accredits ¾ of the bytes written to /dev/urandom, at most
+    ⅞ of 128 bytes, into entropy counter (BSD/Linux kernel)
+
+We rely on arc4random with aRC4 to spread the entropy in the
+input buffer around to all, in total not sizeable here, outputs.
+All contemporary blinding to avoid aRC4 deficiencies are used.
+
+We add extra data from various sources not for more entropy
+but for uncertainty, unpredictability and simply spreading around:
+– extraseed written to initramfs, which is n̲o̲t̲ updated between
+  reboots (only on update-initramfs) and by default world-readable
+– dmesg contents (for variety, MAC addresses Early for cloned images)
+– time (uptime and wallclock if possible; (x86) TSC)
+– (x86) 12 bytes of jytter output taken over spread runtime
+We add some kernel (urandom) bytes as well, not that it matters
+much Early but it decreases predictability of the aRC4 state further.

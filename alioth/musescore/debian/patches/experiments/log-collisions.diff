@@ -1,0 +1,59 @@
+Description: Log unison collisions (that would otherwise be restruck)
+Author: mirabilos <m@mirbsd.org>
+Forwarded: no
+Justification: depends on experiments/revert-restriking-patch.diff
+
+--- a/synthesizer/event.cpp
++++ b/synthesizer/event.cpp
+@@ -13,6 +13,7 @@
+ #include "libmscore/xml.h"
+ #include "libmscore/note.h"
+ #include "libmscore/sig.h"
++#include "libmscore/tie.h"
+ #include "event.h"
+ 
+ namespace Ms {
+@@ -376,6 +377,30 @@ void EventList::insert(const Event& e)
+ //   class EventMap::fixupMIDI
+ //---------------------------------------------------------
+ 
++static void logCollisionNote(const Note* note, unsigned int indent)
++      {
++      QString info = note->accessibleInfo() + note->accessibleBarbeat();
++      fprintf(stderr, " %*s%s\n", indent, "- ", qPrintable(info));
++      }
++
++static void logCollisionNotes(const NPlayEvent* event)
++      {
++      for (auto it = event->notes.cbegin(); it != event->notes.cend(); ++it) {
++            const Note* note1 = *it;
++            unsigned int indent = /* initial */ 2;
++            while (note1) {
++                  logCollisionNote(note1, indent);
++                  indent += /* linked */ 4;
++                  for (ScoreElement* se : note1->linkList()) {
++                        if (se != note1 && se->isNote())
++                              logCollisionNote(toNote(se), indent);
++                        }
++                  indent -= /* linked */ 4 - /* next level */ 2;
++                  note1 = note1->tieFor() ? note1->tieFor()->endNote() : 0;
++                  }
++            }
++      }
++
+ void EventMap::fixupMIDI()
+       {
+       /* track info for each of the 128 possible MIDI notes */
+@@ -410,6 +435,12 @@ void EventMap::fixupMIDI()
+                   else if (++np > 1) {
+                         /* already playing */
+                         discard = true;
++                        /* log the collision */
++                        fprintf(stderr, "MIDI collision detected: newly played...\n");
++                        logCollisionNotes(&(it->second));
++                        fprintf(stderr, " ... interferes with already playing...\n");
++                        logCollisionNotes(info[it->second.channel()].event[it->second.pitch()]);
++                        fprintf(stderr, " ... which will continue to sound.\n");
+                         /* carry over the corresponding score notes */
+                         info[it->second.channel()].event[it->second.pitch()]->notes.insert(info[it->second.channel()].event[it->second.pitch()]->notes.end(), it->second.notes.begin(), it->second.notes.end());
+                         }

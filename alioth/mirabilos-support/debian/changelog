@@ -1,0 +1,467 @@
+mirabilos-support (56) UNRELEASED; urgency=low
+
+  * m-s: Recommends acpi-support-base (for power button) and
+    console-data (for loadkeys)
+  * m-s-f: move prevent-apparmor Suggests to m-s, due to…
+  * m-s: Suggests everything depended on by m-o or m-s-f so
+    apt won’t autoremove it if the latter is not installed
+  * m-s: README: give systemd equivalent of RAMTMP=yes
+  * m-s: README: add link to more crypt boot docs
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 02 Aug 2019 03:10:42 +0200
+
+mirabilos-support (55) wtf; urgency=low
+
+  * Harmonise package Description
+  * m-s: Recommends: consolefonts-base (split off xfonts-base)
+  * Fix a couple mistakes in m-s.README.Debian and improve infos
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 04 Jun 2019 23:15:01 +0000
+
+mirabilos-support (54) wtf; urgency=low
+
+  * m-s: be more explicit about ext4 mount options
+  * m-s: ship updated agus and manpage
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 03 Jun 2019 21:13:45 +0000
+
+mirabilos-support (53) wtf; urgency=low
+
+  * m-s: document lsb-release override for sid systems or chroots
+    (so packages using it in d/rules will not build with wrong info)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 18 May 2019 17:58:14 +0000
+
+mirabilos-support (52) wtf; urgency=high
+
+  * m-o: install /etc/apt/apt.conf.d/92mirabilos-opinion
+  * m-s: update agus from CVS, needed for jessie currently
+  * m-s-f: Recommends iputils-tracepath (for PMTUD)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 24 Apr 2019 20:16:55 +0200
+
+mirabilos-support (51) wtf; urgency=low
+
+  * Update some in /etc/network/interfaces.examples
+  * Add mailcap.order documentation to README.Debian
+  * Do not update to UCD 12 yet, deliberately
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 23 Mar 2019 14:20:19 +0000
+
+mirabilos-support (50) wtf; urgency=medium
+
+  * Add prevent-apparmor package (requested by Natureshadow)
+  * Mention SysRq being partially disabled by default, with fix
+  * Recommend early-rng-init-tools for less slow bootup of buster/sid
+  * Update lintian overrides
+  * Move from priority “extra” to “optional” as requested
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 24 Feb 2019 04:38:24 +0100
+
+mirabilos-support (49) wtf; urgency=low
+
+  * Update dot.gitconfig
+  * Drop wipe Depends, shred in coreutils from sarge ought to do it
+  * Document forcing GTK+ into using XIM
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 05 Jan 2019 16:21:18 +0100
+
+mirabilos-support (48) wtf; urgency=high
+
+  * Fix missing Debian adjustments in updated .Xresources
+  * Ship Xrdp/pre-evdev dot.Xmodmap variant
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 23 Oct 2018 13:41:25 +0000
+
+mirabilos-support (47) wtf; urgency=high
+
+  * Extend documentation (see also Debian #911389)
+  * .Xmodmap, .Xresources, .gdbinit: update
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 20 Oct 2018 22:38:15 +0000
+
+mirabilos-support (46) wtf; urgency=medium
+
+  * Update UTF-8 file to Unicode 11.0.0
+  * m-s Suggests irqtop (though that’s in Ruby so a no-go)
+  * Mention nomodeset GRUB_CMDLINE_LINUX option
+  * Note update-rc.d $service_name defaults-disabled (justin case…)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 27 Sep 2018 19:33:09 +0000
+
+mirabilos-support (45) wtf; urgency=low
+
+  * m-s: Update agents.sh, dot.gitconfig from MirBSD CVS
+    - Skip GPG_TTY update when no tty(1)
+    - New subcommands “fetch-stash [remote]” and “ls” for git
+    - insteadOf for edugit and Salsa (Debian)
+  * m-s: Bind bumpandcollapse keys in screenrc from the original patch
+  * m-s: Add a couple more hints to README.Debian; new misc.txt file
+    - Display boot messages
+    - Document GRUB_ENABLE_CRYPTODISK=y
+    - Add EBCDIC table, music stuff e.g. useful for musescore users
+  * mirabilos-opinion: Split off, to allow installation of m-s on more
+  * m-s: Recommds lz4 | liblz4-tool
+  * Sprinkle a few Enhances relationships
+  * Downgrade Policy to 3.9.6 (from 3.9.8), update remaining lintian
+    overrides, we target jessie, since, with compat 4, we can’t build
+    this in sid any more either anyway ☹
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 19 Apr 2018 22:17:11 +0000
+
+mirabilos-support (44) wtf; urgency=low
+
+  * m-s: README: Fix typo; recommend ext4 auto_da_alloc mount option
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 16 Feb 2018 18:12:28 +0000
+
+mirabilos-support (43) wtf; urgency=low
+
+  * Extract demote-gpg2 from README.Debian for easy calling
+  * Update files:
+    - screenrc (status now uses ISO 8601 date format without T)
+    - dot.gitconfig (better “git lg”, local tz, ISO 8601 as ⇑)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 29 Nov 2017 00:58:39 +0000
+
+mirabilos-support (42) wtf; urgency=medium
+
+  * Mention GNU screen does not use the system wcwidth data
+  * Update Linux text console keyboard layout with bugfix
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 22 Nov 2017 20:17:38 +0000
+
+mirabilos-support (41) wtf; urgency=medium
+
+  * Update UTF-8 width table from MirBSD-current / glibc master
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 18 Nov 2017 12:29:56 +0000
+
+mirabilos-support (40) wtf; urgency=medium
+
+  * Fix the Linux vt/console keyboard layout (redo from scratch)
+  * Also install the UTF-8 charmap compressed in the tarball
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 06 Aug 2017 02:57:43 +0000
+
+mirabilos-support (39) wtf; urgency=medium
+
+  * Suggest ALWAYS_QUERY_HOSTNAME with molly-guard (>= 0.7~)
+  * Update shipped files from MirBSD CVS for mirabilos-support
+  * Add a script to update UTF-8 localedata with a newer, fixed
+    version and automatically regenerate all affected locales
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 05 Aug 2017 19:57:25 +0000
+
+mirabilos-support (38) wtf; urgency=low
+
+  * Do not suggest ALWAYS_QUERY_HOSTNAME yet, cf. #867331
+  * Add agents.sh for per-user shared ssh- and gpg-agent
+  * README.Debian: Add instructions on reactivating bitmap fonts
+  * Note that restoring gnupg 1.x for gpg must be re-run often
+  * Update .Xresources from MirBSD CVS (FixedMiscPC font)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 19 Jul 2017 11:35:41 +0000
+
+mirabilos-support (37) wtf; urgency=low
+
+  * Allow lynx-cur’s minus -cur packaging to substitute for lynx-cur
+    as lynx-openssl is still not completed
+  * Update dot.gitconfig fixing a pasto bug
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 25 Jun 2017 23:15:24 +0000
+
+mirabilos-support (36) wtf; urgency=low
+
+  * Address heirloom-mailx being removed in stretch
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 09 Apr 2017 13:19:43 +0200
+
+mirabilos-support (35) wtf; urgency=medium
+
+  * Update dot.gitconfig example; add Recommends: git-find
+  * Document reversing gpg2 taking over gnupg
+  * Add a few more aliases
+  * Update © for 2017
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 09 Feb 2017 21:27:58 +0000
+
+mirabilos-support (34) wtf; urgency=low
+
+  * Add dot.gitconfig, .gdbinit examples
+  * Provide more sample WPA Enterprise configurations
+  * Ensure gnupg1 is used in Depends
+  * Note keyserver-options verbose being not supported by gpg2
+  * Build mirabilos-support_$V_all.tar.gz and upload as raw file
+  * Use the C locale during build
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 11 Aug 2016 10:59:02 +0000
+
+mirabilos-support (33) wtf; urgency=low
+
+  * Update X11 keyboard layout
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 04 Jun 2016 05:18:40 +0200
+
+mirabilos-support (32) wtf; urgency=low
+
+  * Add net.ifnames=0 kernel command line note
+  * TODO: extra file with tarball for regular user account
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 18 May 2016 14:49:33 +0200
+
+mirabilos-support (31) wtf; urgency=low
+
+  * Bump Policy, no relevant change
+  * Update some versions in versioned package relationships
+  * m-s Recommends xcursor-themes; document how to get standard cursors
+  * Update dot.Xresources and document local diff
+  * Document xserverrc and -retro
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 14 Apr 2016 22:18:40 +0200
+
+mirabilos-support (30) wtf; urgency=low
+
+  [ Axel Beckert ]
+  * Prevent kdbus-dkms as well (dbus, systemd-*)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 19 Sep 2015 13:46:03 +0000
+
+mirabilos-support (29) wtf; urgency=medium
+
+  [ Axel Beckert ]
+  * New package (prevent-usrmove) and dependencies to avoid usrmerge
+
+  [ Thorsten Glaser ]
+  * prevent-unattended-upgrades must Depends prevent-packagekit,
+    following a discussion on gmane.linux.debian.devel.general
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 30 Aug 2015 17:15:41 +0000
+
+mirabilos-support (28) wtf; urgency=low
+
+  * m-s: README.Debian: fix a typo; add cdiff alias
+  * m-s: Suggests dctrl-tools; no longer ipython though
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 29 Jun 2015 09:32:54 +0200
+
+mirabilos-support (27) wtf; urgency=low
+
+  * m-s: Suggests iftop
+  * m-s: Update screenrc example from MirPorts
+  * m-s: Add more docs to README.Debian; improve existing docs there
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 21 May 2015 18:28:38 +0200
+
+mirabilos-support (26) wtf; urgency=medium
+
+  * m-s: Unbreak mcedit, mcview (Closes: #777117)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 06 Feb 2015 12:18:16 +0000
+
+mirabilos-support (25) wtf; urgency=low
+
+  * /etc/network/interfaces.examples: add real-world WLAN examples
+    for open/unsecured, WPA2 PSK, and WPA-EAP (Enterprise) networks
+  * /etc/skel/.Xresources: use $TERM Linux recognises to have colour
+  * /etc/skel/.toprc: we want IRIX mode, not Solaris mode
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 03 Jan 2015 00:34:10 +0000
+
+mirabilos-support (24) wtf; urgency=medium
+
+  * m-s-f: Tweak Depends to allow for missing molly-guard, openntpd
+    on sarge
+  * p-systemd-completely: Suggests policykit-1-without-systemd,
+    udisks2-without-systemd (just so people know we now ship
+    alternatives to those programs, to remove the shim too)
+  * p-systemd-installed: Same even if not strictly necessary
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 02 Jan 2015 12:26:51 +0000
+
+mirabilos-support (23) wtf; urgency=low
+
+  * Build on sarge; add some alternative Depends
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 20 Dec 2014 19:02:56 +0100
+
+mirabilos-support (22) wtf; urgency=medium
+
+  * m-s: README.Debian: fix two blunders in the suggested crontab
+    entries and apt-listchanges configuration (oops…)
+  * m-s: README.Debian: document shipped example files
+  * p-nvidia-removal: split off into jessie source package
+  * m-s: Version xfonts-base Recommends to FixedMisc WTF version
+  * m-s: README.Debian: add basic repo/package info
+  * m-s: Add sample gpg.conf and document it
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 12 Dec 2014 22:13:35 +0000
+
+mirabilos-support (21) wtf; urgency=high
+
+  * debian/control: Add notes about requiring jessie to dash-mksh
+    and prevent-nvidia-removal package descriptions
+  * m-s: Disable mc mouse support as it vomits at several dozen
+    MiB/s into syslog when using mc over ssh, or gpm is in use
+  * README.Debian: add random pool stirring crontab example
+  * m-s: Update lintian overrides
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 07 Dec 2014 14:42:09 +0000
+
+mirabilos-support (20) wtf; urgency=low
+
+  * Merge from tarent-server: m-s Recommends xfonts-base
+  * Merge from tarent-server: Enable bitmapped fonts by default
+  * Adjust fontconfig config code for new location in 2.10
+  * Add force-bitmap config link
+  * Merge from tarent-server: Disable colours for LSB init scripts
+  * Disable colours for util-linux (e.g. dmesg)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 25 Nov 2014 19:26:02 +0100
+
+mirabilos-support (19) wtf; urgency=medium
+
+  * Update scripts, package descriptions
+  * Mention “aptitude why” and soon-to-be replacement “wtf ±i”
+  * skel: Disable preallocation in mc (see #767463)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 17 Nov 2014 11:38:28 +0100
+
+mirabilos-support (18) wtf; urgency=low
+
+  * Update scripts from MirBSD, adjust manpages accordingly
+  * m-s Suggests: dash-mksh
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 03 Oct 2014 21:39:23 +0000
+
+mirabilos-support (17) wtf; urgency=low
+
+  * Bump Policy (no changes)
+  * Permit libpam-systemd (with the shim) in prevent-systemd-installed
+  * mirabilos-support: Force using sequential boot
+  * Force using gzip compression for source and binary packages
+  * Add and install lintian overrides
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 20 Sep 2014 20:06:45 +0000
+
+mirabilos-support (16) wtf; urgency=low
+
+  * Conflict with python3-systemd, too
+  * m-s Recommends: cu
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 26 Aug 2014 13:51:50 +0200
+
+mirabilos-support (15) wtf; urgency=low
+
+  [ Axel Beckert ]
+  * Update list of unattended updaters again
+
+  [ Thorsten Glaser ]
+  * Fix a spelling mistake caught by lintian, thanks!
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 05 Aug 2014 10:25:56 +0200
+
+mirabilos-support (14) wtf; urgency=medium
+
+  [ Axel Beckert ]
+  * Flesh out package description for additional prevent-*
+    packages added in version 11
+  * Add packages to avoid to prevent-unattended-upgrades
+
+  [ Thorsten Glaser ]
+  * m-s Suggests m-s-full
+  * Enhance a few more package long descriptions
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 01 Aug 2014 18:11:54 +0200
+
+mirabilos-support (12) wtf; urgency=medium
+
+  * Add mirabilos-support.README.Debian documenting recommended
+    settings for some packages, e.g. apt-listchanges configuration
+  * New metapackage: prevent-unattended-upgrades (incomplete)
+  * mirabilos-support Recommends prevent-unattended-upgrades
+    and Suggests apt-listchanges
+  * mirabilos-support-full Depends prevent-unattended-upgrades
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 31 Jul 2014 18:42:57 +0200
+
+mirabilos-support (11) wtf; urgency=medium
+
+  [ Axel Beckert ]
+  * New metapackages: prevent-consolekit, prevent-dbus, prevent-mono,
+    prevent-networkmanager, prevent-packagekit, prevent-policykit,
+    prevent-ppckit (all three *kit ones), prevent-pulseaudio
+
+  [ Thorsten Glaser ]
+  * New metapackage: prevent-nvidia-removal (prevent X.org removal)
+  * Depend on a few of XTaran’s packages; recommend/suggest others
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 19 Jul 2014 21:27:53 +0200
+
+mirabilos-support (10) wtf; urgency=medium
+
+  * Preventing systemd from running is enough for the base level
+    to make this more generally usable
+  * Let the prevent-systemd-* package rungs Provide each other
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 18 Jul 2014 12:52:28 +0200
+
+mirabilos-support (9) wtf; urgency=medium
+
+  * Move most packages back to the metapackages section
+  * Add "Important: yes" for all packages needing it
+  * Rename package installation prevention packages to
+    something perceived as politically correct
+  * Add two more systemd prevention variants, idea by Wookey
+  * Sort the package relationship fields
+  * Add new Ruby versions to prevent; also, the virtual package
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 04 Jul 2014 23:17:41 +0200
+
+mirabilos-support (8) wtf; urgency=medium
+
+  * Move package to oldlibs, for apt to not auto-remove its deps
+  * Add a screenrc to examples
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 11 May 2014 23:37:10 +0200
+
+mirabilos-support (7) wtf; urgency=low
+
+  * Make this package actually useful (installable) on *buntu
+  * Ship example keyboard layout; more example configurations
+  * Add grml-etc-core example /etc/network/interfaces
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 24 Mar 2014 13:37:00 +0000
+
+mirabilos-support (6) wtf; urgency=low
+
+  * Make this package actually useful (installable) on etch
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat,  1 Mar 2014 00:25:47 +0100
+
+mirabilos-support (5) wtf; urgency=low
+
+  * Add several more utilities and default configurations
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 28 Feb 2014 23:49:39 +0100
+
+mirabilos-support (4) wtf; urgency=low
+
+  * Oops, fix Architecture: all (not any)
+  * Add mirabilos-support-full metapackage
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 28 Feb 2014 20:36:09 +0000
+
+mirabilos-support (3) wtf; urgency=low
+
+  * Add inetutils-syslogd as current recommendation (replaces sysklogd)
+  * Build on etch
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 28 Feb 2014 20:09:42 +0000
+
+mirabilos-support (1) wtf; urgency=low
+
+  * Split off a number of meta-packages
+  * Install mc skeleton configuration (for wheezy and newer)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 28 Feb 2014 20:00:39 +0000

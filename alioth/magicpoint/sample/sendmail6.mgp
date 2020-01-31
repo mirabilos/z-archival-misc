@@ -1,0 +1,82 @@
+%include "default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 7, font "standard", fore "white", center
+
+
+
+
+Issues in SMTP over IPv4/v6
+
+
+%size 4
+Kazuhiko Yamamoto
+WIDE Project
+v6@wide.ad.jp
+
+%font "typewriter"
+http://www.v6.wide.ad.jp/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Toward SMTP over IPv4/v6
+
+	IPv4/v6 MTAs -- patches are ready
+	IPv4/v6 MUAs -- almost okay (pop6)
+
+	Impact of
+%cont, font "typewriter"
+"IN AAAA"
+%cont, font "standard"
+record on DNS database, to legacy MTAs/DNS servers
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Experiment
+
+	Asked to send test emails toward the following address, to public
+
+%size 3
+To: test@a.v6.wide.ad.jp
+To: test@b.v6.wide.ad.jp
+
+%font "typewriter", size 3
+a.v6.wide.ad.jp. IN A 203.178.137.73
+a.v6.wide.ad.jp. IN AAAA 3ffe:0501:1000::1
+
+b.v6.wide.ad.jp. IN MX 10 c.v6.wide.ad.jp.
+b.v6.wide.ad.jp. IN MX 20 a.v4.wide.ad.jp.
+
+c.v6.wide.ad.jp. IN AAAA 3ffe:0501:1000::1
+c.v4.wide.ad.jp. IN A 203.178.137.73
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Results
+
+	1380 emails sent from 1256 subdomains
+		33 emails are with invalid From: field
+
+	2 "MX loopback to myself" error
+		(due to senders' misconfiguration?)
+	1 "no route to host" error
+		(due to old named - 4.8.3)
+
+	Old softwares are not happy with AAAA
+		Sendmail before x.x.x
+		bind before x.x.x
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+What should we do now
+
+	Let people know the problem
+		Senders must update their software
+		Informational document -> to be done
+
+	For safety, use "v6" prefix in domain name for experiment
+		v6.wide.ad.jp

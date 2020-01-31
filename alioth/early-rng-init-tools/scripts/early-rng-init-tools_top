@@ -1,0 +1,25 @@
+#!/bin/sh
+
+PREREQ=""
+prereqs() {
+	echo "$PREREQ"
+}
+
+case $1 in
+(prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+. /scripts/functions
+
+# needed for writeback
+echo readonly=n >>/conf/param.conf
+
+test -x /usr/libexec/rnd_jytter || exit 0
+
+rndjytter_verbosity= #-v
+/usr/libexec/rnd_jytter $rndjytter_verbosity -b 8 -d 0.34 -r 5 \
+    </dev/null >/dev/urandom &
+_log_msg "Info: %s\\n" "Started rnd_jytter in the background"

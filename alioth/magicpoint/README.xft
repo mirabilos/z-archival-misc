@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+            Configuring Xft2 and fontconfig for MagicPoint
+
+                     Jun 5, 2003
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+From 1.10a, mgp supports Xft2 and fontconfig libraries.
+Using these libraries will bring mgp the following benefits.
+
+ a) type1 font support
+ b) better anti-aliasing algorithm
+ c) closest matching font selection algorithm
+
+To use these functions, you need to install them.
+
+If you have XFree86 4.2 or higher, probably Xft2 is already installed. But you
+might have to install fontconfig.
+
+If you're using recent Linux distributions, they may be already installed
+and configured.
+
+If you have the "fc-list" command which is part of the fontconfig package
+and if it shows names of the fonts on your system, both libraries have been
+successfully installed.   use %xfont directive to specify which font to use.
+
+If you don't have these libraries, the following URL will be useful.
+
+* http://www.fontconfig.org
+	you can get the most recent version of the fontconfig package and
+        configuration documents	for setting up.
+
+* http://www.xfree86.org
+	you can get the most recent version of XFree86.

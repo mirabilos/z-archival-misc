@@ -1,0 +1,2 @@
+debian/logcheck/rng-tools-debian /etc/logcheck/ignore.d.server/
+debian/logcheck/rng-tools-debian /etc/logcheck/violations.ignore.d/

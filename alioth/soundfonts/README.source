@@ -1,0 +1,19 @@
+This repository contains, on branches, packaging
+of the debian/ subdirectory for various soundfonts.
+
+Everything else, i.e. the content of the origtgz,
+is not included due to sheer size.
+
+Notes to myself:
+
+Repackaged origtgz (from upstreams’ PKZIP archives)
+should be compressed with:
+
+xz --delta=dist=2 --lzma2=preset=9e
+
+Savings:
+			previously	with dist	saves	uncompressed	saved	saves
+Fluid (R3) Mono SF2	86169132	73283016	14.96%	124420332	30.74%	41.10%
+ "     "  orig.tar	86444136	73234320	15.28%
+MuseScore_General SF2	128492948	108897072	15.25%	218388782	41.16%	50.14%
+ "     "  orig.tar	128468060	108940516	15.20%

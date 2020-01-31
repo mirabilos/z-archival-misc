@@ -1,0 +1,32 @@
+#!/bin/mksh
+# $MirOS: contrib/hosted/tg/deb/aguspeed.sh,v 1.5 2019/05/19 21:48:20 tg Exp $
+#-
+# From Planet Debian. Not complicated enough for copyright.
+#
+# Use example:
+#  agus -o Acquire::Check-Valid-Until=false   # on jessie
+#  agus --allow-releaseinfo-change            # when testing changes
+
+unset LANGUAGE
+export LC_ALL=C
+
+(( USER_ID )) && exec sudo mksh "$0" "$@"
+
+if [[ $1 = -f ]]; then
+	fflag=1
+	shift
+else
+	fflag=0
+fi
+
+rv=
+set -x
+apt-get "$@" update || rv=$?
+dpkg --clear-avail || rv=${rv:-$?}
+# this emits a harmless warning on squeeze and newer
+dpkg --forget-old-unavail || rv=${rv:-$?}
+(( fflag )) || if sa=$(whence -p sync-available); then
+	# call with mksh due to *buntu bug
+	mksh "$sa" || rv=${rv:-$?}
+fi
+exit $rv

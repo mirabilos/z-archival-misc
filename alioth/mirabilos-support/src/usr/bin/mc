@@ -1,0 +1,7 @@
+#!/bin/mksh-static
+#-
+# Wrapper to forcibly disable mouse support, as this fills
+# syslog at several dozen MiB/s rate when gpm is already
+# used by some other instance, or when logging in via ssh.
+
+exec -a "$0" -- /usr/bin/mc.distrib -d "$@"

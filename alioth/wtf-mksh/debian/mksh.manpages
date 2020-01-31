@@ -1,0 +1,3 @@
+builddir/mksh.1
+debian/mksh-static.1
+lksh.1

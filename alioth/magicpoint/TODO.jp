@@ -1,0 +1,63 @@
+TODOs
+$Id: TODO.jp,v 1.22 2001/07/05 02:14:22 itojun Exp $
+
+This file is ancient and not updated. In fact, I don’t speak
+Japanese so I don’t even know what it says…	--mirabilos
+
+mgp2ps
+- gif画像をsubroutine化してpsをちいさく
+- imageで読んだepsファイルのzoom
+- 斜体フォント
+- 画面と印刷イメージを近づける
+
+全体
+- draw.cとprint.cの融合(いまは似たようなコードが2重にある)
+- 画面表示時に次のページイメージを pixmap に作成しておく
+- 自動的な減色
+- %pauseを無視して次に進むdirective
+- table
+- vflib3をためしてみる
+- X resouce のサポート。.Xdefaults で default の挙動の指定。
+- image の antialias
+- debug: itojun branch
+	%imageと普通のテキストの横ならべ
+	%imageの配置
+	shrink
+	lcutin/rcutinの背景画像
+- X font registryの選択をもっとflexibleに。example: ESC $ ( Cのときは
+  ksc5601.1987-0とksx1001.1997-0の両方を探すべき。
+
+=== done, partially.
+- 背景グラデーション
+- /etc/magic (#!)
+- mgp2psでカラーps出力
+- 画像(特にeps)のcache
+- 2値bmpをforeground colorとbackground colorで描画
+- bimage を使用していない場合に xbm/bitmap などを fore/back で表示
+
+=== done
+- pixmap, maskpix を追放して、座標系を整理する
+- bimage を使用していない場合の高速化
+- transparent gif
+- backとbimageの統合
+	bimageとbackを重ねるとVFlibで書いたfontのattributeがくさる
+	bimageもpage_attributeで指定してdrawするようにするのが良い
+- font関連をfont.cに分ける。vflibのフォントにアンダーライン、とか。
+- antialias
+- 文字表示のoptimization。「andしてorする」のを一撃でやれないか?
+	windowを重ねて描画をはやく(透明にするのはどうやるの?)
+- timebar
+- %include directive のサポート。この時の search path の定義。
+- 表示中にクリックした場合の対処 (skipしてx eventを処理)
+- 長い行の folding
+	%leftfill
+- leftfillのときの禁則処理
+- leftfillのときの英語の行末処理(せめて単語で区切りたい)
+- %system directive (外部プロセスの呼び出し)
+	外部プロセスの出力を食えたり、<<EOFできたりするともっとよし。
+	(-> %filter)
+- 落書レイヤ/機能
+	ペンの色に対する考察とか必要? -> 5色選択可
+- reload (control-R)
+- freetypeの直接サポート
+- gs-view.cとさよなら

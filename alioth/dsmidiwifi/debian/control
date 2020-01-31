@@ -1,0 +1,19 @@
+Source: dsmidiwifi
+Section: sound
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Homepage: http://dsmi.tobw.net/
+Build-Depends: debhelper (>= 11~), libasound2-dev, pkg-config, qtbase5-dev
+Standards-Version: 4.2.1
+VCS-git: https://evolvis.org/anonscm/git/alioth/dsmidiwifi.git -b master
+VCS-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/dsmidiwifi.git;a=shortlog;h=refs/heads/master
+
+Package: dsmidiwifi
+Architecture: any
+Multi-Arch: foreign
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Enhances: musescore
+Description: DSMI over WLAN server
+ Server component for a DSMI (Nintendo® DS MIDI) over WLAN connection,
+ also often used by Android and iPhone applications. Bridges between
+ UDP broadcast packets and an offered ALSA MIDI port.

@@ -1,0 +1,344 @@
+Source: mirabilos-support
+Origin: WTF
+Bugs: mailto:wtf@mirbsd.org
+Section: metapackages
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Build-Depends: debhelper (>= 4), ed, pax (>= 1:20120211)
+Standards-Version: 3.9.6
+
+Package: mirabilos-support
+Architecture: all
+XB-Important: yes
+Section: oldlibs
+Depends: ${misc:Depends}, bc, bsdmainutils, ed, gnupg (<< 2) | gnupg1,
+ iproute2 | iproute, jupp, less, libterm-readline-gnu-perl,
+ locales-all | belocs-locales-bin | ubuntu-keyring, locales-all | locales,
+ lynx-openssl | lynx-cur | lynx (>> 2.8.9dev8-4~), mc, mirhost | bind9-host,
+ mksh (>= 52), net-tools,
+ netcat-openbsd | pve-manager | univention-config | libc6 (<< 2.3.6.ds2),
+ openssh-client | ssh, openssh-server | ssh, openssl, patch,
+ pax (>= 1:20120211) | mircpio, procps, pv, rdate, rsync, screen, sharutils,
+ wdiff
+Recommends: acpi-support-base, arngc, bridge-utils,
+ bsd-mailx | heirloom-mailx (<< 14), build-essential, bzip2,
+ ca-bundle | ca-certificates, console-data, consolefonts-base, cu, curl,
+ devscripts, early-rng-init-tools, git-find, inetutils-syslogd, kpartx,
+ lsb-release, lsof, lz4 | liblz4-tool, mirabilos-opinion, mirmake, mlocate,
+ ncurses-term-considered-harmful, openbsd-inetd, openntpd (>= 2:3.9p1),
+ popularity-contest, prevent-aptitude, prevent-networkmanager, prevent-ppckit,
+ prevent-pulseaudio, prevent-puppet, prevent-ruby, prevent-unattended-upgrades,
+ prevent-usrmove, quilt, reportbug, sudo, unscd, wget, xcursor-themes,
+ xfonts-base (>= 2:4), xmlstarlet, xterm, xz-utils, zerofree
+Suggests: apt-listchanges, dash-mksh, dctrl-tools, dselect, iftop, info,
+ iotop, iputils-tracepath, irqtop, linuxlogo, mirabilos-support-full,
+ molly-guard, prevent-apparmor, prevent-dbus, prevent-systemd-completely,
+ prevent-systemd-installed, prevent-systemd-running, strace, wtf
+Replaces: grml-etc-core, tarent-config, tarent-server, tarent-server-minimal
+Description: mirabilos' support package (base)
+ This package depends and recommends the minimum packages
+ required for mirabilos to support your Debian (or *buntu)
+ installation, at all. No guarantee that he will, even
+ with it installed, ofc ;-) but this is the minimum before
+ he considers to even look at it (also ensure init=/sbin/init).
+ .
+ Have a look at the Recommends and Suggests of this package, too!
+ Note that dash-mksh requires at least jessie.
+ .
+ Some example configurations are also packaged.
+
+Package: mirabilos-opinion
+Architecture: all
+XB-Important: yes
+Section: oldlibs
+Depends: ${misc:Depends}, dselect, prevent-systemd-running
+Enhances: mirabilos-support
+Description: mirabilos' support package (opinionated)
+ This metapackage contains a part (formerly) of mirabilos-support (see
+ there) that was separated, in order to allow mirabilos-support to
+ be installed also on foreign systems, e.g. with a hostile pid 1.
+ I consider it part of mirabilos-support still.
+
+Package: mirabilos-support-full
+Architecture: all
+XB-Important: yes
+Section: oldlibs
+Depends: ${misc:Depends}, mirabilos-opinion, mirabilos-support,
+ ca-bundle, inetutils-syslogd, lsb-release, mlocate | slocate,
+ molly-guard | libc6 (<< 2.3.6.ds1), ncurses-term-considered-harmful,
+ openbsd-inetd, openntpd (>= 2:3.9p1) | libc6 (<< 2.3.6.ds1),
+ popularity-contest, prevent-aptitude, prevent-networkmanager, prevent-ruby,
+ prevent-systemd-completely, prevent-unattended-upgrades, prevent-usrmove,
+ quilt, reportbug, wget
+Recommends: iputils-tracepath
+Description: mirabilos' support package (superset)
+ This metapackage ensures all mirabilos-support packages
+ are installed. It also promotes some packages that didn’t
+ make it into Depends.
+ .
+ Of course, even this metapackage does not ensure that
+ mirabilos will maintain your system ;-) but it increases
+ the likelihood for that to happen.
+ .
+ Have a look at the Recommends and Suggests of this package, too!
+
+Package: ncurses-term-considered-harmful
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: ncurses-term
+Enhances: mirabilos-support
+Description: mirabilos' metapackage to ensure proper $TERM assignment
+ This metapackage ensures that ncurses-term is not present on your
+ system. This is necessary as its presence would use nōn-portable
+ terminal names for $TERM which causes issues when ssh’ing out.
+
+Package: prevent-apparmor
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: apparmor
+Description: Natureshadow's metapackage to remove apparmor
+ This metapackage ensures that apparmor is not present on your system.
+ The libraries and policy files can still be installed, but the main
+ package containing the init script and systemd unit file is removed.
+
+Package: prevent-aptitude
+Architecture: all
+XB-Important: yes
+Provides: aptitude-must-die
+Replaces: aptitude-must-die
+Depends: ${misc:Depends}
+Conflicts: aptitude, aptitude-common, tasksel, tasksel-data
+Description: mirabilos' metapackage to remove aptitude
+ This metapackage ensures that aptitude is not present on your system.
+ You probably want this, as aptitude does always not honour dpkg’s
+ “hold” state and may introduce some other problems.
+ .
+ You may want to use “aptitude why” and “aptitude whynot”, however.
+ If you do, be informed that the wtf package will, RSN™, include
+ this functionality independent of aptitude ☺
+
+Package: prevent-consolekit
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: consolekit, libpam-ck-connector
+Description: XTaran's metapackage to prevent the installation of ConsoleKit
+ This metapackage ensures that ConsoleKit is not installed on your
+ computer. ConsoleKit is mainly for multi-seat setups (ever saw one?) to
+ distinguish which screen, mouse and keyboard belongs to which users.
+ Additionally it spawns an annoyingly huge amount of threads (dozens on
+ a normal laptop). Since you likely don’t have a multi-seat machine, you
+ don’t want this package to mess around with your login session.
+
+Package: prevent-dbus
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: dbus, kdbus-dkms
+Description: XTaran's metapackage to prevent the installation of DBus
+ This metapackage ensures that DBus is not installed on your computer.
+ The D in DBus stands for Desktop and you may want to make sure to
+ keep the Desktop Bus off your servers. It’s also a great attack vector.
+
+Package: prevent-mono
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: cli-common, mono-gac, mono-mcs, mono-runtime
+Description: XTaran's metapackage to prevent the installation of Mono/C#
+ This metapackage ensures that Mono is not installed on your computer.
+ Mono is a free reimplementation of Microsoft’s .NET environment and
+ programming language C#. You may want to avoid programs written in
+ such a programming language.
+
+Package: prevent-networkmanager
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: network-manager, network-manager-gnome
+Enhances: mirabilos-support
+Description: XTaran's metapackage to prevent the installation of NetworkManager
+ This metapackage ensures that NetworkManager is not installed on your
+ computer. NetworkManager is GNOME’s bloaty and often misbehaving way
+ to take over the control over a computers network card. If you have a
+ machine with a permanent wired network connection, you want to avoid
+ that NetworkManager decides to disconnect your computer from the
+ network, e.g. during (security-) upgrades of the network-manager
+ package. Or because you have chosen to like the wrong version of
+ arping. Even with wireless networks, it is often easier to just
+ configure /etc/network/interfaces properly. Avoid NM if you have
+ any kind of networking trouble and/or a setup that is more complex
+ than “just either one wired *or* one wireless (road-warrior) uplink
+ and no other connections”.
+
+Package: prevent-packagekit
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: gnome-packagekit, gnome-packagekit-session,
+ packagekit, packagekit-backend-aptcc, packagekit-backend-smart,
+ sessioninstaller
+Description: XTaran's metapackage to prevent the installation of PackageKit
+ This metapackage ensures that PackageKit is not installed on your
+ computer. PackageKit is an abstraction of package management software
+ which abstracts away the advantages of Debian’s package system by only
+ offering what RPM and APT/dpkg have in common.
+ Besides it pulls in DBus and PolicyKit.
+
+Package: prevent-policykit
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: cups-pk-helper, policykit-1
+Description: XTaran's metapackage to prevent the installation of PolicyKit
+ This metapackage ensures that PolicyKit is not installed on your computer.
+ PolicyKit allows non-root processes to execute some commands with
+ superuser privileges via D-Bus. ’nuff said.
+
+Package: prevent-ppckit
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}, prevent-consolekit, prevent-packagekit,
+ prevent-policykit
+Description: XTaran's metapackage to prevent the installation of GNOME related *Kit packages
+ This metapackage ensures that neither ConsoleKit, PackageKit nor
+ PolicyKit are installed on your computer. They often come together
+ and you may want to avoid all of them. See the package descriptions
+ of this package’s dependencies for details.
+
+Package: prevent-pulseaudio
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: libasound2-plugins, pulseaudio
+Enhances: mirabilos-support
+Description: XTaran's metapackage to prevent the installation of PulseAudio
+ This metapackage ensures that PulseAudio is not installed on your
+ computer. PulseAudio is a bloaty and unnecessary abstraction layer
+ on top of ALSA which messes around with your default sound card
+ settings, mixer settings, etc. It abstracts away the different
+ volume controls for headsets, speakers, PCM, etc. into one single
+ volume control. If you prefer to be able to control them separately,
+ or if you are a professional musician, or if you’re having any sort
+ of sound troubles with it installed, avoid PulseAudio.
+
+Package: prevent-puppet
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: facter, puppet, puppet-common
+Provides: puppet-must-die
+Replaces: puppet-must-die
+Enhances: mirabilos-support
+Description: mirabilos' metapackage to remove Puppet
+ This metapackage ensures that Puppet is not present on your system.
+ Its presence will cause mayhem, unless you are the person running
+ your puppetmaster… actually, even then, problems may arise… so,
+ avoid it.
+
+Package: prevent-ruby
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}, prevent-puppet
+Conflicts: libruby1.8, ruby1.8, libruby1.9.1, ruby1.9.1, ruby1.9.3,
+ libruby2.0, ruby2.0, libruby2.1, ruby2.1,
+ libruby, ruby-interpreter, ruby
+Provides: ruby-must-die
+Replaces: ruby-must-die
+Description: mirabilos' metapackage to remove Ruby
+ This metapackage ensures that Ruby is not present on your system.
+ You may want this to avoid a badly packagable language being used.
+ This also involves preventing Puppet from being installed, whose
+ reasons are detailed in the prevent-puppet metapackage.
+
+Package: prevent-systemd-completely
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}, prevent-usrmove
+Suggests: policykit-1-without-systemd, udisks2-without-systemd
+Provides: systemd-must-die, prevent-systemd-installed, prevent-systemd-running
+Replaces: systemd-must-die
+Conflicts: kdbus-dkms, libpam-systemd, live-config-systemd, python-systemd,
+ python3-systemd, systemd, systemd-cron, systemd-shim, systemd-sysv,
+ systemd-ui
+Enhances: mirabilos-support
+Description: mirabilos' metapackage to fully remove systemd
+ This metapackage ensures that systemd is not used as the init
+ system for your computer. This is necessary to enable standard
+ Unix/GNU/Linux system administrators to operate your system.
+ .
+ This variant of the metapackage completely removes everything
+ related to systemd from your system.
+
+Package: prevent-systemd-installed
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Suggests: policykit-1-without-systemd, udisks2-without-systemd
+Provides: prevent-systemd-running
+Conflicts: kdbus-dkms, live-config-systemd, systemd, systemd-cron,
+ systemd-sysv, systemd-ui
+Description: mirabilos' metapackage to mostly remove systemd
+ This metapackage ensures that systemd is not used as the init
+ system for your computer. This is necessary to enable standard
+ Unix/GNU/Linux system administrators to operate your system.
+ .
+ This variant of the metapackage removes systemd itself from
+ your system but allows installation of the shim.
+
+Package: prevent-systemd-running
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: kdbus-dkms, live-config-systemd, systemd-cron,
+ systemd-sysv, systemd-ui
+Description: mirabilos' metapackage to avoid running systemd
+ This metapackage ensures that systemd is not used as the init
+ system for your computer. This is necessary to enable standard
+ Unix/GNU/Linux system administrators to operate your system.
+ .
+ This variant of the metapackage permits installation of systemd
+ to satisfy package dependencies, but not of the systemd-sysv
+ package which takes over the init system.
+ Note that, once installed, systemd can still be run by changing
+ the “init=” kernel parameter. Be careful.
+
+Package: prevent-unattended-upgrades
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}, prevent-packagekit
+Conflicts: aptdaemon, aptitude-robot, cron-apt, pkgsync,
+ unattended-upgrades
+Description: mirabilos' metapackage to avoid unattended upgrades
+ This metapackage ensures that your system does not install
+ Debian package upgrades automatically. You will want this if
+ you want to have full control over which packages and versions
+ get installed, or if running the “testing” or “unstable” (sid)
+ distribution (or a *buntu development version… to be honest,
+ any *buntu as they’re known to even break stuff in LTS).
+ .
+ Some of the conflictors do not install packages automatically
+ in the default configuration (listed below), but since you
+ are installing this package to avoid that always, it still
+ conflicts with them: aptdaemon, cron-apt
+ .
+ TODO: The package should actually conflict with *all* packages
+ that can do unattended upgrades in the system. Does, for example,
+ update-notifier (transitional to gnome-packagekit, ugh) do that?
+ Currently, a subset of packages is blocked only.
+
+Package: prevent-usrmove
+Architecture: all
+XB-Important: yes
+Depends: ${misc:Depends}
+Conflicts: usrmerge
+Enhances: mirabilos-support
+Description: XTaran's metapackage to avoid UsrMove
+ This metapackage ensures that your system does not implement
+ the fdo/systemd antifeature called UsrMove: move /bin, /sbin
+ and /usr/sbin to /usr/bin and /lib to /usr/lib, with no way
+ back, and absolutely requiring an initrd supporting that scheme.
+ This is not installed normally, but you may wish to prevent
+ accidental installation and thus probably want this package.

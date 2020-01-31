@@ -1,0 +1,9 @@
+builddir/jmacsrc etc/jupp/
+builddir/joerc etc/jupp/
+builddir/jpicorc etc/jupp/
+builddir/jstarrc etc/jupp/
+builddir/rjoerc etc/jupp/
+docs/jmacs.png usr/share/pixmaps/
+docs/joe.png usr/share/pixmaps/
+docs/jpico.png usr/share/pixmaps/
+docs/jstar.png usr/share/pixmaps/

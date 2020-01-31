@@ -1,0 +1,403 @@
+jupp (3.1.38-2) UNRELEASED; urgency=medium
+
+  * Drop “IDE” .desktop category, it creates mismatched menu entries
+  * Update maintainer script comments from latest manpages
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 02 Dec 2019 22:08:40 +0100
+
+jupp (3.1.38-1) unstable; urgency=low
+
+  * The “Ellef un esu enne musl” upload
+  * Bump versioned joe-jupp to jupp dependency forgotten in last upload
+  * New upstream release
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 11 Nov 2018 20:39:57 +0100
+
+jupp (3.1.37-1) unstable; urgency=medium
+
+  * Use split Repository in UMEYAGA for CVS repositories
+  * Bump Policy to 4.2.1.2
+    - terse build option
+    - install upstream NEWS as NEWS, not changelog
+  * New upstream release
+  * Install upstream-provided icons
+  * Switch from menu to desktop files for stretch and newer
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 20 Oct 2018 21:58:20 +0200
+
+jupp (3.1.36-3) unstable; urgency=low
+
+  * Update ncurses B-D using libncurses-dev in buster/sid
+  * Bump Policy while here (no applicable changes)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 04 May 2018 14:27:27 +0200
+
+jupp (3.1.36-2) unstable; urgency=high
+
+  * Fix arch:all-only build
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 22 Mar 2018 14:08:30 +0100
+
+jupp (3.1.36-1) unstable; urgency=medium
+
+  * Fix missing picorc@ -> jpicorc
+  * Mark joe-jupp as M-A:foreign as well
+  * New upstream bugfix release
+  * Provide debian/upstream/metadata as requested by lintian
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 16 Mar 2018 00:51:08 +0100
+
+jupp (3.1.35-2) unstable; urgency=low
+
+  * Pull the latest upstream minor bugfix commit
+  * Do not build twice (fix Makefile stampfile usage)
+  * Use new lintian override file location in sid
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 16 Feb 2018 18:24:00 +0100
+
+jupp (3.1.35-1) unstable; urgency=low
+
+  * Really brown paperbag, fix a message and a typo
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 14 Feb 2018 23:35:04 +0100
+
+jupp (3.1.34-1) unstable; urgency=high
+
+  * The “almost-brown-paperbag release” sponsored by ⮡ tarent
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 14 Feb 2018 23:09:05 +0100
+
+jupp (3.1.33-1) unstable; urgency=high
+
+  * New upstream release
+    - urgency=high due to regression fix and some bugfixes
+    - bump dependency from joe-jupp to jupp (new features)
+  * Grudgingly go to debhelper 11
+  * Have both debian/source.lintian-overrides (portable) and
+    debian/source/lintian-overrides (for new lintian, symlink)
+  * Install jpico as very-low-priority pico alternative
+  * Work around lintian issues ☹
+  * debhelper 9.20160114 and up already depend on autotools-dev
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 13 Feb 2018 23:15:23 +0100
+
+jupp (3.1.32-2) unstable; urgency=low
+
+  * Policy 4.1.3 (no changes)
+  * Update lintian override for using lower (more compatible) debhelper
+  * Update VCS-* to new repository caused by Alioth deprecation
+  * Use http, not https, for the homepage, to make it accessible
+    from Debian buster/sid OpenSSL
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 05 Jan 2018 20:13:13 +0100
+
+jupp (3.1.32-1) unstable; urgency=medium
+
+  * Policy 4.1.2, no relevant changes
+  * Appease lintian by updating the overrides and using ?= in d/rules
+  * Fix klibc build; add musl support
+  * Generate Debian control files (like OpenJDK does)
+  * New upstream release
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 17 Dec 2017 00:03:03 +0100
+
+jupp (3.1.31-1) unstable; urgency=medium
+
+  * Mention that the WordStar emulation only applies to non-document mode
+  * Policy 4.0.1: joe-jupp is no longer Priority extra but optional
+  * New upstream release
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 09 Aug 2017 05:53:29 +0200
+
+jupp (3.1.30-1) unstable; urgency=medium
+
+  * The “I am a jupp version number, not a date!” upload
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 11 Jan 2017 23:50:42 +0000
+
+jupp (3.1.29-2) unstable; urgency=low
+
+  * Fix native dietlibc compilation: always force Debian’s GNU triplet
+  * Exclude -specs=* for non-system libcs as workaround for #845550
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 27 Nov 2016 15:45:28 +0100
+
+jupp (3.1.29-1) unstable; urgency=low
+
+  [ Dominik George ]
+  * jupp Enhances nbc (due to ^KF Freedroidz IDE keybinding)
+
+  [ Thorsten Glaser ]
+  * New upstream release “today is a good day”
+  * Raise versioned intra-package dependency to match
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 30 Oct 2016 04:30:40 +0100
+
+jupp (3.1.29~pre2-1) unstable; urgency=low
+
+  * Retake the package (Closes: #764396)
+  * New upstream prerelease
+  * Update maintainer script documentation
+  * Bump Policy (no change necessary)
+  * Fix VCS-* as lintian prompted
+  * Apply lintian’s spell fixes
+  * Try debhelper compat 9
+  * Better paths due to the new sysconfjoesubdir processing
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 08 Oct 2016 21:32:08 +0200
+
+jupp (3.1.28-1) unstable; urgency=medium
+
+  * QA upload.
+  * New upstream version
+  * Update list of -O GCC flags to exclude
+  * Policy 3.9.6 (no changes)
+  * Fix lintian reported problems upstream
+  * Update Debian-specific lintian overrides
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 23 Oct 2014 19:18:54 +0200
+
+jupp (3.1.27-3) unstable; urgency=low
+
+  * QA upload.
+  * Orphan the package.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 07 Oct 2014 17:59:49 +0000
+
+jupp (3.1.27-2) unstable; urgency=low
+
+  * debian/control: Move VCS-* fields to Alioth collab-maint git
+  * Remove now-useless RCS IDs
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 08 Jul 2014 16:11:05 +0200
+
+jupp (3.1.27-1) unstable; urgency=medium
+
+  * New upstream release “Bootmenü” (Closes: #748596)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 29 Jun 2014 12:16:42 +0000
+
+jupp (3.1.26-1) unstable; urgency=low
+
+  * New upstream release “OpenRheinRuhr”
+  * Policy 3.9.5.0 (no changes required)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 07 Nov 2013 23:09:42 +0000
+
+jupp (3.1.25-1) unstable; urgency=high
+
+  * New upstream release “FrogLabs / FrOSCon”
+  * Fixes data corruption bug on pipe command (LP#1198221)
+  * Fix segfault on terminal resize (found by Eike Jesinghaus
+    and Dominik George, thanks!)
+  * Improve handling of the xterm bracketed paste mode
+  * Sanitise tempfile handling somewhat more
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 19 Aug 2013 23:30:35 +0000
+
+jupp (3.1.24-1) unstable; urgency=medium
+
+  * New upstream release “MirMinze”
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 05 Jan 2013 22:31:19 +0000
+
+jupp (3.1.23-1) unstable; urgency=low
+
+  * New upstream release “halmaturus” (Closes: #691255)
+  * Policy 3.9.4.0 (no changes required since static linkage is
+    disabled by default for Debian builds)
+  * Cease installing developer-only documentation files
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 30 Dec 2012 22:36:11 +0000
+
+jupp (3.1.22-1) unstable; urgency=low
+
+  * New upstream release “BSD: rather slow than incorrect”
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 03 Sep 2012 19:39:38 +0000
+
+jupp (3.1.21-1) unstable; urgency=medium
+
+  * New upstream release “with omalloc, this would not have happened”
+    - critical bugfixes wrt. uninitialised memory and buffer underflow
+      (reported crash on wheezy/i386 by a user)
+    - uses automake version fixing CVE-2012-3386
+  * Small improvements to package description and d/rules comments
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 18 Jul 2012 17:37:12 +0000
+
+jupp (3.1.20-1) unstable; urgency=medium
+
+  * New upstream release “nik”
+    - fixes including unbreak hex edit mode with -guesscrlf
+    - enable Large File Support
+  * Drop explicit versioned dpkg-dev B-D, use what we get
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 08 Jun 2012 20:42:09 +0000
+
+jupp (3.1.19-2) unstable; urgency=low
+
+  * Apply upstream fix for stupid mistakes in ctime() for klibc
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 08 Jun 2012 02:10:38 +0000
+
+jupp (3.1.19-1) unstable; urgency=low
+
+  * New upstream release “Eike”
+    - improved support for dietlibc, klibc, hurd
+  * Update watch file for new file extension of distfiles (.tgz)
+  * Use cross-gcc automatically when compiler not set
+  * Support diet and klibc in DEB_BUILD_OPTIONS to switch C libraries
+    (default to static linkage; allow overriding via CC) and debug to
+    re-enable compiling with -g3 (diet/klibc normally disable -g)
+  * Support static in DEB_BUILD_OPTIONS to link statically with eglibc
+  * Support nopwnam in DEB_BUILD_OPTIONS for all three, omits code
+    that may not work well when linking statically or for rescue systems
+  * Note: dietlibc/klibc imply no SSP/PIE; static means no PIE hardening
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 08 Jun 2012 00:11:36 +0000
+
+jupp (3.1.18-3) unstable; urgency=low
+
+  * Adjust joe-jupp Priority from optional to extra (debcheck)
+  * debian/rules: Clean up and modernise; enable +all hardening,
+    --as-needed, and some gmake magic to properly escape variables
+  * Quieten lintian
+  * Policy 3.9.3 (no relevant changes)
+  * debian/control: Use architecture wildcards for SELinux
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 25 Mar 2012 17:40:11 +0000
+
+jupp (3.1.18-2) unstable; urgency=low
+
+  * Also drop an old editorrc alternative if this package has never
+    been configured before (Closes: #644481)
+  * Only link /etc/jupp/editorrc on upgrade from old version or on
+    a fresh install, as suggested by Josip Rodin
+  * Update version numbers for the joe/jupp conflicts
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 06 Oct 2011 08:58:39 +0000
+
+jupp (3.1.18-1) unstable; urgency=low
+
+  * New upstream release “waga”
+  * dh_prep needs debhelper 7.0.0
+  * Improve coexistence of joe and jupp: move the editorrc symlink
+    to /var/lib/misc/editorrc and make it an update-alternatives
+    slave to editor (agreed by Raphaël Hertzog, Josip Rodin)
+    ⇒ Fixes piuparts for jupp
+  * Formalise maintainer scripts and sync with Policy and triggers
+  * Drop dh_installdirs call, it’s only for making empty directories
+  * Use dpkg/buildflags.mk, but make that an optional build dependency
+  * Convert to use libtinfo, keep libncurses-dev an alternative though
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 05 Oct 2011 21:15:18 +0000
+
+jupp (3.1.17-4) unstable; urgency=low
+
+  * Work also when joe is not installed (Really Closes: #636147)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 01 Aug 2011 20:08:11 +0000
+
+jupp (3.1.17-3) unstable; urgency=low
+
+  * Do not take over the location of the editorrc alternative,
+    symlink to it instead and collaborate with joe managing it
+    (Closes: #636147)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 01 Aug 2011 15:54:28 +0000
+
+jupp (3.1.17-2) unstable; urgency=low
+
+  [ Mike O'Connor ]
+  * Reproduce strlfun.c copyright notice and licence in d/copyright
+  * Add non-virtual alternative for libncurses-dev build dependency
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 28 Jul 2011 00:08:14 +0000
+
+jupp (3.1.17-1) unstable; urgency=low
+
+  * Do not call "update-alternatives --remove" on upgrade (cf. #568299)
+  * New upstream version
+  * Keep original source unpacked, not a cpio-in-tarball format
+  * Upload to Debian on independent requests from several users
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 27 Jul 2011 20:08:05 +0000
+
+jupp (3.1.15-0wtf1) wtf; urgency=low
+
+  * jupp can do Multi-Arch: foreign as requested by vorlon
+  * Add Origin and Bugs headers
+  * Allow mircpio or pax or (GNU) cpio as build dependency
+  * Bump Policy to 3.9.2
+    - GPLv1 is installed in the filesystem already
+  * Update comments
+  * Drop use of libbsd (jupp is self-contained, libbsd is not
+    compatible across all versions we encounter)
+  * Rename build directory to builddir to not use a PHONY name
+  * Disable warning flags in build by default, revisit later
+  * Re-enable accidentally disabled curses dependency
+  * Add build-arch build-indep and change binary-arch binary-indep
+    targets in d/rules to always run the common path because we
+    currently cannot build them separately
+  * Install NEWS as upstream changelog
+  * Remove redundant files from joe-jupp by symlinking to jupp
+  * Use autotools-dev for up-to-date config.{guess,sub}
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 03 Jul 2011 01:56:45 +0000
+
+jupp (3.1.14-0wtf1) unstable; urgency=low
+
+  * New upstream version; ChangeLog:
+    - Update diff syntax file from joe-current
+    - New option (L)ast in search-and-replace
+    - Backport some bugfixes from joe-current
+    - Let execmd cmd accept macros, not just commands
+    - Let macros cmd escape backslash correctly
+    - Flag --disable-getpwnam to link statically with eglibc
+    - Compiler warning cleanup
+  * Bump Standards-Version, no relevant change
+  * debian/source/format: Enforce "1.0" manually, for now
+  * debian/control: Remove DMUA, I'm a DD now
+  * debian/control: Add ${misc:Depends} to joe-jupp (lintian)
+  * Simplify backport instructions; the sid package builds on lenny
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 08 Apr 2010 21:09:53 +0000
+
+jupp (3.1.12-0wtf1) unstable; urgency=low
+
+  * More warnings disabled
+  * New upstream version
+  * Allow pax ipv cpio, like mksh
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 19 Oct 2009 10:19:41 +0000
+
+jupp (3.1.11-0wtf2) unstable; urgency=low
+
+  * Add lintian override for help-system.html (not doc-base suitable)
+  * Add missing libbsd-dev dependency, oops…
+  * debian/control, debian/rules: add notes on how to do backports
+  * debian/rules: don’t “-include /usr/include/bsd/*.h” any more
+  * Backport fixes and libbsd support from upstream
+  * Generate the debian/copyright file dynamically
+  * Get rid of __attribute__((bounded (…))) related warnings
+  * Support SELinux on !hurd !kfreebsd architectures
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 06 Oct 2009 10:27:15 +0000
+
+jupp (3.1.11-0wtf1) unstable; urgency=low
+
+  * Completely new packaging, based on mksh and mirdate
+  * New upstream version joe-3.1jupp11
+  * Split into jupp and joe-jupp packages
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 16 Sep 2009 13:38:38 +0000
+
+jupp (3.1.10-1) experimental; urgency=low
+
+  * Initial package of joe-3.1jupp10 as jupp-3.1.10, so that it does
+    not conflict with the Debian joe package (from 3.5-2)
+  * WTF Edition
+  * Use colon instead of dot to separate chown args, as per SUSv3
+
+ -- Thorsten Glaser <tg@freewrt.org>  Sat, 06 Sep 2008 18:45:29 +0000

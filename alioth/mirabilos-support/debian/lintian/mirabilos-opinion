@@ -1,0 +1,8 @@
+# Opinion
+mirabilos-opinion: using-first-person-in-description line 4: I
+
+# indeed
+mirabilos-opinion: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+mirabilos-opinion: unknown-field-in-control important

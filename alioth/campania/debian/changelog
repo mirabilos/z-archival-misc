@@ -1,0 +1,11 @@
+campania (2.009-2) unstable; urgency=low
+
+  * Apply patch from upstream improving documentation
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 13 Nov 2019 22:31:24 +0100
+
+campania (2.009-1) unstable; urgency=low
+
+  * Initial release, for an upcoming MuseScore 3.3
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 29 Oct 2019 23:28:45 +0100

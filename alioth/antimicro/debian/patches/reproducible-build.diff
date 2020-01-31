@@ -1,0 +1,26 @@
+Description: ensure the build is reproducible
+  - install the uncompressed manpage and leave things to dh_compress(1)
+  - do not embed the date/time of build
+Author: mirabilos <tg@debian.org>
+Forwarded: no
+
+--- a/other/CMakeLists.txt
++++ b/other/CMakeLists.txt
+@@ -4,4 +4,4 @@ add_custom_target(manpage)
+ add_custom_command(TARGET manpage PRE_BUILD
+     COMMAND gzip -c "${PROJECT_SOURCE_DIR}/other/antimicro.1" > "antimicro.1.gz" VERBATIM
+ )
+-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/antimicro.1.gz" DESTINATION "share/man/man1")
++install(FILES "${PROJECT_SOURCE_DIR}/other/antimicro.1" DESTINATION "share/man/man1")
+--- a/src/aboutdialog.cpp
++++ b/src/aboutdialog.cpp
+@@ -51,7 +51,8 @@ void AboutDialog::fillInfoTextBrowser()
+     QStringList finalInfoText;
+ 
+     finalInfoText.append(tr("Program Version %1").arg(PadderCommon::programVersion));
+-    finalInfoText.append(tr("Program Compiled on %1 at %2").arg(__DATE__).arg(__TIME__));
++#include "DEB_PKG_VERSION.h"
++    finalInfoText.append(tr("compiled from Debian packaging: %1").arg(DEB_PKG_VERSION));
+ 
+     QString sdlCompiledVersionNumber("%1.%2.%3");
+     QString sdlLinkedVersionNumber("%1.%2.%3");

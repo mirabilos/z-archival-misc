@@ -1,0 +1,5 @@
+# indeed
+prevent-systemd-installed: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-systemd-installed: unknown-field-in-control important

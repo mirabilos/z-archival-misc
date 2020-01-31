@@ -1,0 +1,34 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	  Making multilingual presentations with MagicPoint
+
+			    March 15, 2001
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+MagicPoint has no idea about what kind of character set you are using
+with your presentation file, or what kind of language you are using.
+For example, if you use Latin-1 (iso-8859-1) you MUST tell that explicitly
+to MagicPoint.
+
+If you want to use Latin-[1-4] (iso-8859-[1-4]), you can specify the
+encoding of the file explisitly with charset directive, like:
+
+	%charset "iso8859-1"
+
+Note that this directive can be used after %page directive, that is,
+you can't use %charset directive in preamble.
+
+In the future, we will add more encodings to charset directive, like
+"iso2022-jp", or "euc-jp"
+
+Making MagicPoint presentations in European languages
+- When invoking MagicPoint, configure the LANG environment variable to
+  proper value.
+- When making a PostScript file for the presentation, use -e option.
+
+Making MagicPoint presentations in Asian languages
+- Use iso-2022 family encoding (iso-2022-jp, iso-2022-cn and others).
+  Or, the X11 ctext encoding for your file.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

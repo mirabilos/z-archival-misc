@@ -1,0 +1,5 @@
+# indeed
+prevent-apparmor: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-apparmor: unknown-field-in-control important

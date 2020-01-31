@@ -1,0 +1,46 @@
+#!/usr/bin/make -f
+
+shellescape='$(subst ','\'',$(1))'
+shellexport=$(1)=$(call shellescape,${$(1)})
+
+ifeq (,$(findstring terse,${DEB_BUILD_OPTIONS}))
+export DH_VERBOSE=1
+export V=1
+export VERBOSE=1
+endif
+
+LC_ALL:=C
+export LC_ALL
+
+CC=			klcc
+EXTRA_CFLAGS+=		-g -Os -fno-stack-protector
+EXTRA_LDFLAGS+=		-static
+EXTRA_CFLAGS+=		-Wall -Wextra -Wformat
+EXTRA_LDFLAGS+=		-Wl,--as-needed
+
+dpkgbuildflagsmkescape=$(subst \,\\\,$(1))
+DEB_CFLAGS_MAINT_APPEND=$(call dpkgbuildflagsmkescape,${EXTRA_CFLAGS})
+DEB_CPPFLAGS_MAINT_APPEND=$(call dpkgbuildflagsmkescape,${EXTRA_CPPFLAGS})
+DEB_LDFLAGS_MAINT_APPEND=$(call dpkgbuildflagsmkescape,${EXTRA_LDFLAGS})
+DEB_CFLAGS_MAINT_STRIP=-O -O0 -O1 -O2 -O3 -Os -Ofast -Og -g -g1 -g2 -g3 -ggdb -gdwarf -gstabs
+DEB_CFLAGS_MAINT_STRIP+=-specs=/usr/share/dpkg/no-pie-compile.specs
+DEB_LDFLAGS_MAINT_STRIP+=-specs=/usr/share/dpkg/no-pie-link.specs
+DEB_BUILD_MAINT_OPTIONS=hardening=+all,-pie
+include /usr/share/dpkg/buildflags.mk
+
+export CC CPPFLAGS CFLAGS LDFLAGS
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	mkdir -p debian/early-rng-init-tools/usr/lib/klibc/bin
+	${MAKE} install \
+	    DESTDIR="$$PWD/debian/early-rng-init-tools" \
+	    BINDIR=/usr/lib/klibc/bin
+	echo "erit:B-U=$$(dpkg-query \
+	    -Wf '$${source:Package} (= $${source:Version})' libklibc-dev)" \
+	    >>debian/early-rng-init-tools.substvars
+
+override_dh_installinit:
+	dh_installinit --no-start

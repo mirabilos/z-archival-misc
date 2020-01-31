@@ -1,0 +1,20 @@
+{
+  "Archive": "The MirOS Project",
+  "Bug-Database": "https://bugs.launchpad.net/mksh",
+  "Bug-Submit": "mailto:miros-mksh@mirbsd.org",
+  "Changelog": "http://www.mirbsd.org/mksh.htm#clog",
+  "Cite-As": "The MirBSD Korn Shell (<a href=\"http://www.mirbsd.org/mksh.htm\">mksh</a>)",
+  "Contact": "irc://irc.freenode.net/!%2Fbin%2Fmksh",
+  "Documentation": "http://www.mirbsd.org/MirOS/dist/mir/mksh/mksh.pdf",
+  "Donation": "http://www.mirbsd.org/danke.htm",
+  "FAQ": "http://www.mirbsd.org/mksh-faq.htm",
+  "Name": [
+    "The MirBSD Korn Shell",
+    "mksh"
+  ],
+  "Repository": [
+    ":extssh:_anoncvs@anoncvs.mirbsd.org:/cvs",
+    "mksh"
+  ],
+  "Repository-Browse": "http://www.mirbsd.org/cvs.cgi/src/bin/mksh/"
+}

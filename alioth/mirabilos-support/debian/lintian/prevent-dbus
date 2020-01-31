@@ -1,0 +1,5 @@
+# indeed
+prevent-dbus: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-dbus: unknown-field-in-control important

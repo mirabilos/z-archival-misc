@@ -1,0 +1,184 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		     Release Notes for MagicPoint
+
+			    Feb 14, 2008
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+<<<2.0>>>
+
+* Use UTF-8 as only accepted input and font encoding (not yet done!)
+
+<<<1.2>>>
+
+* “We still honour itojun but need UTF-8 and bugfixes” fork, first release
+   ‣ sponsored by ⮡ tarent, developed for Debian
+   ‣ releases published by MirBSD
+
+* Apply patches from Debian and MirBSD (MirPorts, OpenBSD Ports)
+    o spelling fixes, from lintian
+    o format string fixes (from both Debian and MirBSD)
+    o port to OpenBSD/MirBSD
+    o some build cleanup and reliability fixes
+    o add new example mgp-print6 script (from Debian)
+    o draw cursor in rakugaki, guide, correctly
+
+* Remove unused and generated files from VCS, track in public git
+
+* Drop support for m17n, mng and mgpembed (just send tarballs), unused code
+
+* Switch to Xft2 for font rendering
+
+* mgpnet now uses ${CPP:-$CC -E} at runtime, not the (cross) compiler
+
+* Drop mgprc support, as it is not useful with Xft2
+
+* New build system contributed from mksh and paxmirabilis; much simpler
+
+* Tons of code fixes and modernisation (C89 「ANSI C」 prototypes, etc.)
+
+* Sorry that the Japanese documentation is no longer updated, I don’t speak it
+
+<<<1.13a>>>
+
+* m17n library support enhancement
+
+* MacOS support enhancement
+
+* add new environment variable MGPRC for the path of the .etc/mgprc file.
+
+* add "psfont" directive to specify the font used by mgp2ps
+
+* add -g option for mgp2ps to allow users to adjust line distanc
+
+* add -zoomonclk option for newimage
+
+* allow one to handle gif format images by default
+
+* many bug fixes
+
+
+Dedication
+
+Magicpoint 1.13a is dedicated to the memory of Dr. Jun-ichiro "itojun"
+Hagino, who was known for his enormous contribution to the Internet and
+the Open Source Software community. He was the developer of Magicpoint
+from its infancy. Magicpoint could not exist without his devoted work.
+
+
+<<<1.12a>>>
+
+* add %tsystem directive which might be more stable than %xsystem
+
+* add -rotate option for newimage
+
+* allow one to use non-ASCI filename in slides (use -U to enable this feature)
+
+* many bug fixes
+
+<<<1.11b>>>
+
+* (bugfix) suppress flickering screen when Ctrl key is pressed
+
+<<<1.11a>>>
+
+* use EWMH to get borderless fullscreen. (use 'w' key to switch)
+
+* MacOS X support
+
+* m17n library support
+
+* setlocale-patch built in, print.c (from mailing list: mgp-users 01112)
+
+* %-character can be escaped by '\' at the beginning of a line
+
+* escape sequence added
+    o \[xX]HH will be converted to a character (H - hex value)
+    o \\ means \
+    o \[^xX] or \[xX]CC with 'C' different to hex values will cause the
+      program to exit -1
+
+* super-/subscript support
+
+* support for symbol font added
+
+* new option: --title 'title' for mgp.
+
+* add -raise option for %newimage directive
+
+* many bug fixes.
+
+<<<1.10a>>>
+
+* Support for Xft2 + fontconfig. If you are not familiar with these words,
+  please see FAQ and README.xft2 for more information.
+
+* Support for new directive %tab 0 which can be used to apply a list of
+  directives to lines that start with a non-tab character.
+
+* For security reasons, we have changed mgp so that directives that fork a
+  process are not processed by default. The -U option must be specified in
+  order to process such directives.
+
+* Introduced %opaque directive. Please see SYNTAX for detailed information.
+
+* Support for  iso8859-2 encoding for mgp2ps
+
+* Introduced -X option for mgp2ps to suppress the use of the specified
+  rendering engine
+
+* Introduced escape char '\' to display lines that start with '#'.
+
+* Many bug fixes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+<<<1.09a>>>
+
+New features:
+	- The "area" directive: specifying drawing area in the window.
+		it can be used for siide-by-side positioning or logo displaying, etc.
+	- Enhance "prefix" directive
+		you can specify prefix spacing by percentage of the drawing area width.
+
+Bugs fixed:
+	- Security fix:
+		fix a seculity hole inherited from xloadimage.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+<<<1.08a>>>
+
+New features:
+	- The "charset" directive: you can use iso-8859-[1-4]
+	- MNG support: animation without "mark" and "again"
+	- Enhancing "mgp2ps"
+		* Supporting "cont", "mark", "again"
+		* Resizing image
+
+Bugs fixed:
+	- Some. :-)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+<<<1.07a>>>
+
+New features:
+	- PNG support
+	- Adding a dither algorithm to the gradation mechanism
+	- Pre-drawing
+		(Pages which contain text only is cached before
+		displayed.)
+	- mgp2ps produces much closer PS image to display image.
+
+Bugs fixed:
+	- If bgrad and/or bimage were used, display speed was getting
+          slower and slower. This has been fixed.
+	- Freeing color resources used anti-alias was wrong.
+	  This has been fixed.
+	- Cleaned up the code for background image handling.
+	- mgp was core-dumped if reloaded during caching. This has
+	  been fixed.
+	- Fixed some small bugs.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

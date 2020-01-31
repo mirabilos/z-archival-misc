@@ -1,0 +1,5 @@
+# indeed
+prevent-ruby: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-ruby: unknown-field-in-control important

@@ -1,0 +1,16 @@
+Description: Fix a crash on reading a workspace with non-existing preferences
+Author: Dmitri Ovodok <dmitrio95@yandex.ru>
+Origin: vendor, commit:b9bb0ceb8223866f5b60f4d821b5b3544ffa4788
+Applied-Upstream: master, commit:6c0bef1
+
+--- a/mscore/preferences.cpp
++++ b/mscore/preferences.cpp
+@@ -226,7 +226,7 @@ QVariant Preferences::defaultValue(const
+       {
+       checkIfKeyExists(key);
+       Preference* pref = _allPreferences.value(key);
+-      return pref->defaultValue();
++      return pref ? pref->defaultValue() : QVariant();
+       }
+ 
+ QSettings* Preferences::settings() const

@@ -1,0 +1,18 @@
+# The mirabilos-support package already ensures gnupg (version 1.x)
+# stays installed; here’s how (on stretch/sid) to make $(gpg) return
+# to that while keeping $(gpg2) as GnuPG 2.x which even its developers
+# agree is no drop-in replacement for GnuPG 1.x:
+
+ sudo sh -exc '
+	case $(GNUPGHOME=/nonexistent gpg --version 2>/dev/null | head -1) in
+	(gpg\ \(GnuPG\)\ 2.*)
+		dpkg-divert --local --rename --divert /usr/bin/gpg2.distrib \
+		    --add /usr/bin/gpg
+		;;
+	esac
+	test -x /usr/bin/gpg2.distrib && ln -sfT gpg2.distrib /usr/bin/gpg2
+	test -x /usr/bin/gpg1 && ln -sfT gpg1 /usr/bin/gpg
+ '
+
+# Run this after every system upgrade because otherwise, “gpg2” will
+# also call gnupg 1.x when one of them is upgraded.

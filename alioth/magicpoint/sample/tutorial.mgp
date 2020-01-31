@@ -1,0 +1,145 @@
+%include "default.mgp"
+%default 1 bgrad
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%center, size 7, font "standard", fore "white", vgap 20
+
+Operation Manual
+
+%image "mgp-old1.jpg" 800x600
+
+for good boys and girls
+
+%fore "yellow", size 5
+To go to the next page,
+please type SPC key.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Going to the next page
+
+Here are operations to go to the next page:
+	Type SPC
+	Type n
+	Type j
+	Type down-arrow
+	Click the left button of your mouse
+
+%fore "yellow"
+OK, let's go to the next page.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Going back to the previous page
+
+Here are operations to go to the previous page:
+	Type DEL
+	Type p
+	Type k
+	Type up-arrow
+	Click the right button of your mouse
+
+%fore "yellow"
+Please go back to the previous page,
+then come back here,
+and go to the next page!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Jumping to a specific page
+
+If you know the page number,
+	Type <num> g
+
+Here, <num> means the page number.
+
+%fore "yellow"
+Please type "2g" to jump to the second page,
+then type "5g" to go forward to the next page.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Displaying a list of pages
+
+To display a list of pages,
+	Type CTL
+
+When you move your mouse on to one of the pages,
+you can see its title. (How cool!)
+
+Clicking the left button on a page pressing CTL,
+you can jump to the page
+
+%fore "yellow"
+Type CTL to display a list of pages,
+and move your mouse on to the page 6.
+Then click the left.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Displaying lines step by step
+
+ %pause command splits pages
+
+%fore "yellow"
+Type SPC hoping to go to the next page.
+
+%pause
+%fore "red"
+Here here here!
+
+%fore "yellow"
+Let's go to the next page.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Displaying guideline
+
+To display page number and titles both for the next and the previous,
+	Type G
+
+One more typing G makes the guideline disappeared.
+
+%fore "yellow"
+Type G.
+Then go to the next page with guideline.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Jotting
+
+To draw arrow/underline/etc onto the foil,
+	Type x to display a pen
+	Press the left button to draw
+
+One more typing x bring you back to the normal mode.
+
+To erase your masterpiece
+	Type l (el not one)
+
+%fore "yellow"
+After practice of jotting, please go to the next page.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Good night
+
+It is the time for good boys and girls to go to bed
+
+
+
+
+
+
+
+%right
+by Kazu@ZZZzzz...

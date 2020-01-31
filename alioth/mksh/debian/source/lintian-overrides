@@ -1,0 +1,11 @@
+# there is only gzsig, not pgp
+mksh source: debian-watch-does-not-check-gpg-signature
+
+# never!
+mksh source: no-dep5-copyright
+
+# not at the moment
+mksh source: testsuite-autopkgtest-missing
+
+# can’t use https because OpenSSL maintainer disabled TLSv1.0
+mksh source: debian-watch-uses-insecure-uri http://www.mirbsd.org/MirOS/dist/mir/mksh/

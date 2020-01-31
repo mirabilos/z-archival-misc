@@ -1,0 +1,42 @@
+Source: rng-tools-debian
+Section: utils
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Uploaders: Henrique de Moraes Holschuh <hmh@debian.org>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.4.0
+Rules-Requires-Root: no
+Vcs-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/rng-tools.git;a=shortlog;h=refs/heads/master
+Vcs-Git: https://evolvis.org/anonscm/git/alioth/rng-tools.git -b master
+
+Package: rng-tools-debian
+Architecture: linux-any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, lsb-base,
+ udev (>= 0.053) | makedev (>= 2.3.1-77)
+Provides: intel-rng-tools, rng-tools (= ${binary:Version})
+Replaces: intel-rng-tools, rng-tools
+Conflicts: intel-rng-tools, rng-tools
+Description: daemon to use a Hardware TRNG (classic version)
+ The rngd daemon acts as a bridge between a Hardware TRNG (true random
+ number generator), such as the ones in some Intel/AMD/VIA chipsets,
+ and the kernel's PRNG (pseudo-random number generator).
+ .
+ It tests the data received from the TRNG using the FIPS 140-2 (2002-10-10)
+ tests to verify that it is indeed random, and feeds the random data to the
+ kernel entropy pool.
+ .
+ This increases the bandwidth of the /dev/random device, from a source
+ that does not depend on outside activity. It may also improve the
+ quality (entropy) of the randomness of /dev/random.
+ .
+ A TRNG kernel module such as hw_random, or some other source of true
+ entropy that is accessible as a device or fifo, is required to use this
+ package.
+ .
+ This is an unofficial version of rng-tools which has been extensively
+ modified to add multithreading and a lot of new functionality. However,
+ most users of newer or high-bandwidth HWRNGs might wish to install the
+ 5.x version of rng-tools, also packaged as rng-tools5, instead; while
+ it lacks some of the new functionality from this version, it offers
+ more performant support for those.

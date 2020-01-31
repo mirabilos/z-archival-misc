@@ -1,0 +1,10 @@
+#!/bin/sh
+
+exec 4>&1
+(
+	rndshuf_verbosity= #-d #-dd
+	/usr/lib/klibc/bin/rnd_shuf $rndshuf_verbosity -f /.early_rnd || {
+		echo >&4 "E: early-rng-init-tools: cron.daily failed"
+		echo >&4 "N: see syslog at $(date) for details!"
+	}
+) 2>&1 | logger -t early-rng-init-tools.cron.daily

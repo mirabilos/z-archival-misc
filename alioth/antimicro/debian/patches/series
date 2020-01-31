@@ -1,0 +1,6 @@
+reproducible-build.diff
+fix-manpage.diff
+fix-appdata.diff
+fix-appdata-portability.diff
+fix-desktop-file.diff
+fix-ftbfs-automoc.diff

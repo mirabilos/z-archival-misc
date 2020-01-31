@@ -1,0 +1,11 @@
+# there is only gzsig, not pgp
+jupp source: debian-watch-does-not-check-gpg-signature
+
+# nope, not gonna do
+jupp source: no-dep5-copyright
+
+# not applicable
+jupp source: testsuite-autopkgtest-missing
+
+# can’t use https because OpenSSL maintainer disabled TLSv1.0
+jupp source: debian-watch-uses-insecure-uri

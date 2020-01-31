@@ -1,0 +1,5 @@
+# indeed
+prevent-unattended-upgrades: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-unattended-upgrades: unknown-field-in-control important

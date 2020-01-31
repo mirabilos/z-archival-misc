@@ -1,0 +1,18 @@
+Description: Fix .desktop file missing %f and a German string
+Author: mirabilos <tg@debian.org>
+Forwarded: https://github.com/AntiMicro/antimicro/pull/276
+
+--- a/other/antimicro.desktop
++++ b/other/antimicro.desktop
+@@ -6,9 +6,9 @@ Comment[sr]=Користите џојс�
+ Name[fr]=AntiMicro
+ Comment[fr]=Utilisez une manette de jeu pour commander un logiciel
+ Name[de]=AntiMicro
+-Comment[de]=Nutze das Gamepad um Programme/Spiele zu steuern
++Comment[de]=Nutze ein Gamepad, um Programme/Spiele zu steuern
+ Comment[uk]=Використовуйте ігровий маніпулятор для керування програмами
+-Exec=antimicro
++Exec=antimicro %f
+ Icon=antimicro
+ StartupNotify=true
+ Terminal=false

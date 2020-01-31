@@ -1,0 +1,11 @@
+# human-readable copyright file preferred
+pax source: no-dep5-copyright
+
+# no tests exist
+pax source: testsuite-autopkgtest-missing
+
+# can’t use https because OpenSSL maintainer disabled TLSv1.0
+pax source: debian-watch-uses-insecure-uri http://www.mirbsd.org/MirOS/dist/mir/cpio/
+
+# there is only gzsig, not pgp
+pax source: debian-watch-does-not-check-gpg-signature

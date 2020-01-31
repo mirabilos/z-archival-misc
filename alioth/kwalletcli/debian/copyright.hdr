@@ -1,0 +1,16 @@
+This package was debianised by Thorsten Glaser <tg@mirbsd.de> on
+Wed Jul  8 15:29:22 UTC 2009.
+
+It was downloaded from:
+https://www.mirbsd.org/MirOS/dist/hosted/kwalletcli/kwalletcli-3.02.tar.gz
+
+
+Note: on Debian systems, the complete text of the GNU LGPL can
+be found at: /usr/share/common-licenses/LGPL-3
+
+The kwalletcli packaging for Debian is also covered by The MirOS Licence and
+Copyright © 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2018
+	mirabilos <m@mirbsd.org>
+
+Licence:
+

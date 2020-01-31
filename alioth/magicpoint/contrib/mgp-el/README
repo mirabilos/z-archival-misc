@@ -1,0 +1,26 @@
+### mgp.el Ver.0.90 -- convert Magic Point file to LaTeX2e
+
+0. CONTENTS
+
+	o README -- This file.
+	o mgp.el -- Emacs Lisp program to convert mgp file to LaTeX2e.
+	o mgp.sty -- Stype file to be used with the generated LaTeX2e file.
+
+1. INSTALLATION
+
+1.1 At first you need Emacs Ver.20.X or Mule Ver.2.3.
+
+1.2 Byte compile mgp.el by Emacs or mule, and copy mgp.el and mgp.elc
+to a directory that is in `load-path' of your Emacs.  The directory
+/usr/share/emacs/site-lisp/ is a good candidate, an mgp/ subdirectory
+of that even.
+
+1.3 Copy mgp.sty to a directory that your LaTeX system can find.
+
+2. USAGE
+
+2.1 Read your XXX.mpg file into Emacs buffer, and do:
+	M-x mgp-entex-buffer RET
+Then the file XXX.tex is generated.
+
+2.2 Process the generated XXX.tex by your LaTeX system.

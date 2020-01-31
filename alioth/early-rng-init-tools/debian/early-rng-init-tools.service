@@ -1,0 +1,11 @@
+[Unit]
+Description=Save random seed between restarts, for initramfs
+Documentation=file:///etc/init.d/early-rng-init-tools
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/early-rng-init-tools/shuffle
+
+[Install]
+WantedBy=shutdown.target

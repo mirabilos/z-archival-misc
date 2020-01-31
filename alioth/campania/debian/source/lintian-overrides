@@ -1,0 +1,8 @@
+# no, thanks
+campania source: no-dep5-copyright
+
+# we build from github tags, no signatures there
+campania source: debian-watch-does-not-check-gpg-signature
+
+# there is nothing to test
+campania source: testsuite-autopkgtest-missing

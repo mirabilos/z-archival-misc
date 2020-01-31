@@ -1,0 +1,37 @@
+case x$KSH_VERSION in
+x'@(#)MIRBSD KSH R'[5-9][0-9]*|x'@(#)MIRBSD KSH R'[1-9][0-9][0-9]*)
+	;;
+*)
+	echo >&2 "E: need mksh"
+	exit 255
+	;;
+esac
+
+export LC_ALL=C
+unset LANGUAGE
+
+localedef='localedef --no-archive -A /usr/share/locale/locale.alias'
+
+die() {
+	print -ru2 -- "E: $*"
+	exit 1
+}
+
+set -x
+(( USER_ID )) && die need root
+cd "$(dirname "$0")" || die cannot chdir
+[[ -s UTF-8.gz ]] || die cannot find charmap file
+[[ -d /usr/share/i18n/charmaps/. ]] || die cannot find target directory
+install -c -o root -g root -m 644 UTF-8.gz /usr/share/i18n/charmaps/ || \
+    die cannot install charmap
+if [[ -s /usr/lib/locale/C.UTF-8/LC_CTYPE ]]; then
+	$localedef -i C -c -f UTF-8 /usr/lib/locale/C.UTF-8
+else
+	print -ru2 -- W: no UTF-8 locale on this system
+fi
+for dir in /usr/lib/locale/*.utf8/LC_CTYPE; do
+	test -h "$dir" && continue
+	loc=${dir%/LC_CTYPE}
+	loc=${loc##*/}
+	$localedef -i "${loc%.utf8}" -c -f UTF-8 $loc
+done

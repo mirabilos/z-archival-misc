@@ -1,0 +1,11 @@
+{
+  "Archive": "GitHub",
+  "Bug-Database": "https://github.com/AntiMicro/antimicro/issues",
+  "Bug-Submit": "https://github.com/AntiMicro/antimicro/issues/new",
+  "Changelog": "https://github.com/AntiMicro/antimicro/blob/master/Changelog",
+  "Documentation": "https://github.com/AntiMicro/antimicro/wiki",
+  "Name": "AntiMicro",
+  "Repository": "git@github.com:AntiMicro/antimicro.git",
+  "Repository-Browse": "https://github.com/AntiMicro/antimicro",
+  "Security-Contact": "mailto:jeff@jsbackus.com?subject=antimicro:"
+}

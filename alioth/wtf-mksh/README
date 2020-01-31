@@ -1,0 +1,32 @@
+This repository produces packages of The MirBSD Korn Shell, CVS HEAD
+(“Live-Evil” builds, kudos to that fansub group), for the Debian OS
+and its derivates. The repository is not affiliated with Debian, only
+with The MirOS Project.
+
+D̲e̲b̲i̲a̲n̲ is a registered trademark owned by Software in the Public Interest, Inc.
+
+“The MirOS Project” and “MirBSD” are unregistered trademarks owned by mirabilos.
+
+The APT repository for which packages are built is here:
+‣ https://www.mirbsd.org/~tg/Debs/debidx.htm
+The PPA in which packages for a certain derivate lie is:
+‣ https://launchpad.net/~mirabilos/+archive/
+
+Distribution targets and their git branches:
+• master ⇒ buster; sid on arches not in buster
+  ‣ sid via shared binaries
+• stretch ⇒ stretch
+  ‣ bionic (18.04) via dch --bpo, unchanged, untested
+• jessie ⇒ jessie
+  ‣ xenial (16.04) via dch --bpo, unchanged, via PPA
+• wheezy ⇒ wheezy with libklibc-dev from jessie
+  ‣ trusty (14.04) via dch --bpo, unchanged, via PPA
+• lenny ⇒ lenny
+  ‣ squeeze via binNMU
+  ‣ precise (12.04) via dch --bpo, unchanged, via PPA
+  ‣ hardy (8.04) via dch --bpo, unchanged, untested
+  ‣ UCS 2.4, untested (UCS = Univention Corporate Server)
+• sarge ⇒ sarge
+  ‣ etch via binNMU
+  ‣ dapper (6.06), untested
+  ‣ UCS 2.2 and 2.3, untested

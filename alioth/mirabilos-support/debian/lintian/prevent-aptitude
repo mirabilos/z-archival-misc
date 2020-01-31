@@ -1,0 +1,5 @@
+# indeed
+prevent-aptitude: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-aptitude: unknown-field-in-control important

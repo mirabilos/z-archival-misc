@@ -1,0 +1,5 @@
+# indeed
+prevent-mono: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-mono: unknown-field-in-control important

@@ -1,0 +1,21 @@
+%include "default.mgp"
+%default 1 fore "blue", font "standard"
+%default 4 fore "yellow", font "standard"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+MagicPoint for asian multilingual presentation!
+
+It may be slow...
+
+	Japanese ($BF|K\8l(B)
+		0208-1978 $@$3$s$K$A$O?92*30(B
+		0208-1983 $B$3$s$K$A$O?92*30(B
+		0213-2000 $(O$3$s$K$A$O?92*30(B
+	Chinese ($AVPND(B,$AFUM(;0(B,$A::So(B)
+		$ADc:C(B
+	Hangul ($(CGQ1[(B)
+		$(C>H3gGO<<?d(B, $(C>H3gGO=J4O1n(B
+
+%size 3
+(The text was grabbed from mule distribution)

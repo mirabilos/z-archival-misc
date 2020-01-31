@@ -1,0 +1,180 @@
+Copyright © 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+	    2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019
+	mirabilos <m@mirbsd.org>
+Copyright © 2018, 2019
+	mirabilos <t.glaser@tarent.de>
+Copyright © 1995, 1996, 1997, 1998
+	WIDE Project (WIDE　プロジェクト)
+	Jun-ichiro “itojun” Itoh Hagino (伊藤 純一郎)
+Examples by:
+	Akira Kato (加藤 朗) <kato@wide.ad.jp>
+	Yoshifumi Nishida (西田佳史) <nishida@csl.sony.co.jp>
+	Kazuhiko Yamamoto (山本和彦) <v6@wide.ad.jp>
+Contribution also by:
+	Atsushi Onoe <onoe@sm.sony.co.jp>
+	Youjiro UO <yuo@nui.org>
+	Masaki Minami <Masaki@Minami.org>
+Special thanks:
+	Chaki Kusakari <chaki@sfc.wide.ad.jp>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. Neither the name of the project nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS “AS IS” AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+
+Some included material is under the following virtually identical licence:
+
+Copyright (c) 1989 The Regents of the University of California.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. All advertising materials mentioning features or use of this software
+   must display the following acknowledgement:
+	This product includes software developed by the University of
+	California, Berkeley and its contributors.
+4. Neither the name of the University nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS “AS IS” AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+
+Yet more material has also these almost identical terms apply:
+
+Copyright (c) 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996
+	The Regents of the University of California.  All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that: (1) source code distributions
+retain the above copyright notice and this paragraph in its entirety, (2)
+distributions including binary code include the above copyright notice and
+this paragraph in its entirety in the documentation or other materials
+provided with the distribution, and (3) all advertising materials mentioning
+features or use of this software display the following acknowledgement:
+「This product includes software developed by the University of California,
+Lawrence Berkeley Laboratory and its contributors.」 Neither the name of
+the University nor the names of its contributors may be used to endorse
+or promote products derived from this software without specific prior
+written permission.
+THIS SOFTWARE IS PROVIDED “AS IS” AND WITHOUT ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+
+The files under contrib/xwintoppm/ are additionally under these terms:
+
+Copyright © 1994 Hewlett-Packard Co.
+Copyright © 1988, 1993, 1994, 1996  X Consortium
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of the X Consortium shall
+not be used in advertising or otherwise to promote the sale, use or
+other dealings in this Software without prior written authorization
+from the X Consortium.
+
+
+contrib/eqn2eps.sh and contrib/tex2eps.sh were contributed by
+	Sylvain Pion <Sylvain.Pion@sophia.inria.fr>
+contrib/eqn2eps.sh was modified by:
+	Youjiro UO <yuo@nui.org>
+	Christoph Dalitz <christoph.dalitz@hs-niederrhein.de>
+
+
+contrib/mgp-el/mgp.{el,sty} are under GNU GPLv2 or later:
+	© 1999 K.Handa <handa@etl.go.jp>
+contrib/mgp-mode-cd.el is under GNU GPL (any version):
+	© 2001, 2001 Christoph Dalitz <christoph.dalitz@hs-niederrhein.de>
+contrib/mgp-mode.el is under GNU GPLv2 or later:
+	© 1999 Hirotsugu Kakugawa <h.kakugawa@computer.org>
+	© 1999 Carlos Puchol <cpg@puchol.com>
+contrib/mgp-mode20.el is a derivate thereof, additionally:
+	© 2004 Shigeharu TAKENO <shige@iee.niit.ac.jp>
+
+GNU GPLv2 is in the distfile: contrib/mgp-el/COPYING
+
+
+sample/mgp-print6 was contributed “under the same condition as Perl”:
+	© 2000, 2001 Kaoru Maeda
+Perl is under GNU GPL (any version) or the “Artistic” licence.
+
+
+The files under image/ are under differing terms.
+Most are published under the PDOS-MIT licence:
+
+Copyright © 1989, 1990, 1991
+	Jim Frost <jimf@centerline.com>
+dithering also Copyright © 1989, 1990
+	Kirk L. Johnson <tuna@athena.mit.edu>
+	Steve Losen <scl@virginia.edu>
+
+Permission to use, copy, modify, distribute, and sell this software
+and its documentation for any purpose is hereby granted without fee,
+provided that the above copyright notice appear in all copies and
+that both that copyright notice and this permission notice appear
+in supporting documentation.  The author makes no representations
+about the suitability of this software for any purpose.  It is
+provided "as is" without express or implied warranty.
+
+THE AUTHORS DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN
+NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE
+USE OR PERFORMANCE OF THIS SOFTWARE.

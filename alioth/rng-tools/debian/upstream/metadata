@@ -1,0 +1,14 @@
+{
+  "Archive": "SourceForge",
+  "Bug-Database": "https://sourceforge.net/p/gkernel/bugs/",
+  "Bug-Submit": "https://sourceforge.net/p/gkernel/bugs/new/",
+  "Contact": "https://sourceforge.net/projects/gkernel/support",
+  "Donation": "https://www.paypal.com/donate/?token=NImM9N_DgwKgVgFLcC9iclFTtsvGeNoRjuUaqrL0jn8wpW4qoCecbIrUAd8u2aYBb9CXgG&country.x=US&locale.x=",
+  "Name": {
+    "gkernel": "rng-tools"
+  },
+  "Repository": [
+    ":pserver:anonymous@a.cvs.sourceforge.net:/cvsroot/gkernel",
+    "rng-tools"
+  ]
+}

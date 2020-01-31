@@ -1,0 +1,5 @@
+builddir/charmaps/* etc/jupp/charmaps/
+builddir/jupp usr/bin/
+builddir/syntax/* etc/jupp/syntax/
+docs/jupp.png usr/share/pixmaps/
+jupprc etc/jupp/

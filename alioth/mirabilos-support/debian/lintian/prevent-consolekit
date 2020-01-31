@@ -1,0 +1,5 @@
+# indeed
+prevent-consolekit: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-consolekit: unknown-field-in-control important

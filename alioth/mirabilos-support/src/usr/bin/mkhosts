@@ -1,0 +1,114 @@
+#!/bin/mksh
+# $Id: mkhosts 2083 2011-06-09 20:48:55Z tglase $
+#-
+# Copyright © 2010, 2011
+#	Thorsten Glaser <t.glaser@tarent.de>
+#
+# Provided that these terms and disclaimer and all copyright notices
+# are retained or reproduced in an accompanying document, permission
+# is granted to deal in this work without restriction, including un‐
+# limited rights to use, publicly perform, distribute, sell, modify,
+# merge, give away, or sublicence.
+#
+# This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+# the utmost extent permitted by applicable law, neither express nor
+# implied; without malicious intent or gross negligence. In no event
+# may a licensor, author or contributor be held liable for indirect,
+# direct, other damage, loss, or other issues arising in any way out
+# of dealing in the work, even if advised of the possibility of such
+# damage or existence of a defect, except proven that it results out
+# of said person’s immediate fault when using the work as intended.
+
+[[ $1 = really && $USER_ID = 0 ]] || exec sudo mksh "$0" really "$@"
+shift
+
+myipsx=
+target=
+while getopts "h:i:" ch; do
+	case $ch {
+	(h) target=$OPTARG ;;
+	(i) myipsx=$OPTARG ;;
+	(*) print -u2 "Usage: $0 [-h new.fqdn] [-i ip]"; exit 1 ;;
+	}
+done
+shift $((OPTIND - 1))
+
+nl='
+'
+saveIFS=$IFS
+IFS=,
+set -A ips -- $myipsx
+IFS=$saveIFS
+set -A myips
+for ip in "${ips[@]}"; do
+	skip=0
+	if [[ $ip = +([0-9]).+([0-9]).+([0-9]).+([0-9]) ]]; then
+		IFS=.
+		set -A ipsub -- $ip
+		IFS=$saveIFS
+		for x in ${ipsub[*]}; do
+			(( x < 0 || x > 255 )) && skip=1
+		done
+		ip=$((ipsub[0])).$((ipsub[1])).$((ipsub[2])).$((ipsub[3]))
+	elif [[ $ip = +([0-9a-fA-F:]) ]]; then
+		: #XXX check validity
+	else
+		skip=1
+	fi
+	if (( skip )); then
+		print -u2 "WARNING: skipping invalid IP '$ip'"
+	else
+		myips[${#myips[*]}]=$ip
+	fi
+done
+(( ${#myips[*]} )); noips=$?
+
+printf '%s\n' "Old Hostname: $(hostname -f) ($(hostname))"
+while :; do
+	printf "New Hostname: "
+	if [[ -n $target ]]; then
+		hn=$target
+		print -r -- "$hn"
+	else
+		read hn
+	fi
+	[[ $hn = [a-zA-Z0-9]?(*([a-zA-Z0-9-])[a-zA-Z0-9])+(.[a-zA-Z0-9]?(*([a-zA-Z0-9-])[a-zA-Z0-9])) ]] && break
+	if [[ -n $target ]]; then
+		print -u2 Invalid hostname.
+		exit 1
+	fi
+done
+
+if (( noips )); then
+	is="127.0.0.1	$hn ${hn%%.*} localhost localhost.localdomain"
+else
+	is="127.0.0.1	localhost localhost.localdomain"
+	for ip in "${myips[@]}"; do
+		is="$is${nl}$ip	$hn ${hn%%.*}"
+	done
+fi
+
+[[ -d /etc/sysconfig/. ]] && \
+    if [[ -e /etc/sysconfig/network || ! -e /etc/hostname ]]; then
+	grep -vi '^HOSTNAME=' /etc/sysconfig/network >/etc/sysconfig/network~
+	echo "HOSTNAME=$hn" >>/etc/sysconfig/network~
+	cat /etc/sysconfig/network~ >/etc/sysconfig/network
+	rm -f /etc/sysconfig/network~
+fi
+[[ -e /etc/hostname || ! -d /etc/sysconfig/. ]] && \
+    echo $hn >/etc/hostname
+cat >/etc/hosts <<-EOF
+	$is
+
+	::1     ip6-localhost ip6-loopback localhost6 localhost6.localdomain6
+	fe00::0 ip6-localnet
+	ff00::0 ip6-mcastprefix
+	ff02::1 ip6-allnodes
+	ff02::2 ip6-allrouters
+	ff02::3 ip6-allhosts
+EOF
+echo $hn >/proc/sys/kernel/hostname
+hostname $hn
+test x"$(hostname -f)" = x"$hn" && exit 0
+echo "Hostname $(hostname -f) ($(hostname)) doesn’t match $hn!"
+exit 1

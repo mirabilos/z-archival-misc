@@ -1,0 +1,29 @@
+Description: Also link to the local/offline copy of the documentation,
+ which we generate at build time, instead of relying on upstream’s online
+ version (which they seem to like), in order to have exactly corresponding
+ docs for plugin writers / for debugging plugins with the running version
+ .
+ Also, set the UTF-8 charset so latin1 is not used…
+Author: mirabilos <tg@debian.org>
+Forwarded: not-needed
+Justification: specific to musescore packaging (charset could, though…)
+
+--- a/manual/plugins3.html
++++ b/manual/plugins3.html
+@@ -1,6 +1,7 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
++    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+     <title>Plugins manual</title>
+     <meta content="">
+     <style></style>
+@@ -11,5 +12,8 @@
+         this Handbook page
+     </a>
+     to find the most recent version of documentation on plugins development.
++  <p>
++    You can also read <a href="html/index.html">the local (offline) copy of the
++    doxygen-generated plugin documentation</a> (“full-featured documentation”).
+   </body>
+ </html>

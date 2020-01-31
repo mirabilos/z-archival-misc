@@ -1,0 +1,26 @@
+Source: campania
+Section: fonts
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Homepage: https://github.com/MarcSabatella/Campania#user-content-campania
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.4.1
+Rules-Requires-Root: no
+VCS-git: https://evolvis.org/anonscm/git/alioth/campania.git -b master
+VCS-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/campania.git;a=shortlog;h=refs/heads/master
+
+Package: fonts-campania
+Architecture: all
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}
+Enhances: musescore, musescore3
+Description: font for Roman numeral analysis (music theory)
+ Campania is an OpenType font (TrueType and WOFF webfont versions are
+ also available) for Roman numeral analysis, as used in music theory.
+ It adds some contextual substitutions and positioning rules on top of
+ the glyphs from Doulos (SIL) to allow you to enter the most common
+ symbols just by typing naturally.
+ .
+ This font should work in any program that handles OpenType fonts
+ reasonably. It is tested to work in MuseScore and in LibreOffice.

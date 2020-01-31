@@ -1,0 +1,14 @@
+# indeed
+mirabilos-support: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+mirabilos-support: unknown-field-in-control important
+
+# this is only a diversion
+mirabilos-support: binary-without-manpage usr/bin/mc
+
+# deliberate
+mirabilos-support: unusual-interpreter usr/bin/mc #!/bin/mksh-static
+
+# debatable, but cannot be helped
+mirabilos-support: package-contains-file-in-etc-skel

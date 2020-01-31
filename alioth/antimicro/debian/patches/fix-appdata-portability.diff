@@ -1,0 +1,19 @@
+Description: Exclude undesired AppData entries
+Author: mirabilos <tg@debian.org>
+Forwarded: not-needed
+Justification: diff between upstream Flatpak metadata and our regular AppStream one
+
+--- a/other/appdata/antimicro.appdata.xml.in
++++ b/other/appdata/antimicro.appdata.xml.in
+@@ -32,9 +32,11 @@
+  </screenshots>
+  <url type="homepage">https://github.com/AntiMicro/antimicro</url>
+  <update_contact>jeff.backus_at_gmail.com</update_contact>
++<!--
+  <kudos>
+    <kudo>ModernToolkit</kudo>
+  </kudos>
++-->
+  <keywords>
+    <keyword>game</keyword>
+    <keyword>controller</keyword>

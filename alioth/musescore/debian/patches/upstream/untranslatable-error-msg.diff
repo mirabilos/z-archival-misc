@@ -1,0 +1,39 @@
+Description: Fix #286666: Error message when no note selected untranslatable + collect_artifacts
+ Also translate the string for the "Unknown error" case
+Author: Joachim Schmitz <jojo@schmitz-digital.de>
+Origin: vendor, commit:855956e5087ed48b9588444f09a4d5da7ef79b17
+Applied-Upstream: master, commit:742e06641
+
+--- a/libmscore/mscore.cpp
++++ b/libmscore/mscore.cpp
+@@ -421,7 +421,7 @@ const char* MScore::errorMessage()
+             if (e.no == _error)
+                   return e.txt;
+             }
+-      return "unknown error";
++      return QT_TRANSLATE_NOOP("error", "Unknown error");
+       }
+ 
+ //---------------------------------------------------------
+--- a/mscore/musescore.cpp
++++ b/mscore/musescore.cpp
+@@ -1934,7 +1934,7 @@ void MuseScore::showError()
+       static QErrorMessage* msg = 0;
+       if (msg == 0)
+             msg = new QErrorMessage(this);
+-      msg->showMessage(tr(MScore::errorMessage()), MScore::errorGroup());
++      msg->showMessage(qApp->translate("error", MScore::errorMessage()), MScore::errorGroup());
+       MScore::setError(MS_NO_ERROR);
+       }
+ 
+--- a/share/locale/mscore_en_GB.ts
++++ b/share/locale/mscore_en_GB.ts
+@@ -11303,7 +11303,7 @@ failed: %1</translation>
+     <message>
+         <location filename="../../mscore/editstyle.cpp" line="568"/>
+         <source>Square</source>
+-        <translation>Ractangle</translation>
++        <translation>Rectangle</translation>
+     </message>
+     <message>
+         <location filename="../../mscore/editstyle.cpp" line="569"/>

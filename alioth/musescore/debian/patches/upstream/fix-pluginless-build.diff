@@ -1,0 +1,108 @@
+Description: Fix build with disabled plugins
+ and remove the (not functional) Plugins menu from the menu bar
+Author: mirabilos <tg@debian.org>
+Forwarded: https://github.com/musescore/MuseScore/pull/5216
+Applied-Upstream: master, commit:42557833f
+
+--- a/mscore/musescore.cpp
++++ b/mscore/musescore.cpp
+@@ -1691,6 +1691,7 @@ MuseScore::MuseScore()
+       //    Menu Plugins
+       //---------------------
+ 
++#ifdef SCRIPT_INTERFACE
+       menuPlugins = mb->addMenu("");
+       menuPlugins->setObjectName("Plugins");
+ 
+@@ -1701,6 +1702,7 @@ MuseScore::MuseScore()
+       menuPlugins->addAction(a);
+ 
+       menuPlugins->addSeparator();
++#endif
+ 
+       //---------------------
+       //    Menu Debug
+@@ -1849,7 +1851,9 @@ MuseScore::MuseScore()
+       Workspace::addMenuAndString(menuTools, "menu-tools");
+       Workspace::addMenuAndString(menuVoices, "menu-voices");
+       Workspace::addMenuAndString(menuMeasure, "menu-measure");
++#ifdef SCRIPT_INTERFACE
+       Workspace::addMenuAndString(menuPlugins, "menu-plugins");
++#endif
+       Workspace::addMenuAndString(menuHelp, "menu-help");
+       Workspace::addMenuAndString(menuTours, "menu-tours");
+ 
+@@ -2004,7 +2008,9 @@ void MuseScore::setMenuTitles()
+             { menuTools,            tr("&Tools")            },
+             { menuVoices,           tr("&Voices")           },
+             { menuMeasure,          tr("&Measure")          },
++#ifdef SCRIPT_INTERFACE
+             { menuPlugins,          tr("&Plugins")          },
++#endif
+ #ifndef NDEBUG
+             { menuDebug,            "Debug"                 }, // not translated
+ #endif
+@@ -2057,7 +2063,9 @@ void MuseScore::updateMenus()
+       updateMenu(menuTools,       "menu-tools",        "Tools");
+       updateMenu(menuVoices,      "menu-voices",       "");
+       updateMenu(menuMeasure,     "menu-measure",      "");
++#ifdef SCRIPT_INTERFACE
+       updateMenu(menuPlugins,     "menu-plugins",      "Plugins");
++#endif
+       updateMenu(menuHelp,        "menu-help",         "Help");
+       updateMenu(menuTours,       "menu-tours",        "");
+ #ifndef NDEBUG
+@@ -2067,7 +2075,9 @@ void MuseScore::updateMenus()
+       connect(openRecent,     SIGNAL(triggered(QAction*)), SLOT(selectScore(QAction*)));
+       connect(menuWorkspaces, SIGNAL(aboutToShow()),       SLOT(showWorkspaceMenu()));
+       setMenuTitles();
++#ifdef SCRIPT_INTERFACE
+       addPluginMenuEntries();
++#endif
+       }
+       
+ //---------------------------------------------------------
+--- a/mscore/musescore.h
++++ b/mscore/musescore.h
+@@ -358,8 +358,10 @@ class MuseScore : public QMainWindow, pu
+       ScriptEngine* se               { 0 };
+       QString pluginPath;
+ 
++#ifdef SCRIPT_INTERFACE
+       void createMenuEntry(PluginDescription*);
+       void removeMenuEntry(PluginDescription*);
++#endif
+ 
+       QTimer* autoSaveTimer;
+       QList<QAction*> pluginActions;
+@@ -459,7 +461,9 @@ class MuseScore : public QMainWindow, pu
+       bool saveFile(MasterScore* score);
+       void fingeringMenu();
+ 
++#ifdef SCRIPT_INTERFACE
+       int  pluginIdxFromPath(QString pluginPath);
++#endif
+       void startDebugger();
+       void midiinToggled(bool);
+       void undoRedo(bool undo);
+@@ -654,7 +658,9 @@ class MuseScore : public QMainWindow, pu
+       virtual void setCurrentView(int tabIdx, int idx);
+       void loadPlugins();
+       void unloadPlugins();
++#ifdef SCRIPT_INTERFACE
+       void addPluginMenuEntries();
++#endif
+ 
+       ScoreState state() const { return _sstate; }
+       void changeState(ScoreState);
+@@ -824,8 +830,10 @@ class MuseScore : public QMainWindow, pu
+ 
+       TourHandler* tourHandler()       { return _tourHandler; }
+ 
++#ifdef SCRIPT_INTERFACE
+       void registerPlugin(PluginDescription*);
+       void unregisterPlugin(PluginDescription*);
++#endif
+ 
+       Q_INVOKABLE void showStartcenter(bool);
+       void reDisplayDockWidget(QDockWidget* widget, bool visible);

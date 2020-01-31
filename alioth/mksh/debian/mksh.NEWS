@@ -1,0 +1,131 @@
+mksh (56-1) unstable; urgency=medium
+
+  The new /etc/skel/.mkshrc moves selection of the default EDITOR
+  (for when the parameter was not set prior to running it) to near
+  the top, before /etc/mkshrc runs. It contains a user-editable
+  priority list (first match wins) and, newly, defaults to Debian’s
+  sensible-editor (after a previously-set $EDITOR, of course). It
+  is therefore recommended to update from the skeleton file.
+
+  Read the full user’s caveat at: http://www.mirbsd.org/mksh.htm#c56
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 09 Aug 2017 04:34:54 +0200
+
+mksh (55-1) experimental; urgency=low
+
+  User-visible changes to the shell language (R55):
+  - The POSIX declaration utility concept is introduced, which also
+    applies to commands having variable assignments and redirections
+    preceding them. "wait" however does not keep assignments any longer.
+  - The new "\builtin" utility forwards the declaration utility flag
+    exactly like "command" does.
+  - The new "typeset -g" replaces mksh’s previous home-grown "global"
+    builtin, which is now deprecated and *will* be removed from a future
+    version.
+  - Aliases are now expanded for command, function and value substitutions
+    at parse time (like for functions, and excepting ‘`’-style ones).
+  - "typeset -f" output is now alias-resistent and thus more reentrant.
+  - Alias names are now limited to [A-Za-z0-9_!%,@], following POSIX,
+    although a non-leading hyphen-minus is also permitted.
+  - "print -R" is now (correctly) roughly equivalent to POSIX mode echo.
+  - The "let]" hack is gone.
+  - "ulimit -a" output changed to display the associated flag.
+  - $PATHSEP is now pre-defined to ‘:’ (‘;’ on OS/2).
+
+  The delta between mksh and lksh and the deltas between normal, posix
+  and “sh” mode are now properly documented in the manual pages; see
+  README.Debian for which options are enabled in which Debian binaries.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 12 Apr 2017 21:52:27 +0200
+
+mksh (53-1) unstable; urgency=medium
+
+  User-visible changes to the shell language (R53):
+  - Tilde expansion for HOME/PWD/OLDPWD now simplifies the PATH
+  - Rotation operators were renamed from <<< and >>> to ^< and ^>
+  - File descriptors are, once again, sole digits
+
+  These are in preparation for changes planned in R54:
+  - Perl-ish named file descriptors (ksh93-style) are being researched
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 10 Aug 2016 20:40:55 +0200
+
+mksh (52c-2exp2) experimental; urgency=low
+
+  The musl C library is now used for /bin/mksh-static and /bin/lksh
+  as another, i.e. third, alternative, on architectures that have it.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 14 Apr 2016 19:04:08 +0200
+
+mksh (52c-2) unstable; urgency=low
+
+  The /bin/mksh-static binary may now be a symbolic link to
+  a binary placed under /usr – take suitable action if this
+  is a problem for you. In Debian, /bin/mksh should suffice
+  as rescue shell as glibc lives in /lib; for e.g. an initrd,
+  copy the binary straight from the klibc or dietlibc (your
+  choice) bin directory instead. Note that either is only
+  populated if the relevant build succeeded.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 12 Apr 2016 15:21:09 +0200
+
+mksh (50f-1) unstable; urgency=low
+
+  The pdksh transitional package is gone after two full
+  releases – pdksh was last in oldoldoldstable.
+
+  The /bin/mksh binary no longer inspects argv[0] to enable
+  POSIX and kludge modes when called as sh; use mksh-static
+  (as sh and user shell for initrd) or lksh (as /bin/sh on
+  general systems) instead.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 19 Apr 2015 23:08:08 +0200
+
+mksh (50-1) unstable; urgency=medium
+
+  The right-hand side of “nameref” (typeset -n) expressions
+  is now checked for validity. (Although, this is only fixed
+  for positional parameters and other special variables in
+  mksh 50b-1.)
+
+  The “arr=([index]=value)” syntax is gone because of severe
+  bugs in its implementation and regressions in other places.
+  It will eventually be brought back, but not right now. Use
+  of “set -A arr -- [index]=value” has not been historically
+  supported by ksh and will not be brought back in mksh either.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 03 Sep 2014 22:22:44 +0200
+
+mksh (46-2) unstable; urgency=low
+
+  The mksh and mksh-static binaries no longer come with the
+  limited printf(1) builtin which was only added to please
+  a maintainer who likes to use printf while not having
+  /usr/bin in their script PATH. It was added to lksh, which
+  uses more POSIX-like arithmetics but lacks interactive
+  command line editing features (dash does so, too).
+  For this reason it’s recommended to use lksh instead of
+  mksh or mksh-static as /bin/sh (unless you don’t install
+  udev) and keep mksh around for interactive tasks (initrd
+  should still use mksh-static exclusively and just provide
+  printf(1) in /bin instead); lksh is statically linked on
+  platforms providing a libc that supports this use case
+  well and is not glibc/eglibc.
+
+  $ sudo ln -sf lksh /bin/sh
+  is the correct command to use for applying this change.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 22 May 2013 19:25:38 +0000
+
+mksh (40.4-1~bpo50+1) lenny-backports-sloppy; urgency=medium
+
+  The debconf magic for automatically installing /bin/mksh as
+  /bin/sh is gone. If you want to do that, set the symlink in
+  /bin/sh and /usr/share/man/man1/sh.1.gz yourself, as root.
+  Be aware that only the latest mksh versions can safely be
+  used as /bin/sh since in the past after many uploads issues
+  regarding bugs or assumptuous maintainer or init scripts of
+  other packages have been found which need to be addressed
+  by updates of the mksh package.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 17 Dec 2011 21:45:04 +0000

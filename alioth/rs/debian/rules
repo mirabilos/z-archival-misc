@@ -1,0 +1,93 @@
+#!/usr/bin/make -f
+
+ifeq (,$(findstring terse,${DEB_BUILD_OPTIONS}))
+export DH_VERBOSE=1
+export V=1
+export VERBOSE=1
+endif
+
+LC_ALL:=C
+export LC_ALL
+
+DEB_BUILD_ARCH?=$(shell dpkg-architecture -qDEB_BUILD_ARCH)
+DEB_HOST_ARCH?=$(shell dpkg-architecture -qDEB_HOST_ARCH)
+ifneq (${DEB_BUILD_ARCH},${DEB_HOST_ARCH})
+DEB_HOST_GNU_TYPE?=$(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+endif
+
+# is ${CC} defined anywhere (other than implicit rules?)
+ifneq (,$(findstring $(origin CC),default undefined))
+# no - then default to gcc (or cross-gcc)
+ifneq (${DEB_BUILD_ARCH},${DEB_HOST_ARCH})
+CC=			${DEB_HOST_GNU_TYPE}-gcc
+else
+CC=			gcc
+endif
+endif
+
+EXTRA_CFLAGS=		-Wall -Wextra -Wformat
+EXTRA_CPPFLAGS=		-DUSE_LIBBSD
+EXTRA_LDFLAGS=		-Wl,--as-needed
+
+ifneq (,$(wildcard /usr/share/dpkg/buildflags.mk))
+# dpkg-dev (>= 1.16.1~)
+dpkgbuildflagsmkescape=$(subst \,\\\,$(1))
+DEB_CFLAGS_MAINT_APPEND=$(call dpkgbuildflagsmkescape,${EXTRA_CFLAGS})
+DEB_CPPFLAGS_MAINT_APPEND=$(call dpkgbuildflagsmkescape,${EXTRA_CPPFLAGS})
+DEB_LDFLAGS_MAINT_APPEND=$(call dpkgbuildflagsmkescape,${EXTRA_LDFLAGS})
+DEB_BUILD_MAINT_OPTIONS=hardening=+all
+include /usr/share/dpkg/buildflags.mk
+else
+# old-fashioned way to determine build flags
+CFLAGS=			-O$(if $(findstring noopt,${DEB_BUILD_OPTIONS}),0,2) -g
+CFLAGS+=		${EXTRA_CFLAGS}
+CPPFLAGS+=		${EXTRA_CPPFLAGS}
+LDFLAGS+=		${EXTRA_LDFLAGS}
+endif
+
+LDADD+=			-lbsd
+
+build build-arch: rs
+build-indep:
+
+rs:
+	dh_testdir
+	-rm -f rs
+	${CC} ${CPPFLAGS} ${CFLAGS} ${LDFLAGS} -o rs rs.c ${LDADD}
+	test -x rs
+ifeq (,$(filter nocheck,${DEB_BUILD_OPTIONS}))
+	case $$(for i in 1 2 3 4 5 6 7 8 9; do echo $$i; done | \
+	    ./rs 3 3 | md5sum) in \
+	d37c2eb45172c55279711a8e53041912*) echo pass test;; \
+	*) rm -f rs; echo FAIL test;; \
+	esac; test -x rs
+endif
+
+clean:
+	dh_testdir
+	-rm -f rs
+	dh_clean
+
+binary-indep: build-indep
+
+binary-arch: build-arch
+	dh_testdir
+	dh_testroot
+	if test -x "$$(which dh_prep)"; then dh_prep; else dh_clean -k; fi
+	dh_installchangelogs
+	dh_installdocs
+	dh_install
+	dh_installman
+	dh_lintian
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: binary binary-arch binary-indep build build-arch build-indep clean

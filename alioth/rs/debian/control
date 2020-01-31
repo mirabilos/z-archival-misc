@@ -1,0 +1,23 @@
+Source: rs
+Section: utils
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+# possibly works with older libbsd-dev, but haven’t tested how old
+Build-Depends: debhelper (>= 12~), libbsd-dev (>= 0.2.0-1~)
+Standards-Version: 4.3.0
+Rules-Requires-Root: no
+VCS-git: https://evolvis.org/anonscm/git/alioth/rs.git -b master
+VCS-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/rs.git;a=shortlog;h=refs/heads/master
+
+Package: rs
+Architecture: any
+Multi-Arch: foreign
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: reshape a data array
+ rs reads the standard input, interpreting each line as a row of
+ blank-separated entries in an array, transforms the array
+ according to the options, and writes it on the standard output.
+ Numerous options control input, reshaping and output processing;
+ the simplest usage example is "ls -1 | rs", which outputs the
+ same (on an 80-column terminal) as the modern "ls" with no "-1"
+ argument.

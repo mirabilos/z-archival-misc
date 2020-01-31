@@ -1,0 +1,5 @@
+# indeed
+prevent-networkmanager: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-networkmanager: unknown-field-in-control important

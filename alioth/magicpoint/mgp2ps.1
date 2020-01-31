@@ -1,0 +1,122 @@
+.\" Copyright (C) 1997 and 1998 WIDE Project.  All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above copyright
+.\"    notice, this list of conditions and the following disclaimer in the
+.\"    documentation and/or other materials provided with the distribution.
+.\" 3. Neither the name of the project nor the names of its contributors
+.\"    may be used to endorse or promote products derived from this software
+.\"    without specific prior written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS ``AS IS'' AND
+.\" ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+.\" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+.\" ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE
+.\" FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+.\" DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+.\" OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+.\" HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+.\" LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+.\" OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+.\" SUCH DAMAGE.
+.\"
+.Dd July 19, 2019
+.Dt MGP2PS 1
+.Os MagicPoint
+.Sh NAME
+.Nm mgp2ps
+.Nd generate PostScript file from MagicPoint file
+.Sh SYNOPSIS
+.Nm mgp2ps
+.Op Fl cimPrv
+.Op Fl e Ar encoding
+.Op Fl f Ar psfile
+.Op Fl g Ar gaplevel
+.Op Fl p Ar papersize
+.Op Fl x Ar xmargin
+.Op Fl y Ar ymargin
+.Ar mgpfile
+.Sh DESCRIPTION
+.Nm mgp2ps
+is a converter from MagicPoint file
+.Ar mgpfile
+to PostScript file.
+If
+.Fl f
+option is specified, PostScript will be generated to
+.Ar psfile ,
+otherwise, printed to the standard output.
+.Pp
+If a file
+.Nm foo.eps
+corresponding to
+.Nm foo.gif
+(or whatever) exists, the encapsulated PostScript file will be
+included to the PostScript file instead.
+.Pp
+The following options are available:
+.Bl -tag -width indent
+.It Fl c
+Generate color PostScript file (experimental).
+By default
+.Nm
+will generate monochrome postscript file.
+.It Fl e
+Specify encodings. At this moment, "iso-8859-1", "latin1", "iso-8859-2"
+"and latin-2" are supported as encodings.
+.It Fl f Ar psfile
+Pathname to put the PostScript output.
+.It Fl g Ar level
+specify the distance level between lines. If
+.Ar level
+is 0, the result will be close to the result of xft2 rendering. If others,
+it will be close to the result of other rendering engines.
+.It Fl i
+Paint inside icon symbols.
+.It Fl m
+emulate "%pause" directive.
+.It Fl p Ar papersize
+.Ar papersize
+specifies the size of the paper to be used.
+.Li a3 ,
+.Li a4 ,
+.Li a5 ,
+.Li b5 ,
+.Li A3 ,
+.Li A4 ,
+.Li A5 ,
+.Li B5 ,
+.Li letter ,
+.Li legal ,
+.Li ledger ,
+.Li tabloid ,
+.Li statement ,
+.Li executive ,
+.Li folio ,
+.Li quarto and
+.Li 10x14
+are available.
+Default size is
+.Li a4 .
+.It Fl r
+Stack the paper in reverse order.
+.It Fl v
+Be verbose.
+.It Fl x Ar xmargin
+.It Fl y Ar ymargin
+.Ar xmargin
+and
+.Ar ymargin
+specifies length of the margin area around the edge of the paper.
+.El
+.Sh SEE ALSO
+.Xr mgp 1
+.Sh HISTORY
+.Nm mgp2ps
+was created so that Kazu Yamamoto could
+submit his tutorial document to the committee of
+Internet Week '97.

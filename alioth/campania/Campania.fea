@@ -1,0 +1,9 @@
+# Campania
+
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+#languagesystem musc dflt;
+
+include(CampaniaCLASSES.fea);
+include(CampaniaGSUB.fea);
+include(CampaniaGPOS.fea);

@@ -1,0 +1,9 @@
+//Acquire::PDiffs "false";
+//Acquire::http::Pipeline-Depth "0";
+//Acquire::CompressionTypes::Order { "gz"; };
+//Acquire::Languages "en";
+//Dir::Cache::Archives "/var/cache/pbuilder/aptcache";
+debug::pkgproblemresolver "true";
+Dpkg::Progress-Fancy "false";
+APT::Install-Recommends "0";
+APT::Install-Suggests "0";

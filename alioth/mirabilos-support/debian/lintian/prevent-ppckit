@@ -1,0 +1,5 @@
+# indeed
+prevent-ppckit: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-ppckit: unknown-field-in-control important

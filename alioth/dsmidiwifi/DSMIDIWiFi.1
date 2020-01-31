@@ -1,0 +1,74 @@
+.\"-
+.\" Copyright © 2018
+.\"	mirabilos <tg@debian.org>
+.\"
+.\" Provided that these terms and disclaimer and all copyright notices
+.\" are retained or reproduced in an accompanying document, permission
+.\" is granted to deal in this work without restriction, including un‐
+.\" limited rights to use, publicly perform, distribute, sell, modify,
+.\" merge, give away, or sublicence.
+.\"
+.\" This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+.\" the utmost extent permitted by applicable law, neither express nor
+.\" implied; without malicious intent or gross negligence. In no event
+.\" may a licensor, author or contributor be held liable for indirect,
+.\" direct, other damage, loss, or other issues arising in any way out
+.\" of dealing in the work, even if advised of the possibility of such
+.\" damage or existence of a defect, except proven that it results out
+.\" of said person’s immediate fault when using the work as intended.
+.\"-
+.Dd December 2, 2018
+.Dt DSMIDIWIFI 1
+.Os Debian
+.Sh NAME
+.Nm DSMIDIWiFi
+.Nd DSMI over WLAN server
+.Sh SYNOPSIS
+.Nm
+.Ar note
+.Sh DESCRIPTION
+.Nm
+is a Qt application that serves as the server side of a DSMI
+.Pq Nintendo\(rg DS MIDI
+over WLAN session.
+Once started, it initialises the connections between UDP and
+ALSA MIDI, then will simply show a GUI application window with
+a logo but no interactivity; closing the window will terminate
+the server.
+.Pp
+.Nm
+uses the UDP ports 9000 and 9001 for broadcast communication
+with a Nintendo\(rg DS or another device / application using
+the DSMI interface.
+If the ports cannot be bound or ALSA MIDI cannot be initialised,
+an error dialogue is shown, and the program should be terminated.
+.Pp
+The mandatory argument
+.Ar note
+gives the MIDI note that A4 (440 Hz) is supposed to be mapped to.
+The standard requires this to be note 69, but some applications are
+octave-confused and might require 57 (Piano For You on Android) or
+81 (TouchDAW ibidem), or even weirder values.
+.Sh DIAGNOSTICS
+Some diagnostics are written to stdout.
+.Sh SEE ALSO
+.Xr amidi 1 ,
+.Xr musescore 1
+.Bl -tag -width Ds
+.It Pa http://dsmi.tobw.net/
+Homepage
+.It Pa http://doc.qt.io/qt-5/qguiapplication.html#supported\-command\-line\-options
+Documentation of automatic Qt command line options
+.El
+.Pp
+Some Android and iPhone apps implement DSMI and can talk to this server.
+.Sh AUTHORS
+.An -nosplit
+.Nm
+was written by
+.An Tobias Weyand Aq me@dsmi.tobw.net ;
+this manual page was written by
+.An mirabilos Aq tg@debian.org
+for the Debian project but may be used by others.
+.Sh BUGS
+Probably.

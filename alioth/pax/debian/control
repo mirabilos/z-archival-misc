@@ -1,0 +1,37 @@
+Source: pax
+Section: utils
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Homepage: http://www.mirbsd.org/pax.htm
+Build-Depends: debhelper (>= 12~)
+Standards-Version: 4.4.0
+Rules-Requires-Root: no
+VCS-git: https://evolvis.org/anonscm/git/alioth/pax.git -b master
+VCS-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/pax.git;a=shortlog;h=refs/heads/master
+
+Package: pax
+Architecture: any
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Enhances: arj, binutils, cpio, dpkg, gzip, lha, libarchive-tools,
+ p7zip, rar, star, tar, unrar, unzip, zip
+Description: Portable Archive Interchange (cpio, pax, tar)
+ paxtar is an implementation of an archiving utility that reads
+ and writes several formats - traditional ones, the extended
+ formats specified in IEEE 1003.1, and the ar(5) format used
+ by deb(5) packages (MirBSD specific paxtar extension). The
+ pax interface was designed by IEEE 1003.2 as a compromise in
+ the chronic controversy over which of tar or cpio is best, but
+ this implementation offers paxcpio and paxtar for easy calling.
+ .
+ This is the MirBSD paxtar implementation supporting the formats
+ ar, bcpio, cpio, SVR4 cpio with and without CRC, old tar, and
+ ustar, but not the format known as pax yet. It has extensions
+ for removing non-numerical user and group IDs from the archive,
+ storing hardlinked files only once, setting ownership to the
+ superuser, anonymising inode and device information, changing
+ the mtime to zero, and producing GNU tar compatible trailing
+ slashes on ustar directory nodes. Its "ar" format is suitable
+ for operating on *.deb files, unlike that of GNU binutils.
+ .
+ Note that ACLs and Extended Attributes are not supported.

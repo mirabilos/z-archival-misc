@@ -1,0 +1,116 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+               MagicPoint - an X11 based presentation tool
+
+                            September 9, 2003
+                             26th July 2019
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+MagicPoint is an X11 based presentation tool.  It is designed to make
+simple presentations easy while to make complicated presentations
+possible.  Its presentation file (whose suffix is typically .mgp) is
+just text so that you can create presentation files quickly with your
+favorite editor (e.g. Emacs).
+
+MagicPoint is completely free but absolutely no warranty. For more
+information, please refer to LICENCE.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                              INSTALLATION
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+You’ll need the following prerequisites to build MagicPoint:
+
+• a POSIX or Korn shell, GNU bash, zsh in “emulate sh” mode;
+  some somewhat decent Bourne shell will also do if needed
+• a lexical analyser generator (flex)
+• a parser generator, usually yacc, but GNU bison will do
+• a C compiler, linker, standard c and m library
+• make (BSD, GNU or other)
+• a way to create static .a archives (ar+ranlib)
+• pkg-config
+• X11 development headers and libraries (libX11 libXmu libXt libXtst)
+• Imlib2
+• Xft2
+• libbsd, if building on GNU
+• optionally, libiconv, libutil
+
+Follow the steps below to make MagicPoint:
+
+	% mkdir obj				# out-of-tree build recommended
+	% cd obj
+	% sh ../Build.sh			# should be POSIX/Korn shell
+	% make -j4				# parallel make supported
+	% sudo make install			# DESTDIR supported
+
+By default, this will use the pkg-config files for imlib2, libbsd-overlay,
+xft; use the -P flag if you wish to change this.
+
+Note: if you have to use a non-standard compiler, you must declare
+      your compiler by using "env" command, like:
+
+	% env CC=gcc sh ../Build.sh		# force gcc
+	% env CC=shlicc2 sh ../Build.sh		# force shlicc2 (bsdi3)
+
+Note 2: the configuring process is loud, but as long as Build.sh ends
+	with “You can now use make(1) to compile MagicPoint.” it’s ok.
+	If your OS was not yet known please report to the developer to
+	get it added.
+
+Note 3: if you need to change CC, CPPFLAGS, CFLAGS, LDFLAGS, LIBS, …
+	pass them to Build.sh in the environment, do *not* override
+	them at the make stage; you *can* override SH (sh), AR (ar),
+	AR_CREATE (${AR} cq), RANLIB (ranlib), LEX (flex), YACC (yacc)
+	if needed for your system and/or cross-compiling.
+
+Note 4: for paths, you can override SYSCONFDIR, PREFIX, BINDIR, … in
+	the make run, but keep them consistent between make all and
+	make install; also, PERL is used during build for shebang;
+	for installing, check INSTALL_STRIP and modes in Makefile.
+
+Note 5: packagers can override mgpversion during build if desired.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+It's a good idea to preview sample files before installation. For more
+information, see "sample/README" or "sample/README.jp", which
+describes how to install TrueType fonts.
+
+To visualise the sample{,-jp}.mgp file, type:
+
+	% ./mgp ../sample/sample.mgp
+	% ./mgp ../sample/sample-jp.mgp
+
+To visualise the tutorial{,-jp}.mgp file, type:
+
+	% ./mgp ../sample/tutorial.mgp
+	% ./mgp ../sample/tutorial-jp.mgp
+
+WE STRONGLY RECOMMEND TO BUY TRUETYPE FONTS IF YOU WANT TO GIVE YOUR
+PRESENTATION WITH BEAUTIFUL FONTS.
+
+If you want to paste EPS figures into your presentation, you will need
+to install "ghostscript" or "alike".
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                              FOR MORE INFO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Homepage for this MagicPoint fork/continuation, with downloads, is:
+	http://www.mirbsd.org/mgp.htm
+
+Official home page of the original MagicPoint is:
+	http://member.wide.ad.jp/wg/mgp/
+
+Stable release packages of that are available from:
+	ftp://sh.wide.ad.jp/WIDE/free-ware/mgp/
+
+To join the mailing-list for the original MagicPoint, See:
+	http://member.wide.ad.jp/wg/mgp/ml.html
+	http://member.wide.ad.jp/wg/mgp/ml-jp.html (in Japanese)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

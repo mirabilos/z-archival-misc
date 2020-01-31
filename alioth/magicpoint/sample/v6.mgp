@@ -1,0 +1,84 @@
+%include "default.mgp"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 7, font "standard", fore "white", vgap 20, center
+
+
+
+Overview of IPv6
+and
+Recent Activities on 6bone
+
+
+
+%size 4
+IIJ Research Laboratory
+Kazu YAMAMOTO
+kazu@iijlab.net
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Why IPng?
+
+	Preventing expansion of routing table
+		One class B for one site
+	Exhaustion of class B
+		Assignment of multiple class Ces
+	Expansion of routing table
+		Inventing CIDR
+	Nonetheless, the Internet is growing
+		Exhaustion of entire IPv4 address space
+%fore "yellow"
+	Need IP with huge address space
+%fore "white"
+		IPng or IP next generation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Features of IPv6
+
+	Enlarging address
+		2^32 = 43 million -> 2^128 = 3.4 x 10^38
+	Simplifying IP header
+		Deleting Header Length, TOS, Offset
+	Header Daiy Chain
+		Kicking out rare options (e.g. fragment)
+		Defining flexible options
+	Plug and Play
+		Obtain default routes and prefixes
+	Security
+		IPsec is a MUST
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+IPv6 header
+
+%center, size 2
+%% the EPS throws errors in Ghostscript nowadays :(
+%%image "v6header.eps" 800x600
+%image "v6header.jpg" 800x600
+
+%leftfill
+		4 times for address length, twice of header length
+		Options are implemented by extension headers
+		Maximum Hop Limit is 255
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+Duplicate Address Detection
+
+%center, size 2
+%image "dad.eps" 800x600
+%%image "dad.jpg" 800x600
+
+%leftfill
+	Sending Neighbor Solicitation Message
+		Dst is Solicitation Multicast Address
+		Src is Unspecified Address (::)
+		Target is my tentative address
+	When conflicted
+		Announce the duplication by Neighbor Solicitation
+		Dst is Link-Local All Node Multicast

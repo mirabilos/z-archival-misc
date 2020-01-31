@@ -1,0 +1,279 @@
+pax (1:20190825-1) unstable; urgency=low
+
+  * New upstream release
+    - small portability improvements
+    - fix segfault if realpath(2) does not take a NULL second argument
+  * Modernise packaging
+  * Bump Policy, with no changes required
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 13 Sep 2019 14:11:11 +0200
+
+pax (1:20190224-1) unstable; urgency=high
+
+  * New upstream release
+    - ported to MidnightBSD and (current — see #923067) GNU/kFreeBSD
+    - adds workarounds for older glibc versions
+    - deprecates some old MirCPIO-specific unflexible extensions
+    - fixes FTBFS when uid_from_user() is available, and when
+      fchmodat() and lchmod() are not available
+    - fixes segfaults trying to select some archive formats
+    - unbreaks -M uidgid
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 24 Feb 2019 03:25:32 +0100
+
+pax (1:20190210-1) unstable; urgency=high
+
+  * The “should also fix GNU/kFreeBSD FTBFS” upload
+    ‣ I’ve tested this on the hurd-i386 porterbox but could not find
+      any kfreebsd porterbox ☹
+  * New upstream release
+    - based on latest OpenBSD and MirBSD CVS
+    - completely redone portability and build system
+    - fixes FTBFS on Debian GNU/kFreeBSD as well ☺
+  * Update d/copyright
+  * Completely revamped packaging
+    - Policy 4.3.0
+  * Update Enhances targets (Closes: #917426)
+  * Drop now-fixed glibc bug (#317466) from description
+  * Update (and remove old) lintian overrides
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 10 Feb 2019 23:46:34 +0100
+
+pax (1:20171021-3) unstable; urgency=low
+
+  [ Jonathan de Boyne Pollard ]
+  * Fix timestamp setting (#890810)
+
+  [ Thorsten Glaser ]
+  * Policy 4.2.1.5
+    - R³: no
+    - terse build option
+  * Use Linux libc5 <sys/sysmacros.h> also for glibc 2.28+ (Closes: #916017)
+  * Quell a compiler warnung about restrict qualifier in sigaction use
+    (passing a NULL third argument, when not interested in the result)
+  * Update lintian overrides
+  * Add UMEGAYA metadata
+  * Handle deferred symlinks correctly (Closes: #890810)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 12 Dec 2018 00:19:19 +0100
+
+pax (1:20171021-2) unstable; urgency=low
+
+  * Policy 4.1.3 (no changes)
+  * Debhelper 11, prompted by lintian…
+  * Update VCS-* to new repository caused by Alioth deprecation
+  * Use ?= for dpkg-architecture output, thanks lintian
+  * Update lintian overrides
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 05 Jan 2018 20:22:38 +0100
+
+pax (1:20171021-1) unstable; urgency=medium
+
+  * New upstream release
+    - (Closes: #878512) (Closes: #878642) (Closes: #878645)
+    - fixes some error messages
+    - let lzip have .lz and .tlz extensions (thanks Antonio)
+    - exit nonzero if the compression subprocess fails
+  * Bump Policy (no changes)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 21 Oct 2017 21:55:55 +0200
+
+pax (1:20161104-2) unstable; urgency=low
+
+  * Make cross-buildable (Closes: #842849)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 08 Nov 2016 23:33:12 +0000
+
+pax (1:20161104-1) unstable; urgency=high
+
+  * Fix bug in 1:20161031-1 that prevented several use cases by
+    segfaulting; spotted by Han Boetes (thanks!)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 04 Nov 2016 21:20:35 +0100
+
+pax (1:20161031-1) unstable; urgency=high
+
+  * New upstream version (CVE-2016-6321)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 31 Oct 2016 17:42:24 +0100
+
+pax (1:20161025-1) unstable; urgency=low
+
+  * New upstream version
+  * Bump debhelper compat; Policy (no changes needed)
+  * Fix VCS URIs
+  * Work around /usr/share/dpkg/buildflags.mk not quoting properly
+  * Correct lintian overrides, we do have a Homepage now
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 25 Oct 2016 22:33:42 +0200
+
+pax (1:20160306-1) unstable; urgency=high
+
+  * New upstream version
+    - addresses CVE-2015-1193 and CVE-2015-1194 (Closes: #774716)
+  * Retake active maintainership with sponsors (Closes: #764402)
+  * Update tables.c from CVS incorporating lintian spelling fixes
+  * Bump S-V (no changes); add Homepage; SSL URIs for VCS (lintian)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 06 Mar 2016 22:08:00 +0100
+
+pax (1:20151013-1) unstable; urgency=low
+
+  * QA upload.
+  * New upstream version
+    - document more known issues
+    - make list output line-buffered
+  * Use more current debhelper compat and techniques
+  * No longer try link-time optimisation as it’s constantly broken
+  * Unbreak x32 build
+  * Update lintian overrides
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 13 Oct 2015 23:12:39 +0200
+
+pax (1:20140703-2) unstable; urgency=low
+
+  * QA upload.
+  * Revert to a more standard Debian packaging style
+  * Bump to Policy 3.9.6 while here
+  * Orphan the package.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 07 Oct 2014 18:09:21 +0000
+
+pax (1:20140703-1) unstable; urgency=medium
+
+  * Merge 1:20120606-2+deb7u1 upload
+  * debian/control: Move VCS-* fields to Alioth collab-maint git
+  * Remove now-useless RCS IDs
+  * Bump Policy to 3.9.5 (no changes needed)
+  * Revert intrusive, troubling packaging changes from experimental
+  * New upstream version, upload to unstable
+  * Address lintian’s concerns
+  * Plug some GCC fortify warnings
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 03 Jul 2014 23:23:33 +0200
+
+pax (1:20120606-3) experimental; urgency=low
+
+  * “Our littlest” upload
+  * Policy 3.9.4.0, with no relevant changes
+  * Drop temporary B-C for fakeroot on hurd again
+  * debian/watch: mangle the epoch away so DDPO is green again
+  * Completely rewrite packaging using debhelper (Closes: #690381)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 26 Nov 2012 17:01:37 +0000
+
+pax (1:20120606-2+deb7u1) unstable; urgency=low
+
+  * The “I know how that feels, porting” upload
+  * Apparently, x32 did the right thing and uses a 64-bit off_t
+    by default as the BSDs do, even if its long is shorter; it’s
+    the first Linux architecture to do so ⇒ needs an extra check
+  * Upload to unstable, so the x32 porting can go on; it doesn’t
+    need to migrate to wheezy in itself but this change shouldn’t
+    prevent an eventual 1:20120606-2+deb7u2 from migrating either
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 26 Jan 2013 17:04:17 +0000
+
+pax (1:20120606-2) unstable; urgency=low
+
+  * Fix permissions, timestamps, and shuffle dh_* around
+  * Switch to 3.0 (quilt)
+  * Temporarily add a versioned B-C for fakeroot on hurd (#676428)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 07 Jun 2012 00:37:12 +0000
+
+pax (1:20120606-1) unstable; urgency=low
+
+  * The “How the … did I get sore s̲h̲o̲u̲l̲d̲e̲r̲ muscles from football?” upload
+  * Update to new upstream version:
+    - oops, fix tty_init rewrito
+  * This fixes FTBFS
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 06 Jun 2012 00:49:57 +0200
+
+pax (1:20120605-1) unstable; urgency=low
+
+  * The “Sport ist Mord” upload
+  * Update to new upstream version:
+    - merge fixes from OpenBSD
+    - improve portability
+    - remove use of stdio in favour of syscalls in some places
+    - mention nōn-support (TOOD) of pax file format in manpages
+  * Drop lintian overrides
+    - false positive is resolved
+    - we don’t really care about no-homepage and no-upstream-changelog
+  * Build-Depends less package! Thanks to “goodbye” sample package!
+  * Aid cross-compiling by setting ${CC} to something useful
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 05 Jun 2012 21:23:06 +0000
+
+pax (1:20120520-1) unstable; urgency=low
+
+  * New upstream version
+    - paxtar front-end got a new 'a' option for compression
+      utility auto-detection, based on archive filename
+    - includes options.c change (drop Debian patch)
+  * Mention member size limitations on !kfreebsd !LP64 platforms
+    due to an eglibc bug (#317466)
+  * Override lintian false-positive "hardening-no-stackprotector"
+  * Add overrides for "yes, not an omission, there are none"
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 20 May 2012 18:05:19 +0000
+
+pax (1:20120216-2) unstable; urgency=low
+
+  * Update options.c to version from CVS to ensure the order of
+    command line arguments in the cpio front-end more tightly,
+    to prevent creating archives in the wrong format accidentally
+  * Link with --as-needed (not enough to workaround #650145 though ☹)
+  * Policy 3.9.3 (no changes)
+  * Mention non-support of ACLs/EAs in the long description
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 27 Feb 2012 22:37:12 +0000
+
+pax (1:20120216-1) unstable; urgency=low
+
+  * Debian GNU/kFreeBSD uses 64-bit off_t line FreeBSD®, unlike GNU
+  * Implement GNU cpio ‘-V’ option
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 16 Feb 2012 18:01:39 +0000
+
+pax (1:20120212-1) unstable; urgency=low
+
+  * Brown paper bag: pasto in one of the manpages, and work around a
+    GNU groff deficiency in another
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 12 Feb 2012 03:03:15 +0000
+
+pax (1:20120211-1) unstable; urgency=low
+
+  * Take over maintainership of the pax package in Debian from
+    Bdale Garbee (thanks) and replace it with the MirBSD variant
+    also providing paxcpio/paxtar (Closes: #42158) (Closes: #539353)
+  * debian/rules: cleanup (remove dh_installdirs, add back dh_clean)
+  * debian/rules: modernise; use fully hardened dpkg-buildflags
+  * debian/control: rework package description
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 12 Feb 2012 02:10:40 +0000
+
+mircpio (20110817-0wtf2) wtf; urgency=low
+
+  * New upstream release, many new features
+    - build from formal release, not CVS export
+  * Update packaging to current standards, still works with etch
+  * Link against libbsd (backport) instead of duplicating code
+  * Move to Policy 3.9.2 (no relevant changes)
+  * Add RCS IDs, VCS-* headers, misc:Depends
+  * Patch manpages to honour the binary præfix (pax→mirpax, etc.)
+  * Enhance package description, mention distinguishing features
+  * paxmirabilis can do Multi-Arch: foreign as requested by vorlon
+  * Add Origin and Bugs headers
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 17 Aug 2011 10:55:08 +0000
+
+mircpio (20080906-1) experimental; urgency=low
+
+  * Initial release
+  * Adjust manpages to cope with GNU groff’s inferiorities
+
+ -- Thorsten Glaser <tg@freewrt.org>  Sun, 07 Sep 2008 01:00:10 +0000

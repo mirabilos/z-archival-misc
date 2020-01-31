@@ -1,0 +1,14 @@
+# there is no separate homepage for this package
+rs source: no-homepage-field
+
+# no, thank you, but, no!
+rs source: no-dep5-copyright
+
+# no, there’s no such thing
+rs source: debian-watch-does-not-check-gpg-signature
+
+# there’s none either
+rs source: testsuite-autopkgtest-missing
+
+# cannot use https due to OpenSSL maintainer disabling TLSv1.0
+rs source: debian-watch-uses-insecure-uri http://www.mirbsd.org/MirOS/dist/mir/rs/

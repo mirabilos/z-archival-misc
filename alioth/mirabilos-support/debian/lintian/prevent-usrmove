@@ -1,0 +1,5 @@
+# indeed
+prevent-usrmove: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+prevent-usrmove: unknown-field-in-control important

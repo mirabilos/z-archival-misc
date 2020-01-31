@@ -1,0 +1,90 @@
+#!/usr/bin/make -f
+
+ifeq (,$(findstring terse,${DEB_BUILD_OPTIONS}))
+export DH_VERBOSE=1
+export V=1
+export VERBOSE=1
+endif
+
+LC_ALL:=C
+export LC_ALL
+
+KDE_VER=5
+
+shellescape='$(subst ','\'',$(1))'
+shellexport=$(1)=$(call shellescape,${$(1)})
+
+CC?=			gcc
+CXX?=			g++
+EXTRA_CFLAGS=		-Wall
+EXTRA_CXXFLAGS=		-Wall
+EXTRA_LDFLAGS=		-Wl,--as-needed
+
+ifneq (,$(wildcard /usr/share/dpkg/buildflags.mk))
+# dpkg-dev (>= 1.16.1~)
+DEB_CFLAGS_MAINT_APPEND=${EXTRA_CFLAGS}
+DEB_CXXFLAGS_MAINT_APPEND=${EXTRA_CXXFLAGS}
+DEB_LDFLAGS_MAINT_APPEND=${EXTRA_LDFLAGS}
+ifeq (5,${KDE_VER})
+# recent Qt5 builds require the application to be built as PIC
+DEB_BUILD_MAINT_OPTIONS=hardening=+all,-pie
+DEB_CPPFLAGS_MAINT_APPEND+=-DPIC
+DEB_CFLAGS_MAINT_APPEND+=-fPIC
+DEB_CXXFLAGS_MAINT_APPEND+=-fPIC
+DEB_LDFLAGS_MAINT_APPEND+=-fPIC
+else
+DEB_BUILD_MAINT_OPTIONS=hardening=+all
+endif
+include /usr/share/dpkg/buildflags.mk
+else
+# old-fashioned way to determine build flags
+CFLAGS=			-O$(if $(findstring noopt,${DEB_BUILD_OPTIONS}),0,2) -g
+CXXFLAGS=		-O$(if $(findstring noopt,${DEB_BUILD_OPTIONS}),0,2) -g
+CFLAGS+=		${EXTRA_CFLAGS}
+CXXFLAGS+=		${EXTRA_CXXFLAGS}
+LDFLAGS+=		${EXTRA_LDFLAGS}
+endif
+
+MAKE_INVOCATION=	${MAKE} -f GNUmakefile KDE_VER=${KDE_VER} INSTALL_STRIP=
+
+build build-arch: .build_done
+build-indep:
+
+.build_done:
+	dh_testdir
+	$(foreach i,CC CXX CPPFLAGS CFLAGS CXXFLAGS LDFLAGS,$(call shellexport,$i)); \
+	    export CC CXX CPPFLAGS CFLAGS CXXFLAGS LDFLAGS; \
+	    exec ${MAKE_INVOCATION}
+	@:>$@
+
+clean:
+	dh_testdir
+	${MAKE_INVOCATION} clean
+	-rm -f .build_done debian/copyright
+	cat debian/copyright.hdr LICENCE >debian/copyright
+	dh_clean
+
+binary-indep: build-indep
+
+binary-arch: build-arch
+	dh_testdir
+	dh_testroot
+	if test -x "$$(which dh_prep)"; then dh_prep; else dh_clean -k; fi
+	dh_installdirs
+	${MAKE_INVOCATION} DESTDIR="$$(pwd)/debian/kwalletcli" install
+	dh_installchangelogs
+	dh_installdocs
+	mkdir -p debian/kwalletcli/usr/share/lintian/overrides
+	cp -a debian/lintian-bp \
+	    debian/kwalletcli/usr/share/lintian/overrides/kwalletcli
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: binary binary-arch binary-indep build build-arch build-indep clean

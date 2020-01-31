@@ -1,0 +1,5 @@
+# no, thanks
+early-rng-init-tools source: no-dep5-copyright
+
+# no tests exist
+early-rng-init-tools source: testsuite-autopkgtest-missing

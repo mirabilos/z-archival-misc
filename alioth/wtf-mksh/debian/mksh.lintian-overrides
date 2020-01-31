@@ -1,0 +1,17 @@
+# deliberate, and detailed in README.Debian, and same as mksh-static
+mksh: statically-linked-binary bin/lksh
+
+# deliberate, and detailed in README.Debian, choices for mksh-static
+mksh: statically-linked-binary usr/lib/*
+
+# see musl.lintian-overrides for the rationale
+mksh: triplet-dir-and-architecture-mismatch
+
+# false positive (“test a -ot b”)
+mksh: spelling-error-in-manpage usr/share/man/man1/mksh.1.gz ot to
+
+# false positive, presence is tested
+mksh: missing-depends-on-sensible-utils
+
+# deliberate and correct
+mksh: bugs-field-does-not-refer-to-debian-infrastructure

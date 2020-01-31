@@ -1,0 +1,426 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% You will need the relevant fonts installed.
+%%
+%deffont "thick" xfont "helvetica-bold-r", xfont "Kochi Gothic" "jisx0208.1983"
+%deffont "standard" xfont "helvetica-medium-r", xfont "Kochi Gothic" "jisx0208.1983"
+%deffont "typewriter" xfont "courier-medium-r", xfont "Kochi Gothic" "jisx0208.1983"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Default settings per each line numbers.
+%%
+%default 1 area 90 90, leftfill, size 2, fore "gray20", back "white", font "standard", hgap 0
+%default 2 size 5, hgap 20, vgap 10, prefix " ", ccolor "black"
+%default 3 size 2, hgap 10, bar "gray70", vgap 10
+%default 4 size 4, hgap 10, fore "gray20", vgap 30, prefix " ", font "standard"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Default settings that are applied to TAB-indented lines.
+%%
+%tab 1 size 4, vgap 40, prefix "  ", icon box "green" 50
+%tab 2 size 3.5, vgap 40, prefix "      ", icon arc "yellow" 50
+%tab 3 size 3, vgap 40, prefix "            ", icon delta3 "white" 40
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%nodefault
+%size 6.5, font "standard", back "white", ccolor "black"
+
+
+
+
+
+%center, fore "Blue", font "standard", hgap 60, size 6.5
+MAGIC POINT
+%bar "skyblue" 6 15 70
+%font "standard", hgap 0, size 4.5
+
+
+
+%fore "darkblue"
+西田佳史 Yoshifumi Nishida
+%size 4
+nishida@csl.sony.co.jp
+
+%size 3.5, fore "black", hgap 20
+SPC キーを押して下さい
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 256 0 0 "white" "blue"
+
+使い方
+
+
+	１ページ進む
+		左ボタン
+		SPC
+	１ページ戻る
+		右ボタン
+		DEL
+	MagicPoint を終了する
+		q
+
+%size 4.5, fore "yellow"
+    それでは特徴をみていきましょう
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 256 0 0 "white" "blue"
+
+ウインドウ
+
+
+	通常は全画面を使います
+	画面の大きさを自動判定して表示できます
+
+%size 5, fore "yellow", font "typewriter"
+         mgp -o -g 400x300 sample-jp.mgp
+
+%font "standard", fore "gray20", size 5
+        の様に大きさの指定もできます
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 256 0 0 "white" "blue"
+
+表示位置制御
+
+
+%area 40 80 5 20
+	表示の位置を制御できます
+
+%fore "red"
+%center
+センタリング
+
+%left
+左寄せ
+
+%right
+右寄せ
+%area 40 80 50 20, leftfill, fore "black"
+	表示範囲を指定することで、2カラムにすることもできます
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+%bgrad 0 0 256 0 0 "white" "blue"
+
+文字の大きさと色
+
+
+	さまざまな大きさの文字を表示できます
+
+%SIZE 5
+%CENTER
+%SIZE 10,FORE "orange"
+本日は晴天なり
+%SIZE 7,FORE "gray"
+本日は晴天なり
+%SIZE 5,FORE "blue"
+本日は晴天なり
+%SIZE 4,FORE "yellow"
+本日は晴天なり
+%SIZE 3,FORE "green"
+本日は晴天なり
+%SIZE 2,FORE "red"
+本日は晴天なり
+%SIZE 1,FORE "pink"
+本日は晴天なり
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 256 90 0 "red" "white"
+
+フォント
+
+
+	さまざまなフォントが指定できます
+
+%size 6, fore "blue", center
+%font "standard"
+これは明朝
+%font "thick"
+これはゴシック
+%size 6
+%font "standard"
+This is Standard
+%font "thick"
+This is Thick
+%font "typewriter"
+This is Typewriter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 256 90 0 "red" "white"
+
+行内での属性変更
+
+
+	行の途中でも属性を変えられます
+
+%size 6, fore "blue", center
+私の名前は
+%cont, fore "green", font "thick", size 8
+西田
+%cont, fore "red", font "typewriter", size 4
+です
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+
+行の折り曲げ
+
+
+	こんなふうにとても長い行もきちんと折り曲げて表示しています。ソースコード中ではここは1行として書かれています
+		ここが次の行です。段が深くてもほら大丈夫。\
+UNIXというくらいで、ソースの行はバックスラッシュで連結できます
+
+	A quick brown fox jumps over the lazy dog.  A quick brown fox jumps over the lazy dog.
+		行末禁則(「。」とかを行頭にださない)してます。ウインドウの幅をかえてみてね
+		英語は単語単位で改行します
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+画像
+
+
+	イメージ・ファイルを表示できます
+
+%CENTER
+%IMAGE "cloud.jpg"
+
+これは草刈千晶さんの作品です
+ありがとう
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+対応している画像
+
+
+	(多分)表示可能なイメージ・フォーマットは以下の通りです
+%CENTER,SIZE 3,FORE "red", xfont "times-medium-r"
+  FBM Image
+  Sun Rasterfile
+  CMU WM Raster
+  Portable Bit Map (PBM, PGM, PPM)
+  Faces Project
+  Utah RLE Image
+  JFIF-style JPEG Image
+  X Window Dump
+  McIDAS areafile
+  G3 FAX Image
+  PC Paintbrush Image
+  GEM Bit Image
+  MacPaint Image
+  X Pixmap, Bitmap
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+画像の拡大と縮小
+
+
+	横を1.5倍、縦を1/3した場合
+
+%center, image "cloud.jpg" 0 150 33 1
+
+
+%leftfill
+	横を画面の幅の50%、縦を画面の幅の30%にした場合
+
+%center, image "cloud.jpg" 0 50 30 0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+画像の減色
+
+
+	256色→16色→4色→2色に減色した場合
+
+
+%left, image "cloud.jpg" 256 40 40 1, cont
+%image "cloud.jpg" 16 40 40 1, cont
+%image "cloud.jpg" 4 40 40 1, cont
+%image "cloud.jpg" 2 40 40 1, cont
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+こんなことも...
+
+
+
+%CENTER
+%SHRINK
+%FORE "red", size 5
+本日は晴天なり
+
+%rcutin, FORE "blue"
+本日は晴天なり
+
+%lcutin, fore "green"
+本日は晴天なり
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+一行ずつ表示
+
+
+	SPC を 2 回押して下さい
+
+%size 5, center, fore "red"
+   本日は晴天なり
+%pause, fore "blue"
+   本日は晴天なり
+%pause, fore "green"
+   本日は晴天なり
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+アニメーション
+
+
+	SPC を押して下さい
+
+%center, fore "white"
+%mark, image "mgp-old1.jpg"
+
+%pause, again, mark, image "mgp-old2.jpg"
+
+%again, mark, image "mgp-old3.jpg"
+
+%again, mark, image "mgp-old2.jpg"
+
+%again, mark, image "mgp-old1.jpg"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+コマンドの出力
+
+
+	子プロセスの結果を表示できます
+
+		% ls -l /kernel /bsd
+%size 3, prefix "     "
+%filter "ls -l /kernel /bsd"
+%endfilter
+
+		% echo this is test | rev
+%filter "rev"
+this is test
+%endfilter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+サブプロセスの起動
+
+
+%system "xeyes -geometry %50x15+25+80"
+	xanimを呼んでプレゼンに動画を貼ろう!
+		１行の命令は同時に１プロセスしか起動しません
+		(そのページを再度表示しても安心です)
+		プレゼン画面に対する相対値でgeometryを指定できます
+
+		ページを移るとxeyesは死にます
+		(殺さない設定もできます)
+
+%leftfill, size 3
+MagicPoint を "-g" オプション付きで起動している場合は、次のページにいくためにクリックして下さい。SPC が効かない場合があります
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+
+サブプロセスの張りつけ
+
+
+	サブプロセスをウインドウに張りつけられます
+
+%xsystem "xeyes -geometry %50x10+25+60"
+
+
+	センタリングも一応できます
+
+%center
+%xsystem "xclock -geometry %30x30+25+60 -update 1 -bg white -fg blue -hands green"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% %PAGE
+%%%
+%%% コマンドの出力 - あわせわざ
+%%%
+%%% 	動的にグラフを生成します
+%%%
+%%% %filter "gnuplot"
+%%% set output "/tmp/hoge.pbm"
+%%% set term pbm
+%%% plot sin(x)
+%%% %endfilter
+%%% %system "xv -geometry %50x50+25+40 /tmp/hoge.pbm"
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+%bgrad 0 0 256 0 0 "skyblue" "white"
+
+その他の機能
+
+
+	画像を tab コマンドに指定できます
+	箇条書き用アイコン(
+%cont
+%icon box "green" 50
+%icon arc "green" 50
+%icon delta1 "green" 50
+%icon delta2 "green" 50
+%icon delta3 "green" 50
+%icon delta4 "green" 50
+%icon dia "green" 50
+)が描けます
+	属性が混ざったテキストも正しくセンタリングできます
+
+%center, size 5
+私の名前は
+%cont, fore "green", font "thick", size 10
+西田
+%cont, fore "red", font "typewriter", size 4
+です
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+%bgrad 0 0 256 0 0 "skyblue" "white"
+%pcache 1 1 0 0
+
+先読み機能
+
+
+	１ページ先の内容をキャッシュします
+	２つの指定方法があります
+%fore "red"
+		-F
+%cont, fore "gray20"
+ option を使う
+		"
+%cont, fore "red"
+pcache
+%cont, fore "gray20"
+" コマンドを使う
+
+	キャッシュ機能により描画処理が高速になります
+		SPCキーを押して下さい
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+%bgrad 0 0 256 0 0 "skyblue" "white"
+%pcache 1 1 1 30
+
+先読み機能の特殊効果
+
+
+	先読み機能には特殊機能が指定できます
+	SPCを押すと特殊効果の例を楽しめます
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+%bgrad 0 0 256 0 0 "skyblue" "white"
+%pcache 0
+
+おしまい
+
+
+    アップデートなどの情報は
+%font "typewriter"
+       http://member.wide.ad.jp/wg/mgp/
+%font "standard"
+    に掲示されますので御覧ください
+
+    コメントがあれば
+%font "typewriter"
+        mgp-users-jp@Mew.org
+%font "standard"
+    まで送って下さい

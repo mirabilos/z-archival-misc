@@ -1,0 +1,288 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		 How to make .mgp files (cheat sheet)
+
+		      Kazu Yamamoto (with Chaki)
+
+			    March 14, 2001
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+All .mgp commands start with "%". After making sure that
+/usr/X11R6/lib/X11/mgp/default.mgp exists, add the following line to
+the beginning of the .mgp file.
+
+	%include default.mgp
+
+This determines the default style. Each page begins with "%page".
+
+	%page
+
+	TITLE
+
+	Body
+
+MagicPoint is line oriented. Don't write anything in the first line
+because the default style uses the first line for making space at the
+top of the screen. The second line is the title of the page. The third
+line is transformed into a horizontal line. The fourth line on becomes
+the body.
+
+When there is a "%" at the beginning of a line, the rest of the line
+becomes a command. Multiple commands separated by "," can be written
+in a single line. To make the size 7% of the screen and the foreground
+color yellow, one would write:
+
+	%size 7, fore "yellow"
+	This line is big and yellow.
+
+Any line that starts with "%" won't show up on the screen nor will it
+be counted as a line. The following parameters can be used to change
+how a line looks.
+
+	text color			%fore
+	background color		%back
+	text size			%size
+	text placement			%center, %leftfill, %rightfill
+	space between characters	%hgap
+	space between lines		%vgap
+	Font				%font
+
+There are a few others, but this should be enough for now. The
+parameters of default.mgp are set as follows:
+
+	%default 1 leftfill, size 2, fore "white", back "black", font "thick"
+	%default 2 size 7, vgap 10, prefix " "
+	%default 3 size 2, bar "gray70", vgap 10
+	%default 4 size 5, fore "white", vgap 30, prefix " ", font "standard"
+
+%default set the parameters for the line specified in the first
+argument to the values specified the second and later argments. In the
+first line, the size is 2% and in the second line the size is set to
+7%. Parameters set in previous lines are valid unless
+overwritten. Therefore, the text in the second line will be white.
+
+When MagicPoint shows a particular line, it first refers to the %tab,
+and then refers to the %default values. After that, it refers to the values
+set within the body. Values of the previous line remain valid unless set
+otherwise.
+
+Let's take a look at the following example:
+
+	%page
+						(A space of 2%)
+	TITLE --- size 7% color white and in thick font
+						(A horizontal line)
+	text --- size 5% white thick font
+	%fore yellow, size 4
+	text --- size 4% yellow thick font
+	%font min
+	text --- size 4% yellow standard font
+
+%tab is a command that directly associates with the line. In
+default.mgp it is set as follows:
+
+	%tab 1 size 5, vgap 40, prefix "  ", icon box green 50
+	%tab 2 size 4, vgap 40, prefix "      ", icon arc yellow 50
+	%tab 3 size 3, vgap 40, prefix "            ", icon delta3 white 40
+
+When there is a singular tab at the head of the line, the values of
+%tab become valid. When there are two tabs at the head of the line,
+%tab 2 becomes valid, when there are three tabs at the head of the line
+%tab 3 becomes valid and so on.
+
+In other words,
+1 tab means text size 5% and the line starts with spaces and green box icon.
+2 tabs mean text size 4% and the line starts with spaces and yellow arc icon.
+3 tabs mean text size 3% and the line starts with spaces and white delta icon.
+
+
+By using this, it's easy to itemise. Let's take a look at an example:
+
+	%page
+
+	Emacs and friends
+
+		Emacs
+			20.7 is currently the main stream
+			21 is coming
+		Mule
+			2.3 is most used
+			Integrated to Emacs and XEmacs
+		XEmacs
+			21.1 is most used
+			21.2 is coming
+
+To find out more about the other commands, take a look at SYNTAX or
+sample/*.mgp.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+			    Life with tgif
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+MagicPoint cannot display "tgif" objs but there is a way to sort of
+get around this.
+
+(1) If you cannot use "ghostscript":
+    - make "tgif" create a GIF file for screen display
+    - make "tgif" create an EPS file for printing out
+
+(2) If you have "ghostscript":
+    - craete an EPS file from a "tgif" obj file and use that for both cases
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(1) If you cannot use "ghostscript":
+
+The image created by "tgif" is displayed "as is" on MagicPoint's
+screen.  This is pretty sad when fonts aren't displayed clearly when
+viewing with "tgif". Either Mincho or Gothic font is provided for 14,
+16, 24, and 26 dot. So it's possible to give "xrdb" something like the
+following, and then make "tgif" create a GIF file.
+
+
+%%%%
+Tgif*Background: black
+Tgif*Foreground: white
+Tgif.WhereToPrint:             GIF
+Tgif.XpmToGif: xpmtoppm %s | ppmtogif -transparent black
+Tgif.FontSizes:			8 10 12 14 16 18 20 24 26 32 40 48 64
+Tgif.PreeditType:		overthespot
+Tgif.InitialPrintInColor:      false
+%%%%
+
+
+EPS files can be created just by typing:
+	tgif -print -eps *.obj
+This is convenient when you have a whole lot of files.
+
+However, some files might not get the right colors using this way. If
+you find any files that don't have the right colors, try manually
+creating the EPS file using "tgif".
+
+If corresponding filename.eps exists for filename.{gif,jpg,...},
+"mgp2ps" uses filename.eps when creating a PS file.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(2) If you can "ghostscript":
+
+Generate an EPS file, again by using
+	tgif -print -eps *.obj
+command.
+
+Paste the EPS file into your presentation by adding
+	%image "foobar.eps"
+then, mgp will render the EPS file on-the-fly, by invoking "ghostscript".
+"mgp2ps" will properly include the EPS file into the output.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(3) Distributing presentation materials
+
+If you want to bundle two pages into one, you could try this:
+	pstops '2:0R@.6(1.5cm,28cm)+1R@.6(1.5cm,13.85cm)' input.ps > output.ps
+
+If you want to bundle six pages into one, you could try this:
+	pstops '6:0R@.33(0.5cm,26cm)+1R@.33(10.5cm,26cm)+2R@.33(0.5cm,18cm)+3R@.33(10.5cm,18cm)+4R@.33(0.5cm,10cm)+5R@.33(10.5cm,10cm)' input.ps > output.ps
+
+"pstops" is included the "psutils"
+package(ftp://ftp.dcs.ed.ac.uk/pub/ajcd).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		     Tips for better presentation
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(1) Refrain from using "xfont" directive directly.
+    Use "deffont" in preamble and "font" in body instead.
+    This should allow people to view your presentation in all the
+    configuration of the renderer.
+
+(2) Use EPS files for vector image.
+
+(3)Install the latest "ghostscript".  Configure so that it can
+   generate grayscaled image as output.
+
+(4) Before the actual presentation, go through the presentation in the
+    same configuration as "the real thing".  It will make rendering
+    faster.  (For the included EPS images, pixel image will be
+    generated and be cached).  If you execute "mgp" with the "-F"
+    option (e.g. "mgp -F 1"), "mgp" fetches and caches the next page
+    so that it makes faster to visualise the next page.
+
+    NOTE: this means mgp will leave around files named similarily to
+    .gscache.dad.eps.446x133 (.gscache. + original filename + . + size)
+    in the presentation source directory for caching!
+
+(5) Check/practice the connection with the VGA projector.
+
+(6) Practice your oral presentation well :-)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+			Mathematical Formulas
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+There are, at least, three way to include mathematical formulas in
+.mgp file.
+
+(1) TeX
+- Obtain .dvi file for the expression with TeX.
+e.g. the following code would do:
+
+\documentstyle{article}
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{document}
+...formula...
+\end{document}
+
+- With dvips you can obtain .eps file for the dvi.
+
+e.g. latex foo.tex ; dvips -f -E foo.dvi > foo.eps
+
+- Include .eps file into your presentation as follows:
+
+	%image "foo.eps" 0 width height
+
+(2) "eqn"/"troff"
+- Obtain .ps file for the expression with "eqn"/"troff".
+- Convert .ps file to .eps file. (e.g. "pstoepsi")
+- Include .eps file into your presentation as follows:
+
+	%image "foo.eps"
+
+(3) Bitmap (not recommended)
+- Obtain .ps file for the expression with TeX or "eqn"/"troff".
+- Convert .ps file to .pnm file.(e.g. "pstopnm")
+- Convert .pnm file to .pbm file (e.g. "pnmcrop")
+- Include .pbm file into your presentation as follows:
+
+	%image "foo.pbm"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		      Pasting foils onto the web
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+If you wish to paste your MagicPoint presentation, you have three options.
+
+(1) If you can assume that the client-side has MagicPoint, send
+    them a tarball or open your repository for them to read.
+
+(2) If you cannot asuume that there's no MagicPoint at the client's
+    site, you'll need to convert presentation into a html file.  Use
+    the -D option for this.
+
+(3) You may convert your presentation as postscript file, after
+    processing it with "mgp2ps".  It would be nice if you would like
+    nobody to reuse your work at ease.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,743 @@
+# Design: this thing is intended to build two mksh binaries,
+# mksh-full and mksh-static (with the latter being statically linked),
+# and lksh, according to DEB_BUILD_OPTIONS set:
+# - nocheck: do not run mksh's regression test suite
+# - noopt: build mksh with -O0, for glibc builds only
+# - nodbg: do not build with debugging info
+# - nostrip: handled by dh_strip, so ignored here
+# - parallel=n: currently ignored, maybe -flto=jobserver could use it
+# - mksh-firstbuilt: do not run a simple test for operational functionality,
+#   but use the first built binary, i.e. the glibc one (e.g. cross-builds)
+#
+# If we are cross-building, mksh-firstbuilt will be set.
+
+
+echo '
+┌─┤ Dear buildd maintainers, ├───────────────────────┐
+│                                                    │
+│ this package uses the Built-Using header as per    │
+│ Debian Policy 3.9.4 and later. This means that,    │
+│ while compilation will succeed even if your buildd │
+│ chroot is not up to date, uploading may fail, and  │
+│ you will get a REJECT mail. In this case, please   │
+│ update your unstable buildd chroot to the latest   │
+│ sid versions of packages, or, for infrastructure   │
+│ (glibc, linux-libc-dev), versions that are known   │
+│ to be held in the archive anyway, such as these    │
+│ from stable, shortly after a release; later on,    │
+│ up-to-date sid ones are really recommended.        │
+│                                                    │
+│ Furthermore, /dev/pts must be mounted and /dev/tty │
+│ and /dev/ptmx are needed with correct permissions. │
+└────────────────────────────────────────────────────┘
+'
+
+
+# --- functions ---
+buildok=0
+# Debian #492377, #572252
+buildmeat() {
+	rm -f buildmeat.tmp
+	(set -x; env "$@"; echo $? >buildmeat.tmp) 2>&1 | sed --posix \
+	    -e 's!conftest.c:\([0-9]*\(:[0-9]*\)*\): error:!cE(\1) -!g' \
+	    -e 's!conftest.c:\([0-9]*\(:[0-9]*\)*\): warning:!cW(\1) -!g' \
+	    -e 's!conftest.c:\([0-9]*\(:[0-9]*\)*\): note:!cN(\1) -!g' \
+
+	test -s buildmeat.tmp || return 255
+	return $(cat buildmeat.tmp)
+}
+loglibc() {
+	case $2 in
+	(A*) libcvalue='✓ Absent' ;;
+	(P*) libcvalue='？Present' ;;
+	(a*) libcvalue='⁇ attempted' ;;
+	(b*) libcvalue='✘ build-failed' ;;
+	(u*) libcvalue='✗ untested' ;;
+	(r*) libcvalue='✘ rtchk-failed' ;;
+	(R*) libcvalue='✗ RTCHK-passed' ;;
+	(m*) libcvalue='✘ mtest-failed' ;;
+	(M*) libcvalue='✗ MTEST-passed' ;;
+	(t*) libcvalue='☒ testsuite-failed' ;;
+	(p*) libcvalue='✓ passed-but-notty' ;;
+	(s*) libcvalue='✔ succeeded-tested' ;;
+	(*) exit 255 ;;
+	esac
+	echo "$libcvalue" >"$topdir/builddir/libc:$1"
+	echo >&2 "D:loglibc:update($libcvalue)$1"
+}
+normalise() {
+	varname=$1
+	eval varvalue=\$$varname
+	newvalue=
+	unset newvalue
+	for tmpvalue in $varvalue; do
+		newvalue=$newvalue${newvalue+ }$tmpvalue
+	done
+	eval $varname=\$newvalue
+}
+logbuildinfo() {
+	where=$1
+	{
+		echo "Build information for $where mksh"
+		fgrep 'set -A check_categories' builddir/$where/test.sh
+		#echo "From: $startdate"
+		$CC --version 2>&1 | grep ^gcc
+		echo "Result: $buildinfo (broken<failed<firstbuilt<checked<unattended<regressed)"
+		case $buildinfo in
+		(failed|unattended|regressed)
+			echo "Regression test results:"
+			echo "$resultest" | sed --posix 's/^/| /'
+			;;
+		esac
+		echo "Variables used:"
+		for v in CC CFLAGS CPPFLAGS LDFLAGS LDSTATIC LIBS; do
+			eval x=\$$v
+			echo "| $v='$x'"
+		done
+		echo "Actual compilation options:"
+		fgrep main builddir/$where/Rebuild.sh | sed --posix 's/^/] /'
+		echo "Resulting binary:"
+		size builddir/$where/?ksh 2>&1 | sed --posix 's/^/| /'
+		#echo "Date: $(date -u)"
+	} >builddir/buildinfo.$where
+}
+trybuild() {
+	where=$1; shift
+	thelibc=$1; shift
+	loglibc "$thelibc" attempted
+	normalise CC
+	normalise CFLAGS
+	normalise CPPFLAGS
+	normalise LDFLAGS
+	# do not normalise LDSTATIC
+	normalise LIBS
+	cd builddir/$where
+	echo "Attempting compilation of mksh in $where with CC='$CC'"
+	echo "CFLAGS='$CFLAGS' CPPFLAGS='$CPPFLAGS'"
+	echo "LDFLAGS='$LDFLAGS' LDSTATIC='$LDSTATIC' LIBS='$LIBS'"
+
+	buildok=0
+	arg=-r
+	testwrap=0
+	if test x"$where" = x"legacy"; then
+		arg="$arg -L"
+		tfn=lksh
+	else
+		tfn=mksh
+		if test 0 = "$iscross"; then
+			testwrap=1
+		fi
+	fi
+	buildinfo=broken
+	gotbin=0
+	startdate=$(date -u)
+	buildmeat CC="$CC" CFLAGS="$CFLAGS" CPPFLAGS="$CPPFLAGS" \
+	    LDFLAGS="$LDFLAGS" LDSTATIC="$LDSTATIC" LIBS="$LIBS" \
+	    sh ../../Build.sh $arg && \
+	    test -f $tfn && gotbin=1
+	if test $gotbin = 0; then
+		loglibc "$thelibc" build-failed
+		echo "Build attempt failed."
+		cd ../..
+		return
+	fi
+	loglibc "$thelibc" untested
+	if test $testwrap = 1; then
+		echo "Got a binary, doing run-time checks."
+		set -- $(md5sum ../../debian/rtchecks)
+		test bd51f320dcb3970f0119db72f7ae6be4 = "$1" || {
+			echo "Testsuite corrupt."
+			exit 2
+		}
+		loglibc "$thelibc" rtchk-failed
+		if ./$tfn ../../debian/rtchecks >rtchecks.out; then
+			set -- $(md5sum rtchecks.out)
+			test d5345290b8f3a343f6446710007d4e5a = "$1" || {
+				echo "Input:"
+				cat ../../debian/rtchecks
+				echo "Output:"
+				cat rtchecks.out
+				echo "Checks failed."
+				cd ../..
+				return
+			}
+			loglibc "$thelibc" RTCHK-passed
+		else
+			echo "Output:"
+			cat rtchecks.out
+			echo "Checks returned an error."
+			cd ../..
+			return
+		fi
+	fi
+	if test $firstbuilt = 1; then
+		echo "Got a binary, using first built."
+		buildinfo=firstbuilt
+		cd ../..
+		buildok=1
+		logbuildinfo $where
+		return
+	fi
+	loglibc "$thelibc" mtest-failed
+	echo "Running simple checks on the binary."
+	perl ../../check.pl -U C.UTF-8 -s ../../debian/mtest.t \
+	    -p ./$tfn -v 2>&1 | tee mtest.log
+	if grep '^Total failed: 0$' mtest.log >/dev/null; then
+		echo "Simple tests okay."
+		loglibc "$thelibc" MTEST-passed
+	else
+		echo "Simple tests failed."
+		cd ../..
+		return
+	fi
+	buildinfo=checked
+	forcefail=0
+	if test $nocheck = 0; then
+		rm -f "$topdir/builddir/urtmp*"
+		echo "Running mksh regression test suite."
+		rm -f utest.*
+		regressed=regressed
+		if test x"$(uname -s)" = x"GNU"; then
+			# script(1) fails on Debian GNU/Hurd in pbuilder
+			test -e ../../../attended || regressed=unattended
+			if test -e ../../../attended; then
+				echo 1 >"$topdir/builddir/urtmp.f"
+				./test.sh -U C.UTF-8 -v
+				echo $? >utest.rv
+				echo s >"$topdir/builddir/urtmp.p"
+			else
+				echo 1 >"$topdir/builddir/urtmp.f"
+				./test.sh -U C.UTF-8 -v -C regress:no-ctty
+				echo $? >utest.rv
+				echo p >"$topdir/builddir/urtmp.p"
+			fi 2>&1 | tee utest.log
+		elif test -z "$(which script 2>/dev/null)"; then
+			regressed=unattended
+			echo "WARNING: script(1) not found, results inconclusive."
+			echo 1 >"$topdir/builddir/urtmp.f"
+			(
+				./test.sh -U C.UTF-8 -v -C regress:no-ctty
+				echo $? >utest.rv
+			) 2>&1 | tee utest.log
+			echo p >"$topdir/builddir/urtmp.p"
+		else
+			echo '
+If the build fails here, ensure the /dev/tty and /dev/ptmx device
+nodes exist in the chroot, are character devices with the correct
+major and minor for your architecture, have ownership root:tty and
+permissions 0666, and that /dev/pts is mounted in the chroot!'
+			echo >test.wait
+			topdir="$topdir" script -c 'echo 1 >"$topdir/builddir/urtmp.f"; (./test.sh -U C.UTF-8 -v; echo $? >utest.rv) 2>&1 | tee utest.log; x=$?; sleep 1; rm -f test.wait; exit $x'
+			maxwait=0
+			while test -e test.wait; do
+				sleep 1
+				maxwait=$(expr $maxwait + 1)
+				test $maxwait -lt 900 || break
+			done
+			echo s >"$topdir/builddir/urtmp.p"
+			sleep 1 # synchronise I/O
+		fi
+		# set $testrv to x unless it’s a positive integer
+		testrv=$(cat utest.rv 2>/dev/null) || testrv=x
+		case x$testrv in
+		(x) testrv=x ;;
+		(x*[!0-9]*) testrv=x ;;
+		esac
+		if test $testrv != x && \
+		    grep '^pass .*:KSH_VERSION' utest.log >/dev/null 2>&1; then
+			echo "Regression test suite run. Errorlevel: $testrv"
+			case $testrv in
+			(0) loglibc "$thelibc" "$(cat "$topdir/builddir/urtmp.p")" ;;
+			(*) loglibc "$thelibc" testsuite-failed
+			    regressed=failed forcefail=1 ;;
+			esac
+			buildinfo=$regressed
+		else
+			echo "Regression tests apparently not run."
+			if test -e "$topdir/builddir/urtmp.f"; then
+				echo "It was attempted, though..."
+				loglibc "$thelibc" testsuite-failed
+			fi
+			if test -e utest.rv; then
+				echo "Errorlevel: $(cat utest.rv)"
+			else
+				echo "Errorlevel unknown."
+			fi
+			echo "Failing this build."
+			forcefail=1
+		fi
+		tf=$(sed --posix -n '/^Total failed: /s///p' utest.log | tr ' \n' '__')
+		tp=$(sed --posix -n '/^Total passed: /s///p' utest.log | tr ' \n' '__')
+		libcvalue=$(cat "$topdir/builddir/libc:$thelibc")
+		echo "$libcvalue[${tf%_}f/${tp%_}p]" \
+		    >"$topdir/builddir/libc:$thelibc"
+		resultest=$(grep -a '^[FPT]' utest.log 2>&1 | fgrep -a -v \
+		    -e 'Trying Perl interpreter' \
+		    -e 'Testing mksh for conformance' \
+		    -e 'This shell is actually')
+	fi
+	cd ../..
+	test x"$forcefail" = x"1" || buildok=1
+	logbuildinfo $where
+}
+
+# --- main code ---
+
+LC_ALL=C; export LC_ALL
+topdir=$(pwd)
+# get maximum of hardening flags
+DEB_BUILD_MAINT_OPTIONS="hardening=+all"
+export DEB_BUILD_MAINT_OPTIONS
+
+# pull environment configuration
+eval $(dpkg-architecture -s)
+
+rm -rf builddir
+mkdir builddir builddir/P builddir/full builddir/legacy builddir/static-glibc \
+    builddir/static-dietlibc builddir/static-klibc builddir/static-musl
+cp debian/printf.c builddir/legacy/
+cat >builddir/P/sed <<-'EOF'
+	#!/bin/sh
+	exec /bin/sed --posix "$@"
+EOF
+chmod +x builddir/P/sed
+PATH=$topdir/builddir/P:$PATH
+export PATH
+
+# oh puh-leaze!
+DEB_BUILD_OPTIONS_reproducible=
+for v in $DEB_BUILD_OPTIONS; do
+	case $v in
+	(parallel=*)
+		;;
+	(*)
+		DEB_BUILD_OPTIONS_reproducible="$DEB_BUILD_OPTIONS_reproducible $v"
+		;;
+	esac
+done
+DEB_BUILD_OPTIONS_reproducible=${DEB_BUILD_OPTIONS_reproducible# }
+
+echo "Building the package 'mksh' on '$DEB_BUILD_ARCH' for '$DEB_HOST_ARCH'" \
+    "with DEB_BUILD_OPTIONS '$DEB_BUILD_OPTIONS_reproducible'"
+echo "Values (not used) from environment: CFLAGS='$CFLAGS' CPPFLAGS='$CPPFLAGS' LDFLAGS='$LDFLAGS'"
+
+# parse options
+nocheck=0
+noopt=0
+nodbg=0
+firstbuilt=0
+small=1
+
+if test x"$DEB_HOST_ARCH" = x"$DEB_BUILD_ARCH"; then
+	iscross=0
+else
+	iscross=1
+	echo Using first built binary because we are cross-compiling
+	echo "from $DEB_BUILD_GNU_TYPE to $DEB_HOST_GNU_TYPE here."
+	firstbuilt=1
+fi
+
+for i in $DEB_BUILD_OPTIONS; do
+	case $i in
+	(nocheck) nocheck=1 ;;
+	(noopt) noopt=1 ;;
+	(nodbg) nodbg=1 ;;
+	(mksh-firstbuilt) firstbuilt=1 ;;
+	esac
+done
+
+if test $firstbuilt = 1; then
+	lkshlibs=glibc
+else
+	lkshlibs='klibc musl dietlibc glibc'
+fi
+
+# set default values for CC, CFLAGS, CPPFLAGS, LDFLAGS
+case $iscross$CC in
+(0) dCC=gcc ;;
+(1) dCC=${DEB_HOST_GNU_TYPE}-gcc ;;
+(*) dCC=$CC ;;
+esac
+echo "Using compiler: '$dCC'"
+if test $noopt = 1; then
+	x=-O0
+else
+	x=-O2
+fi
+test $nodbg = 1 || x="$x -g"
+dCFLAGS=$(dpkg-buildflags --get CFLAGS 2>/dev/null) || dCFLAGS=$x
+dCPPFLAGS=$(dpkg-buildflags --get CPPFLAGS 2>/dev/null)
+dLDFLAGS=$(dpkg-buildflags --get LDFLAGS 2>/dev/null)
+echo "Values from dpkg-buildflags: CFLAGS='$dCFLAGS' CPPFLAGS='$dCPPFLAGS' LDFLAGS='$dLDFLAGS'"
+dCFLAGS="$dCFLAGS -Wall -Wextra"
+dLDFLAGS="$dLDFLAGS -Wl,--as-needed"
+# prevent the build system from adding this, as we provide it already
+HAVE_CAN_WALL=0; export HAVE_CAN_WALL
+# avoid needing a Build-Conflicts on libbsd-dev
+HAVE_LIBUTIL_H=0; export HAVE_LIBUTIL_H
+
+loglibc mksh:system Present
+for x in klibc:klcc musl:musl-gcc dietlibc:diet; do
+	l=${x%%:*}
+	if test -z "$(which "${x#*:}" 2>/dev/null)"; then
+		loglibc mksh:$l Absent
+		loglibc lksh:$l Absent
+	else
+		loglibc mksh:$l Present
+		loglibc lksh:$l Present
+	fi
+done
+loglibc mksh:glibc Absent
+loglibc lksh:glibc Absent
+
+# build mksh-full
+CC=$dCC
+CFLAGS=$dCFLAGS
+CPPFLAGS=$dCPPFLAGS
+LDFLAGS=$dLDFLAGS
+unset LDSTATIC
+LIBS=
+echo Building mksh-full...
+trybuild full mksh:system
+if test $buildok = 0; then
+	echo Build of mksh-full failed.
+	exit 1
+fi
+
+bupkgs=
+# no locale support in mksh-static or mksh-legacy needed
+HAVE_SETLOCALE_CTYPE=0; export HAVE_SETLOCALE_CTYPE
+
+# build mksh-static
+sCC=$dCC
+sCFLAGS=
+# drop optimisation, debugging and PIC flags for mksh-static
+for x in $dCFLAGS; do
+	case $x in
+	(-O*|-g*|-fPIE|-specs=*) ;;
+	(*) sCFLAGS="$sCFLAGS $x" ;;
+	esac
+done
+# add debugging flags right back, but more portable
+test $nodbg = 1 || sCFLAGS="$sCFLAGS -g"
+sCPPFLAGS="$dCPPFLAGS -DMKSH_BINSHPOSIX -DMKSH_BINSHREDUCED"
+sLDFLAGS=
+for x in $dLDFLAGS; do
+	case $x in
+	(-pie|-fPIE|-specs=*) ;;
+	(*) sLDFLAGS="$sLDFLAGS $x" ;;
+	esac
+done
+sLIBS=
+
+which_static=
+# try klibc, musl, and dietlibc first unless cross-compiling
+test $firstbuilt = 1 || for x in x; do
+	echo Building mksh-static with klibc
+	buildok=0
+	if test -z "$(which klcc 2>/dev/null)"; then
+		echo ... skipping, klcc not found
+		break
+	fi
+	CC=klcc
+	CFLAGS="$sCFLAGS -fno-stack-protector -Os"
+	CPPFLAGS="$sCPPFLAGS -DMKSH_SMALL -DMKSH_SMALL_BUT_FAST"
+	LDFLAGS=$sLDFLAGS
+	LDSTATIC="-static"
+	LIBS=$sLIBS
+	HAVE_CAN_FSTACKPROTECTORSTRONG=0; export HAVE_CAN_FSTACKPROTECTORSTRONG
+	HAVE_CAN_FSTACKPROTECTORALL=0; export HAVE_CAN_FSTACKPROTECTORALL
+	trybuild static-klibc mksh:klibc
+	unset HAVE_CAN_FSTACKPROTECTORSTRONG HAVE_CAN_FSTACKPROTECTORALL
+	if test $buildok = 1; then
+		# collect gcc and klibc packages for Built-Using
+		x=$(dpkg -S "$(readlink -f "$($CC -print-libgcc-file-name)")")
+		bupkgs="$bupkgs ${x%%: *} libklibc-dev linux-libc-dev"
+		# collect binary unless it fails the testsuite actively
+		test $buildinfo = failed || test -n "$which_static" || which_static=klibc
+	fi
+done
+test $firstbuilt = 1 || for x in x; do
+	echo Building mksh-static with musl
+	buildok=0
+	if test -z "$(which musl-gcc 2>/dev/null)"; then
+		echo ... skipping, musl-gcc not found
+		break
+	fi
+	CC=musl-gcc
+	CFLAGS="-Os $sCFLAGS"
+	CPPFLAGS=$sCPPFLAGS
+	LDFLAGS=$sLDFLAGS
+	LDSTATIC="-static"
+	LIBS=$sLIBS
+	trybuild static-musl mksh:musl
+	if test $buildok = 1; then
+		# collect gcc and musl packages for Built-Using
+		x=$(dpkg -S "$(readlink -f "$($CC -print-libgcc-file-name)")")
+		bupkgs="$bupkgs ${x%%: *} musl-dev"
+		# collect binary unless it fails the testsuite actively
+		test $buildinfo = failed || test -n "$which_static" || which_static=musl
+	fi
+done
+test $firstbuilt = 1 || for x in x; do
+	echo Building mksh-static with dietlibc
+	buildok=0
+	if test -z "$(which diet 2>/dev/null)"; then
+		echo ... skipping, diet not found
+		break
+	fi
+	CC="diet -v -Os $sCC"
+	CFLAGS=$sCFLAGS
+	CPPFLAGS="$sCPPFLAGS -DMKSH_SMALL -DMKSH_SMALL_BUT_FAST"
+	LDFLAGS=$sLDFLAGS
+	LDSTATIC=" "
+	LIBS=$sLIBS
+	HAVE_CAN_FSTACKPROTECTORSTRONG=0; export HAVE_CAN_FSTACKPROTECTORSTRONG
+	HAVE_CAN_FSTACKPROTECTORALL=0; export HAVE_CAN_FSTACKPROTECTORALL
+	trybuild static-dietlibc mksh:dietlibc
+	unset HAVE_CAN_FSTACKPROTECTORSTRONG HAVE_CAN_FSTACKPROTECTORALL
+	if test $buildok = 1; then
+		# collect gcc and dietlibc packages for Built-Using
+		x=$(dpkg -S "$(readlink -f "$($CC -print-libgcc-file-name)")")
+		bupkgs="$bupkgs ${x%%: *} dietlibc-dev"
+		# collect binary unless it fails the testsuite actively
+		test $buildinfo = failed || test -n "$which_static" || which_static=dietlibc
+	fi
+done
+
+# only try glibc if cross-compiling or all others fail
+if test -z "$which_static"; then
+	echo Building mksh-static with glibc
+	buildok=0
+	CC=$sCC
+	CFLAGS="-Os $sCFLAGS"
+	CPPFLAGS="$sCPPFLAGS -DMKSH_NOPWNAM"
+	LDFLAGS=$sLDFLAGS
+	LDSTATIC="-static"
+	LIBS=$sLIBS
+	trybuild static-glibc mksh:glibc
+	if test $buildok = 1; then
+		# collect gcc and glibc packages for Built-Using
+		x=$(dpkg -S "$(readlink -f "$($CC -print-file-name=libgcc.a)")")
+		bupkgs="$bupkgs ${x%%: *}"
+		x=$(dpkg -S "$(readlink -f "$($CC -print-file-name=libc.a)")")
+		bupkgs="$bupkgs ${x%%: *}"
+		# collect binary
+		test -n "$which_static" || which_static=glibc
+	fi
+fi
+
+# fail if neither klibc nor musl nor dietlibc nor glibc were successful
+if test -z "$which_static"; then
+	echo Build of mksh-static failed.
+	exit 1
+fi
+echo $which_static >builddir/which_static
+
+# build mksh-legacy
+lCC=$dCC
+lCFLAGS=$dCFLAGS
+# Debian #499139
+lCPPFLAGS="$dCPPFLAGS -DMKSH_BINSHPOSIX -DMKSH_BINSHREDUCED"
+lLDFLAGS=$dLDFLAGS
+lLIBS=
+HAVE_PERSISTENT_HISTORY=0; export HAVE_PERSISTENT_HISTORY
+# Debian #532343, #539158
+USE_PRINTF_BUILTIN=1; export USE_PRINTF_BUILTIN
+buildok=0
+for x in $lkshlibs; do echo Building mksh-legacy with $x; case $x in
+(klibc)
+	if test -z "$(which klcc 2>/dev/null)"; then
+		echo ... skipping, klcc not found
+		continue
+	fi
+	CC=klcc
+	CFLAGS=
+	for x in $lCFLAGS; do
+		case $x in
+		(-O*|-g*|-fPIE|-specs=*) ;;
+		(*) CFLAGS="$CFLAGS $x" ;;
+		esac
+	done
+	CFLAGS="$CFLAGS -fno-stack-protector -Os"
+	test $nodbg = 1 || CFLAGS="$CFLAGS -g"
+	CPPFLAGS="$lCPPFLAGS"
+	LDFLAGS=
+	for x in $lLDFLAGS; do
+		case $x in
+		(-pie|-fPIE|-specs=*) ;;
+		(*) LDFLAGS="$LDFLAGS $x" ;;
+		esac
+	done
+	LDSTATIC="-static"
+	LIBS=$lLIBS
+	HAVE_CAN_FSTACKPROTECTORSTRONG=0; export HAVE_CAN_FSTACKPROTECTORSTRONG
+	HAVE_CAN_FSTACKPROTECTORALL=0; export HAVE_CAN_FSTACKPROTECTORALL
+	trybuild legacy lksh:klibc
+	unset HAVE_CAN_FSTACKPROTECTORSTRONG HAVE_CAN_FSTACKPROTECTORALL
+	# retry with next libc if it fails the testsuite actively
+	test $buildinfo = failed && buildok=0
+	if test $buildok = 1; then
+		# collect gcc and klibc packages for Built-Using
+		x=$(dpkg -S "$(readlink -f "$($CC -print-libgcc-file-name)")")
+		bupkgs="$bupkgs ${x%%: *} libklibc-dev linux-libc-dev"
+	fi
+	;;
+(musl)
+	if test -z "$(which musl-gcc 2>/dev/null)"; then
+		echo ... skipping, musl-gcc not found
+		continue
+	fi
+	CC=musl-gcc
+	CFLAGS=$lCFLAGS
+	CPPFLAGS=$lCPPFLAGS
+	LDFLAGS=
+	for x in $lLDFLAGS; do
+		case $x in
+		(-pie|-fPIE|-specs=*) ;;
+		(*) LDFLAGS="$LDFLAGS $x" ;;
+		esac
+	done
+	LDSTATIC="-static"
+	LIBS=$lLIBS
+	trybuild legacy lksh:musl
+	# retry with next libc if it fails the testsuite actively
+	test $buildinfo = failed && buildok=0
+	# collect gcc and musl packages for Built-Using
+	if test $buildok = 1; then
+		x=$(dpkg -S "$(readlink -f "$($CC -print-libgcc-file-name)")")
+		bupkgs="$bupkgs ${x%%: *} musl-dev"
+	fi
+	;;
+(dietlibc)
+	if test -z "$(which diet 2>/dev/null)"; then
+		echo ... skipping, diet not found
+		continue
+	fi
+	CC="diet -v -Os $lCC"
+	CFLAGS=
+	for x in $lCFLAGS; do
+		case $x in
+		(-O*|-g*|-fPIE|-specs=*) ;;
+		(*) CFLAGS="$CFLAGS $x" ;;
+		esac
+	done
+	test $nodbg = 1 || CFLAGS="$CFLAGS -g"
+	CPPFLAGS=$lCPPFLAGS
+	LDFLAGS=
+	for x in $lLDFLAGS; do
+		case $x in
+		(-pie|-fPIE|-specs=*) ;;
+		(*) LDFLAGS="$LDFLAGS $x" ;;
+		esac
+	done
+	LDSTATIC=" "
+	LIBS=$lLIBS
+	HAVE_CAN_FSTACKPROTECTORSTRONG=0; export HAVE_CAN_FSTACKPROTECTORSTRONG
+	HAVE_CAN_FSTACKPROTECTORALL=0; export HAVE_CAN_FSTACKPROTECTORALL
+	trybuild legacy lksh:dietlibc
+	unset HAVE_CAN_FSTACKPROTECTORSTRONG HAVE_CAN_FSTACKPROTECTORALL
+	# retry with next libc if it fails the testsuite actively
+	test $buildinfo = failed && buildok=0
+	if test $buildok = 1; then
+		# collect gcc and dietlibc packages for Built-Using
+		x=$(dpkg -S "$(readlink -f "$($CC -print-libgcc-file-name)")")
+		bupkgs="$bupkgs ${x%%: *} dietlibc-dev"
+	fi
+	;;
+(glibc)
+	CC=$lCC
+	CFLAGS=$lCFLAGS
+	CPPFLAGS=$lCPPFLAGS
+	LDFLAGS=$lLDFLAGS
+	LDSTATIC=
+	LIBS=$lLIBS
+	trybuild legacy lksh:glibc
+	;;
+esac; test $buildok = 0 || break; done
+if test $buildok = 0; then
+	echo Build of mksh-legacy failed.
+	exit 1
+fi
+# untried builds are not failed
+for f in "$topdir/builddir/libc:lksh:"*; do
+	case "$(cat "$f")" in
+	(*Present*) loglibc "${f##"$topdir/builddir/libc:"}" Accepted ;;
+	esac
+done
+
+echo Logging build information...
+for x in $bupkgs; do
+	dpkg-query -Wf '${source:Package} (= ${source:Version})\n' "$x"
+done | sort -u | {
+	buspkgs=
+	while IFS= read -r x; do
+		test -n "$x" || continue
+		test x"$x" = x" (= )" && continue
+		echo "Built Using: $x"
+		test -z "$buspkgs" || buspkgs="$buspkgs, "
+		buspkgs=$buspkgs$x
+	done
+	echo "mksh:B-U=$buspkgs" >builddir/substvars
+}
+pkgvsn=$(dpkg-parsechangelog -n1 | sed --posix -n '/^Version: */s///p')
+{
+	cat debian/README.Debian
+	echo Build information for mksh R${pkgvsn%%@(-|wtf)*([!-])}:
+	for v in DEB_BUILD_GNU_TYPE DEB_HOST_GNU_TYPE DEB_BUILD_OPTIONS_reproducible; do
+		eval x=\$$v
+		echo "| $v='$x'"
+	done
+	(echo "D:loglibc:final($pkgvsn) system=$(cat \
+	    "$topdir/builddir/libc:mksh:system") mksh_klibc=$(cat \
+	    "$topdir/builddir/libc:mksh:klibc") mksh_musl=$(cat \
+	    "$topdir/builddir/libc:mksh:musl") mksh_dietlibc=$(cat \
+	    "$topdir/builddir/libc:mksh:dietlibc") mksh_glibc=$(cat \
+	    "$topdir/builddir/libc:mksh:glibc") lksh_klibc=$(cat \
+	    "$topdir/builddir/libc:lksh:klibc") lksh_musl=$(cat \
+	    "$topdir/builddir/libc:lksh:musl") lksh_dietlibc=$(cat \
+	    "$topdir/builddir/libc:lksh:dietlibc") lksh_glibc=$(cat \
+	    "$topdir/builddir/libc:lksh:glibc") finishing" || :) 2>&1
+	echo Dependencies:
+	dpkg-query -W $(for wasn in ./usr/lib/libc.so ./usr/lib/*/libc.so \
+	    linux-libc-dev .=diet .=klcc .=musl-gcc .=as .=ld .=strip; do
+		case $wasn in
+		(.=*) wasn=.$(which ${wasn#.=} 2>/dev/null) ;;
+		esac
+		case $wasn in
+		(./*)
+			for wasn in ${wasn#.}; do
+				test -e $wasn && (dpkg -S $wasn || \
+				    dpkg -S $(readlink -f $wasn)) | sed \
+				    --posix \
+				    -e '/^diversion by/d' -e 's/: .*$//' \
+				    -e 's/, /,/g' -e 'y/,/\n/'
+			done
+			;;
+		(.*)	;;
+		(*)
+			echo $wasn
+			;;
+		esac
+	done | sort -u) | column -t | sed --posix 's/^/| /'
+	for x in builddir/buildinfo.*; do
+		test "$x" = "builddir/buildinfo.legacy" && continue
+		echo ----
+		cat "$x"
+	done
+	echo ----
+	cat builddir/buildinfo.legacy
+	echo ----
+	echo Version: $pkgvsn
+	#date -R
+} | sed --posix "s$topdir/«builddir»g" | gzip -n9 >builddir/README.Debian.gz
+echo All builds complete.
+sh debian/faq2html "$pkgvsn" || {
+	echo Cannot generate HTML version of the FAQ!
+	exit 1
+}
+set -e
+sed 's!mksh\.faq!/usr/share/doc/mksh/FAQ.htm!g' \
+    <mksh.1 >builddir/mksh.1~
+mv builddir/mksh.1~ builddir/mksh.1
+exit 0

@@ -1,0 +1,337 @@
+kwalletcli (3.02-1) unstable; urgency=medium
+
+  * New upstream release, compatible with recent GNU groff in sid
+  * Policy 4.3.0: R³, terse
+  * Add UMEGAYA metadata (prompted by lintian)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 05 Jan 2019 11:48:02 +0100
+
+kwalletcli (3.01-1) unstable; urgency=low
+
+  * Add pinentry-fltk to list of possible pinentry alternatives
+  * Also add pinentry, pinentry-x11, which are Provided by most
+  * Update lintian overrides, debhelper (grudgingly)
+  * New upstream release
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 09 Feb 2018 19:34:16 +0100
+
+kwalletcli (3.00-2) unstable; urgency=low
+
+  * Policy 4.1.3 (no changes)
+  * Update VCS-* to new repository caused by Alioth deprecation
+  * Use http, not https, for the homepage, to make it accessible
+    from Debian buster/sid OpenSSL
+  * Update lintian overrides
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 05 Jan 2018 21:10:10 +0100
+
+kwalletcli (3.00-1) unstable; urgency=low
+
+  * Retake the package (Closes: #764398)
+  * New upstream release
+  * Modernise packaging; bump Policy
+  * Stop attempting to build with LTO (link-time optimisation),
+    it’s too fragile (cf. src:pax where it was removed as well)
+  * Use debhelper compat 9 instead of 5, by lintian’s insistence ☹
+  * Switch to KF5
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 31 Aug 2016 00:14:04 +0200
+
+kwalletcli (2.12-5) unstable; urgency=low
+
+  * QA upload.
+  * Add pinentry-gnome3… are we quite there yet, now? kthxbye
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 02 Jun 2015 16:02:43 +0200
+
+kwalletcli (2.12-4) unstable; urgency=low
+
+  * QA upload.
+  * Add pinentry-tty and pinentry-x2go to the list of alternatives
+  * Escape CC, CFLAGS, etc. properly in debian/rules
+  * Add explicit packaging licence
+  * Bump Policy (no changes)
+  * Update lintian overrides
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 23 May 2015 19:08:42 +0200
+
+kwalletcli (2.12-3) unstable; urgency=low
+
+  * QA upload.
+  * Orphan the package.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 07 Oct 2014 18:01:48 +0000
+
+kwalletcli (2.12-2) unstable; urgency=low
+
+  * debian/control: Move VCS-* fields to Alioth collab-maint git
+  * Remove now-useless RCS IDs
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 08 Jul 2014 16:11:20 +0200
+
+kwalletcli (2.12-1) unstable; urgency=low
+
+  * Fix LTO-less build
+  * Recommends: kwalletmanager
+  * New upstream release:
+    - remove unused code from BSDmakefile
+    - add list of contributors to LICENCE file
+    - apply patches from Timo Weingärtner to add recognition for
+      + git's question (Closes: #745623)
+      + ssh-agent-filter's confirmation (Closes: #745625)
+    - whitespace cleanup
+  * Policy 3.9.5, no changes
+  * Update lintian warnings (no PGP check for the origtgz)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 11 May 2014 16:52:36 +0000
+
+kwalletcli (2.11-2) unstable; urgency=low
+
+  * Do not call "update-alternatives --remove" on upgrade (cf. #568299)
+  * Add build-{arch,indep} targets (as alias to build)
+  * debian/rules: cleanup (remove install/check)
+  * Modernise maintainer scripts and rules file
+  * Fix GNUmakefile to add CXXFLAGS to link.cc command
+  * Attempt LTO; try with --as-needed
+  * Bring back missing dh_prep call
+  * Policy 3.9.3 (no changes)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 25 Feb 2012 13:50:28 +0000
+
+kwalletcli (2.11-1) unstable; urgency=low
+
+  * New upstream version; changes:
+    – Correct exit code for when the read routines die
+    – Catch signals and terminate gracefully
+    – Better protocol compliance
+    – Be more strict when parsing commands
+    – Quell warning for “GETINFO version”
+    – Prevent converting underscores into accelerator markings
+    – Document currently used exit codes
+    – Add CAVEATS to manual pages
+  * Merge KDE 3 and KDE 4 packaging
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 03 Jun 2011 14:13:56 +0000
+
+kwalletcli (2.10-1~kde3+2) hardy; urgency=low
+
+  * Note that next upstream version’s backport
+    must use bpo versioning, to keep upgradability
+  * Upstream CVS snapshot from 20110510
+
+ -- Thorsten Glaser <t.glaser@tarent.de>  Tue, 10 May 2011 13:26:42 +0200
+
+kwalletcli (2.10-1~kde3+1) lenny-backports-sloppy; urgency=low
+
+  * KDE 3 companion package to kwalletcli_2.10-1 for Lenny and Hardy:
+    - debian/control: B-D on libqt3-headers ipv libqt4-dev
+    - debian/control: B-D on kdelibs4-dev ipv kdelibs5-dev
+    - debian/control: Set Standards-Version to 3.8.0 ipv 3.9.2
+    - debian/rules: Set KDE_VER=3 ipv KDE_VER=4
+    - debian/source/format: Use 1.0 ipv 3.0 (quilt)
+  * debian/control: Adjust Vcs-*, Description, Origin, Bugs
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 09 Apr 2011 23:12:45 +0000
+
+kwalletcli (2.10-1) unstable; urgency=low
+
+  * kwalletcli can do Multi-Arch: foreign as requested by vorlon
+  * New upstream version; changes:
+    - In pinentry-kwallet(1), replace with the slave immediately if
+      $DISPLAY is unset or empty (as we cannot contact the KDE Wallet
+      in that case, anyway). Fixes another case of spurious “Do you
+      want to store … in the KDE Wallet?” questions.
+    - Fix mis-read in recursive call case (parent, not slave).
+    - Align look and feel of fallbacks (both xmessage and TUI) with
+      default pinentry GUI style
+    - kwalletcli_getpin(1) new options -m (message, with one button);
+      -Y OK and -N Cancel (set button labels)
+    - Security fix in kwalletcli_getpin(1): tty I/O now properly
+      disables echoing input when asking for a passphrase
+    - After scanning through ssh(1) and ssh-askpass(1) source, teach
+      kwalletaskpass(1) to use boolean queries for some whitelisted
+      strings and check it works with confirmation (Closes: #603910)
+    - Store negative replies to “Do you want to store X in the KDE
+      Wallet?” as “blacklist” in the wallet in kwalletaskpass(1) and
+      pinentry-kwallet(1) to avoid asking the user every time
+    - Document limits and raise kwalletcli(1) -P limit
+    - Have kwalletcli(1) convert passwords from/to proper UTF-8 for Qt
+  * Provide ssh-askpass, idea from Daniel Schaal (Closes: #608476)
+  * debian/rules: Only dh_strip may strip, not upstream makefiles
+  * Policy 3.9.2 (unchanged, I think should be enough)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 09 Apr 2011 23:12:42 +0000
+
+kwalletcli (2.03-1~kde3+2) xunstable; urgency=low
+
+  * Add Origin and Bugs headers
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 09 Apr 2011 21:50:46 +0000
+
+kwalletcli (2.03-1~kde3+1) lenny-backports-sloppy; urgency=low
+
+  * KDE 3 companion package to kwalletcli_2.03-1 for Lenny and Hardy:
+    - debian/control: B-D on libqt3-headers ipv libqt4-dev
+    - debian/control: B-D on kdelibs4-dev ipv kdelibs5-dev
+    - debian/control: set Standards-Version to 3.8.0 ipv 3.9.1
+    - debian/rules: set KDE_VER=3 ipv KDE_VER=4
+    - debian/source/format: use 1.0 ipv 3.0 (quilt)
+  * debian/control: adjust Vcs-CVS, Vcs-Browser, Description
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 16 Nov 2010 09:48:19 +0000
+
+kwalletcli (2.03-1) unstable; urgency=low
+
+  * New upstream version; changes:
+    - Fix building the kwalletcli binary with indirect linking;
+      patch from Felix Geyer <debfx@Debian derivate from Canonical that
+      cannot be named.com>
+    - In kwalletaskpass(1), do not even attempt to call kwalletcli
+      if $DISPLAY is unset or empty, it will not be able to commu-
+      nicate with it anyway. Fixes spurious “Do you want to store …
+      in the KDE Wallet?” questions when logged in via ssh(1).
+    - Small documentation improvements, mostly re. $DISPLAY
+  * Policy 3.9.1, no relevant changes
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Tue, 16 Nov 2010 09:38:52 +0000
+
+kwalletcli (2.02-2~kde3+1) lenny-backports; urgency=low
+
+  * KDE 3 companion package to kwalletcli_2.02-2 for Lenny and Hardy:
+    - debian/control: B-D on libqt3-headers ipv libqt4-dev
+    - debian/control: B-D on kdelibs4-dev ipv kdelibs5-dev
+    - debian/control: set Standards-Version to 3.8.0 ipv 3.9.0
+    - debian/rules: set KDE_VER=3 ipv KDE_VER=4
+    - debian/source/format: use 1.0 ipv 3.0 (quilt)
+  * debian/control: adjust Vcs-CVS, Vcs-Browser, Description
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 19 Jul 2010 22:30:33 +0200
+
+kwalletcli (2.02-2) unstable; urgency=low
+
+  * The “urgency=ridiculous” release
+  * Move pinentry-gtk note from debian/README.source to debian/control
+  * Generate debian/copyright at clean time instead of build time
+    to stop fellow DDs from nagging (Closes: #566856)
+  * Remove now empty file debian/README.source
+  * Bump Policy to 3.9.0.0 (no change required)
+  * Reword Description in debian/control to reflect that kwalletcli
+    (currently) only works with/on the default wallet
+  * Refactor debian/rules submake invocations
+  * Specify required minimum version of mksh dependency
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 19 Jul 2010 20:15:51 +0000
+
+kwalletcli (2.02-1~kde3+1) lenny-backports; urgency=low
+
+  * KDE 3 variant; usual changes are listed in debian/README.source
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 03 Mar 2010 16:01:09 +0000
+
+kwalletcli (2.02-1) unstable; urgency=low
+
+  * New upstream version; ChangeLog:
+    - pinentry-kwallet
+      + it’s Assuan protocol, not Ägypten
+      + the BYE command is not undocumented in Assuan, only in pinentry
+      + implement the (in fact undocumented) GETINFO command
+      + fix “copy command to co-process” logic (Closes: #572118)
+      + add optional protocol debugging (exposes passwords tho…)
+    - kwalletcli.1: document that the default wallet is always used
+  * Bump Standards-Version, no relevant change
+  * debian/control: Remove DMUA, I'm a DD now
+  * debian/README.source: Explain more on the dependency choices
+  * debian/control: Add Enhances, gajim upstream supports kwalletcli
+  * debian/rules: Make KDE_VER into a variable for consistency
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 03 Mar 2010 11:30:12 +0000
+
+kwalletcli (2.01-1~kde3+2) lenny-backports; urgency=low
+
+  * debian/source/format: Enforce "1.0" manually, for now
+  * debian/control: Remove DMUA, I'm a DD now
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 28 Feb 2010 19:30:37 +0000
+
+kwalletcli (2.01-1~kde3+1) unstable; urgency=low
+
+  * Backport to Debian lenny and Debian derivate that cannot be named hardy:
+    - debian/control: B-D on libqt3-headers ipv libqt4-dev
+    - debian/control: B-D on kdelibs4-dev ipv kdelibs5-dev
+    - debian/control: set Standards-Version to 3.8.0 ipv 3.8.3
+    - debian/README.source: track real Standards-Version
+    - debian/rules: set KDE_VER=3 ipv KDE_VER=4
+    - debian/source/format: remove, use 1.0
+  * Adjust Vcs-CVS and Vcs-Browser (separate KDE 3 and KDE 4 trees)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 24 Jan 2010 00:26:20 +0000
+
+kwalletcli (2.01-1) unstable; urgency=low
+
+  * Target Debian sid (first release to be uploaded), Policy
+    3.8.3, Source 3.0 (quilt); port to KDE 4. (Closes: #566489)
+  * Fix lintian: debhelper-but-no-misc-depends
+  * debian/control: Add Homepage field
+  * New upstream release (minor bug fixes found during port to sid)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sat, 23 Jan 2010 14:27:51 +0000
+
+kwalletcli (2.00-0~kde3+1) unstable; urgency=low
+
+  * Fix versioning scheme (again), agreed by waldi@d.o:
+    - sid will receive 2.00-1
+    - once that's up I'll provide 2.00-1~kde3+1 for hardy and lenny
+  * New upstream version
+    - install SVG and PNG versions of logo
+  * Concatenate upstream and our copyright information
+  * Fix lintian warnings on both Hardy and Lenny except
+    unusual-interpreter mksh, which has been fixed in newer
+    lintian versions and is irrelevant here
+  * Improve debian/* files (comments, readability, content)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 07 Dec 2009 18:04:52 +0100
+
+kwalletcli (1.00~kde3-1) experimental; urgency=low
+
+  * Switch to versioning scheme suggested in #debian-qt-kde (OFTC)
+    (note that we will need to have different source packages for
+    the KDE3 and KDE4 versions)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 27 Jul 2009 11:15:49 +0001
+
+kwalletcli (0.94-1) experimental; urgency=low
+
+  * New upstream snapshot
+  * Move to debhelper v5
+  * Enhance package description
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 27 Jul 2009 11:15:49 +0200
+
+kwalletcli (0.93-1) experimental; urgency=low
+
+  * New upstream snapshot:
+    - Fix pinentry-kwallet breakage
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 12 Jul 2009 20:02:41 +0200
+
+kwalletcli (0.92-1) experimental; urgency=low
+
+  * New upstream snapshot:
+    - Add -q (quiet) option
+    - Separate KDE 3 interface via API, for future KDE 4 interface
+    - Fix some typos and other minor bugs, in code and manpages
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Fri, 10 Jul 2009 12:55:32 +0200
+
+kwalletcli (0.91-1) experimental; urgency=low
+
+  * New upstream snapshot:
+    - Return 0 if the version is shown
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Thu, 09 Jul 2009 17:07:51 +0200
+
+kwalletcli (0.90) experimental; urgency=low
+
+  * Initial release
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 08 Jul 2009 17:35:20 +0200

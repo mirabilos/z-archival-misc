@@ -1,0 +1,36 @@
+#!/bin/sh
+
+PREREQ=""
+prereqs() {
+	echo "$PREREQ"
+}
+
+case $1 in
+(prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+. /scripts/functions
+
+extraseed=$(cat /etc/early-rng-init-tools.extraseed)
+# perhaps use a CRC or cut off several chars from the result
+# to reduce length further? what utilities for that does klibc ship?
+#
+# perhaps add /sbin/ip a (busybox, iff present) or
+#for device in /sys/class/net/*; do echo "$device//$(cat "$device/address" 2>&1)"; done
+# and /proc/net/route and /proc/net/ipv6_route and /proc/net/if_inet6 and
+# /proc/net/fib_trie and /proc/net/arp and /proc/net/dev
+#
+# NOTE: klibc does not even have md5sum!
+dmesgseed=$(exec 2>/dev/null; dmesg | md5sum)
+
+_log_msg "Info: %s\\n" "Loading initial entropy from platter..."
+rndshuf_verbosity= #-d #-dd
+if /usr/libexec/rnd_shuf $rndshuf_verbosity -a "$extraseed$dmesgseed" -E \
+    -f "$rootmnt/.early_rnd"; then
+	_log_msg "Info: %s\\n" "RNG should be initialised now"
+else
+	log_failure_msg "Could not process initial entropy!"
+fi

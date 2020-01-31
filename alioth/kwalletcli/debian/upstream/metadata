@@ -1,0 +1,12 @@
+{
+  "Archive": "The MirOS Project",
+  "Bug-Submit": "mailto:miros-discuss@mirbsd.org",
+  "Contact": "irc://irc.freenode.net/MirBSD",
+  "Donation": "http://www.mirbsd.org/danke.htm",
+  "Name": "kwalletcli",
+  "Repository": [
+    ":extssh:_anoncvs@anoncvs.mirbsd.org:/cvs",
+    "kwalletcli"
+  ],
+  "Repository-Browse": "http://www.mirbsd.org/cvs.cgi/contrib/hosted/tg/code/kwalletcli/"
+}

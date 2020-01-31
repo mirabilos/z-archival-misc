@@ -1,0 +1,5 @@
+early-rng-init-tools (1) wtf; urgency=high
+
+  * Initial release.
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Sun, 24 Feb 2019 05:39:33 +0100

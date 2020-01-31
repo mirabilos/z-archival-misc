@@ -1,0 +1,12 @@
+etc/jupp/jpicorc etc/jupp/picorc
+usr/bin/jupp usr/bin/jmacs
+usr/bin/jupp usr/bin/joe
+usr/bin/jupp usr/bin/jpico
+usr/bin/jupp usr/bin/jstar
+usr/bin/jupp usr/bin/rjoe
+usr/share/doc/jupp usr/share/doc/joe-jupp
+usr/share/man/man1/jupp.1.gz usr/share/man/man1/jmacs.1.gz
+usr/share/man/man1/jupp.1.gz usr/share/man/man1/joe.1.gz
+usr/share/man/man1/jupp.1.gz usr/share/man/man1/jpico.1.gz
+usr/share/man/man1/jupp.1.gz usr/share/man/man1/jstar.1.gz
+usr/share/man/man1/jupp.1.gz usr/share/man/man1/rjoe.1.gz

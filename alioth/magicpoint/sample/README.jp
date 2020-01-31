@@ -1,0 +1,16 @@
+This file is no longer updated as I sadly don’t speak Japanese.  --mirabilos
+
+このディレクトリには、MagicPoint 用のサンプル・プレゼンテーション・ファ
+イルが置かれています。
+
+	default.mgp		スタイル・ファイル
+
+	sample-jp.mgp		MagicPoint のおおまかな機能のデモ
+	tutorial-jp.mgp		MagicPoint の操作方法の説明
+	gradation-jp.mgp	背景のデモ
+
+	v6-jp.mgp		発表ファイルのサンプル
+	sendmail6-jp.mgp	発表ファイルのサンプル
+	multilingual.mgp	多言語機能のサンプル
+
+綺麗に表示するには TrueType フォントが必要です。

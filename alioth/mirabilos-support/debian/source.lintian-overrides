@@ -1,0 +1,14 @@
+# never!
+mirabilos-support source: no-dep5-copyright
+
+# by design: we build on sarge
+mirabilos-support source: package-uses-deprecated-debhelper-compat-version 4
+mirabilos-support source: package-uses-deprecated-source-override-location
+mirabilos-support source: debian-rules-parses-dpkg-parsechangelog
+
+# oh, go away, you scoundrel!
+mirabilos-support source: debian-source-options-has-custom-compression-settings
+mirabilos-support source: debian-rules-should-not-use-custom-compression-settings
+
+# there is none
+mirabilos-support source: testsuite-autopkgtest-missing

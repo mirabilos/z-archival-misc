@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -*- coding: utf-8; -*-
+%deffont "standard" xfont "helvetica-medium-r"
+%deffont "thick" xfont "helvetica-bold-r"
+%deffont "typewriter" xfont "courier-medium-r"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Default settings per each line numbers.
+%%
+%default 1 area 95 95, leftfill, size 2, fore "black", back "white", font "standard", hgap 0
+%default 2 size 7, vgap 10, prefix " ", ccolor "black"
+%default 3 size 2, bar "gray70", vgap 10
+%default 4 size 5, fore "gray20", vgap 30, prefix " ", font "standard"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Default settings that are applied to TAB-indented lines.
+%%
+%tab 1 size 5, vgap 40, prefix "  ", icon box "darkblue" 50
+%tab 2 size 4, vgap 40, prefix "      ", icon arc "yellow" 50
+%tab 3 size 3, vgap 40, prefix "            ", icon delta3 "white" 40
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 256 0 0 "slateblue1" "white"
+
+Hello from Europe
+
+
+  English						Hello
+  German (Deutsch)			Guten Tag, Grüß Gott
+  French (français)			Bonjour, Salut
+  Spanish (español)			¡Hola!
+  Polish  (język polski)		Dzień dobry! Cześć!
+  Czech (česky)				Dobrý den
+  Estonian (eesti keel)		Tere, Tervist
+  Finnish (Suomi)				Hei
+  Maltese (il-Malti)			Bonġu, Saħħa
+  Esperanto					Saluton (Eĥoŝanĝo ĉiuĵaŭde)
+
+  Greek (ελληνικά)			Γειά σας
+
+  Russian (русский)			Здравствуйте!
+
+  Georgian (ქართული)		გამარჯობათ!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 256 0 0 "red" "PaleVioletRed1", fore "white"
+
+Hello from Africa & Middle/Near East
+
+
+  Amharic (አማርኛ)			ሠላም
+  Tigrigna (ትግርኛ)				ሰላማት
+
+
+  Turkish (Türkçe)			Merhaba
+
+
+  Arabic (اَلْعَرَبِيَّةُ)‎				اَلسَّلَامُ عَلَيْكُم
+  Persian (فارسی)‎				سلام عليکم
+
+
+  Hebrew (עִבְרִית)‎				שָׁלוֹם
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%page
+%bgrad 0 0 256 0 0 "green" "white", fore "darkblue"
+
+Hello from South/South-East Asia
+
+  Hindi (हिंदी)						नमस्ते, नमस्कार ।
+  Bengali (বাংলা)					নমস্কার
+  Punjabi (ਪੰਜਾਬੀ)					ਸਤਿ ਸ਼੍ਰੀ ਅਕਾਲ
+  Gujarati (ગુજરાતી)					નમસ્તે
+  Tamil (தமிழ்)					வணக்கம்
+  Telugu (తెలుగు)					హలో
+  Kannada (ಕನ್ನಡ)					ನಮಸ್ಕಾರ
+  Malayalam (മലയാളം)			നമസ്കാരം
+  Myanmar (မ္ရန္‌မာ)					မင္ဂလာပာ
+  Tibetan (བོད་སྐད་)					བཀྲ་ཤིས་བདེ་ལེགས༎
+  Thai (ภาษาไทย)					สวัสดีครับ, สวัสดีค่ะ
+  Lao (ພາສາລາວ)					ສະບາຍດີ, ຂໍໃຫ້ໂຊກດີ
+  Khmer (ខ្មៃរ)						ជំរាបសួរ
+  Vietnamese (Tiếng Việt)		Chào bạn
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PAGE
+%bgrad 0 0 256 0 0 "MediumPurple1" "white"
+
+Hello from East Asia
+
+
+
+  Chinese (汉语)				你好
+
+
+  Japanese (日本語)			こんにちは
+
+
+  Korean (한글)				안녕하세요

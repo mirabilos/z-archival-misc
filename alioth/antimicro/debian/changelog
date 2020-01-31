@@ -1,0 +1,12 @@
+antimicro (2.23-2) unstable; urgency=medium
+
+  * Bump Policy (with no relevant changes)
+  * Enable Linux-specific uinput only building for Linux
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 16 Oct 2019 00:21:54 +0200
+
+antimicro (2.23-1) unstable; urgency=medium
+
+  * Initial packaging (Closes: #752709)
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Wed, 03 Jul 2019 18:55:23 +0200

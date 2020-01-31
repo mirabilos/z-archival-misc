@@ -1,0 +1,5 @@
+# never!
+mksh source: no-dep5-copyright
+
+# not at the moment
+mksh source: testsuite-autopkgtest-missing

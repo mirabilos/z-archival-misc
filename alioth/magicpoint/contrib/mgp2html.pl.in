@@ -1,0 +1,393 @@
+# mgp2html.pl
+# converts MagicPoint input file to simple dumb html file.
+#
+# Copyright (C) 1997 and 1998 WIDE Project.  All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+# 3. Neither the name of the project nor the names of its contributors
+#    may be used to endorse or promote products derived from this software
+#    without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE PROJECT AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE PROJECT OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+
+$alignmode = '';
+$outputsomething = 0;
+$page = -1;
+$line = 0;
+$doimage = 1;
+$nodefault = 0;
+$indent = 0;
+$cont = 0;
+$colortext = "";
+$colorbg = "";
+$colorlink = "";
+$colorvflink = "";
+$mgpdefaultfontsize = 5;
+$mgpfontsize = -1;
+$htmldefaultfontsize = -1;
+$htmlfontsize = -1;
+$htmlfontsizemin = 1;
+$htmlfontsizemax = 9;
+$htmlfontcol = "";
+$colormode = 0;
+$colorlast = "";
+$infont = 0;
+$filtermode = 0;
+$filtercmd = "";
+$filterinput = "";
+
+while ($_ = $ARGV[0], /^-/) {
+	shift;
+	last if /^--$/;
+	if (/^-c/)        { $colormode = 1; next; }
+	if (/^-text$/)    { $colortext = shift; next; }
+	if (/^-link$/)    { $colorlink = shift; next; }
+	if (/^-vlink$/)   { $colorvlink = shift; next; }
+	if (/^-bgcolor$/) { $colorbg = shift; next; }
+	if (/^-f$/)       { $mgpdefaultfontsize = shift; next; }
+	if (/^-fh$/)      { $htmldefaultfontsize = shift; next; }
+	if (/^-fhmin$/)   { $htmlfontsizemin = shift; next; }
+	if (/^-fhmax$/)   { $htmlfontsizemax = shift; next; }
+}
+$fontsize = $defaultfontsize;
+$mgpfontsize = $mgpdefaultfontsize;
+$| = 1;
+
+&prologue;
+while (<>) {
+	s/[\n\r]*$//; # trim CR and LF
+	s/</&lt;/g; # escape < as &lt;
+
+	$_ = '' if (/^#/o);
+
+	# multiline processing (lines ending with '\')
+	while ((/\\$/) && (not eof())) {
+		$_=substr($_,0,-1); # cuts last char (should be '\')
+		$_=$_.<>; # concatenate next line
+		s/[\n\r]*$//; # trim CR and LF
+	}
+
+	if ($_ eq '' || $_ =~ /^[^%]/) {
+		$line++;
+		$cont = 0 if ($cont == 2);
+		$cont = 2 if ($cont == 1);
+		if ($default[$line] && !$nodefault) {
+			&cmds($default[$line]);
+		}
+		if ($filtermode) {
+			if ($filterinput eq "") {
+				$filterinput = $_;
+			} else {
+				$filterinput = $filterinput . "\n" . $_;
+			}
+			next;
+		}
+		next if ($page == -1);
+		&output($_);
+		next;
+	}
+
+	$cont = 0 if ($cont == 2);
+	$cont = 2 if ($cont == 1);
+	&cmds($_);
+}
+&pageepilogue;
+&epilogue;
+exit 0;
+
+sub cmds {
+	local($_) = @_;
+
+	# special directives
+	if (/^%page/i) {
+		&fontreset;
+		if ($page != -1) {
+			&alignreset;
+			&pageepilogue;
+		} else {
+			$page = 0;
+		}
+		&pageprologue;
+		$line = 0;
+		$nodefault = 0;
+		$htmlfontsize = $htmldefaultfontsize;
+		$mgpfontsize = $mgpdefaultfontsize;
+		$fontchange;
+		next;
+	} elsif (/^%default/i) {
+		$x = (split(/\s+/, $_))[1];
+		$default[$x] = $_;
+		$default[$x] =~ s/^%default\s+\d+\s+/\%/;
+		next;
+	} elsif (/^%%/) {
+		&output('');
+		next;
+	}
+
+	# parsed directives
+	@dirs = split(/,\s*/, substr($_, 1));
+	foreach $j (@dirs) {
+		@dir = split(/\s+/, $j);
+		$dir[0] =~ tr/A-Z/a-z/;
+		if ($dir[0] eq 'image') {
+			if ($dir[$#dir] =~ /^\d+x\d+/) {
+				$#dir--;
+			}
+			$dir[1] =~ s/\"//g;
+			if (!$doimage) {
+				# don't use images
+			} elsif (scalar(@dir) == 2 || scalar(@dir) == 3) {
+				&output("<IMG SRC=\"$dir[1]\" ALT=\"$dir[1]\">\n");
+			} elsif (scalar(@dir) == 4) {
+				# interpretation wrong
+				&output("<IMG SRC=\"$dir[1]\" WIDTH=$dir[3]% HEIGHT=$dir[3]% ALT=\"$dir[1]\">\n");
+			} elsif (scalar(@dir) >= 5) {
+				# interpretation wrong
+				&output("<IMG SRC=\"$dir[1]\" WIDTH=$dir[3]% HEIGHT=$dir[4]% ALT=\"$dir[1]\">\n");
+			}
+			$endline = "<BR>\n";
+		} elsif ($dir[0] eq 'nodefault') {
+			$nodefault++;
+		} elsif ($dir[0] =~ /^(left|leftfill|right|center)$/) {
+			$dir[0] =~ tr/A-Z/a-z/;
+			&fontreset;
+			&alignreset;
+			&alignmode($dir[0]);
+			&fontchange;
+		} elsif ($dir[0] =~ /^filter$/) {
+			&filter;
+		} elsif ($dir[0] =~ /^endfilter$/) {
+			&endfilter;
+		} elsif ($dir[0] =~ /^cont$/) {
+			$cont = 1;
+		} elsif ($dir[0] =~ /^fore/) {
+			$dir[1] =~ s/\"//g;
+			$htmlfontcol = $dir[1];
+			&fontchange if ($colormode == 1);
+		} elsif ($dir[0] =~ /^size/) {
+			$dir[1] =~ s/\"//g;
+			$mgpfontsize = $dir[1];
+			&fontchange;
+		} elsif (grep($dir[0] eq $_, @keywords)) {
+			# unsupported directive with 1 parameter
+		} else {
+			die "unsupported directive $dir[0]\n";
+		}
+	}
+}
+
+sub prologue {
+	print "<HTML>\n";
+	print "<BODY";
+	print " TEXT=" . $colortext    if ($colortext ne '');
+	print " BGCOLOR=" . $colorbg   if ($colorbg ne '');
+	print " LINK=" . $colorlink    if ($colorlink ne '');
+	print " VLINK=" . $colorvlink  if ($colorvlink ne '');
+	print ">\n";
+	if ($htmldefaultfontsize > 0) {
+		print "<FONT SIZE=";
+		print $htmldefaultfontsize;
+		print ">\n";
+	}
+}
+
+sub epilogue {
+	if ($htmldefaultfontsize > 0){
+		print "</FONT>\n";
+	}
+	print <<EOF;
+</BODY>
+</HTML>
+EOF
+}
+
+sub pageprologue {
+	print <<EOF
+<HR>
+EOF
+}
+
+sub pageepilogue {
+	&output_eol;
+	$page++;
+	&doindent(0);
+	print <<EOF
+(page $page)<BR>
+EOF
+}
+
+sub output {
+	local($str) = @_;
+	local($i) = 0;
+
+	while ($str =~ /^\t/) {
+		$i++;
+		$str = substr($str, 1);
+	}
+	if ($cont == 0) {
+		&output_eol;
+		&doindent($i);
+		if (length($str)) {
+			$str =~ s/http:\/\/\S*/<A HREF=$&>$&<\/A>/g;
+			if ($indent) {
+				print "\t" x $indent . "<LI>" . $str;
+				$endline = "\n";
+			} else {
+				print $str;
+				$endline = "<BR>\n";
+			}
+			$outputsomething++;
+		} else {
+			$endline = "<BR>\n";
+		}
+	} else {
+		$endline = "";
+		if (length($str)) {
+			$str =~ s/http:\/\/\S*/<A HREF=$&>$&<\/A>/g;
+			print $str;
+			$outputsomething++;
+		}
+	}
+}
+
+sub output_eol {
+	print $endline;
+	$endline = "";
+}
+
+sub doindent {
+	local($level) = @_;
+
+	if ($indent > $level) {
+		while ($indent > $level) {
+			print "\t" x $indent . "</UL>\n";
+			$indent--;
+		}
+	} else {
+		while ($indent < $level) {
+			$indent++;
+			print "\t" x $indent . "<UL>\n";
+		}
+	}
+}
+
+sub alignreset {
+	return if ($alignmode eq '');
+
+	if ($alignmode eq 'left') {
+		print "</DIV>\n";
+	} elsif ($alignmode eq 'leftfill') {
+		print "</DIV>\n";
+	} elsif ($alignmode eq 'right') {
+		print "</DIV>\n";
+	} elsif ($alignmode eq 'center') {
+		print "</DIV>\n";
+	} else {
+		die "unknown alignment $alignmode\n";
+	}
+	$alignmode = '';
+}
+
+sub alignmode {
+	local($mode) = @_;
+
+	$alignmode = $mode;
+	if ($alignmode eq 'left') {
+		print "<DIV ALIGN=LEFT>\n";
+	} elsif ($alignmode eq 'leftfill') {
+		print "<DIV ALIGN=LEFT>\n";
+	} elsif ($alignmode eq 'right') {
+		print "<DIV ALIGN=RIGHT>\n";
+	} elsif ($alignmode eq 'center') {
+		print "<DIV ALIGN=CENTER>\n";
+	} else {
+		die "unknown alignment $mode\n";
+	}
+	$outputsomething = 0;
+}
+
+sub filter {
+	$filtercmd = "";
+	for ($i = 1; $i < scalar(@dir); $i++) {
+		$dir[$i] =~ s/\\/\\\\/g;
+		if ($i == 1) {
+			$dir[$i] =~ s/^\"//;
+		} elsif ($i == scalar(@dir) - 1) {
+			$dir[$i] =~ s/\"$//;
+		} else {
+			$dir[$i] =~ s/\"/\\"/g;
+		}
+		$filtercmd = $filtercmd . " " . $dir[$i];
+	}
+	$filtermode = 1;
+}
+
+sub endfilter {
+	if ($filterinput eq '') {
+	} else {
+		$filterinput =~ s/\\/\\\\/g;
+		$filterinput =~ s/"/\\"/g;
+		$filtercmd = "echo \"" . $filterinput . "\""
+				. " | " . $filtercmd;
+	}
+	&output_eol;
+	print "<PRE>\n";
+	system($filtercmd);
+	print "</PRE>\n";
+	$filterinput = "";
+	$filtermode = 0;
+}
+
+sub fontchange {
+	local($fs, $fsh);
+	&fontreset;
+	if ($mgpdefaultfontsize > 0) {
+		$fs = $mgpfontsize - $mgpdefaultfontsize;
+	} else {
+		$fs = 0;
+	}
+	if ($htmldefaultfontsize > 0) {
+		$fsh = $fs + $htmldefaultfontsize;
+		$fs = $htmlfontsizemin if ($fsh < $htmlfontsizemin);
+		$fs = $htmlfontsizemax if ($fsh > $htmlfontsizemax);
+	}
+	if (($fs != 0) || (($colormode == 1) && ($colorlast ne $htmlfontcol))){
+		print "<FONT";
+		if ($fs != 0) {
+			print " SIZE=";
+			print "+" if ($fs >= 0);
+			print $fs;
+		}
+		if (($colormode == 1) && ($colorlast ne $htmlfontcol)) {
+			print " COLOR=\"" . $htmlfontcol . "\"";
+			$colorlast = $htmlfontcol;
+		}
+		print ">";
+		$infont = 1;
+	}
+}
+
+sub fontreset {
+	$colorlast = "";
+	if ($infont == 1) {
+		print "</FONT>";
+	}
+	$infont = 0;
+}

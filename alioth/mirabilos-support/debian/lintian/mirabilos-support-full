@@ -1,0 +1,5 @@
+# indeed
+mirabilos-support-full: bugs-field-does-not-refer-to-debian-infrastructure
+
+# desired
+mirabilos-support-full: unknown-field-in-control important

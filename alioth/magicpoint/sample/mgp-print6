@@ -1,0 +1,126 @@
+#! /usr/bin/perl
+
+# Copyright (C) 2000, 2001 Kaoru Maeda.
+# All rights reserved.
+
+# This file can be freely distributed
+# under the same condition as Perl.
+
+$argc = 0;
+$opt_resolution = "800x600";
+$opt_opts = "";
+while ($argc <= $#ARGV) {
+    if ($ARGV[$argc] eq "-h" || $ARGV[$argc] eq "--help") {
+	"$0 [-g WIDTHxHEIGHT] [-o mgp-option] mgp-file\n";
+        exit;
+    } elsif ($ARGV[$argc] eq "-g") {
+	if (($argc < $#ARGV) && ($ARGV[$argc+1] !~ /^-/)) {
+	    $opt_resolution = $ARGV[++$argc];
+	}
+    } elsif ($ARGV[$argc] eq "-o") {
+	if (($argc < $#ARGV)) {
+	    $opt_opts = $ARGV[++$argc];
+	}
+    } else {
+	$stem = $ARGV[$argc];
+	$stem =~ s/\.mgp?//;
+    }
+    $argc++;
+}
+
+$tmpdir = "PRINT6";
+
+@PAGES = glob("$tmpdir/mgp00???.eps");
+
+if (!-d $tmpdir || !@PAGES) {
+
+    if (-d $tmpdir) {
+	system("rm -rf $tmpdir");
+    }
+    mkdir $tmpdir, 0777;
+
+    system("mgp -D $tmpdir -E png -o -g $opt_resolution+0+0 -X ppmraw+ $opt_opts $stem.mgp");
+
+    @PNGS = glob("$tmpdir/mgp00???.png");
+    for $png (@PNGS) {
+	($eps = $png) =~ s/\.png/.eps/;
+	print STDERR "$png -> $eps\n";
+	system("pngtopnm $png | ppmtopgm | perl -pe 'tr/\\372/\\377/' | pnmtops -dpi 600 -scale 0.6 -noturn > $eps");
+    }
+
+    @PAGES = glob("$tmpdir/mgp00???.eps");
+}
+
+$pages = 0;
+$o = 0;
+@LOC = ('48,128,509,474',
+	'544,128,1005,474',
+	'48,576,509,922',
+	'544,576,1005,922',
+	'48,1024,509,1370',
+	'544,1024,1005,1370',
+	);
+
+while (@PAGES) {
+    @P = splice(@PAGES, 0, scalar @LOC);
+    $pages++;
+    push(@out, qq[page($pages,"",1,'').\n]);
+    @loc = @LOC;
+    for $file (@P) {
+	$mtime = (stat $file)[9];
+	$mtime = localtime($mtime);
+	$loc = shift(@loc);
+	$x = <<EOL;
+group([
+xbm('black','',$loc,0,OBJID,0,461,346,0,0,1,75000,208000,536000,554000,1,0,0,0,0,0,0,
+    "$mtime","$file",[
+]),
+box('black','',$loc,0,1,1,OBJID,0,0,0,0,0,'1',0,[
+])
+],
+OBJID,0,0,[
+]).
+EOL
+    ;
+	$x =~ s/OBJID/$o++/ge;
+	push(@out, $x);
+    }
+}
+
+unshift(@out, <<'EOL');
+%
+% %W%
+%
+unit("1 pixel/pixel").
+color_info(12,65535,0,[
+	"magenta", 65535, 0, 65535, 65535, 0, 65535, 1,
+	"red", 65535, 0, 0, 65535, 0, 0, 1,
+	"green", 0, 65535, 0, 0, 65535, 0, 1,
+	"blue", 0, 0, 65535, 0, 0, 65535, 1,
+	"yellow", 65535, 65535, 0, 65535, 65535, 0, 1,
+	"pink", 65535, 49931, 53052, 65535, 49344, 52171, 1,
+	"cyan", 0, 65535, 65535, 0, 65535, 65535, 1,
+	"CadetBlue", 22885, 40569, 42649, 24415, 40606, 41120, 1,
+	"white", 65535, 65535, 65535, 65535, 65535, 65535, 1,
+	"black", 0, 0, 0, 0, 0, 0, 1,
+	"DarkSlateGray", 10402, 19764, 18724, 12079, 20303, 20303, 1,
+	"AntiqueWhite2", 61374, 57213, 53052, 61166, 57311, 52428, 1
+]).
+script_frac("0.6").
+fg_bg_colors('black','AntiqueWhite2').
+EOL
+    ;
+
+    unshift(@out, <<EOL);
+%TGIF 4.1.39
+state(0,37,100.000,0,0,2,8,1,9,1,1,0,0,1,0,1,0,'Helvetica',0,80640,0,0,0,10,0,0,1,0,0,16,0,0,$pages,$pages,1,1,1050,1485,1,0,2880,0).
+EOL
+    ;
+
+    open (OUT, ">$stem-6.obj");
+    print OUT @out;
+    close OUT;
+
+    system("tgif -print -ps $stem-6.obj");
+    unlink("$stem-6.obj");
+__END__

@@ -1,0 +1,13 @@
+{
+  "Archive": "The MirOS Project",
+  "Bug-Submit": "mailto:miros-discuss@mirbsd.org",
+  "Changelog": "http://www.mirbsd.org/jupp.htm#clog",
+  "Contact": "irc://irc.freenode.net/MirBSD",
+  "Donation": "http://www.mirbsd.org/danke.htm",
+  "Name": "jupp",
+  "Repository": [
+    ":extssh:_anoncvs@anoncvs.mirbsd.org:/cvs",
+    "jupp"
+  ],
+  "Repository-Browse": "http://www.mirbsd.org/cvs.cgi/contrib/code/jupp/"
+}

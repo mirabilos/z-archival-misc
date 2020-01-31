@@ -1,0 +1,30 @@
+Description: Indicate the sounding pitch in the status line if…
+  * the current instrument has an actual pitch
+    (not beat/rhythm slashes or drums)
+  * the Concert Pitch (global) toggle is off
+ .
+ This will show the same pitch twice for nōn-transposing
+ instruments; that’s by design, to show we’re currently
+ in transposing pitch mode but that instrument does not
+ transpose (helps debugging).
+ .
+ Partially addresses node #283120.
+Author: mirabilos <m@mirbsd.org>
+Forwarded: https://github.com/musescore/MuseScore/pull/5036
+
+--- a/libmscore/note.cpp
++++ b/libmscore/note.cpp
+@@ -2754,6 +2754,13 @@ QString Note::accessibleInfo() const
+             pitchName = chord()->noStem() ? QObject::tr("Beat slash") : QObject::tr("Rhythm slash");
+       else if (staff()->isDrumStaff(tick()) && drumset)
+             pitchName = qApp->translate("drumset", drumset->name(pitch()).toUtf8().constData());
++      else if (!concertPitch()) {
++            pitchName = tpcUserName(false);
++            // tpcUserName equivalent for getting the sounding pitch
++            QString soundingPitch = propertyUserValue(Pid::TPC1) + QString::number((_pitch / 12) - 1);
++            // almost the same string as below
++            return QObject::tr("%1; Pitch: %2 (sounding as %3); Duration: %4%5").arg(noteTypeUserName()).arg(pitchName).arg(soundingPitch).arg(duration).arg((chord()->isGrace() ? "" : QString("; %1").arg(voice)));
++            }
+       else
+             pitchName = tpcUserName(false);
+       return QObject::tr("%1; Pitch: %2; Duration: %3%4").arg(noteTypeUserName()).arg(pitchName).arg(duration).arg((chord()->isGrace() ? "" : QString("; %1").arg(voice)));

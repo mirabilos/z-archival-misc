@@ -1,0 +1,109 @@
+Additional documentation and examples
+=====================================
+
+Please read the links on http://www.mirbsd.org/ksh-chan.htm and peek at:
+https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=shellsnippets/shellsnippets.git
+
+Check the local FAQ at: file:///usr/share/doc/mksh/FAQ.htm
+
+
+Reporting bugs
+==============
+
+Do *not* report bugs with this package or software to Debian!
+(reportbug should default to sending a private eMail upstream.)
+
+Please report issues (bugs, feature requests, etc.) upstream,
+either via IRC or mailing list or, if it must be, at Launchpad:
+
+* #!/bin/mksh (or #ksh) IRC channel
+  at irc.freenode.net (Port 6697 SSL, 6667 unencrypted)
+
+* mksh mailing list <miros-mksh@mirbsd.org>
+  (does not require subscription to post)
+  archived at http://news.gmane.org/gmane.os.miros.mksh and others
+  (note: several freemail providers have issues with the list;
+  use GMane (NNTP or web interface) to post in those cases)
+
+* https://launchpad.net/mksh
+
+
+Notes for the mksh binary package
+=================================
+
+* After installation, it is strongly recommended to copy the file
+  /etc/skel/.mkshrc into your home directory to get a nicer prompt,
+  pushd/popd/dirs/setenv/enable functionality, some aliases, etc.
+  (you can then customise it; reading the manual page also often
+  helps). Note that /etc/skel/.mkshrc sources /etc/mkshrc (which
+  is the upstream-provided file) by default and contains some more
+  examples to set the locale and editor, etc. Change the file once
+  copied into your home directory if you do not want this.
+
+* The MirBSD Korn Shell provides a workable /bin/sh for Debian;
+  installation however is not automatic due to Debian #540512 (a
+  wontfix RC bug in dash). It is strongly recommended to use its
+  “legacy” flavour for this, as it uses the host “long” C type for
+  integer arithmetic operations, enables POSIX mode if called as
+  /bin/sh, and contains some workarounds for broken Debian maintainer
+  scripts. First dpkg-reconfigure -plow dash to disable it sitting on
+  /bin/sh, then use these commands:
+  $ sudo ln -sf lksh /bin/sh
+  $ sudo ln -sf lksh.1.gz /usr/share/man/man1/sh.1.gz
+  Please note that lksh, as opposed to mksh, is not suited yet for
+  interactive use (but no regression from dash which also isn’t).
+
+  Alternatively, in jessie (Debian 8) or newer versions, you can
+  install the “dash-mksh” package from the “WTF” APT repository.
+  Do read its package Description, because there are manual
+  preinstall and (currently) postinstall steps!
+
+* The /bin/lksh binary is used to run legacy ksh88 and pdksh scripts.
+  It is not intended for interactive use, but has a printf(1) builtin.
+  It is, however, usable as /bin/sh on Debian systems. In contrast,
+  /bin/mksh-static should be used on initrd/initramfs as shell.
+
+* /bin/mksh is built with the following options:
+  - extra hardening flags: +all (if dpkg-buildflags is available)
+  - glibc (dynamically linked)
+
+* /bin/mksh-static is built with the following options:
+  - extra hardening flags: +all but no PIE
+    (position independent code), as this is a static executable
+    (if dpkg-buildflags is available)
+  - glibc, if cross-built or running the testsuite is disabled;
+    otherwise klibc if available and working, otherwise musl if
+    available and working, otherwise dietlibc if available and
+    working, otherwise glibc (statically linked)
+  - symbolic link, unless built against glibc
+  - note that the stack protector is disabled on dietlibc, klibc
+    due to limitations in those operating environments
+  - calling as sh or -sh invokes "set -o posix -o sh"
+  - -DMKSH_SMALL -DMKSH_SMALL_BUT_FAST
+  - no locale support; uses getenv on LANG/LC_CTYPE/LC_ALL
+
+* /usr/lib/diet/bin/mksh is a symlink target for /bin/mksh-static
+  - only built if not a cross-build, dietlibc is enabled and successful
+
+* /usr/lib/klibc/bin/mksh is a symlink target for /bin/mksh-static
+  - only built if not a cross-build, klibc is enabled and successful
+
+* /usr/lib/*musl*/bin/mksh is a symlink target for /bin/mksh-static
+  - only built if not a cross-build, musl is enabled and successful
+
+* /bin/lksh is built with the following options:
+  - extra hardening flags: +all (no PIE if statically linked)
+    (if dpkg-buildflags is available)
+  - dietlibc, klibc, or musl (statically linked), or glibc
+    (dynamically linked), under similar rules as /bin/mksh-static
+  - the printf builtin
+  - calling as sh or -sh invokes "set -o posix -o sh"
+  - no locale support; uses getenv on LANG/LC_CTYPE/LC_ALL
+
+* The following testsuite failures, especially on the autobuilder
+  network, are harmless and can be ignored:
+  - utf8bom-2 (mksh-full only)
+  - heredoc-tmpfile-8 (on slow machines)
+
+Details (generated during package build) can be found below:
+

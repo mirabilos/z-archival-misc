@@ -1,0 +1,20 @@
+{
+  "Archive": "The MirOS Project",
+  "Bug-Submit": "mailto:miros-discuss@mirbsd.org",
+  "Cite-As": "MirCPIO (<a href=\"http://www.mirbsd.org/pax.htm\">paxmirabilis</a>)",
+  "Contact": "irc://irc.freenode.net/MirBSD",
+  "Documentation": "http://www.mirbsd.org/MirOS/cats/mir/cpio/",
+  "Donation": "http://www.mirbsd.org/danke.htm",
+  "Name": [
+    "MirBSD paxtar",
+    "paxmirabilis",
+    "MirCPIO",
+    "paxtar",
+    "pax"
+  ],
+  "Repository": [
+    ":extssh:_anoncvs@anoncvs.mirbsd.org:/cvs",
+    "pax"
+  ],
+  "Repository-Browse": "http://www.mirbsd.org/cvs.cgi/src/bin/pax/"
+}

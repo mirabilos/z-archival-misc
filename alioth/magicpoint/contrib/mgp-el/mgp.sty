@@ -1,0 +1,100 @@
+%%% mgp.sty --- style file for a LaTeX file created by mgp.el
+%%% Copyright (C) 1999 Electrotechnical Lab., JAPAN
+
+%% Author: K.Handa <handa@etl.go.jp>
+%% Created: 1999/04/28
+
+%% Copyright (c) 1999 K.Handa <handa@etl.go.jp>
+%%
+%% This program is free software; you can redistribute it and/or modify
+%% it under the terms of the GNU General Public License as published by
+%% the Free Software Foundation; either version 2 of the License, or
+%% (at your option) any later version.
+%%
+%% This program is distributed in the hope that it will be useful,
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%% GNU General Public License for more details.
+%%
+%% You should have received a copy of the GNU General Public License along
+%% with this program; if not, write to the Free Software Foundation, Inc.,
+%% 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+%% Disable special handling of `@'.
+\makeatletter
+%% Copied from slides.cls and modified slightly.
+\def\rmdefault{lcmss}        % no roman
+\def\sfdefault{lcmss}
+\def\ttdefault{lcmtt}
+\def\itdefault{sl}
+\def\sldefault{sl}
+\def\bfdefault{bx}
+\def\ifourteenpt{13.82}
+\def\iseventeenpt{16.59}
+\def\itwentypt{19.907}
+\def\itwentyfourpt{23.89}
+\def\itwentyninept{28.66}
+\def\ithirtyfourpt{34.4}
+\def\ifortyonept{41.28}
+\def\@setfontsize@parms#1{%
+   \lineskip #1\relax%
+   \parskip #1\relax%
+  \baselineskip\baselinestretch\baselineskip%
+  \normalbaselineskip\baselineskip}
+\def\normalsize{%
+      \@setfontsize\normalsize\itwentypt{22\p@}%
+      \@setfontsize@parms{\z@}}
+\def\small{\@setfontsize\small\iseventeenpt{19\p@ plus3\p@}%
+           \@setfontsize@parms{2\p@}}
+\let\footnotesize=\small
+\let\scriptsize=\small
+\def\tiny{\@setfontsize\tiny\ifourteenpt{16\p@ plus2\p@}%
+          \@setfontsize@parms{2pt}}
+\def\large{\@setfontsize\large\itwentyfourpt{26\p@ plus8\p@}%
+           \@setfontsize@parms{2\p@}}
+\def\Large{\@setfontsize\Large\itwentyninept{31\p@ plus10\p@}%
+           \@setfontsize@parms{2\p@}}
+\def\LARGE{\@setfontsize\LARGE\ithirtyfourpt{36\p@ plus10\p@}%
+           \@setfontsize@parms{2\p@}}
+\def\huge{\@setfontsize\huge\ifortyonept{43\p@ plus10\p@}%
+           \@setfontsize@parms{2\p@}}
+\let\Huge\huge
+%% Put 1cm margin at top and bottom.
+\setlength\topmargin{-1in}
+\advance\topmargin by1cm
+\textheight\paperheight\advance\textheight by-2cm
+%% Put 1cm margin at left and right
+\setlength\oddsidemargin{-1in}
+\advance\oddsidemargin by1cm
+\textwidth\paperwidth\advance\textwidth by-2cm
+%% No surplus spaces.
+\setlength\headheight{0pt}
+\setlength\headsep   {0pt}
+\setlength\topskip   {0pt}
+\setlength\footskip  {0pt}
+\setlength\parindent {0pt}
+\pagestretch20mm
+\pagestyle{empty}
+%% Special command for line breaking.
+\def\nl{\hskip0pt minus10mm\nopagebreak[4]\\}
+\newdimen\mgpdimenx
+\newdimen\mgpdimeny
+\newbox\mgpbox
+%% Hanging indent
+\def\mgpi#1#2{\setbox\mgpbox=\hbox{#2\hskip.5mm}%
+\mgpdimenx#1em\divide\mgpdimenx by2\advance\mgpdimenx by\wd\mgpbox%
+\parindent\mgpdimenx\hangindent\mgpdimenx\indent\llap{\box\mgpbox}\ignorespaces}
+%% Horizontal skip
+\def\mgps#1{\mgpdimenx#1em\divide\mgpdimenx by2\hskip\mgpdimenx}
+%% Draw horizontal bar.
+\def\mgpb#1#2#3{%
+\mgpdimeny\textheight\divide\mgpdimeny by1000#1\multiply\mgpdimeny by#1%
+\mgpdimenx\textwidth\divide\mgpdimenx by100\multiply\mgpdimenx by#2%
+\makebox[\mgpdimenx]{}%
+\mgpdimenx\textwidth\divide\mgpdimenx by100\multiply\mgpdimenx by#3%
+\rule{\mgpdimenx}{\mgpdimeny}\\\vskip-10pt minus10pt}
+%% Enable special handling of `@'.
+\makeatother
+%% Some other packages
+\usepackage{latexsym}
+\usepackage{graphics}

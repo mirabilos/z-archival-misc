@@ -1,0 +1,5 @@
+# no, thanks
+rng-tools-debian source: no-dep5-copyright
+
+# no tests exist
+rng-tools-debian source: testsuite-autopkgtest-missing

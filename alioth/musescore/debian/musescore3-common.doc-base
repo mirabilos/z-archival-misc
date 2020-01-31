@@ -1,0 +1,9 @@
+Document: musescore3-plugin-doxy
+Title: MuseScore (stable) Plugins manual
+Abstract: Link to online plugin documentation and local copy
+ of doxygen-generated object reference for plugins to use.
+Section: Sound
+
+Format: HTML
+Index: /usr/share/doc/musescore3-common/plugin-doxy/plugins3.html
+Files: /usr/share/doc/musescore3-common/plugin-doxy/*

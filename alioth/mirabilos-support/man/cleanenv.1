@@ -1,0 +1,60 @@
+.ds p. /bin:/usr/bin:/sbin:/usr/sbin
+.Dd October 3, 2014
+.Dt CLEANENV 1
+.Os
+.Sh NAME
+.Nm cleanenv
+.Nd run programs with cleaned-up environment
+.Sh SYNOPSIS
+.Nm
+.Oo Fl \*(Ba
+.Pa /
+.Oc
+.Op Ev Foo=bar ...
+.Ic utility
+.Op Ar ...
+.Sh DESCRIPTION
+The
+.Nm
+utility cleans the environment pointer, sets a few environment
+variables as well as those passed, and runs the program passed.
+With
+.Pa /
+as first option, it first changes to the root directory
+.Pq Pa / ,
+then operates the same as if
+.Fl
+were passed.
+With
+.Fl
+set, it cleans even more, i.e. anonymises: only
+.Ev HOME Ns = Ns Pa /
+and
+.Ev PATH Ns = Ns Pa \*(p.
+are set then, whereas normal operation keeps the user's
+.Ev HOME
+and additionally passes through
+.Ev LC_CTYPE ,
+.Ev DISPLAY ,
+.Ev TERM ,
+.Ev USER
+from the current environment; then,
+.Ev HOME
+defaults to
+.Pa /
+if not set in the current environment,
+.Ev TERM
+defaults to
+.Ic vt100 ,
+.Ev TZ
+is forcibly set to
+.Ic UTC ,
+and the
+.Xr locale 1
+utility is used to determine the value of
+.Ev LC_CTYPE
+to set.
+.Sh SEE ALSO
+.Xr env 1
+.Sh AUTHORS
+.An Thorsten Glaser Aq tg@mirbsd.org

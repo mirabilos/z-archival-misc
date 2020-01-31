@@ -1,0 +1,30 @@
+Source: antimicro
+Section: utils
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Homepage: https://github.com/AntiMicro/antimicro
+Build-Depends: debhelper-compat (= 12), cmake, gettext, itstool,
+ libsdl2-dev, libx11-dev, libxi-dev, libxtst-dev,
+ lsb-release, pkg-config, qttools5-dev, qttools5-dev-tools
+Standards-Version: 4.4.1
+Rules-Requires-Root: no
+VCS-git: https://evolvis.org/anonscm/git/alioth/antimicro.git -b master
+VCS-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/antimicro.git;a=shortlog;h=refs/heads/master
+
+Package: antimicro
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: evtest, joystick
+Description: GUI for mapping keyboard keys and mouse controls to a gamepad
+ antimicro is a graphical program used to map keyboard keys and mouse
+ controls to a gamepad. This program is useful for playing PC games
+ using a gamepad that do not have any form of built-in gamepad support.
+ However, you can use this program to control any desktop application
+ (while running an X11 environment) with a gamepad.
+ .
+ https://github.com/AntiMicro/antimicro-profiles is a repository for
+ pre-made antimicro profiles, providing convenience controller layouts
+ suitable for playing a game without having to map everything yourself.
+ .
+ Use evtest, or perhaps jstest from the joystick package, if you
+ encounter problems detecting a controller, axes or buttons.

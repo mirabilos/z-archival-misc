@@ -1,0 +1,8 @@
+PRETTY_NAME="Debian GNU/Linux sid"
+NAME="Debian GNU/Linux"
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+VERSION_ID=unstable
+VERSION_CODENAME=sid

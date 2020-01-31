@@ -1,0 +1,38 @@
+Description: Don’t bundle fonts-freefont-ttf in the executable,
+ use the system copy (even if this means rendering will differ
+ from other places and musescore.com, the local user will get
+ the bugfixes applied to the Debian packaging of said fonts)
+ .
+ This was discussed around the Campania debate; basically, both
+ embedding and depending have upsides and downsides… ☹
+Author: mirabilos <tg@debian.org>
+Forwarded: not-needed
+Justification: distribution-specific packaging
+
+--- a/libmscore/mscore.cpp
++++ b/libmscore/mscore.cpp
+@@ -347,11 +347,13 @@ void MScore::init()
+ #if !defined(Q_OS_MAC) && !defined(Q_OS_IOS)
+       static const char* fonts[] = {
+             ":/fonts/musejazz/MuseJazzText.otf",
++#if 0
+             ":/fonts/FreeSans.ttf",
+             ":/fonts/FreeSerif.ttf",
+             ":/fonts/FreeSerifBold.ttf",
+             ":/fonts/FreeSerifItalic.ttf",
+             ":/fonts/FreeSerifBoldItalic.ttf",
++#endif
+             ":/fonts/mscoreTab.ttf",
+             ":/fonts/mscore-BC.ttf",
+             ":/fonts/bravura/BravuraText.otf",
+--- a/mscore/CMakeLists.txt
++++ b/mscore/CMakeLists.txt
+@@ -207,8 +207,6 @@ else (APPLE)
+             musescorefonts-Gootville.qrc
+             musescorefonts-Bravura.qrc
+             musescorefonts-MuseJazz.qrc
+-            musescorefonts-FreeSerif.qrc
+-            musescorefonts-Free.qrc
+             shortcut.qrc)
+ endif (APPLE)
+ 

@@ -1,0 +1,4 @@
+builddir/full/mksh bin/
+builddir/legacy/lksh bin/
+debian/.mkshrc etc/skel/
+debian/mksh*.xpm usr/share/pixmaps/

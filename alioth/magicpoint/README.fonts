@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	    Configuring fonts for MagicPoint presentation
+
+			    March 15, 2001
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+For better presentations with the "MagicPoint" presentation tool, it
+is necessary to configure your MagicPoint, and maybe your X11 server
+to handle large-size fonts.  The document tries to summarize steps to
+make use of large-size fonts with MagicPoint.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+			   Standard methods
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+- Scalable English fonts, with a standard X11 server
+
+A standard X11 server is capable of rendering "Adobe Type-1" scalable
+fonts.  To use Adobe Type-1 fonts, you have to install their font
+files.  You can find some fonts in /usr/X11R6/lib/X11/fonts/Type1,
+which is a part of the X11 standard distribution.  If you do not have
+the directory (or a similar directory), please install adequate font
+files into your system.
+
+Some good additional fonts can be found at:
+	http://www.gimp.org/fonts.html
+	ftp://ftp.gimp.org/pub/gimp/fonts/
+
+You may also add some directories to the X11 font search path.  Refer
+to the manual for your system.  Also, please do not forget to perform
+"xset fp rehash", if you modify the X11 font path while your X11 sever
+is running.
+
+You can query these fonts by using XLFD (X11 font specification
+string) starting with "-adobe-".  Use "xfontsel" to see whether or not
+it is installed.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+			    Miscellaneous
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+- How to get TrueType fonts.
+
+You can get freely available TrueType fonts from following:
+	http://www.aaa.nl/people/mkatwijk/freettf.html
+	http://come.to/freefonts
+	CTAN mirros, pub/CTAN/fonts/cm/ps-type1/bakoma/ttf
+		Computer modern fonts in TrueType format
+	ftp://www.mew.org/pub/MagicPoint/xtt-fonts_0.19981020-3.tar.gz
+		Freely redistributable Japanese fonts are converted into
+		TrueType format.  (Wadalab gothic and Watanabe mincho)
+
+	http://members.aol.com/JR9er/index.html
+	http://members.xoom.com/acidfonts/
+	http://dingbats.i-us.com/
+	http://www.freestuffcenter.com/fonts.html
+	http://www.fontpool.com/
+		TrueType font collections and collections of links.
+
+Also there are several sources for free-of-charge fonts, with some
+licensing things:
+	http://microsoft.com/typography/fontpack/default.htm
+		NOTE: Because that MS fonts package is Self Extract type
+		windows executable, you must extract it on windows
+		platform.  mmmm...
+	http://www.bitstream.com/products/world/cyberbits/index.html
+		NOTE: You can download it without fee.
+		You must sign a form to download this.
+		You can also purchase their CD-ROM.
+
+Of course, it's also good for you to purchase commercial font
+products.  Here are some online stores for font files, including
+TrueType fonts:
+	http://www3.digitalriver.com/bit/index.html
+	http://www.arttoday.com/
+	http://www.matchfonts.com/
+
+You may also able to purchase "font collection CD-ROM", at computer
+store near you.
+
+NOTE: TeX-deribed fonts (including computer modern fonts) places marks
+like "<" or ">" in strange places.  Therefore, you may have some trouble
+writing formulas and other non-plain text.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

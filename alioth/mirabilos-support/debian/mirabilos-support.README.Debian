@@ -1,0 +1,402 @@
+Notes on the WTF repo, packages and files in mirabilos-support
+==============================================================
+
+enabling this repository
+------------------------
+
+Before adding the WTF repository to your sources.list(5) please
+do make sure your system is up-to-date and clean, i.e. “apt-get
+-f install” does nothing, “apt-get --purge dist-upgrade” does
+nothing, “dpkg --audit” does not complain, and (highly recommended)
+“apt-get --purge autoremove” does nothing. Otherwise, existing
+issues may get worse.
+
+Note that old Debian versions may not have full support. The
+squeeze/wtf repository is partial and requires you to enable
+the lenny/wtf repository as well; testing users usually need
+to use the sid/wtf repository instead. Note there is hosted
+content provided by others in some repositories.
+
+See https://www.mirbsd.org/~tg/Debs/sources.txt for instructions.
+If using https in “deb” or “deb-src” lines, apt-transport-https
+must be installed *before* adding them to sources.list(5)!
+
+
+installing the prevent-* packages
+---------------------------------
+
+Note that this may remove some metapackages. You should either
+install faux prerequisites for them (e.g. with the “equivs”
+package), install older versions of dependencies (e.g. udisks2
+2.0.1-1 from snapshot.d.o, policykit-1 0.105-4 or -3 from wheezy)
+or use “apt-get install” or “apt-mark manual” to ensure that a
+subsequent “apt-get --purge autoremove” keeps e.g. your desktop
+environment installed. There’s also policykit-1-without-systemd
+and udisks2-without-systemd in the jessie distribution.
+
+
+workarounds for bugs in the operating system
+-----------
+
+See “installing dash-mksh” for a reason to not use dash as /bin/sh.
+
+BSD calendar(1) is disabled in the cronjob by default.
+
+You may want to place "alias top='LC_ALL=C.UTF-8 top'" into your
+shell’s startup file (.bashrc, .mkshrc, …) to work around #784740.
+
+In /etc/default/rcS set VERBOSE=yes and consider FSCKFIX=yes.
+In /etc/default/tmpfs you *do* want RAMTMP=yes, period. (If you
+suffer from systemd, add a line like…
+	swap /tmp tmpfs defaults,noatime,nosuid,nodev 0 0
+… to /etc/fstab instead; do NOT add noexec!)
+
+Use noatime for your filesystems, except those with mail spools
+or other sensible things on them (use relatime there). For the
+pseudo filesystems, add this to /etc/rc.local (not tested since
+2017 or so, be careful as I don’t use it at the moment):
+
+while IFS=' ' read -r blk mpt type rest; do
+	case $type:$mpt in
+	(devtmpfs:/dev|devpts:/dev/pts|tmpfs:/dev/shm|proc:/proc|binfmt_misc:/proc/sys/fs/binfmt_misc|tmpfs:/run|tmpfs:/run/lock|rpc_pipefs:/run/rpc_pipefs|tmpfs:/run/shm|sysfs:/sys|fusectl:/sys/fs/fuse/connections|pstore:/sys/fs/pstore|tmpfs:/tmp|rpc_pipefs:/var/lib/nfs/rpc_pipefs)
+		(mount -o remount,noatime "$mpt" || :)
+		;;
+	esac
+done </proc/mounts
+
+A *lot* more importantly, mount any and all ext4 you have with
+the options barrier=1,data=ordered,auto_da_alloc (although, in
+recent kernels, some or all of that might be default), for re‐
+stored/better data and metadata integrity!
+
+Run the following command to restore default/proper X11 cursors:
+# sudo update-alternatives --set x-cursor-theme /etc/X11/cursors/core.theme
+Also, create ~/.xserverrc with content like this plus a /bin/sh shebang:
+exec /usr/bin/X -retro -nolisten tcp -dpi 96 "$@"
+You might want to consider /etc/X11/xinit/xserverrc when using kdm.
+
+Someone decided to disable bitmap fonts in stretch/sid; re-enable them:
+ sudo mkdir -p /etc/fonts/conf.disabled && sudo dpkg-divert --rename \
+    --divert /etc/fonts/conf.disabled/10-scale-bitmap-fonts.conf \
+    --add /etc/fonts/conf.d/10-scale-bitmap-fonts.conf
+
+This repository also contains consolefonts-base (which contains
+the FixedMisc [MirOS] font for GRUB and its 8x16 PSFU (cp437)
+variant for SYSLINUX/ISOLINUX/PXELINUX and the Linux (VGA) text
+console), and console-setup (which modifies the “Uni1” mapping
+and offers FixedMisc [MirOS] as 9x18 font for the framebuffer
+console; it’s recommended not using a crop like 8x16 or 8x18,
+but this has 512 chars) and xfonts-base (which brings FixedMisc
+in all variants to X11 as BDF fonts). Use as follows or similar:
+(framebuffer console) sudo dpkg-reconfigure -plow console-setup
+ → UTF-8 → “Combined - Latin; Slavic Cyrillic; Line Drawing”
+ → Fixed → “9x18 (framebuffer only)”, *or* (VGA text console)
+add the line “FONT=/usr/share/consolefonts/mirf16v8.psfu” to
+/etc/default/console-setup; “FONT mirf16v8.psf” for SYSLINUX;
+GRUB_FONT=/usr/share/grub/FixedMisc.pf2 in /etc/default/grub
+unless GRUB_TERMINAL=console is used (which does not support
+font loading even on VGA). “Best font ever,” says bsiegert.
+
+To avoid not seeing boot messages, use --noclean in /etc/inittab like…
+1:2345:respawn:/sbin/getty --noclear 38400 tty1
+… and remove “quiet” from GRUB_CMDLINE_LINUX_DEFAULT and, if necessary,
+things like “loglevel=0” and/or from GRUB_CMDLINE_LINUX as well.
+
+In /etc/default/grub place GRUB_DISABLE_SUBMENU=y on a new line.
+Consider GRUB_DISABLE_LINUX_UUID=true especially if root on LVM.
+GRUB_CMDLINE_LINUX needs "syscall.x32=y" for x32. Remove quiet.
+Add "net.ifnames=0" to avoid weird names for network interfaces.
+Add "nomodeset" to disable the automatic framebuffer console.
+With GRUB_ENABLE_CRYPTODISK=y in /etc/default/grub you can have
+an encrypted /boot partition (including having /boot on / and
+that encrypted), as of grub 2.02~beta2-29 (stretch onwards). See:
+https://cryptsetup-team.pages.debian.net/cryptsetup/encrypted-boot.html
+
+Refer to the agents.sh example below; do not forget to comment out
+use-ssh-agent in /etc/X11/Xsession.options to fix the OS.
+
+The regen-utf8-locales script (call with sudo mksh) installs an updated
+as well as bugfixed UTF-8 charmap and regenerates all UTF-8 locales.
+Run manually after every update of locales and/or locales-all packages.
+If you use GNU screen, mind #882340 for a matching update though.
+
+Run this to make all SysRq commands available (install procps, too):
+	sudo sh -c 'echo kernel.sysrq = 1 >>/etc/sysctl.d/local.conf'
+
+To override what lsb_release reports, up to stretch do…
+	sudo cp /usr/share/doc/mirabilos-support/examples/lsb-release.sid \
+	    /etc/lsb-release
+… and from buster onwards, run this instead (or additionally):
+	sudo dpkg-divert --rename --divert /usr/lib/os-release.dpkg-dist \
+	    --add /usr/lib/os-release
+	sudo ln -sfT os-release.sid /usr/lib/os-release
+
+molly-guard
+-----------
+
+Set ALWAYS_QUERY_HOSTNAME=true in /etc/molly-guard/rc (actually,
+just uncomment it, it’s already there) iff you have at least
+version 0.7 (post-stretch!) of molly-guard, otherwise you are
+prompted thrice for the password on shutdown, on the local console
+even, due to a bug (#867331).
+
+
+apt-listchanges recommended configuration
+---------------
+
+$ cat /etc/apt/listchanges.conf
+[apt]
+frontend=mail
+email_address=root
+confirm=0
+save_seen=/var/lib/apt/listchanges.db
+which=both
+
+It may be better to use an actual email_address.
+
+
+crontab for the regular user account
+-------
+
+23 * * * * /bin/mksh-static -c 'sleep $((RANDOM & 255 + 300)); gpg --gen-random 1 64 >/dev/urandom 2>/dev/null'
+42 * * * * /bin/mksh-static -c 'sleep $((RANDOM & 255 + 300)); openssl rand 64 >/dev/urandom 2>/dev/null'
+
+Mind #922732 in buster/sid though.
+
+
+installing dash-mksh
+--------------------
+
+Do not use dash for /bin/sh, it does not drop privileges by default,
+prevents other shells from taking over /bin/sh hard, and has several
+RC bugs that have been ignored for three Debian releases, and closed
+unfixed after the third. To do it “sudo dpkg-reconfigure -plow dash”
+and answer “No” to the question whether to use it as /bin/sh. By de‐
+fault /bin/sh is GNU bash now, but if you are on at least jessie, my
+dash-mksh package can be installed; before, manual symlink setting’s
+the way to do it apparently.
+
+Note that as long as dash was not reconfigured away from /bin/sh, it
+fails to uninstall (another long-ignored RC bug…).
+
+When installing dash-mksh, apt requests a “Yes, do as I say!”, since
+someone at a certain derivate thought it great to make it default.
+
+After installation, /usr/share/dash-mksh/make-system-shell will make
+mksh (to be precise, lksh -o posix -o sh) /bin/sh. To un-do (which I
+never tested, admittedly), simply revert the diversions it created.
+
+
+Reverting gpg2 overriding gnupg
+-------------------------------
+
+The mirabilos-support package already ensures gnupg (version 1.x)
+stays installed; to (on stretch/sid) make $(gpg) return to that
+while keeping $(gpg2) as GnuPG 2.x (which even its developers
+agree is no drop-in replacement for GnuPG 1.x), run the example
+script demote-gpg2 (also after every system upgrade). This should
+some time really become more reliable, though (also, if only gpg1
+is installed, $(gpg) won’t exist…).
+
+
+How to use the /usr/share/doc/mirabilos-support/examples
+--------------------------------------------------------
+
+• KBDmir2U.map — mirabilos’ en/international keyboard layout
+  (see below) for the Linux text console
+
+  Install as /etc/console-setup/KBDmir2U.map.gz then add
+  KMAP="/etc/console-setup/KBDmir2U.map.gz" to /etc/default/keyboard
+  to use, or uncompress and throw it on sudo loadkeys.
+
+• agents.sh — make ssh-agent and gpg-agent stick around for all sessions
+
+  Install it as /etc/profile.d/agents.sh and comment *out*
+  “use-ssh-agent” in /etc/X11/Xsession.options.
+
+• dot.Xmodmap — mirabilos’ en/international keyboard layout
+  (see below) for modern X.org
+• dot.Xmodmap.rdp — same, for X.org before or without evdev
+
+  As user, “gzip -d <dot.Xmodmap.gz >~/.Xmodmap”; the next X
+  session should pick it up automatically. Run “xmodmap ~/.Xmodmap”
+  manually with $DISPLAY set to switch to it “right now”. Use
+  “setxkbmap us” or “setxkbmap de nodeadkeys” to return to a
+  standard layout. (Sorry, there is no Xkb version of this.)
+
+  The no-evdev layout is useful for Xrdp sessions.
+
+• screenrc — mirabilos’ nicer screenrc (portable variant)
+
+  Uncompress and put it either as ~/.screenrc (as user) or
+  /etc/screenrc (as root). If installing as user, uncomment
+  one of the “escape” lines to taste; if installing as root,
+  create a one-line ~/.screenrc with an “escape” line instead.
+
+  ^Au1234 inserts the character U+1234 (really useful).
+
+  To switch from ^A to ^O, ^P or ^X as escape character,
+  and/or enable seconds in the status line, comment out
+  two lines at the bottom and remove the hashmarks from
+  before the two other respective lines for that.
+
+• gpg.conf — GnuPG v1.x/2.x configuration example
+
+  Uncompress to ~/.gnupg/gpg.conf and edit: change 00000000
+  in two places (default-key, encrypt-to) to your own key ID
+  (find out with “gpg -K”) and uncomment these.
+
+  Install pinentry-curses and gnupg-agent, then uncomment the
+  “use-agent” line. Optionally, install kwalletcli and put
+  “pinentry-program /usr/bin/pinentry-kwallet” into
+  ~/.gnupg/gpg-agent.conf (probably need to create that file).
+
+
+Notes on /etc/skel and other files
+----------------------------------
+
+• /etc/network/interfaces.examples
+
+  From Grml — http://grml.org/ — nice examples for WLAN inside.
+
+• Midnight Commander configuration for wheezy and up
+
+  Besides the nicer look and feel (requires Unicode, combined
+  line drawing in console-setup) it disables the menu bar and
+  mcedit, enables lynx-like navigation and other candy.
+
+  For older versions: Tab Esc 9 O C Y V A [I] Y Enter
+                      Esc 9 O L B I X Enter Esc 9 O S
+  (‘I’ may already be disabled in Debian, it is in squeeze-lts;
+  omit it then, goal is to “[ ] use internal edIt” here)
+
+• .Xresources
+
+  Mostly xterm-related settings, including undoing distro damage.
+
+• .devscripts
+
+  Undo some recent changes in devscripts doing damage.
+  You want to export DEBEMAIL='First M. Last <user@domain.tld>'
+  and *not* set *any* other variables like DEBFULLNAME.
+
+• .quiltrc
+
+  As long as QUILT_PATCHES is unset or a single hyphen-minus "-"
+  (unset doesn’t work on hardy), quilt is instructed to auto-detect
+  whether this is a Debian 3.0 (quilt) format package subtree, and
+  if so, set QUILTRC_ENABLE with QUILT_PATCHES="debian/patches";
+  otherwise, QUILT_PATCHES="patches" is set to override the "-".
+
+  If QUILTRC_ENABLE is not empty, a mostly sane, on-disc stable,
+  interactively fancy, set of settings is used. QUILTRC_NO_DIFF_P
+  not empty omits the -p option — which mostly benefits C code and
+  some from other languages — from diff(1) calls.
+
+• .toprc
+
+  Somewhat sane defaults for top(1) from procps.
+
+• wcdiff(1)
+
+  You may also like to put this alias into your interactive shell
+  startup file (~/.mkshrc or similar):
+
+  alias cdiff='git diff --color=always --no-index --no-prefix'
+  alias cwdiff='git diff --color=always --no-index --no-prefix --word-diff'
+  alias cwdiffc='git diff --color=always --no-index --no-prefix --word-diff-regex=.'
+
+
+mirabilos’ keyboard layout
+--------------------------
+
+Base layout is standard 101-key US, although an 102‑ or 104-key
+keyboard unlocks Compose, and 105-key enables using an Alt key.
+
+Caps Lock no longer exists. The key produces ‘…’ and ‘€’ and,
+with Mode_switch (see below), ‘„’ and ‘™’, instead.
+
+The Escape key and the ‘`’ key switch positions, but o̲n̲l̲y̲ the
+unshifted versions — the key left to the ‘1’ still produces
+‘~’ when shifted; similar for Mode_switch/Meta (see below). The
+Escape key is very far off on a Thinkpad X40, that’s why.
+
+The left Alt key produces Meta instead, which adds 128 to the
+ASCII code of a key, e.g. Meta-d = ä (d=U+0064, ä=U+00E4). The
+key is actually emulated using Mode_switch, which, with several
+other keys (such as function or cursor keys, Return, …), also
+produces extra characters.
+
+If you’re looking for the Alt_L key, it’s the “left Windows®
+key”. The “right Windows® key” is Meta_R (some may use that).
+The right Alt key (often labelled AltGr) produces Alt_R (which
+may or may not be a good substitute for Alt_L). [This differs
+from the version of this keyboard layout for NT®, which has
+Mode_switch on AltGr, because that’s the only key that OS can
+assign to such functionality.]
+
+Both the “Windows® menu key” and the “102nd key” (usually
+labelled “< > |”) act as Compose key.
+
+Meta-Space is U+00A0. Mode_switch-Shift-Space is U+3000, and
+Mode_switch-Shift-Esc is U+4DC0, e.g. used in my font editor.
+(This requires the regenerated locales and a suitable font.)
+
+There are variants for XFree86®/MirBSD (the original, also
+usable with X.org and the kbd input driver), X.org with the
+evdev input driver, another XFree86® one resembling the NT
+layout more closely, one for the Linux text console (MirBSD
+doesn’t need it because the Meta key is a native wscons(4)
+feature), and NT® 4 and up — within system limitations.
+Others (MS-DOS®, Windows® 3.x, 9x, Mac OSX) on request, but
+those have not yet been created, so may require some work.
+Donations welcome of course ☻ Custom adaptions (such as not
+swapping Escape and the key left to 1, or changing some key
+mappings, etc.) can be done on request, too.
+
+
+Other
+-----
+
+Related: mirabilos also does custom prompt (PS1) for mksh ☺
+Use memoserv on Freenode IRC to request this or a conversion
+of a GNU bash PS1 to mksh format.
+
+To disable a service, instead of…
+	sudo /usr/sbin/update-rc.d -f stunnel4 remove
+… you might now (buster+) need:
+	sudo /usr/sbin/update-rc.d stunnel4 defaults-disabled
+
+Configure the locale and placement of XDG user directories:
+$ echo en_GB >${XDG_CONFIG_HOME:-~/.config}/user-dirs.locale
+$ cat >${XDG_CONFIG_HOME:-~/.config}/user-dirs.dirs <<-\EOF
+	XDG_DESKTOP_DIR="$HOME/"
+	XDG_DOCUMENTS_DIR="$HOME/"
+	XDG_DOWNLOAD_DIR="$HOME/"
+	XDG_MUSIC_DIR="$HOME/"
+	XDG_PICTURES_DIR="$HOME/"
+	XDG_PUBLICSHARE_DIR="$HOME/"
+	XDG_TEMPLATES_DIR="$HOME/"
+	XDG_VIDEOS_DIR="$HOME/"
+EOF
+# cf. xdg-user-dirs-update(1) and linked manpages
+
+Fix Compose key in GTK+ applications (breaks Ctrl-Shift-u+… though):
+	GTK_IM_MODULE=xim
+	QT_IM_MODULE=xim
+	XMODIFIERS=@im=none
+	export GTK_IM_MODULE QT_IM_MODULE XMODIFIERS
+This should last until my own IM will be available.
+
+Unbreak connections to traditional SSL servers and WPA-Enterprise:
+$ tail -3 /etc/ssl/openssl.cnf
+[system_default_sect]
+MinProtocol = TLSv1.0
+CipherString = DEFAULT@SECLEVEL=1
+
+Use shred -u[z][n3] instead of wipe [-q] now (m-s 49+).
+
+Create /etc/mailcap.order or prepend to its contents (unindented):
+	xloadimage:*/*
+	org.mirbsd.Jupp.jupp:*/*
+This makes alpine and other programs suck marginally less.

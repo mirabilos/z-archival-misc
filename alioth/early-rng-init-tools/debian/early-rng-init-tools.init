@@ -1,0 +1,49 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          early-rng-init-tools
+# Required-Start:    $local_fs $time
+# Required-Stop:     $local_fs
+# X-Stop-After:      urandom
+# Default-Start:     S
+# Default-Stop:      0 6
+# Short-Description: Save random seed between restarts, for initramfs
+# Description:       As part of early-rng-init-tools, this script
+#                    saves the random seed upon shutdown.
+### END INIT INFO
+
+# absolute basics
+LC_ALL=C PATH=/sbin:/usr/sbin:/bin:/usr/bin
+export LC_ALL PATH
+unset LANGUAGE
+
+DESC='Early RNG init tools'
+NAME=early-rng-init-tools
+. /lib/init/vars.sh
+test -t 0 && VERBOSE=yes
+. /lib/lsb/init-functions
+
+test -c /dev/urandom || {
+	log_action_begin_msg "/dev/urandom missing! $NAME"
+	log_action_end_msg 1
+	exit 0
+}
+
+case $1 in
+(start|restart|try-restart|reload|force-reload)
+	exit 0
+	;;
+(stop)
+	test x"$VERBOSE" = x"no" || log_action_begin_msg "Saving early random seed"
+	rt=$(/usr/libexec/early-rng-init-tools/shuffle)
+	rv=$?
+	test x"$VERBOSE" = x"no" || log_action_end_msg $rv "$rt"
+	exit 0
+	;;
+(status)
+	exit 4
+	;;
+(*)
+	echo >&2 "Usage: $0 {start|stop|restart|try-restart|force-reload|status}"
+	exit 3
+	;;
+esac

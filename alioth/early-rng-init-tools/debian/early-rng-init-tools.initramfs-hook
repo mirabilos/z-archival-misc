@@ -1,0 +1,24 @@
+#!/bin/sh
+
+PREREQ=""
+prereqs() {
+	echo "$PREREQ"
+}
+
+case $1 in
+(prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+. /usr/share/initramfs-tools/hook-functions
+
+mkdir -p "$DESTDIR/etc"
+dd if=/dev/urandom bs=3 iflag=fullblock count=1 2>/dev/null | \
+    md5sum | cut -c 1-6 >"$DESTDIR/etc/early-rng-init-tools.extraseed"
+
+if test -x /usr/lib/klibc/bin/rnd_jytter; then
+	copy_exec /usr/lib/klibc/bin/rnd_jytter /usr/libexec/
+fi
+copy_exec /usr/lib/klibc/bin/rnd_shuf /usr/libexec/

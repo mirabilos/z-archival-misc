@@ -1,0 +1,31 @@
+.Dd May 19, 2019
+.Dt AGUS 1
+.Os
+.Sh NAME
+.Nm agus
+.Nd call apt\-get update
+.Sh SYNOPSIS
+.Nm agus
+.Op Fl f
+.Op Ar apt\-get\-options
+.Sh DESCRIPTION
+The
+.Nm
+utility calls
+.Nm apt\-get
+.Ar update ,
+then optimises the
+.Nm dpkg
+database.
+Unless
+.Fl f
+is given,
+.Nm sync\-available
+is called when installed.
+.Sh SEE ALSO
+.Xr dpkg 1 ,
+.Xr apt\-get 8
+.Sh AUTHORS
+.An Thorsten Glaser Aq t.glaser@tarent.de
+wrote this script.
+The optimisation techniques were provided by Planet Debian posts.

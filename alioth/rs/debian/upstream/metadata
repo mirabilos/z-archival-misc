@@ -1,0 +1,12 @@
+{
+  "Archive": "The MirOS Project",
+  "Bug-Submit": "mailto:miros-discuss@mirbsd.org",
+  "Contact": "irc://irc.freenode.net/MirBSD",
+  "Donation": "http://www.mirbsd.org/danke.htm",
+  "Name": "rs",
+  "Repository": [
+    ":extssh:_anoncvs@anoncvs.mirbsd.org:/cvs",
+    "src/usr.bin/rs"
+  ],
+  "Repository-Browse": "http://www.mirbsd.org/cvs.cgi/src/usr.bin/rs/"
+}

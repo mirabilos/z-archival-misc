@@ -1,0 +1,103 @@
+This package was debianised by Thorsten Glaser <tg@mirbsd.de> on
+Mon, 26 Nov 2012 16:43:46 +0000.
+
+It was downloaded from:
+https://www.mirbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20190825.cpio.gz
+
+Licence:
+
+ * Copyright (c) 2005, 2006, 2007, 2008, 2009, 2011, 2012, 2013,
+ *		 2014, 2015, 2016, 2017, 2018, 2019
+ *	mirabilos <m@mirbsd.org>
+ * Copyright (c) 2018
+ *	Jonathan de Boyne Pollard <J.deBoynePollard-newsgroups@NTLWorld.COM>
+ *	mirabilos <t.glaser@tarent.de>
+ * Copyright (c) 2011
+ *	Svante Signell <svante.signell@telia.com>
+ *	Guillem Jover <guillem@debian.org>
+ * Copyright (c) 1996, 1997 SigmaSoft, Th. Lockert
+ * Copyright (c) 1992 Keith Muller.
+ * Copyright (c) 1990, 1992, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * This code is derived from software contributed to Berkeley by
+ * Keith Muller of the University of California, San Diego.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+
+ * Copyright © 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+ *	       2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,
+ *	       2019
+ *	mirabilos <m@mirbsd.org>
+ * Copyright © 2018
+ *	mirabilos <t.glaser@tarent.de>
+ * Also contains material part of “jupp” (Joe’s Own Editor), © 2018
+ *	mirabilos <m@mirbsd.org>
+ * Contains code from “mksh” (The MirBSD Korn Shell) © 2015
+ *	mirabilos <m@mirbsd.org>
+ *	KO Myung-Hun <komh@chollian.net>
+ *
+ * Provided that these terms and disclaimer and all copyright notices
+ * are retained or reproduced in an accompanying document, permission
+ * is granted to deal in this work without restriction, including un‐
+ * limited rights to use, publicly perform, distribute, sell, modify,
+ * merge, give away, or sublicence.
+ *
+ * This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+ * the utmost extent permitted by applicable law, neither express nor
+ * implied; without malicious intent or gross negligence. In no event
+ * may a licensor, author or contributor be held liable for indirect,
+ * direct, other damage, loss, or other issues arising in any way out
+ * of dealing in the work, even if advised of the possibility of such
+ * damage or existence of a defect, except proven that it results out
+ * of said person’s immediate fault when using the work as intended.
+
+getoldopt is:
+ * Written 25 August 1985 by John Gilmore (ihnp4!hoptoad!gnu) and
+ * placed in the Public Domain for your edification and enjoyment,
+ * https://creativecommons.org/publicdomain/zero/1.0/legalcode (CC0)
+ * being an alternative licence, confirmed by eMail on 2019-02-10.
+
+CC0 can be found in /usr/share/common-licenses/CC0-1.0 on a Debian system.
+
+ * Copyright (c) 2008 Otto Moerbeek <otto@drijf.net>
+ * Copyright (c) 2004 Ted Unangst and Todd Miller
+ * Copyright (c) 1998 Todd C. Miller <Todd.Miller@courtesan.com>
+ * Optimisations by Bodo Eggert and mirabilos
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Some of the early Debian patches were (c) 2011
+	Bdale Garbee <bdale@gag.com>

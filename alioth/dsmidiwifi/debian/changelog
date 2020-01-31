@@ -1,0 +1,9 @@
+dsmidiwifi (2) unstable; urgency=low
+
+  * Initial packaging, based on latest (post-1.01) upstream trunk,
+    as Debian native package, as upstream went away (Closes: #869749)
+  * Fix some bugs, mostly in error handling
+  * Implement A₄ mapping to different MIDI notes, to work around
+    some DSMI-capable applications not using the 69 standard value
+
+ -- Thorsten Glaser <tg@mirbsd.de>  Mon, 03 Dec 2018 02:32:40 +0100

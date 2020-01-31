@@ -1,0 +1,470 @@
+%!
+%%BoundingBox: 29 588 334 790
+%%Title: v6header
+%%CreationDate: Wed Nov 12 17:29:09 1997
+%%Creator: Tgif-2.16J-p12 by William Chia-Wei Cheng (william@cs.UCLA.edu)
+
+/tgifdict 4 dict def
+tgifdict begin
+
+%%Title: eucfont.ps
+% old eucfont.ps(OCFeucfont) and new eucfont.ps(CIDeucfont) were combined.
+%  1996-09, kawamata@sra.co.jp
+% Sample Usage:
+%   Operands are only font names permitted. Don't put fontdict itself.
+% /Courier-Ryumin /Courier /Ryumin-Light-EUC-V eucfont
+
+%%Title: CIDeucfont.ps
+%%Creator: yohtaki@cis.ibaraki.ac.jp
+%%CreationDate: 1996-9-29
+%%EndComments
+%
+% <newfont> <asciifont> <kanjifont> CIDeucfont
+/CIDeucfont {
+dup findfont /WMode get 1 eq 4 1 roll % push direction info.
+12 dict begin
+  /CIDInit /ProcSet findresource begin
+  exch [ 3 1 roll ] beginrearrangedfont
+      3 -1 roll {   % pop direction info
+         /WMode 1 def	% vertical font
+         0 beginusematrix [ 0 1 -1 0 0 0.3 ] endusematrix
+      } if
+      1 usefont
+      1 beginbfrange
+         <00> <7F> <00>
+       endbfrange
+     endrearrangedfont
+  end
+end
+} def
+
+%%Title: OCFeucfont.ps
+%%Creator: shikida@cs.titech.ac.jp, ueno@cs.titech.ac.jp
+%%CreationDate: 1991-2-27
+%%EndComments
+% <font> OCFcopyfont <font>
+/OCFcopyfont {
+    dup maxlength 1 add dict begin
+    {
+	1 index /FID ne 2 index /UniqueID ne and
+	{def} {pop pop} ifelse
+    } forall
+    currentdict
+    end
+} bind def
+% <newfont> <asciifont> <kanjifont> OCFeucfont
+/OCFeucfont {
+      12 dict begin
+	dup type /nametype eq { findfont } if
+	dup /WMode known {
+	    dup /WMode get /WMode exch def
+	    WMode 1 eq {
+		[0.0 1.0 -1.0 0.0 0.0 0.30] makefont
+	    } if
+	} if
+	OCFcopyfont dup begin
+	    /Encoding Encoding
+	    FMapType dup 2 eq {
+		pop 128 128
+	    } { 5 eq {
+		256 256
+	    } {
+		/compositefont errordict /invalidfont get exec
+	    } ifelse
+	    } ifelse
+	    getinterval def
+	end
+	/kanjifont exch definefont
+	exch
+
+	dup type /nametype eq { findfont } if
+	exch
+
+	/FDepVector [ 4 2 roll ] def
+	/FontType 0 def
+	/FMapType 4 def
+	/FontMatrix matrix def
+	/Encoding [ 0 1 ] def
+	/FontBBox {0 0 0 0} def
+	dup /FontName exch def
+	currentdict
+    end
+    definefont pop
+} def
+
+% <newfont> <asciifont> <kanjifont> eucfont
+/eucfont {
+	dup findfont
+	/FMapType get 9 eq
+		{ CIDeucfont}
+		{ OCFeucfont} ifelse
+} def
+/tgifcentertext { dup stringwidth pop 2 div neg 0 rmoveto } def
+
+end
+
+%%PageBoundingBox: 29 588 334 790
+tgifdict begin
+/tgifsavedpage save def
+
+1 setmiterlimit
+1 setlinewidth
+
+0 setgray
+
+72 0 mul 72 11.70 mul translate
+72 128 div 100 mul 100 div dup neg scale
+
+gsave
+
+% TEXT
+0 setgray
+newpath
+   168 130 moveto 219 130 lineto 219 153 lineto 168 153 lineto
+closepath 1 setgray fill
+0 setgray
+/Helvetica-GothicBBB-Medium-EUC-H /Helvetica /GothicBBB-Medium-EUC-H eucfont
+/Helvetica-GothicBBB-Medium-EUC-H findfont [16 0 0 -16 0 0] makefont setfont
+   gsave
+      194 148 moveto (\245\257\245\351\245\271) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   143 164 moveto 242 164 lineto 242 187 lineto 143 187 lineto
+closepath 1 setgray fill
+0 setgray
+/Helvetica-GothicBBB-Medium-EUC-H findfont [16 0 0 -16 0 0] makefont setfont
+   gsave
+      193 182 moveto (\245\332\245\244\245\355\241\274\245\311\304\271) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   335 164 moveto 434 164 lineto 434 187 lineto 335 187 lineto
+closepath 1 setgray fill
+0 setgray
+/Helvetica-GothicBBB-Medium-EUC-H findfont [16 0 0 -16 0 0] makefont setfont
+   gsave
+      385 182 moveto (\274\241\245\330\245\303\245\300\310\326\271\346) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   467 164 moveto 550 164 lineto 550 187 lineto 467 187 lineto
+closepath 1 setgray fill
+0 setgray
+/Helvetica-GothicBBB-Medium-EUC-H findfont [16 0 0 -16 0 0] makefont setfont
+   gsave
+      509 182 moveto (\303\346\267\321\270\302\263\246\277\364) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+newpath
+   369 130 moveto 484 130 lineto 484 153 lineto 369 153 lineto
+closepath 1 setgray fill
+0 setgray
+/Helvetica-GothicBBB-Medium-EUC-H findfont [16 0 0 -16 0 0] makefont setfont
+   gsave
+      427 148 moveto (\245\325\245\355\241\274\241\246\245\351\245\331\245\353) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica-GothicBBB-Medium-EUC-H findfont [16 0 0 -16 0 0] makefont setfont
+   gsave
+      318 264 moveto (\273\317\305\300\245\242\245\311\245\354\245\271) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica-GothicBBB-Medium-EUC-H findfont [16 0 0 -16 0 0] makefont setfont
+   gsave
+      318 389 moveto (\275\252\305\300\245\242\245\311\245\354\245\271) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+/Helvetica-Ryumin-Light-EUC-H /Helvetica /Ryumin-Light-EUC-H eucfont
+/Helvetica-Ryumin-Light-EUC-H findfont [16 0 0 -16 0 0] makefont setfont
+   gsave
+      97 151 moveto (Ver) tgifcentertext show
+   grestore
+
+% BOX
+0 setgray
+gsave
+   1.415 setmiterlimit
+   newpath
+      64 128 moveto 128 128 lineto 128 160 lineto 64 160 lineto
+   closepath stroke
+   1 setmiterlimit
+grestore
+
+% BOX
+0 setgray
+gsave
+   1.415 setmiterlimit
+   newpath
+      256 128 moveto 576 128 lineto 576 160 lineto 256 160 lineto
+   closepath stroke
+   1 setmiterlimit
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      64 120 moveto
+      64 128 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      192 120 moveto
+      192 128 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      320 120 moveto
+      320 128 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      448 120 moveto
+      448 128 lineto
+   stroke
+grestore
+
+% TEXT
+0 setgray
+/Courier-GothicBBB-Medium-EUC-H /Courier /GothicBBB-Medium-EUC-H eucfont
+/Courier-GothicBBB-Medium-EUC-H findfont [24 0 0 -24 0 0] makefont setfont
+   gsave
+      64 116 moveto (0) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+/Courier-GothicBBB-Medium-EUC-H findfont [24 0 0 -24 0 0] makefont setfont
+   gsave
+      192 116 moveto (8) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+/Courier-GothicBBB-Medium-EUC-H findfont [24 0 0 -24 0 0] makefont setfont
+   gsave
+      320 116 moveto (16) tgifcentertext show
+   grestore
+
+% TEXT
+0 setgray
+/Courier-GothicBBB-Medium-EUC-H findfont [24 0 0 -24 0 0] makefont setfont
+   gsave
+      448 116 moveto (24) tgifcentertext show
+   grestore
+
+% BOX
+0 setgray
+gsave
+   1.415 setmiterlimit
+   newpath
+      128 128 moveto 256 128 lineto 256 160 lineto 128 160 lineto
+   closepath stroke
+   1 setmiterlimit
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      576 120 moveto
+      576 128 lineto
+   stroke
+grestore
+
+% TEXT
+0 setgray
+/Courier-GothicBBB-Medium-EUC-H findfont [24 0 0 -24 0 0] makefont setfont
+   gsave
+      576 116 moveto (32) tgifcentertext show
+   grestore
+
+% BOX
+0 setgray
+gsave
+   1.415 setmiterlimit
+   newpath
+      320 160 moveto 448 160 lineto 448 192 lineto 320 192 lineto
+   closepath stroke
+   1 setmiterlimit
+grestore
+
+% BOX
+0 setgray
+gsave
+   1.415 setmiterlimit
+   newpath
+      64 192 moveto 576 192 lineto 576 320 lineto 64 320 lineto
+   closepath stroke
+   1 setmiterlimit
+grestore
+
+% BOX
+0 setgray
+gsave
+   1.415 setmiterlimit
+   newpath
+      64 320 moveto 576 320 lineto 576 448 lineto 64 448 lineto
+   closepath stroke
+   1 setmiterlimit
+grestore
+
+% BOX
+0 setgray
+gsave
+   1.415 setmiterlimit
+   newpath
+      448 160 moveto 576 160 lineto 576 192 lineto 448 192 lineto
+   closepath stroke
+   1 setmiterlimit
+grestore
+
+% BOX
+0 setgray
+gsave
+   1.415 setmiterlimit
+   newpath
+      64 160 moveto 320 160 lineto 320 192 lineto 64 192 lineto
+   closepath stroke
+   1 setmiterlimit
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      72 224 moveto
+      64 224 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      72 256 moveto
+      64 256 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      72 288 moveto
+      64 288 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      72 352 moveto
+      64 352 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      72 384 moveto
+      64 384 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      72 416 moveto
+      64 416 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      576 224 moveto
+      568 224 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      576 256 moveto
+      568 256 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      576 288 moveto
+      568 288 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      576 352 moveto
+      568 352 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      576 384 moveto
+      568 384 lineto
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      576 416 moveto
+      568 416 lineto
+   stroke
+grestore
+
+grestore
+tgifsavedpage restore
+end
+%MatchingCreationDate: Wed Nov 12 17:29:09 1997

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+getsize() {
+	getsize_res=$(stat -c %s "$1") || getsize_res=
+	printf '%s\n' "${getsize_res:-0}"
+}
+
+test -e /.early_rnd || :>/.early_rnd
+chown 0:0 /.early_rnd
+chmod 600 /.early_rnd
+dd if=/dev/urandom bs=64 count=1 seek=1 iflag=fullblock \
+    conv=notrunc of=/.early_rnd 2>/dev/null
+
+if test 128 -gt "$(getsize /.early_rnd)"; then
+	echo "file too small: $(\ls -l /.early_rnd 2>&1)"
+	exit 1
+fi
+exit 0

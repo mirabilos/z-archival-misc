@@ -1,0 +1,29 @@
+Source: early-rng-init-tools
+Section: admin
+Priority: optional
+Maintainer: Thorsten Glaser <tg@mirbsd.de>
+Build-Depends: debhelper (>= 12.1.1~), libklibc-dev
+Standards-Version: 4.3.0
+Rules-Requires-Root: binary-targets
+VCS-git: https://evolvis.org/anonscm/git/alioth/early-rng-init-tools.git -b master
+VCS-Browser: https://evolvis.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=alioth/early-rng-init-tools.git;a=shortlog;h=refs/heads/master
+
+Package: early-rng-init-tools
+Architecture: linux-any
+Multi-Arch: foreign
+Built-Using: ${erit:B-U}
+Depends: ${misc:Depends}, ${shlibs:Depends},
+ cron | cron-daemon, lsb-base
+Enhances: initramfs-tools
+Description: initialise Linux RNG early
+ Binaries and initramfs integration to initialise the Linux RNG early:
+  * on x86, Jytter is used extremely early for gathering some random bits
+  * after having mounted the root filesystem, a seed file will be read,
+    spread out into the kernel and back into the file, and then, only
+    when that was successful, accredited as entropy
+  * the seed is created in postinst and updated by a cronjob, daily
+  * it is also updated on system shutdown
+ This is operated automatically and does not require any manual steps.
+ .
+ Note: this relies on the root filesystem being checked by initramfs
+ and makes it writable early.

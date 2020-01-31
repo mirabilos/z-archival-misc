@@ -1,0 +1,62 @@
+#!/usr/bin/make -f
+
+ifeq (,$(findstring terse,${DEB_BUILD_OPTIONS}))
+export DH_VERBOSE=1
+export V=1
+export VERBOSE=1
+endif
+
+LC_ALL:=C.UTF-8
+export LC_ALL
+
+DEB_HOST_ARCH?=$(shell dpkg-architecture -qDEB_HOST_ARCH)
+DEB_HOST_ARCH_OS?=$(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
+
+OUR_CPPFLAGS:=
+OUR_CFLAGS:=
+OUR_CXXFLAGS:=
+OUR_LDFLAGS:=	-Wl,--as-needed
+
+# better debugging if requested
+ifneq (,$(findstring optdbg,${DEB_BUILD_OPTIONS}))
+OUR_CFLAGS+=	-Og
+OUR_CXXFLAGS+=	-Og
+endif
+
+OUR_CPPFLAGS+=	-I$(shell pwd)/debian/q-include
+
+export DEB_BUILD_MAINT_OPTIONS := hardening=+all
+export DEB_CPPFLAGS_MAINT_APPEND := ${OUR_CPPFLAGS}
+export DEB_CFLAGS_MAINT_APPEND := ${OUR_CFLAGS}
+export DEB_CXXFLAGS_MAINT_APPEND := ${OUR_CXXFLAGS}
+export DEB_LDFLAGS_MAINT_APPEND := ${OUR_LDFLAGS}
+
+%:
+	dh $@ --buildsystem=cmake
+
+CMAKE_DEFS:=	-DCMAKE_SKIP_RPATH=ON
+CMAKE_DEFS+=	-DUSE_SDL_2=ON
+CMAKE_DEFS+=	-DWITH_X11=ON
+ifeq (linux,${DEB_HOST_ARCH_OS})
+CMAKE_DEFS+=	-DWITH_UINPUT=ON
+else
+CMAKE_DEFS+=	-DWITH_UINPUT=OFF
+endif
+CMAKE_DEFS+=	-DWITH_XTEST=ON
+CMAKE_DEFS+=	-DAPPDATA=ON
+CMAKE_DEFS+=	-DUPDATE_TRANSLATIONS=ON
+
+override_dh_auto_configure:
+	rm -rf debian/q-include
+	mkdir debian/q-include
+	printf '#define DEB_PKG_VERSION "%s (%s %s/%s)"\n' \
+	    "$$(dpkg\-parsechangelog | sed -n '/^Version: */{s///p;q;}')" \
+	    "$$(lsb_release -si)" \
+	    "$$(lsb_release -sc)" \
+	    "${DEB_HOST_ARCH}" \
+	    >debian/q-include/DEB_PKG_VERSION.h
+	exec dh_auto_configure -- ${CMAKE_DEFS}
+
+override_dh_auto_clean:
+	rm -rf debian/q-include
+	exec dh_auto_clean

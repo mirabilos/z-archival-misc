@@ -1,0 +1,28 @@
+This package was debianised by Thorsten Glaser <tg@mirbsd.de> on
+Wed, 03 Jul 2019 15:22:33 +0200, sponsored by ⮡ tarent. It was
+downloaded by uscan via the debian/watch file.
+
+AntiMicro is published under the GNU General Public License,
+version 3, which can be found at…
+	/usr/share/common-licenses/GPL-3
+… on Debian systems, or any later version. Copyright…
+ © 2013 Richard Hughes <richard@hughsie.com>
+ © 2014 Jeff Backus <jeff@jsbackus.com>
+ © 2015 Travis Nickles <nickles.travis@gmail.com>
+… and globally…
+ © 2013–2016 (from copyrightLabel in src/aboutdialog.ui)
+
+The packaging is © 2019 mirabilos <t.glaser@tarent.de> and
+published under the same terms as the packaged software;
+independent pieces may be freely reused.
+
+This application bundles mostly icons from the Mist icon theme from
+http://ftp.gnome.org/pub/GNOME/sources/gnome-themes/ covered by the
+GNU LGPL version 2.1: /usr/share/common-licenses/LGPL-2.1
+
+It also bundles some icons from the Oxygen icon theme from
+http://download.kde.org/stable/4.10.2/src/oxygen-icons-4.10.2.tar.xz
+under LGPL version 3: /usr/share/common-licenses/LGPL-3
+
+The AppStream metadata is licencable under the Creative Commons Zero
+version 1.0: /usr/share/common-licenses/CC0-1.0

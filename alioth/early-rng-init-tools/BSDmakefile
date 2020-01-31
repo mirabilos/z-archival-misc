@@ -1,0 +1,36 @@
+.if !target(.MAIN)
+.MAIN: all
+.endif
+
+.include "${.CURDIR}/bsdinc.mk"
+
+.if "${USE_JYTTER}" != "0"
+SUBMAKEFILES+=	rnd_jytter.c
+.endif
+SUBMAKEFILES+=	rnd_shuf.c
+
+_SUBMAKEUSE: .USE
+	@cd ${.CURDIR:Q}; \
+	    for submakefile in ${SUBMAKEFILES}; do \
+		echo "===> $$submakefile"; \
+		${MAKE} ${MAKE_FLAGS} -f "$$submakefile" ${.TARGET}; \
+	done
+
+.for t in all clean cleandir includes depend lint obj tags regress install
+.  if !target($t)
+$t: _SUBMAKEUSE
+.  endif
+.endfor
+
+# OS-specific notes:
+#
+# MidnightBSD: has KERN_ARND, returning only int though;
+# looks like this was added independent of FreeBSD. Does
+# not have the ioctl but a kern.random.sys.seeded sysctl
+# which we’re not touching, for now.
+#
+# MirBSD: works
+#
+# NetBSD: needs porting
+#
+# OpenBSD: needs testing but should work

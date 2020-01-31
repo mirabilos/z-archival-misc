@@ -1,0 +1,3 @@
+version=4
+https://github.com/AntiMicro/antimicro/tags \
+ .*/antimicro/archive/(\d+(?:\.\d+)+)\.tar\.gz

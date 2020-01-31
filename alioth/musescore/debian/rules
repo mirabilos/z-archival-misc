@@ -1,0 +1,116 @@
+#!/usr/bin/make -f
+
+CWD:=$(abspath .)
+SHELL:=$(abspath debian/rwrap)
+
+ifeq (,$(filter terse,${DEB_BUILD_OPTIONS}))
+export DH_VERBOSE=1
+export V=1
+export VERBOSE=1
+endif
+
+LC_ALL:=C.UTF-8
+export LC_ALL
+
+shellescape='$(subst ','\'',$(1))'
+shellexport=$(1)=$(call shellescape,${$(1)})
+
+MSPPKG=musescore3
+MSCPKG=${MSPPKG}-common
+MSPDIR=debian/${MSPPKG}
+MSCDIR=debian/${MSCPKG}
+MSHARE=usr/share/mscore3-*
+
+DEB_HOST_ARCH?=$(shell dpkg-architecture -qDEB_HOST_ARCH)
+DEB_HOST_ARCH_OS?=$(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
+
+OUR_CPPFLAGS:=
+OUR_CFLAGS:=
+OUR_CXXFLAGS:=
+OUR_LDFLAGS:=	-Wl,--as-needed
+
+# defined for most of the code anyway; doing this here helps the PCH
+OUR_CPPFLAGS+=	-DQT_NO_DEBUG
+# avoid stray debugging output
+OUR_CPPFLAGS+=	-DNDEBUG
+# disable phoning home
+OUR_CPPFLAGS+=	-DMSCORE_NO_UPDATE_CHECKER
+
+# better debugging if requested
+ifneq (,$(findstring optdbg,${DEB_BUILD_OPTIONS}))
+OUR_CFLAGS+=	-Og -g3
+OUR_CXXFLAGS+=	-Og -g3
+endif
+
+# things that cannot be passed via CPPFLAGS
+OUR_CPPFLAGS+=	-I${CWD}/debian/q-include
+
+dpkgbuildflagsmkescape=$(subst \,\\\,$(1))
+export DEB_BUILD_MAINT_OPTIONS:=hardening=+all
+export DEB_CPPFLAGS_MAINT_APPEND:=$(call dpkgbuildflagsmkescape,${OUR_CPPFLAGS})
+export DEB_CFLAGS_MAINT_APPEND:=$(call dpkgbuildflagsmkescape,${OUR_CFLAGS})
+export DEB_CXXFLAGS_MAINT_APPEND:=$(call dpkgbuildflagsmkescape,${OUR_CXXFLAGS})
+export DEB_LDFLAGS_MAINT_APPEND:=$(call dpkgbuildflagsmkescape,${OUR_LDFLAGS})
+include /usr/share/dpkg/buildflags.mk
+ifneq (,$(wildcard /usr/share/dpkg/buildtools.mk))
+include /usr/share/dpkg/buildtools.mk
+endif
+include /usr/share/dpkg/pkg-info.mk
+
+%:
+	dh $@ --buildsystem=cmake
+
+CMAKE_DEFS:=	-DCMAKE_SKIP_RPATH=ON
+CMAKE_DEFS+=	-DDOWNLOAD_SOUNDFONT=OFF
+CMAKE_DEFS+=	-DUSE_SYSTEM_FREETYPE=ON \
+		-DFREETYPE_INCLUDE_DIRS=/usr/include/freetype2/
+CMAKE_DEFS+=	-DBUILD_WEBENGINE=OFF
+CMAKE_DEFS+=	-DOMR=ON
+CMAKE_DEFS+=	-DUSE_SYSTEM_POPPLER=ON
+CMAKE_DEFS+=	-DBUILD_CRASH_REPORTER=OFF
+
+ifneq (linux,${DEB_HOST_ARCH_OS})
+CMAKE_DEFS+=	-DBUILD_PORTMIDI=OFF
+endif
+
+CMAKE_DEFS+=	-DMSCORE_INSTALL_SUFFIX="3"
+
+override_dh_auto_configure:
+	rm -rf debian/q-include
+	mkdir debian/q-include
+	printf '#define DEB_PKG_VERSION "%s (%s %s/%s)"\n' \
+	    $(call shellescape,${DEB_VERSION}) \
+	    "$$(lsb_release -si)" \
+	    "$$(lsb_release -sc)" \
+	    $(call shellescape,${DEB_HOST_ARCH}) \
+	    >debian/q-include/DEB_PKG_VERSION.h
+	exec dh_auto_configure -- ${CMAKE_DEFS}
+
+override_dh_auto_build:
+	env GNUMAKEFLAGS="$$GNUMAKEFLAGS --output-sync" \
+	    dh_auto_build -- lrelease all
+	doxygen Doxyfile.plugins
+
+override_dh_auto_test:
+	exec mksh debian/buildtest ${DEB_BUILD_OPTIONS}
+
+override_dh_install-indep:
+	# move stuff to packages
+	dh_install
+	# add doxygen-generated files
+	cd doc && exec cp -r plugins ../${MSCDIR}/${MSHARE}/manual/
+	dh_doxygen -p${MSCPKG} $$(cd ${MSCDIR} && \
+	    echo ${MSHARE}/manual/plugins/html)
+	# doc-base insists on /usr/share/doc/ prefix
+	mkdir -p ${MSCDIR}/usr/share/doc/${MSCPKG}
+	ln -sfTr ${MSCDIR}/${MSHARE}/manual/plugins \
+	    ${MSCDIR}/usr/share/doc/${MSCPKG}/plugin-doxy
+	# make system-wide soundfonts available
+	cd ${MSCDIR}/${MSHARE} && mkdir -p sound && \
+	    ln -sf ../../sounds/sf2 ../../sounds/sf3 ../../sounds/sfz sound/
+
+override_dh_auto_clean:
+	rm -rf debian/q-include
+	dh_auto_clean
+	# remove possible doxygen remnants
+	rm -rf doc/plugins

@@ -1,0 +1,16 @@
+?package(joe-jupp):needs="text" \
+  section="Applications/Editors" \
+  title="jmacs" longtitle="JOE's Own Emacs" \
+  command="/usr/bin/jmacs"
+?package(joe-jupp):needs="text" \
+  section="Applications/Editors" \
+  title="joe" longtitle="JOE's Own Editor" \
+  command="/usr/bin/joe"
+?package(joe-jupp):needs="text" \
+  section="Applications/Editors" \
+  title="jpico" longtitle="JOE's Own PICO" \
+  command="/usr/bin/jpico"
+?package(joe-jupp):needs="text" \
+  section="Applications/Editors" \
+  title="jstar" longtitle="JOE's Own *star" \
+  command="/usr/bin/jstar"

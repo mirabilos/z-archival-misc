@@ -1,0 +1,52 @@
+Description: show Debian/derivative versioning (helps in support)
+Author: mirabilos <tg@debian.org>
+Forwarded: not-needed
+Justification: Debian-specific change
+
+--- a/mscore/musescore.cpp
++++ b/mscore/musescore.cpp
+@@ -137,6 +137,11 @@
+ #include "macos/cocoabridge.h"
+ #endif
+ 
++#include "DEB_PKG_VERSION.h"
++#ifndef DEB_PKG_VERSION
++#define DEB_PKG_VERSION VERSION
++#endif
++
+ #ifdef AEOLUS
+ extern Ms::Synthesizer* createAeolus();
+ #endif
+@@ -355,9 +360,9 @@ static void printVersion(const char* pro
+       {
+       if (MuseScore::unstable())
+             fprintf(stderr, "%s: Music Score Editor\nUnstable Prerelease for Version %s; Build %s\n",
+-         prog, VERSION, qPrintable(revision));
++         prog, DEB_PKG_VERSION, qPrintable(revision));
+       else
+-            fprintf(stderr, "%s: Music Score Editor; Version %s; Build %s\n", prog, VERSION, qPrintable(revision));
++            fprintf(stderr, "%s: Music Score Editor; Version %s; Build %s\n", prog, DEB_PKG_VERSION, qPrintable(revision));
+       }
+ 
+ static const int RECENT_LIST_SIZE = 20;
+@@ -4695,9 +4700,9 @@ AboutBoxDialog::AboutBoxDialog()
+             ":/data/musescore-logo-transbg-m.png" : ":/data/musescore_logo_full.png"));
+ 
+       if (MuseScore::unstable())
+-            versionLabel->setText(tr("Unstable Prerelease for Version: %1").arg(VERSION));
++            versionLabel->setText(tr("Unstable Prerelease for Version: %1").arg(DEB_PKG_VERSION));
+       else {
+-            auto msVersion = QString(VERSION) + QString(".") + QString(BUILD_NUMBER);// +QString(" Beta");
++            auto msVersion = QString(DEB_PKG_VERSION) + QString(", MuseScore build number ") + (strlen(BUILD_NUMBER) > 0 ? QString(BUILD_NUMBER) : QString("not set"));// +QString(", Beta");
+             versionLabel->setText(tr("Version: %1").arg(msVersion));
+       }
+ 
+@@ -4733,7 +4738,7 @@ void AboutBoxDialog::copyRevisionToClipb
+       // endianness?
+       sysinfo += ", MuseScore version (";
+       sysinfo += QSysInfo::WordSize==32 ? "32" : "64";
+-      auto msVersion = QString(VERSION) + QString(".") + QString(BUILD_NUMBER);
++      auto msVersion = QString(DEB_PKG_VERSION) + QString(", MuseScore build number ") + (strlen(BUILD_NUMBER) > 0 ? QString(BUILD_NUMBER) : QString("not set"));// +QString(", Beta");
+       sysinfo += "-bit): " + msVersion + ", revision: ";
+       sysinfo += "github-musescore-musescore-";
+       sysinfo += revision;
