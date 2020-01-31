@@ -1,0 +1,75 @@
+#!/bin/mksh
+#-
+# Copyright © 2013
+#	Thorsten Glaser <tg@mirbsd.org>
+#
+# Provided that these terms and disclaimer and all copyright notices
+# are retained or reproduced in an accompanying document, permission
+# is granted to deal in this work without restriction, including un‐
+# limited rights to use, publicly perform, distribute, sell, modify,
+# merge, give away, or sublicence.
+#
+# This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+# the utmost extent permitted by applicable law, neither express nor
+# implied; without malicious intent or gross negligence. In no event
+# may a licensor, author or contributor be held liable for indirect,
+# direct, other damage, loss, or other issues arising in any way out
+# of dealing in the work, even if advised of the possibility of such
+# damage or existence of a defect, except proven that it results out
+# of said person’s immediate fault when using the work as intended.
+#-
+# For now. This will change later (more flexible, etc).
+
+# Stores and restores the following environment variables, for cross
+# compilation helpers with multi-target toolchains:
+# GNUTARGET LDEMULATION
+
+cc=$1
+dst=$2
+arch=$3
+os=$4
+cflags=$5
+specdir=$6
+wrapdir=$7
+libodir=$8
+
+[[ -n $specdir ]] || specdir=$dst/libdata
+[[ -n $wrapdir ]] || wrapdir=$dst/bin
+[[ -n $libodir ]] || libodir=$dst/lib
+
+#XXX in lieu of a configure script
+for tryflags in -Wbounded -fhonour-copts; do
+	$cc $tryflags -E - <<<'' >/dev/null 2>&1 && cflags+=" $tryflags"
+done
+
+set -A defenv
+for x in GNUTARGET LDEMULATION; do
+	eval y=\$$x
+	[[ -n $y ]] || continue
+	defenv[${#defenv[*]}]=$x=$y
+done
+
+cd "$(dirname "$0")"
+while IFS= read -r line; do
+	line=${line//@@LIBDIR@@/"${libodir@Q}"}
+	print -r -- "${line//@@DST@@/"${dst@Q}"}"
+done <gcc-spec >"$DESTDIR$specdir"/cc-spec
+while IFS= read -r line; do
+	if [[ $line = @@DEFENV@@ ]]; then
+		if (( ${#defenv[*]} )); then
+			line=export
+			for x in "${defenv[@]}"; do
+				line+=" ${x@Q}"
+			done
+			print -r -- "$line"
+		fi
+		continue
+	fi
+	line=${line//@@CC@@/"${cc@Q}"}
+	line=${line//@@MD@@/"${arch@Q}"}
+	line=${line//@@OS@@/"${os@Q}"}
+	line=${line//@@DEFCFLAGS@@/"${cflags@Q}"}
+	line=${line//@@SPECDIR@@/"${specdir@Q}"}
+	print -r -- "${line//@@DST@@/"${dst@Q}"}"
+done <gcc-wrap >"$DESTDIR$wrapdir"/cc
+chmod +x "$DESTDIR$wrapdir"/cc

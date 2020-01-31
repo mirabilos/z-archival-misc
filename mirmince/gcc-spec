@@ -1,0 +1,33 @@
+*lib:
+-lmince -lminze
+
+*libgcc:
+
+
+*link_gcc_c_sequence:
+--start-group %L --end-group
+
+*startfile:
+@@LIBDIR@@/mincebeg.o
+
+*endfile:
+
+
+*link:
+%{assert*} %{R*} %{rpath*} -dc -dp %{!nostdlib:%{!r*:%{!e*:-e _mince_csu_init}}} -Bstatic
+
+*multilib:
+. ;
+
+*multilib_matches:
+
+
+*multilib_options:
+
+
+*link_libgcc:
+-L@@LIBDIR@@
+
+*linker:
+/usr/bin/ld
+

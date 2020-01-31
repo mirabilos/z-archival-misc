@@ -1,0 +1,69 @@
+EXTRA_CFLAGS?=
+EXTRA_VARIANT?=
+USED_CFLAGS:=${TG_CFLAGS} ${EXTRA_CFLAGS}
+USED_VARIANT?=${TG_VARIANT}${EXTRA_VARIANT}
+OBJS=${SRCS:.c=.o}
+
+all:
+
+SHELL=		/bin/mksh
+OBJADIR!=	realpath .
+CC:=		${OBJADIR}/cc
+.if defined(V) && $V > 0
+CC+=		-v
+.endif
+
+obj:
+	mkdir -p ${.CURDIR:Q}/obj
+
+CPPFLAGS:=	-D_ALL_SOURCE
+CFLAGS:=
+.ifdef DEBUG
+CFLAGS+=	-g3
+.endif
+
+.SUFFIXES: .a .o .S .i .c .h
+.LIBS: .a
+
+COMPILE.S:=	${CC} ${CPPFLAGS} ${AFLAGS} -c
+COMPILE.c:=	${CC} ${CPPFLAGS} ${CFLAGS} -c
+
+.c.o:
+	${COMPILE.c} ${CFLAGS_${.TARGET:T:R}:M*} ${.IMPSRC}
+.c.i:
+	${COMPILE.c} ${CFLAGS_${.TARGET:T:R}:M*} ${.IMPSRC} -E -o $@
+
+cc:
+	${SHELL} ${.CURDIR:Q}/gcc-mk ${TG_CC:Q} ${DST:Q} \
+	    ${TG_ARCH:Q} ${TG_OS:Q} ${USED_CFLAGS:M*:Q} \
+	    ${OBJADIR:Q} ${OBJADIR:Q} ${OBJADIR:Q}
+
+all: cc .WAIT libmince.a
+
+libmince.a: ${OBJS}
+	ar rc $@~ ${OBJS}
+	ranlib $@~
+	mv -f $@~ $@
+
+install: all
+	mkdir -p "$$DESTDIR"${DST:Q}/lib{,data,exec}/${USED_VARIANT}
+	${SHELL} ${.CURDIR:Q}/gcc-mk ${TG_CC:Q} ${DST:Q} \
+	    ${TG_ARCH:Q} ${TG_OS:Q} ${USED_CFLAGS:M*:Q} \
+	    ${DST:Q}/libdata/${USED_VARIANT} \
+	    ${DST:Q}/libexec/${USED_VARIANT} \
+	    ${DST:Q}/lib/${USED_VARIANT}
+	-for y in libminze.a mince{beg,end}.o; do \
+		for x in {,"$$DESTDIR"}${DST:Q}/lib/${TG_VARIANT}/; do \
+			[[ -e $$x/$$y ]] || continue; \
+			cp "$$x/$$y" "$$DESTDIR"${DST:Q}/lib/${USED_VARIANT}/; \
+			break; \
+		done; \
+	done
+	cp libmince.a "$$DESTDIR"${DST:Q}/lib/${USED_VARIANT}/
+	@echo
+	@print -r -- "You can now use ${DST:Q}/libexec/${USED_VARIANT}/cc" \
+	    to compile.
+	@echo
+
+print-compiler-path:
+	@print -r -- ${DST:Q}/libexec/${USED_VARIANT}/cc

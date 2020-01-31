@@ -1,0 +1,130 @@
+# Copyright © 2013
+#	Thorsten Glaser <tg@mirbsd.org>
+#
+# Provided that these terms and disclaimer and all copyright notices
+# are retained or reproduced in an accompanying document, permission
+# is granted to deal in this work without restriction, including un‐
+# limited rights to use, publicly perform, distribute, sell, modify,
+# merge, give away, or sublicence.
+#
+# This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+# the utmost extent permitted by applicable law, neither express nor
+# implied; without malicious intent or gross negligence. In no event
+# may a licensor, author or contributor be held liable for indirect,
+# direct, other damage, loss, or other issues arising in any way out
+# of dealing in the work, even if advised of the possibility of such
+# damage or existence of a defect, except proven that it results out
+# of said person’s immediate fault when using the work as intended.
+
+whattodo=$1
+syscalls=$2
+
+if [[ -z $syscalls || ! -s $syscalls ]]; then
+	print -u2 "E: syscalls file '$syscalls' illegible"
+	exit 2
+fi
+
+exec >$whattodo
+
+case $whattodo {
+(Makefile.gen)
+	function doit {
+		mv=SYSCALLS_$arch
+		[[ $arch = '*' ]] && mv=SYSCALLS
+		if (( num < 256 )); then
+			size=B
+		else
+			size=D
+		fi
+		print -r "${mv}+=	$name $kname $args$size"
+	}
+	function dopost {
+		:
+	}
+	;;
+(*/syscall.h)
+	print "#ifndef MIRMINCE_SYSCALL_H"
+	print "#define MIRMINCE_SYSCALL_H"
+	print
+	function doit {
+		[[ $arch = '*' ]] || print "#ifdef __mirmincE_arch_$arch"
+		print "#define SYS_$kname $num"
+		[[ $arch = '*' ]] || print "#endif"
+	}
+	function dopost {
+		print
+		print "#endif"
+	}
+	;;
+(*/syscallc.h)
+	print "#ifndef MIRMINCE_SYSCALLC_H"
+	print "#define MIRMINCE_SYSCALLC_H"
+	print
+	function doit {
+		[[ $arch = '*' ]] || print "#ifdef __mirmincE_arch_$arch"
+		print "#define mirmincE_cc_$kname mirmince_cc_$cconv"
+		[[ $name = "$kname" ]] || print \
+		    "#define mirmincE_cc_$name mirmince_cc_$kcconv /* $kname */"
+		[[ $arch = '*' ]] || print "#endif"
+	}
+	function dopost {
+		print
+		print "#endif"
+	}
+	;;
+(*)
+	print -u2 "E: Syntax error"
+	exit 2
+	;;
+}
+
+set -A numseen
+while read arch num args name kname cconv kcconv rest; do
+	[[ -z $arch || $arch = '#' ]] && continue
+	if [[ $num != +([0-9]) ]]; then
+		print -ru2 "E: syscall '$name' syscall number '$num' invalid"
+		exit 1
+	fi
+	if [[ $args != [0-6V] ]]; then
+		print -ru2 "E: syscall $num number of arguments '$args' invalid"
+		exit 1
+	fi
+	if [[ $arch != '*' && $arch != [a-z_]*([a-z_0-9]) ]]; then
+		print -ru2 "E: syscall $num architecture '$arch' invalid"
+		exit 1
+	fi
+	if [[ $name != [a-z_]*([a-z_0-9]) ]]; then
+		print -ru2 "E: syscall $num name '$name' invalid"
+		exit 1
+	fi
+	if [[ $kname = ?(-) ]]; then
+		kname=$name
+	elif [[ $kname != [a-z_]*([a-z_0-9]) ]]; then
+		print -ru2 "E: syscall $num kernel name '$kname' invalid"
+		exit 1
+	fi
+	if [[ -n ${numseen[num]} ]]; then
+		print -ru2 "E: syscall $num (${numseen[num]}) duplicate $kname"
+		exit 1
+	fi
+	numseen[num]=$kname
+	if [[ $cconv = ?(-) ]]; then
+		if [[ $name = "$kname" ]]; then
+			# direct syscall function
+			cconv=syscall
+		else
+			# syscall wrapper
+			cconv=userspc
+		fi
+	elif [[ $cconv != [a-z]*([a-z_0-9()]) ]]; then
+		print -ru2 "E: syscall $num calling convention '$cconv' invalid"
+	fi
+	if [[ $kcconv = ?(-) ]]; then
+		kcconv=syscall
+	elif [[ $kcconv != [a-z]*([a-z_0-9()]) ]]; then
+		print -ru2 "E: syscall $num calling convention '$kcconv' invalid"
+	fi
+	doit
+done <"$syscalls"
+
+dopost

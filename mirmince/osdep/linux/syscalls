@@ -1,0 +1,9 @@
+#
+# currently checked arches: i386
+#
+# arch	num	args	name		kname		cconv	kcconv
+*	1	1	_exit__		exit
+*	3	3	read
+*	4	3	write
+i386	5	3	_open__		open		cdecl
+*	6	1	close

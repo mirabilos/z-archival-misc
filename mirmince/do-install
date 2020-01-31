@@ -1,0 +1,53 @@
+#!/bin/mksh
+#-
+# Copyright © 2013
+#	Thorsten Glaser <tg@mirbsd.org>
+#
+# Provided that these terms and disclaimer and all copyright notices
+# are retained or reproduced in an accompanying document, permission
+# is granted to deal in this work without restriction, including un‐
+# limited rights to use, publicly perform, distribute, sell, modify,
+# merge, give away, or sublicence.
+#
+# This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+# the utmost extent permitted by applicable law, neither express nor
+# implied; without malicious intent or gross negligence. In no event
+# may a licensor, author or contributor be held liable for indirect,
+# direct, other damage, loss, or other issues arising in any way out
+# of dealing in the work, even if advised of the possibility of such
+# damage or existence of a defect, except proven that it results out
+# of said person’s immediate fault when using the work as intended.
+#-
+# For now. This will change later (more flexible, etc).
+
+cc=$1
+dst=$2
+arch=$3
+os=$4
+cflags=$5
+variant=$6
+
+vsub=${variant:+'/'$variant}
+vpfx=${variant:+$variant'-'}
+
+function linkfile {
+	ln -f "$1" "$2" || cp -f "$1" "$2"
+}
+
+cd "$(dirname "$0")"
+rm -rf "$DESTDIR$dst"/{bin,include,lib{,data,exec}}
+mkdir -p "$DESTDIR$dst"/{bin,include,lib{,data,exec}$vsub}
+cp LICENCE "$DESTDIR$dst"/libdata/
+mksh gcc-mk "$cc" "$dst" "$arch" "$os" "$cflags" \
+    "$dst"/libdata$vsub "$dst"/libexec$vsub "$dst"/lib$vsub
+linkfile "$DESTDIR$dst"/libexec$vsub/cc "$DESTDIR$dst"/bin/${vpfx}cc
+linkfile "$DESTDIR$dst"/libexec$vsub/cc "$DESTDIR$dst"/bin/cc
+find include -name \*.h | pax -rw "$DESTDIR$dst"/
+find md osdep -name \*.h | pax -rw "$DESTDIR$dst"/include/mirmince/
+(cd obj; find osdep -name \*.h | \
+    pax -rw "$DESTDIR$dst"/include/mirmince/)
+for f in obj/mince{beg,end}.o obj/*.a; do
+	[[ -s $f ]] || continue
+	cp "$f" "$DESTDIR$dst"/lib$vsub/
+done
+print -r "You can now use ${dst@Q}/bin/${vpfx}cc to compile."

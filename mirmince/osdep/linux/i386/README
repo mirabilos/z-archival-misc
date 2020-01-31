@@ -1,0 +1,11 @@
+┌────────────────────────┐
+│ Linux/i386 syscall ABI │
+└────────────────────────┘
+
+Arguments are passed in registers. It is not known whether
+the registers are preserved. The register order is:
+	EBX ECX EDX ESI EDI EBP
+The syscall number itself is passed in EAX.
+
+Return values are always “int” in EAX; values >= -4095 are
+neg’d errno values, anything else is the return value.

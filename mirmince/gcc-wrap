@@ -1,0 +1,64 @@
+#!/bin/mksh
+#-
+# Copyright © 2013
+#	Thorsten Glaser <tg@mirbsd.org>
+#
+# Provided that these terms and disclaimer and all copyright notices
+# are retained or reproduced in an accompanying document, permission
+# is granted to deal in this work without restriction, including un‐
+# limited rights to use, publicly perform, distribute, sell, modify,
+# merge, give away, or sublicence.
+#
+# This work is provided “AS IS” and WITHOUT WARRANTY of any kind, to
+# the utmost extent permitted by applicable law, neither express nor
+# implied; without malicious intent or gross negligence. In no event
+# may a licensor, author or contributor be held liable for indirect,
+# direct, other damage, loss, or other issues arising in any way out
+# of dealing in the work, even if advised of the possibility of such
+# damage or existence of a defect, except proven that it results out
+# of said person’s immediate fault when using the work as intended.
+#-
+# GCC wrapper for mirₘᵢₙcⒺ (experimental)
+
+cc=@@CC@@
+defcflags=@@DEFCFLAGS@@
+dst=@@DST@@
+@@DEFENV@@
+
+# try whole $cc first, then first word
+set -A cc_words -- $cc
+w=0
+for x in "$cc" "${cc_words[0]}" false; do
+	[[ $x = /* ]] || x=$(whence -p "$x") || x=/
+	[[ $x != / && -f $x && -s $x && -x $x ]] && break
+	w=1
+	[[ $x = false ]] || continue
+	print -u2 Error: could not find C compiler
+	exit 255
+done
+if (( w )); then
+	cc_words[0]=$x
+else
+	set -A cc_words -- "$x"
+fi
+
+if [[ $1 = -v ]]; then
+	v=1
+	shift
+else
+	v=0
+fi
+
+set -A cmd -- "${cc_words[@]}" -nostdinc -isystem "$dst"/include \
+    -U@@MD@@ -D__mirmincE_arch_@@MD@@ -D__mirmincE_arch__=@@MD@@ \
+    -U@@OS@@ -D__mirmincE_os_@@OS@@ -D__mirmincE_os__=@@OS@@ \
+    $defcflags -specs=@@SPECDIR@@/cc-spec -D__mirmincE__ "$@"
+
+if (( v )); then
+	print -nu2 +
+	for x in "${cmd[@]}"; do
+		print -nru2 -- " ${x@Q}"
+	done
+	print -u2
+fi
+exec "${cmd[@]}"

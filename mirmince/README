@@ -1,0 +1,43 @@
+See file LICENCE for copyright and licencing information.
+
+To build:
+
+① adjust DST, CC, TG_ARCH, TG_OS in BSDmakefile
+② make obj		# creates ./obj/ (mandatory)
+③ make depend		# creates some generated files
+④ make			# builds mirₘᵢₙcⒺ CSU and CRT
+⑤ sudo make install	# installs everything to $DST
+
+You’ll need MirMake: a BSD make that automatically descends
+into ./obj/ and reads .depend if possible and supports several
+variable expansion manipulation operators like :M :Q :S etc.
+
+On Debian/amd64 install pmake and export CC='cc -m32' and
+LDEMULATION=elf_i386 to pmake depend and pmake install calls.
+You can set TG_VARIANT to DEB_HOST_MULTIARCH and even append
+things to further distinguish, like '-regparm-rtd' for ABI
+differences, or LTO GIMPLE versions, or '-bc' for an LLVM
+IR bytecode version. (The scripts-as-they-are-right-now are
+GCC specific, but that’s only by happenstance, not by design.)
+Some appropriate value may have been set by default.
+
+Equivalent FreeBSD magic: export TG_OS=midnightbsd TG_ARCH=amd64
+export TG_ARCH=i386 CC='gcc -m32' LDEMULATION=elf_i386_fbsd
+
+To use:
+
+$DST/bin/cc [-D_ALL_SOURCE] foo.c
+
+The install-source target additionally installs enough source
+code to recompile the part of the library implemented in C to
+add different CFLAGS e.g. to use a new GCC version’s “GIMPLE”
+form for LTO on the combination of libc and program. Example:
+	cd …/libdata/…/source
+	make install EXTRA_CFLAGS=-flto=jobserver \
+	    TG_CC=gcc-4.7 EXTRA_VARIANT=-gcc47_lto
+This will create a compiler wrapper: …/libexec/…-gcc47_lto/cc
+
+This is highly experimental and incomplete. New stuff is not
+added just so but only if needed and the code (users) cannot
+be rewritten to not need it. Even then, strcpy and things
+like that will never be added.

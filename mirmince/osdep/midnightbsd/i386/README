@@ -1,0 +1,15 @@
+┌──────────────────────────────┐
+│ MidnightBSD/i386 syscall ABI │
+└──────────────────────────────┘
+
+XXX copied from MirBSD/i386; needs recheck
+
+Arguments are pushed on the stack (cdecl),
+then another argument (call), then EAX is
+loaded with the syscall number and int 80h
+is run.
+
+Normal:	CF clear (NC), EDX:EAX = return value
+Error:	CF set (CY), EAX = errno
+
+All registers other than EAX, EDX, EFLAGS are preserved.

@@ -1,0 +1,6 @@
+# arch	num	args	name		kname		cconv	kcconv
+*	1	1	_exit__		exit
+*	3	3	read
+*	4	3	write
+*	5	V	open
+*	6	1	close

@@ -1,0 +1,35 @@
+┌───────────────────────────────┐
+│ MidnightBSD/amd64 syscall ABI │
+└───────────────────────────────┘
+
+User functions on amd64 have arguments first fill up the
+registers rdi, rsi, rdx, rcx, r8, r9 then then push them
+on the stack; return value is rax. (FPU notwithstanding.)
+
+Kernel calls use the SYSCALL instruction and trash rcx
+and r11, so they use r10 instead of rcx. The syscall number
+is passed in rax. Return values are:
+
+Normal:	CF clear (NC), rdx:rax = return value
+Error:	CF set (CY), eax = errno
+
+Register usage table:
+• rax	ret_lo	syscall#no.	return value (lo)
+• rcx	arg#4	<trashed by SYSCALL instruction (rip)>
+• rdx	#3/hi	sarg#3		return value (hi)
+• rbx	presvd	-		= preserved
+• rsp	presvd	<stack pointer>
+• rbp	presvd	-		= preserved
+• rsi	arg#2	sarg#2		= sarg#2
+• rdi	arg#1	sarg#1		= sarg#1
+• r8	arg#5	sarg#5		trashed
+• r9	arg#6	sarg#6		trashed
+• r10	tmp	sarg#4		trashed
+• r11	tmp	<trashed by SYSCALL instruction (rflags)>
+• r12	presvd	-		= preserved
+• r13	presvd	-		= preserved
+• r14	presvd	-		= preserved
+• r15	presvd	-		= preserved
+
+The flags are not preserved. The kernel does not seem
+to require stack alignment even if other libcs say so.
