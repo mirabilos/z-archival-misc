@@ -1,0 +1,82 @@
+Default plugins:
+
+• jacoco-maven-plugin
+• license-maven-plugin (inherited=false)
+• maven-compiler-plugin
+• maven-enforcer-plugin
+• maven-javadoc-plugin
+• maven-source-plugin
+• maven-surefire-plugin
+
+Children still need to define:
+
+• groupId, artifactId, version, packaging, (name), description
+  ‣ name: either just ${project.artifactId} or unset, except when
+    targetting Central, then: ${project.groupId}:${project.artifactId}
+• url
+• licenses: at least one license (name, url)
+• developers: at least one developer (name, email, organization{,Url}, …)
+• organization (if not tarent): name, url
+• (optionally)
+  ‣ (inceptionYear)
+  ‣ (mailingLists: mailingList: name)
+  ‣ …
+  ‣ properties (e.g. override some defaults)
+    – archiver.copyright (Copyright © ${archiver.copyright.firstyear}–${archiver.copyright.lastyear}; Licensor: cf. version_vendor)
+    – javaRelease (8)
+    – maven.minimum.version (3.2)
+    – doclint.optappend (-Xdoclint:all)
+    – sonar.sources, sonar.tests (both unset)
+• scm: connection, developerConnection, url, tag (HEAD)
+• distributionManagement: repository(, snapshotRepository): id, (name), url
+  only if neither dstrepo-{central,tarent} profile are used
+• (optionally)
+  ‣ (modules)
+  ‣ (profiles)
+    ⇒ predefined:
+      – jdk8orolder (auto-activated)
+	→ mockito.version := 2.10.0
+      – jdk9ornewer (auto-activated)
+      – gpg
+• build: settings/resources, pluginManagement and plugins not listed above
+• (dependencyManagement)
+• (dependencies)
+
+Model: https://maven.apache.org/ref/current/maven-model/maven.html
+Full POM reference: https://maven.apache.org/pom.html
+
+Warning: resource filtering eats ${foo}, @foo@, plus ⚠ new: \$ and \@
+Do diff all resources between their source and filtered form, not just
+main/ but test/ as well, after adopting this parent POM!
+
+Using the Mycila licence plugin, you first run
+	mvn com.mycila:license-maven-plugin:3.0:remove
+and check files for remnants, update the header if necessary, run
+	mvn com.mycila:license-maven-plugin:3.0:format
+then finally check for files with ≥2 empty lines (either with
+	# not funny-character-in-filename-safe
+	git ls-files | while IFS= read -r name; do
+		test -h "$name" || awk -v n=0 '
+		    $0 == "" { if (++n == 2) { print FILENAME; exit; }; next; }
+		    { n=0 }' "$name"
+	done
+replacing “git ls-files” with find if needed) or “git check-emptylines” from
+http://www.mirbsd.org/cvs.cgi/contrib/hosted/tg/.gitconfig?rev=HEAD;content-type=text%2Fplain
+(needs https://github.com/mirabilos/git-find and pcregrep), then
+pipe those files through “cat -s” or “perl -00pe0” to drop those
+double empty lines as files without a header may get them added.
+
+Some description on ancillary tools:
+• mvnrepo.sh lists dependencies and plugins from the POM in the
+  current working directory as links to mvnrepository.com for
+  manual up-to-dateness checking in a browser
+• sortdeps.sh sorts <dependencies> and <exclusions> that are
+  piped through it (strip the surrounding tags and pass only
+  the individual dependency/exclusion tags); postprocess the
+  entire POM afterwards with: xmlstarlet fo -e UTF-8 -t -
+• sortplug.sh does the same for <plugins> sorting any listed
+  dependencies with the above script internally
+
+You’ll need coreutils, xmlstarlet and a recent enough mksh for
+most tools although they should be pretty portable even though
+tested on Debian only.
