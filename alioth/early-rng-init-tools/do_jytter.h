@@ -11,10 +11,9 @@ typedef struct {
 extern uint32_t do_jytter(jytter_scratchspace *ecx)
     __attribute__((__fastcall__));
 #elif defined(__x86_64__)
-/* apparently works on x32 */
 extern uint32_t do_jytter(jytter_scratchspace *rdi);
 #else
-# error jytter is only available for x86 (i386 and amd64/x32)
+# error jytter is only available for x86 (i386, amd64 and x32)
 #endif
 
 #endif

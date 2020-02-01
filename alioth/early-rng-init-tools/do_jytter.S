@@ -1,22 +1,38 @@
 /*-
- * Copyright © 2019
+ * Copyright © 2019, 2020
  *	mirabilos <m@mirbsd.org>
- * Copyright © 2012, 2017-09-20 Russell Leidich
+ * Copyright © 2011-06-25, 2017-09-20, 2019-12-15 Russell Leidich
  *
- * Derived from the Jytter Library, which is published under the LGPL
- * (GNU Lesser General Public License) version 3. See the licence for
- * further information; at /usr/share/common-licenses/LGPL-3 on Debi‐
- * an systems, otherwise from http://www.gnu.org/licenses/ online.
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/* unique event durations that we must observe before issuing output */
-#define UNIQUE_EVENT_DURATION_COUNT 19
+/* # unique event durations that must be observed before issuing output */
+#ifndef UNIQUE_EVENT_DURATION_COUNT
+#define UNIQUE_EVENT_DURATION_COUNT 16
+#endif
 
 /*
  * uint32_t do_jytter(jytter_scratchspace *arg);
- * arg is in RDI on amd64, ECX on i386 (using fastcall convention)
- * by convention, it’s an opaque struct of five quadwords,
- * but we use it as fit
+ * arg is an opaque struct of five quadwords, 64-bit aligned,
+ * whose address gets passed in ECX on i386 (using fastcall),
+ * in RDI on amd64 and x32; result is in EAX.
  */
 
 	.intel_syntax noprefix
@@ -28,8 +44,11 @@
 do_jytter:
 _do_jytter:
 	/* save registers */
+	/* note: ebp (previous timestamp) is initially undefined */
+	/* if this bothers you, raise UNIQUE_EVENT_DURATION_COUNT */
 #ifdef __i386__
 	mov	[ecx],edi
+	mov	edi,ecx
 	mov	4[ecx],edx
 	mov	8[ecx],ebx
 	mov	12[ecx],ebp
@@ -53,7 +72,7 @@ _do_jytter:
 Lread_tsc:
 	/* read TSC into EDX:EAX */
 	rdtsc
-	/* add lower half (rich(er) in entropy) to accumulating rv in EDI */
+	/* add lower half (richer in entropy) to accumulating rv in EDI */
 	add	edi,eax
 	/* set EBP to current timestamp, EAX to delta */
 	neg	ebp
@@ -64,18 +83,18 @@ Lread_tsc:
 	xor	eax,edx
 	/* set bit in bitmap according to that */
 	bts	esi,eax
-	/* in the meantime, spread output (EDI) bits */
+	/* in the meantime, spread bits and add 0-guard in output (EDI) */
 #ifdef __i386__
 	lea	edi,[edi+8*edi+0x7F]
 #else
 	lea	edi,[rdi+8*rdi+0x7F]
 #endif
-	/* if bts had a bit to set (initial value was 0), decrement BL */
+	/* decrement BL except if bts did nothing (duration already seen) */
 	adc	bl,-1
-	/* now loop until BL is 0 (UNIQUE_EVENT_DURATION_COUNT found) */
+	/* now loop… until BL is 0 (UNIQUE_EVENT_DURATION_COUNT reached) */
 	jnz	Lread_tsc
 
-	/* store output in return register */
+	/* store our output in return register */
 	xchg	eax,edi
 	/* restore registers */
 #ifdef __i386__
